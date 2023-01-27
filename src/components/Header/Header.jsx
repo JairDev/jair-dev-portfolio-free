@@ -32,8 +32,32 @@ function Header() {
   };
 
   const [yVisibility, setYVisibility] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
   const location = useLocation();
+
+  const output = [
+    "M306 0H377.998V800H306C306 800 0 676 0 402C0 128 306 0 306 0Z",
+    "M0 0H800V800H0C0 800 0 676 0 402C0 128 0 0 0 0",
+  ];
+
+  const clip_path_variants = {
+    open: {
+      d: output[0],
+    },
+    closed: {
+      d: output[1],
+    },
+  };
+
+  const moveVariants = {
+    open: {
+      translateX: "0%",
+    },
+    closed: {
+      translateX: "100%",
+    },
+  };
 
   useEffect(() => {
     refObject.logoRef.current.style.opacity = "0";
@@ -56,16 +80,24 @@ function Header() {
     });
   }, [location.pathname, refObject, scrollY]);
 
-  const handleClick = () => {
-    if (refObject.menuStyle.current.className.includes("show")) {
-      refObject.menuStyle.current.classList.remove(styles.show);
-      refObject.iconOpenRef.current.firstChild.classList.remove(styles.noOpen);
-      refObject.iconCloseRef.current.firstChild.classList.remove(styles.open);
-    } else {
-      refObject.menuStyle.current.classList.add(styles.show);
+  useEffect(() => {
+    console.log(isOpen);
+    if (isOpen) {
       refObject.iconOpenRef.current.firstChild.classList.add(styles.noOpen);
       refObject.iconCloseRef.current.firstChild.classList.add(styles.open);
+    } else {
+      refObject.iconOpenRef.current.firstChild.classList.remove(styles.noOpen);
+      refObject.iconCloseRef.current.firstChild.classList.remove(styles.open);
     }
+  }, [
+    isOpen,
+    refObject.iconCloseRef,
+    refObject.iconOpenRef,
+    refObject.menuStyle,
+  ]);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
   };
 
   const handleClickLinks = () => {
@@ -137,10 +169,17 @@ function Header() {
             </div>
           </motion.div>
         </div>
-        <div
+        <motion.div
           id="content-nav-links"
           ref={refObject.menuStyle}
           className={styles.appContentNavLinks}
+          initial={{ translateX: "100%" }}
+          variants={moveVariants}
+          animate={isOpen ? "open" : "closed"}
+          transition={{
+            ease: "easeInOut",
+            duration: 0.1,
+          }}
         >
           <ul
             ref={refObject.refContentLinks}
@@ -179,8 +218,38 @@ function Header() {
               </a>
             </li>
           </ul>
-          <span className={styles.backMenuStyle}></span>
-        </div>
+          <motion.div
+            className={styles.contentSvg}
+            variants={moveVariants}
+            animate={isOpen ? "open" : "closed"}
+            transition={{
+              ease: "easeInOut",
+              duration: 0.3,
+            }}
+          >
+            <svg
+              className={styles.shape}
+              width="100%"
+              height="100%"
+              viewBox="0 0 378 800"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+            >
+              <motion.path
+                d="M306 0H377.998V800H306C306 800 0 676 0 402C0 128 306 0 306 0Z"
+                fill="#7c4dff"
+                variants={clip_path_variants}
+                animate={isOpen ? "closed" : "open"}
+                transition={{
+                  delay: 0.2,
+                  ease: "easeInOut",
+                  duration: 0.4,
+                }}
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
       </nav>
     </header>
   );
