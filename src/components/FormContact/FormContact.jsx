@@ -14,13 +14,13 @@ import styles from "./FormatContact.module.css";
 import Button from "components/Button/Button";
 
 const socialIcons = [
-  { name: githubFill, label: "Github", url: "https://github.com/JairDev" },
+  // { name: githubFill, label: "Github", url: "https://github.com/JairDev" },
   {
     name: linkedinFill,
     label: "Linkedin",
     url: "https://www.linkedin.com/in/alfredo-moscoso-desarrollador-frontend/",
   },
-  { name: twitterFill, label: "Twitter", url: "https://twitter.com/JairDevep" },
+  // { name: twitterFill, label: "Twitter", url: "https://twitter.com/JairDevep" },
   { name: telegramFill, label: "Telegram", url: "https://t.me/jairdev" },
 ];
 

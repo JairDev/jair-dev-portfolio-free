@@ -1,28 +1,34 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+import LocomotiveScroll from "locomotive-scroll";
+
 import { gsapAnimations } from "utils/gsapAnimations/gsapAnimations";
 
 import CircleType from "circletype";
 
-import { Icon } from "@iconify/react";
-import Projects from "components/Projects/Projects";
+import Lenis from "@studio-freight/lenis";
+
+// import { Icon } from "@iconify/react";
+// import Projects from ".../../../src/components/Projects/Projects";
 import Button from "components/Button/Button";
-import IconSocial from "components/IconSocial/IconSocial";
+// import IconSocial from "components/IconSocial/IconSocial";
 
 import phone3 from "../../assets/hero-phone5.webp";
-import phoneChallenge from "../../assets/aerolab-screen.webp";
-import ArrowIcon from "../../assets/arrow.svg";
+// import phoneChallenge from "../../assets/aerolab-screen.webp";
+// import ArrowIcon from "../../assets/arrow.svg";
 import blob from "../../assets/blob.svg";
 
-import { personalProjects, svgIcons } from "../../data/info-portfolio";
+import { personalProjects } from "../../data/info-portfolio";
 
 import styles from "./Home.module.css";
 
 import { Helmet } from "react-helmet";
+import Projects from "components/Projects/Projects";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -34,11 +40,16 @@ function Home() {
     rotateText: useRef(),
   };
 
+  const refDivAnimate = useRef([]);
+  const refAni = useRef(null);
+
   const refCircleText = useRef();
 
-  const projects = personalProjects.slice(0, 2);
+  const projects = personalProjects.slice(0, 4);
 
   useEffect(() => {
+    // console.log("array", refDivAnimate);
+
     window.scrollTo(0, 0);
     if (window.innerWidth > 860) {
       gsap.timeline({
@@ -48,7 +59,7 @@ function Home() {
           start: "center 30%",
           end: "top -=250",
           scrub: true,
-          // markers: true
+          // markers: true,
         },
       });
     }
@@ -66,6 +77,36 @@ function Home() {
     circleType.radius(40);
   }, [objRef]);
 
+  useEffect(() => {
+    // console.log(refAni);
+    let ctx = gsap.context(() => {});
+    const svgNode = gsap.utils.toArray("[data-ani]");
+
+    svgNode.forEach((svg) => {
+      // const svgEl = svg.closest("svg");
+      console.log("svg", svg);
+      const pathTo = svg.dataset.pathTo;
+      // console.log(pathTo);
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: svg,
+            start: "20% 70% ",
+            end: "100% -30%",
+            scrub: true,
+            // markers: true,
+          },
+        })
+        .to(svg, {
+          ease: "sine.out",
+          attr: { d: pathTo },
+          // x: 50,
+          duration: 2,
+        });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -82,13 +123,25 @@ function Home() {
           <div className={styles.wrapperContentHero}>
             <div className={styles.appLeftContentHero}>
               <div className={styles.appLeftContentHeroRole}>
-                <h1 className={styles.role}>Alfredo Moscoso</h1>
-                <h2 className={styles.subTitleRole}>Frontend Developer</h2>
+                <h1 className={styles.role}>
+                  Llevando tu negocio al siguiente nivel.
+                </h1>
+                <h2 className={styles.subTitleRole}>
+                  Construyo páginas web, eficientes, interactivas, que brindan
+                  una buena experiencia de usuario.
+                </h2>
                 <div
                   ref={objRef.triggerButton}
                   id="trigger-button"
                   className={styles.contentButtonContact}
                 >
+                  {/* <a
+                    className={`${styles.link} ${styles.heroViewWork}`}
+                    href="#contact"
+                    data-link="link"
+                  >
+                    Ver mi trabajo
+                  </a> */}
                   <Button classButton="hero">
                     <a
                       className={`${styles.link} ${styles.hero}`}
@@ -112,7 +165,7 @@ function Home() {
                   </p>
                 </div>
                 <span className={styles.scrollBack}>
-                  <img src={ArrowIcon} alt="arrow icon" />
+                  {/* <img src={ArrowIcon} alt="arrow icon" /> */}
                 </span>
               </div>
             </div>
@@ -134,11 +187,11 @@ function Home() {
                 <span className={`${styles.wordsHero} ${styles.bottomRight}`}>
                   Interaction
                 </span>
-                <img
+                {/* <img
                   className={styles.heroImg}
                   src={phone3}
                   alt="teléfono con imagen"
-                />
+                /> */}
               </div>
               <span
                 ref={objRef.word}
@@ -182,30 +235,24 @@ function Home() {
                 data-text="text"
                 className={`${styles.text} ${styles.pDescription}`}
               >
-                Hola, me llamo Alfredo Moscoso, soy desarrollador web, tengo
-                experiencia en proyectos personales manejando tecnologías como,
-                ReactJs, Javascript, Redux, Sass, Css3, Html5, Git, Styled
-                Components.
+                Me llamo Alfredo Moscoso, soy desarrollador web con base en
+                Caracas Venezuela, creo sitios web para que te diferencies de la
+                competencia.
               </p>
               <p
                 data-text="text"
                 className={`${styles.text} ${styles.pDescription}`}
               >
-                Del desarrollo web me entusiasma la interacción que pueda
-                lograrse entre el producto que se desarrolle y el usuario final,
-                ya sea mediante una página web, alguna aplicación web, que
-                satisfaga alguna necesidad, me motiva estar en constante
-                aprendizaje y poder lograr buenos fundamentos en programación
-                para ser un mejor profesional, enfocado en aplicar las mejores
-                prácticas en el desarrollo web.
+                Ayudo a tu marca, negocio, a tener presencia online
+                desarrollando sitios web personalizados.
               </p>
 
-              <p
+              {/* <p
                 data-text="text"
                 className={`${styles.text} ${styles.pDescription}`}
               >
                 Saludos, espero verte pronto !
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -220,22 +267,27 @@ function Home() {
             <h2 data-text="text" className={styles.spanWorkName}>
               Proyectos
             </h2>
-            <h4 data-text="text" className={styles.h2WorkName}>
-              Personales
-            </h4>
           </div>
-          {projects.map((item) => (
-            <Projects
-              key={item.name}
-              id={item.id}
-              name={item.name}
-              imgSrcApp={item.imgSrcApp}
-              linkGit={item.linkGit}
-              linkDemo={item.linkDemo}
-              dataDescription={item.dataDescription}
-            />
-          ))}
-          <div className={styles.contentMoreLink}>
+          <div className={styles.contentProject}>
+            {projects.slice(0, 2).map((item, i) => (
+              // <div
+              // ref={(node) => (refDivAnimate.current[i] = node)}
+              // >
+              <Projects
+                key={item.name}
+                id={item.id}
+                name={item.name}
+                imgSrcApp={item.imgSrcApp}
+                linkGit={item.linkGit}
+                linkDemo={item.linkDemo}
+                dataDescription={item.dataDescription}
+                subTitle={item.subTitle}
+                idx={i}
+              />
+              // </div>
+            ))}
+          </div>
+          {/* <div className={styles.contentMoreLink}>
             <div className={styles.contentLinesCustomLink}>
               <span className={styles.lineCustomLink}></span>
               <span className={styles.circleCustomLink}></span>
@@ -243,103 +295,34 @@ function Home() {
                 Más proyectos
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
       <section
-        className={`${styles.wrapperPadding} ${styles.appContentSkills}`}
+        id="personal-work"
+        className={`${styles.wrapperPadding} ${styles.projectsSection}`}
       >
         <div className={styles.wrapperMaxWidth}>
-          <div className={styles.wrapperSkills}>
-            <h3 data-text="text" className={styles.h3Skills}>
-              Habilidades Actuales
-            </h3>
-            <div className={styles.contentSkills}>
-              <ul className={styles.contentItemSkills}>
-                <div className={styles.flexSkills}>
-                  {svgIcons.map((icon) => (
-                    <div className={styles.contentSkillsLabel} key={icon.name}>
-                      <li data-text="text" className={styles.itemSkills}>
-                        {<Icon icon={icon.svg} style={{ fontSize: "64px" }} />}
-                      </li>
-                      <span className={styles.labelSkills}>{icon.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+          <div className={styles.appContentPersonalProjectsHeader}>
+            <h2 data-text="text" className={styles.spanWorkName}>
+              Mis servicios
+            </h2>
 
-      <section
-        id="challenges"
-        className={`${styles.wrapperPadding} ${styles.appContentChallenges}`}
-      >
-        <div className={styles.wrapperMaxWidth}>
-          <div className={styles.appContentChallengesHeader}>
-            <h3 data-text="text" className={styles.spanChallengeName}>
-              Desafíos
-            </h3>
-            <h4 data-text="text" className={styles.h2FrontendName}>
-              Frontend
-            </h4>
-          </div>
-
-          <div className={styles.wrapperContentChallenge}>
-            <div className={styles.appLeftContentChallenge}>
-              <div className={styles.challengeDescription}>
-                <span data-text="text">
-                  Desafío: Crear una vista de catálogo para una aplicación de
-                  programa de fidelización.
-                </span>
-                <span data-text="text">Fuente: Aerolab</span>
-              </div>
-              <div className={styles.challengeMyExplanation}>
-                <p data-text="text" className={styles.pMyExplanation}>
-                  En este desafió se proporcionó un diseño y una API para el
-                  desarrollo de una app funcional, el desafío consistía en crear
-                  una vista de catálogo para una aplicación de programa de
-                  fidelización.
-                </p>
-                <p data-text="text" className={styles.pMyExplanation}></p>
+            <div className={styles.appContentIDoWork}>
+              <div className={styles.appContentTitleIDoWork}>Landing pages</div>
+              <div className={styles.appContentTitleIDoWorkSubTitle}>
+                Sitio web de una página, ideal para emprendedores, pequeñas
+                empresas, presentación de productos.
               </div>
             </div>
-            <div className={styles.appRightContentChallenge}>
-              <div className={styles.appRightContentChallengeImg}>
-                <div className={styles.contentLineChallenges}>
-                  <span
-                    className={`${styles.lineChallenge} ${styles.horizontal}`}
-                  ></span>
-                  <span
-                    className={`${styles.lineChallenge} ${styles.vertical}`}
-                  ></span>
-                </div>
-                <div
-                  data-phone="data-phone"
-                  ref={objRef.phoneRef}
-                  className={styles.contentImgPhone}
-                >
-                  <img src={phoneChallenge} width="390" alt="792" />
-                  <IconSocial
-                    urlGithub={
-                      "https://github.com/JairDev/aerolab-coding-challenge"
-                    }
-                    urlLive={"https://aerolab-coding-challenges.vercel.app/"}
-                    fontSizeIcon="23px"
-                  />
-                </div>
+            <div className={styles.appContentIDoWork}>
+              <div className={styles.appContentTitleIDoWork}>
+                Sitios web de múltiples de páginas
               </div>
-            </div>
-          </div>
-          <div className={styles.contentMoreLink}>
-            <div className={styles.contentLinesCustomLink}>
-              <span className={styles.lineCustomLink}></span>
-              <span className={styles.circleCustomLink}></span>
-              <Link className={styles.moreLink} to="/desafios">
-                Más desafíos
-              </Link>
+              <div className={styles.appContentTitleIDoWorkSubTitle}>
+                Sitio web de múltiples páginas.
+              </div>
             </div>
           </div>
         </div>

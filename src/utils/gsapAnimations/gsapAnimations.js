@@ -15,7 +15,7 @@ export function gsapAnimations({ word, rotateText }) {
     scrollTrigger: {
       trigger: "[data-rotate-text]",
       start: "+=180px 100%",
-      end: "bottom 0%",
+      end: "bottom 20%",
       scrub: true,
       // markers: true,
     },

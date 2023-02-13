@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Link, useLocation } from "react-router-dom";
 
-import { motion, useScroll } from "framer-motion/dist/framer-motion";
+import { motion, useScroll } from "framer-motion";
 
 import NavIcon from "../../assets/nav-bar-icon.svg";
 import NavIconClose from "../../assets/nav-bar-close.svg";
@@ -37,16 +37,16 @@ function Header() {
   const location = useLocation();
 
   const output = [
-    "M306 0H377.998V800H306C306 800 0 676 0 402C0 128 306 0 306 0Z",
-    "M0 0H800V800H0C0 800 0 676 0 402C0 128 0 0 0 0",
+    "m 1 1 H 3 C 1 167 -2 685 -2 886 H -4 Z",
+    "m 1 1 H 516 C 1613 3 1662 950 550 957 H 1 Z",
   ];
 
   const clip_path_variants = {
     open: {
-      d: output[0],
+      d: output[1],
     },
     closed: {
-      d: output[1],
+      d: output[0],
     },
   };
 
@@ -60,6 +60,7 @@ function Header() {
   };
 
   useEffect(() => {
+    // console.log(refObject.logoRef);
     refObject.logoRef.current.style.opacity = "0";
     refObject.parentIcon.current.style.opacity = "1";
     if (
@@ -69,11 +70,11 @@ function Header() {
       refObject.logoRef.current.style.opacity = "1";
       refObject.parentIcon.current.style.opacity = "0";
     }
-    ScrollTrigger.create({
-      onUpdate: (self) => {
-        setClass(self.direction, refObject);
-      },
-    });
+    // ScrollTrigger.create({
+    //   onUpdate: (self) => {
+    //     setClass(self.direction, refObject);
+    //   },
+    // });
 
     return scrollY.onChange((latest) => {
       setYVisibility(latest);
@@ -81,7 +82,6 @@ function Header() {
   }, [location.pathname, refObject, scrollY]);
 
   useEffect(() => {
-    console.log(isOpen);
     if (isOpen) {
       refObject.iconOpenRef.current.firstChild.classList.add(styles.noOpen);
       refObject.iconCloseRef.current.firstChild.classList.add(styles.open);
@@ -112,6 +112,7 @@ function Header() {
     const coords = refObject.parentIcon.current.getBoundingClientRect();
     const xCoord = e.clientX - (coords.left + Math.floor(coords.width / 2));
     const yCoord = e.clientY - (coords.top + Math.floor(coords.height / 2));
+
     if (refObject.parentIcon.current) {
       refObject.parentIcon.current.style.setProperty("--x", `${xCoord}px`);
       refObject.parentIcon.current.style.setProperty("--y", `${yCoord}px`);
@@ -137,10 +138,14 @@ function Header() {
         </div>
         <div onClick={handleClick} className={styles.parentMenu}>
           <motion.div
-            animate={{ opacity: yVisibility >= 200 ? 1 : 0 }}
+            animate={{ opacity: yVisibility >= 300 ? 1 : 0 }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             className={styles.iconNaCoord}
+            transition={{
+              ease: "easeInOut",
+              duration: 0.4,
+            }}
           >
             <div
               id="parent-icon"
@@ -177,8 +182,8 @@ function Header() {
           variants={moveVariants}
           animate={isOpen ? "open" : "closed"}
           transition={{
-            ease: "easeInOut",
-            duration: 0.1,
+            ease: "easeIn",
+            duration: 0.3,
           }}
         >
           <ul
@@ -218,37 +223,37 @@ function Header() {
               </a>
             </li>
           </ul>
-          <motion.div
-            className={styles.contentSvg}
-            variants={moveVariants}
-            animate={isOpen ? "open" : "closed"}
-            transition={{
-              ease: "easeInOut",
-              duration: 0.3,
-            }}
+        </motion.div>
+        <motion.div
+          className={styles.contentSvg}
+          variants={moveVariants}
+          animate={isOpen ? "open" : "closed"}
+          transition={{
+            ease: "easeIn",
+            duration: 0.3,
+          }}
+        >
+          <svg
+            className={styles.shape}
+            width="100%"
+            height="100%"
+            viewBox="0 0 500 800"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
           >
-            <svg
-              className={styles.shape}
-              width="100%"
-              height="100%"
-              viewBox="0 0 378 800"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <motion.path
-                d="M306 0H377.998V800H306C306 800 0 676 0 402C0 128 306 0 306 0Z"
-                fill="#7c4dff"
-                variants={clip_path_variants}
-                animate={isOpen ? "closed" : "open"}
-                transition={{
-                  delay: 0.2,
-                  ease: "easeInOut",
-                  duration: 0.4,
-                }}
-              />
-            </svg>
-          </motion.div>
+            <motion.path
+              d={output[0]}
+              fill="#7c4dff"
+              variants={clip_path_variants}
+              animate={isOpen ? "open" : " closed"}
+              transition={{
+                // delay: 0.2,
+                ease: "easeIn",
+                duration: 0.6,
+              }}
+            />
+          </svg>
         </motion.div>
       </nav>
     </header>

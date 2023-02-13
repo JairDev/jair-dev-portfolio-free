@@ -40,30 +40,40 @@
 .role {
   color: #ffffff;
   /* font-size: var(--title-font-size); */
-  font-size: clamp(18px, 10vw, 70px);
+  font-size: clamp(18px, 10vw, 40px);
   font-family: var(--title-font);
   font-weight: 600;
   letter-spacing: var(--letter-spacing);
 }
 
 .subTitleRole {
+  /* border: 2px solid red; */
   color: #ffffff;
-  font-size: var(--paragraph-font-size);
+  font-size: 16px;
   font-family: var(--title-font);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: var(--letter-spacing);
+  max-width: 600px;
 }
 
 .contentButtonContact {
+  /* border: 2px solid red; */
+  display: flex;
   align-self: flex-start;
   position: relative;
   margin-top: 2.5rem;
 }
 
-.link.hero {
+.link.hero,
+.link.heroViewWork {
   color: #ffffff;
   display: block;
   padding: 0.6rem 1.8rem;
+}
+
+.link.heroViewWork {
+  /* border: 2px solid red; */
+  /* text-align: left; */
 }
 
 .link.contact-form {
@@ -373,6 +383,16 @@
 
 /* proyects */
 
+.contentProject {
+  /* border: 5px solid red; */
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); */
+  grid-template-columns: 1fr;
+  grid-gap: 32px;
+  position: relative;
+  margin-top: 32px;
+}
+
 .projectsSection {
   z-index: 50;
   overflow: hidden;
@@ -657,6 +677,32 @@
   z-index: 10;
 }
 
+.appContentIDoWork {
+  /* border: 2px solid green; */
+  margin-top: 32px;
+}
+
+.appContentIDoWork:last-child {
+  /* border: 2px solid green; */
+  margin-top: 16px;
+}
+
+.appContentTitleIDoWork {
+  /* border: 2px solid red; */
+  color: var(--primary-text);
+  font-family: var(--title-font);
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: var(--letter-spacing);
+  margin-bottom: 8px;
+}
+
+.appContentTitleIDoWorkSubTitle {
+  color: var(--primary-text);
+  font-family: var(--title-font);
+  letter-spacing: var(--letter-spacing);
+}
+
 /* footer ///////////////// */
 
 .headerContact {
@@ -796,6 +842,11 @@
 
   .pDescription {
     font-size: 18px;
+  }
+
+  .contentProject {
+    /* border: 5px solid red; */
+    /* grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); */
   }
 
   .wrapperContentChallenge {

@@ -28,6 +28,7 @@ export const personalProjects = [
   {
     id: "id1",
     name: "Coin Market App",
+    subTitle: "Desarrollo",
     imgSrcApp: workCoin,
     linkGit: "https://github.com/JairDev/coin-market-info-",
     linkDemo: "https://coin-market-info.vercel.app/",
@@ -46,7 +47,8 @@ export const personalProjects = [
   },
   {
     id: "id2",
-    name: "Tasty dessert",
+    name: "Landing page Barber",
+    subTitle: "Diseño & Desarrollo",
     imgSrcApp: workDessert,
     linkGit: "https://github.com/JairDev/hot-food-app",
     linkDemo: "https://tastypie.netlify.app/",
@@ -71,6 +73,8 @@ export const personalProjects = [
   },
   {
     name: "Memory",
+    subTitle: "Diseño & Desarrollo",
+
     imgSrcApp: memory,
     linkGit: "https://github.com/JairDev/memory-game",
     linkDemo: "https://memorybrain.netlify.com/",
@@ -82,6 +86,8 @@ export const personalProjects = [
   },
   {
     name: "Timer",
+    subTitle: "Diseño & Desarrollo",
+
     imgSrcApp: timer,
     linkGit: "https://github.com/JairDev/training-timer-and-chronometer",
     linkDemo: "https://trainingtimerapp.netlify.com/",

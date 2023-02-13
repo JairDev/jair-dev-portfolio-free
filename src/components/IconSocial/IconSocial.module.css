@@ -1,38 +1,32 @@
 .personalProjectsExternalLink {
   /* border: 2px solid red; */
   position: absolute;
-  top: 100%;
-  right: 0;
+  top: calc(100% - 20px);
+  right: -20px;
   z-index: 50;
 }
 
 .personalProjectsExternalLink:hover .contentIconExLinkProjects {
-  transform: translate(-7px, 7px);
+  /* transform: translate(-7px, 7px); */
 }
 
-.personalProjectsExternalLink:hover .contentIconGithubProjects  {
-  transform: translate(7px, -7px);
+.personalProjectsExternalLink:hover .contentIconGithubProjects {
+  /* transform: translate(7px, -7px); */
 }
 
-.contentIconExLinkProjects,
-.contentIconGithubProjects {
+.contentIconExLinkProjects {
+  --x: 0;
+  --y: 0;
+  /* border: 2px solid blue; */
   border-radius: 8px;
   cursor: pointer;
-  padding: 0.5rem .8rem;
-  transition: all ease .2s;
-}
-.contentIconGithubProjects {
-  background-color: var(--primary-color);
-  position: absolute;
-  bottom: 80%;
-  right: -10%;
-  margin-left: 1rem;
-  z-index: 10;
+  padding: 0.5rem 0.8rem;
+  transform: translate(var(--x), var(--y));
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.84);
 }
 
 .contentIconExLinkProjects {
   background-color: var(--accent-color);
-  margin-right: 1rem;
   position: relative;
   z-index: 5;
 }
