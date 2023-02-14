@@ -22,6 +22,7 @@ import phone3 from "../../assets/hero-phone5.webp";
 // import phoneChallenge from "../../assets/aerolab-screen.webp";
 // import ArrowIcon from "../../assets/arrow.svg";
 import blob from "../../assets/blob.svg";
+import blobBlur from "../../assets/blob-blur.png";
 
 import { personalProjects } from "../../data/info-portfolio";
 
@@ -42,6 +43,7 @@ function Home() {
 
   const refDivAnimate = useRef([]);
   const refAni = useRef(null);
+  const refPath = useRef(null);
 
   const refCircleText = useRef();
 
@@ -49,7 +51,6 @@ function Home() {
 
   useEffect(() => {
     // console.log("array", refDivAnimate);
-
     window.scrollTo(0, 0);
     if (window.innerWidth > 860) {
       gsap.timeline({
@@ -79,12 +80,11 @@ function Home() {
 
   useEffect(() => {
     // console.log(refAni);
-    let ctx = gsap.context(() => {});
     const svgNode = gsap.utils.toArray("[data-ani]");
 
     svgNode.forEach((svg) => {
       // const svgEl = svg.closest("svg");
-      console.log("svg", svg);
+      // console.log("svg", svg);
       const pathTo = svg.dataset.pathTo;
       // console.log(pathTo);
       gsap
@@ -104,20 +104,49 @@ function Home() {
           duration: 2,
         });
     });
-    return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    // const el = refPath.current;
+    // const pathData = el.getBBox();
+    // const pathTo = el.dataset.pathTo;
+    // console.log(pathTo);
+    // el.setAttribute(
+    //   "viewBox",
+    //   `${pathData.x} ${pathData.y} ${pathData.width} ${pathData.height}`
+    // );
+    // console.log(pathData);
+    // const svgNode = gsap.utils.toArray("[data-ani]");
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "[data-span-ani]",
+          start: "top 65% ",
+          end: "100% top",
+          scrub: true,
+          // markers: true,
+        },
+      })
+      .to("[data-span-ani]", {
+        ease: "sine.out",
+        // attr: { d: pathTo },
+        duration: 0.7,
+        yPercent: 100,
+      });
   }, []);
 
   return (
     <>
       <Helmet>
-        <title>Alfredo Moscoso</title>
+        <title>Alfredo Moscoso | Portfolio</title>
       </Helmet>
       <section
         className={`${styles.wrapperPadding} ${styles.appContentHero}`}
         id={"wrapper-padding"}
       >
         <span className={styles.backgroundSectionLeft}>
-          <img src={blob} alt="" />
+          {/* <img src={blob} alt="" /> */}
+          <img src={blobBlur} alt="" />
         </span>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.wrapperContentHero}>
@@ -161,7 +190,7 @@ function Home() {
                   data-rotate-text="rotate-text"
                 >
                   <p ref={refCircleText} className={styles.circleText}>
-                    • scroll • scroll • scroll • scroll • scroll
+                    {/* • scroll • scroll • scroll • scroll • scroll */}
                   </p>
                 </div>
                 <span className={styles.scrollBack}>
@@ -181,9 +210,9 @@ function Home() {
                 <span className={`${styles.wordsHero} ${styles.topRight}`}>
                   Px
                 </span>
-                <span className={`${styles.wordsHero} ${styles.rightMiddle}`}>
+                {/* <span className={`${styles.wordsHero} ${styles.rightMiddle}`}>
                   Layout
-                </span>
+                </span> */}
                 <span className={`${styles.wordsHero} ${styles.bottomRight}`}>
                   Interaction
                 </span>
@@ -265,7 +294,7 @@ function Home() {
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.appContentPersonalProjectsHeader}>
             <h2 data-text="text" className={styles.spanWorkName}>
-              Proyectos
+              Trabajos
             </h2>
           </div>
           <div className={styles.contentProject}>
@@ -303,10 +332,33 @@ function Home() {
         id="personal-work"
         className={`${styles.wrapperPadding} ${styles.projectsSection}`}
       >
+        {/* <div className={styles.contentSvgIDoWork}>
+          <svg
+            className={styles.imageClip}
+            viewBox="2 -1 530 252"
+            preserveAspectRatio="none"
+            x="0"
+            y="0"
+          >
+            <path
+              data-svg-work="data-svg-work"
+              ref={refPath}
+              className={styles.pathAni}
+              d="M 110 0 L 532 -1 C 316 0 96 0 2 0 L 4 -1 C 4 0 4 0 3 0 Z"
+              data-path-to="M 110 0 L 532 -1 C 829 436 -311 532 2 0 L 4 -1 C 4 0 4 0 3 0 Z"
+              vectorEffect="non-scaling-stroke"
+              fill="#7c4dff"
+            />
+          </svg>
+        </div> */}
         <div className={styles.wrapperMaxWidth}>
-          <div className={styles.appContentPersonalProjectsHeader}>
-            <h2 data-text="text" className={styles.spanWorkName}>
-              Mis servicios
+          <span
+            data-span-ani="data-span-ani"
+            className={styles.circleBlur}
+          ></span>
+          <div className={styles.wrapperAppContentIDoWork}>
+            <h2 data-text="text" className={styles.spanIDoWorkName}>
+              Servicios
             </h2>
 
             <div className={styles.appContentIDoWork}>

@@ -5,7 +5,7 @@
 }
 
 .contentPersonalProject {
-  /* border: 2px solid red; */
+  /* border: 2px solid yellow; */
   border-bottom: 1px solid var(--accent-color);
   position: relative;
   display: flex;
@@ -31,6 +31,11 @@
 /* .contentPersonalProjectFlex {
   border: 5px solid blue;
 } */
+
+.contentPersonalProjectFlex {
+  /* width: 100%; */
+  /* max-width: 500px; */
+}
 
 .contentPersonalProject:nth-child(2)
   .contentPersonalProjectFlex
@@ -75,12 +80,23 @@
 
 .contentSides {
   /* border: 2px solid blue; */
-  /* width: ; */
-  height: 700px;
+  /* width: 600px; */
+  /* max-width: 600px; */
+  /* height: 700px; */
 }
 
 .imageClip {
-  /* border: 2px solid blue; */
+  /* border: 2px solid green; */
+  width: 600px;
+  /* height: 500px; */
+  /* max-width: 700px; */
+  /* height: auto; */
+}
+
+.pathAni {
+  /* border: 2px solid red; */
+  /* transform: scale(4); */
+  /* transition: all ease-in-out 0.3s; */
 }
 
 .contentTitleProject {
@@ -104,7 +120,7 @@
 
 .contentPersonalProjectImg {
   align-self: flex-start;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   position: relative;

@@ -29,6 +29,7 @@ function Header() {
     logoRef: useRef(null),
     refContentLinks: useRef(),
     parentMove: useRef(),
+    refLinkWork: useRef(),
   };
 
   const [yVisibility, setYVisibility] = useState(0);
@@ -60,14 +61,14 @@ function Header() {
   };
 
   useEffect(() => {
-    // console.log(refObject.logoRef);
-    refObject.logoRef.current.style.opacity = "0";
+    // console.log(refObject.refLinkWork.current);
+    // refObject.logoRef.current.style.opacity = "0";
     refObject.parentIcon.current.style.opacity = "1";
     if (
       location.pathname === "/desafios" ||
       location.pathname === "/proyectos"
     ) {
-      refObject.logoRef.current.style.opacity = "1";
+      // refObject.logoRef.current.style.opacity = "1";
       refObject.parentIcon.current.style.opacity = "0";
     }
     // ScrollTrigger.create({
@@ -132,10 +133,17 @@ function Header() {
         <div className="app-content-nav-logo">
           <div className="app-nav-logo">
             <Link ref={refObject.logoRef} className={styles.logoName} to="/">
-              Inicio
+              Alfredo Moscoso
             </Link>
           </div>
         </div>
+        <motion.div
+          ref={refObject.refLinkWork}
+          animate={{ opacity: yVisibility >= 300 ? 0 : 1 }}
+          className={styles.linkWorkNav}
+        >
+          Trabajos
+        </motion.div>
         <div onClick={handleClick} className={styles.parentMenu}>
           <motion.div
             animate={{ opacity: yVisibility >= 300 ? 1 : 0 }}

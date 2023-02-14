@@ -39,7 +39,7 @@
 
 .logoName {
   color: var(--primary-text);
-  font-size: calc(1vw + 0.7em);
+  font-size: 18px;
   font-family: var(--title-font);
   letter-spacing: 1px;
 }
@@ -57,6 +57,16 @@
 
   transition: all 0.3s ease-in-out;
   z-index: 30;
+}
+
+.linkWorkNav {
+  /* border: 2px solid red; */
+  color: #292929;
+  font-family: var(--title-font);
+  font-size: 18px;
+  flex: 1;
+  text-align: right;
+  padding-right: 4rem;
 }
 
 .appContentNavLinks.show {
@@ -241,7 +251,7 @@
 
 @media only screen and (min-width: 860px) {
   .logoName {
-    font-size: calc(1vw + 0.4em);
+    /* font-size: calc(1vw + 0.4em); */
   }
   .appContentNavLinks {
     width: 35vw;

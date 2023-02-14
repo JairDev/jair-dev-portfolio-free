@@ -15,16 +15,19 @@
 }
 
 .appContentHero {
+  /* border: 2px solid red; */
   height: 100vh;
 }
 
 .wrapperContentHero {
+  /* border: 2px solid blue; */
   display: flex;
   justify-content: space-between;
   height: 100%;
 }
 
 .appLeftContentHero {
+  /* border: 2px solid rgb(30, 102, 58); */
   padding-top: 6rem;
   position: relative;
   width: 100%;
@@ -38,22 +41,27 @@
 }
 
 .role {
-  color: #ffffff;
-  /* font-size: var(--title-font-size); */
-  font-size: clamp(18px, 10vw, 40px);
+  /* border: 2px solid red; */
+  /* color: #ffffff; */
+  color: #292929;
+  font-size: var(--title-font-size);
+  /* font-size: clamp(18px, 10vw, 56px); */
   font-family: var(--title-font);
   font-weight: 600;
   letter-spacing: var(--letter-spacing);
+  /* max-width: 800px; */
+  padding-top: 2rem;
 }
 
 .subTitleRole {
   /* border: 2px solid red; */
-  color: #ffffff;
+  /* color: #ffffff; */
+  color: #292929;
   font-size: 16px;
   font-family: var(--title-font);
   font-weight: 400;
   letter-spacing: var(--letter-spacing);
-  max-width: 600px;
+  max-width: 500px;
 }
 
 .contentButtonContact {
@@ -66,7 +74,8 @@
 
 .link.hero,
 .link.heroViewWork {
-  color: #ffffff;
+  /* color: #ffffff; */
+  color: #292929;
   display: block;
   padding: 0.6rem 1.8rem;
 }
@@ -168,7 +177,8 @@
 }
 
 .circleText {
-  color: var(--body-color);
+  /* color: var(--body-color); */
+  color: #292929;
   font-size: 10px;
   text-transform: uppercase;
 }
@@ -260,7 +270,7 @@
 .wrapperAboutMeDescription {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   color: var(--primary-text);
   position: relative;
   width: 100%;
@@ -395,7 +405,7 @@
 
 .projectsSection {
   z-index: 50;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .appContentPersonalProjectsHeader {
@@ -406,6 +416,8 @@
   font-size: var(--title-font-size);
   font-family: var(--title-font);
   letter-spacing: var(--letter-spacing);
+  position: relative;
+  z-index: 10;
 }
 
 .h2WorkName {
@@ -677,9 +689,47 @@
   z-index: 10;
 }
 
+.wrapperAppContentIDoWork {
+  /* border: 2px solid #008000; */
+  /* background-color: rgba(128, 128, 128, 0.548); */
+  padding: 3rem 0 4rem 0;
+  position: relative;
+  backdrop-filter: blur(50px);
+}
+
+.circleBlur {
+  background-color: #7c4dff;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: -50px;
+  left: 20%;
+  width: 100px;
+  height: 100px;
+}
+
+.spanIDoWorkName {
+  color: #292929;
+  font-size: var(--title-font-size);
+  font-family: var(--title-font);
+  letter-spacing: var(--letter-spacing);
+  position: relative;
+  z-index: 10;
+}
+
+.contentSvgIDoWork {
+  /* border: 2px solid blue; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
 .appContentIDoWork {
   /* border: 2px solid green; */
   margin-top: 32px;
+  position: relative;
+  z-index: 10;
 }
 
 .appContentIDoWork:last-child {
@@ -689,16 +739,16 @@
 
 .appContentTitleIDoWork {
   /* border: 2px solid red; */
-  color: var(--primary-text);
+  color: #292929;
   font-family: var(--title-font);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.5rem;
   letter-spacing: var(--letter-spacing);
   margin-bottom: 8px;
 }
 
 .appContentTitleIDoWorkSubTitle {
-  color: var(--primary-text);
+  color: #292929;
   font-family: var(--title-font);
   letter-spacing: var(--letter-spacing);
 }
@@ -892,13 +942,13 @@
 
 @media only screen and (min-width: 1280px) {
   .appLeftContentHero {
-    width: 50%;
+    width: 70%;
   }
 
   .appRightContentHero {
     display: flex;
     /* border: 1px solid blue; */
-    width: 50%;
+    /* width: 50%; */
   }
   .heroImg {
     display: block;
@@ -907,13 +957,13 @@
 
 @media only screen and (min-width: 2224px) {
   .appLeftContentHero {
-    width: 50%;
+    /* width: 50%; */
   }
 
   .appRightContentHero {
     display: flex;
     /* border: 1px solid blue; */
-    width: 50%;
+    /* width: 50%; */
   }
   .heroImg {
     display: block;
