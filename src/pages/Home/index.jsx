@@ -1,35 +1,28 @@
 import React, { useEffect, useRef } from "react";
-// import { Link } from "react-router-dom";
+
+import { Helmet } from "react-helmet";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-import LocomotiveScroll from "locomotive-scroll";
+import CircleType from "circletype";
 
 import { gsapAnimations } from "utils/gsapAnimations/gsapAnimations";
 
-import CircleType from "circletype";
-
-import Lenis from "@studio-freight/lenis";
-
-// import { Icon } from "@iconify/react";
-// import Projects from ".../../../src/components/Projects/Projects";
-import Button from "components/Button/Button";
-// import IconSocial from "components/IconSocial/IconSocial";
-
-import phone3 from "../../assets/hero-phone5.webp";
-// import phoneChallenge from "../../assets/aerolab-screen.webp";
-// import ArrowIcon from "../../assets/arrow.svg";
-import blob from "../../assets/blob.svg";
-import blobBlur from "../../assets/blob-blur.png";
-
 import { personalProjects } from "../../data/info-portfolio";
 
-import styles from "./Home.module.css";
+// import ArrowIcon from "../../assets/arrow.svg";
+// import blob from "../../assets/blob.svg";
+// import blobBlur from "../../assets/blob-blur2.png";
+import coll from "assets/coll.png";
+import lines from "assets/lines.png";
 
-import { Helmet } from "react-helmet";
+import Button from "components/Button/Button";
 import Projects from "components/Projects/Projects";
+
+import styles from "./Home.module.css";
+import { useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -41,35 +34,24 @@ function Home() {
     rotateText: useRef(),
   };
 
-  const refDivAnimate = useRef([]);
-  const refAni = useRef(null);
-  const refPath = useRef(null);
-
   const refCircleText = useRef();
 
   const projects = personalProjects.slice(0, 4);
 
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
-    // console.log("array", refDivAnimate);
+    setIsMounted(true);
+
     window.scrollTo(0, 0);
-    if (window.innerWidth > 860) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: ["[data-phone]"],
-          pin: true,
-          start: "center 30%",
-          end: "top -=250",
-          scrub: true,
-          // markers: true,
-        },
-      });
-    }
+
     gsapAnimations(objRef);
 
     gsap.utils.toArray("[data-link]").forEach((link) => {
       const scroll = link.getAttribute("href");
       link.addEventListener("click", (e) => {
-        gsap.to(window, { duration: 0.3, scrollTo: scroll });
+        console.log(scroll);
+        gsap.to(window, { duration: 1, scrollTo: scroll });
         e.preventDefault();
       });
     });
@@ -79,61 +61,25 @@ function Home() {
   }, [objRef]);
 
   useEffect(() => {
-    // console.log(refAni);
-    const svgNode = gsap.utils.toArray("[data-ani]");
-
-    svgNode.forEach((svg) => {
-      // const svgEl = svg.closest("svg");
-      // console.log("svg", svg);
-      const pathTo = svg.dataset.pathTo;
-      // console.log(pathTo);
+    if (isMounted) {
       gsap
         .timeline({
           scrollTrigger: {
-            trigger: svg,
-            start: "20% 70% ",
-            end: "100% -30%",
+            trigger: "#circle-blur",
+            start: "top 65% ",
+            end: "100% -10%",
             scrub: true,
             // markers: true,
           },
         })
-        .to(svg, {
+        .to("#circle-blur", {
           ease: "sine.out",
-          attr: { d: pathTo },
-          // x: 50,
-          duration: 2,
+          duration: 0.7,
+          opacity: 1,
+          y: 280,
         });
-    });
-  }, []);
-
-  useEffect(() => {
-    // const el = refPath.current;
-    // const pathData = el.getBBox();
-    // const pathTo = el.dataset.pathTo;
-    // console.log(pathTo);
-    // el.setAttribute(
-    //   "viewBox",
-    //   `${pathData.x} ${pathData.y} ${pathData.width} ${pathData.height}`
-    // );
-    // console.log(pathData);
-    // const svgNode = gsap.utils.toArray("[data-ani]");
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "[data-span-ani]",
-          start: "top 65% ",
-          end: "100% top",
-          scrub: true,
-          // markers: true,
-        },
-      })
-      .to("[data-span-ani]", {
-        ease: "sine.out",
-        // attr: { d: pathTo },
-        duration: 0.7,
-        yPercent: 100,
-      });
-  }, []);
+    }
+  }, [isMounted]);
 
   return (
     <>
@@ -144,33 +90,35 @@ function Home() {
         className={`${styles.wrapperPadding} ${styles.appContentHero}`}
         id={"wrapper-padding"}
       >
-        <span className={styles.backgroundSectionLeft}>
-          {/* <img src={blob} alt="" /> */}
-          <img src={blobBlur} alt="" />
-        </span>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.wrapperContentHero}>
             <div className={styles.appLeftContentHero}>
               <div className={styles.appLeftContentHeroRole}>
-                <h1 className={styles.role}>
-                  Llevando tu negocio al siguiente nivel.
+                {/* <h1 className={styles.role}>
+                  Potencia tu marca en el mundo digital.
                 </h1>
                 <h2 className={styles.subTitleRole}>
-                  Construyo páginas web, eficientes, interactivas, que brindan
-                  una buena experiencia de usuario.
+                  Tu negocio también debe brillar de forma online.Destaca sobre
+                  la competencia mostrando lo único que eres.
+                </h2> */}
+                <div className={styles.wordHeroColor}>
+                  <h1 className={styles.role}>
+                    {/* <span className={styles.wordHeroColor}> */}
+                    {/* </span> */}
+                    Destaca sobre la competencia.
+                  </h1>
+                  {/* <img src={lines} alt="" />s */}
+                </div>
+
+                <h2 className={styles.subTitleRole}>
+                  Potencia tu marca en el mundo digital mostrando lo único que
+                  eres.
                 </h2>
                 <div
                   ref={objRef.triggerButton}
                   id="trigger-button"
                   className={styles.contentButtonContact}
                 >
-                  {/* <a
-                    className={`${styles.link} ${styles.heroViewWork}`}
-                    href="#contact"
-                    data-link="link"
-                  >
-                    Ver mi trabajo
-                  </a> */}
                   <Button classButton="hero">
                     <a
                       className={`${styles.link} ${styles.hero}`}
@@ -190,7 +138,7 @@ function Home() {
                   data-rotate-text="rotate-text"
                 >
                   <p ref={refCircleText} className={styles.circleText}>
-                    {/* • scroll • scroll • scroll • scroll • scroll */}
+                    • scroll • scroll • scroll • scroll • scroll
                   </p>
                 </div>
                 <span className={styles.scrollBack}>
@@ -216,72 +164,14 @@ function Home() {
                 <span className={`${styles.wordsHero} ${styles.bottomRight}`}>
                   Interaction
                 </span>
-                {/* <img
-                  className={styles.heroImg}
-                  src={phone3}
-                  alt="teléfono con imagen"
-                /> */}
               </div>
               <span
                 ref={objRef.word}
                 className={`${styles.wordsHero} ${styles.bottomLeft}`}
                 data-wordweb="wordweb"
               >
-                Web
+                {/* Web */}
               </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="about-me"
-        className={`${styles.wrapperPadding} ${styles.appContentAboutMe}`}
-      >
-        <div className={styles.wrapperMaxWidth}>
-          <div className={styles.appContentAboutMeHeader}>
-            <div className={styles.appContentAboutMeTitle}>
-              <h3
-                data-text="text"
-                className={`${styles.text} ${styles.spanName}`}
-              >
-                Hola,
-              </h3>
-              <h4
-                data-text="text"
-                ref={objRef.h2Name}
-                className={`${styles.text} ${styles.h2Name}`}
-              >
-                soy Alfredo
-              </h4>
-            </div>
-          </div>
-          <div className={styles.appContentAboutMeDescription}>
-            <div className={styles.wrapperAboutMeDescription}>
-              <span className={styles.lineRightAbout}></span>
-              <span className={styles.lineLeftAbout}></span>
-              <p
-                data-text="text"
-                className={`${styles.text} ${styles.pDescription}`}
-              >
-                Me llamo Alfredo Moscoso, soy desarrollador web con base en
-                Caracas Venezuela, creo sitios web para que te diferencies de la
-                competencia.
-              </p>
-              <p
-                data-text="text"
-                className={`${styles.text} ${styles.pDescription}`}
-              >
-                Ayudo a tu marca, negocio, a tener presencia online
-                desarrollando sitios web personalizados.
-              </p>
-
-              {/* <p
-                data-text="text"
-                className={`${styles.text} ${styles.pDescription}`}
-              >
-                Saludos, espero verte pronto !
-              </p> */}
             </div>
           </div>
         </div>
@@ -294,14 +184,11 @@ function Home() {
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.appContentPersonalProjectsHeader}>
             <h2 data-text="text" className={styles.spanWorkName}>
-              Trabajos
+              Trabajos seleccionados
             </h2>
           </div>
           <div className={styles.contentProject}>
             {projects.slice(0, 2).map((item, i) => (
-              // <div
-              // ref={(node) => (refDivAnimate.current[i] = node)}
-              // >
               <Projects
                 key={item.name}
                 id={item.id}
@@ -313,67 +200,55 @@ function Home() {
                 subTitle={item.subTitle}
                 idx={i}
               />
-              // </div>
             ))}
           </div>
-          {/* <div className={styles.contentMoreLink}>
-            <div className={styles.contentLinesCustomLink}>
-              <span className={styles.lineCustomLink}></span>
-              <span className={styles.circleCustomLink}></span>
-              <Link className={styles.moreLink} to="/proyectos">
-                Más proyectos
-              </Link>
-            </div>
-          </div> */}
         </div>
       </section>
 
       <section
         id="personal-work"
-        className={`${styles.wrapperPadding} ${styles.projectsSection}`}
+        className={`${styles.wrapperPadding} ${styles.serviceSection}`}
       >
-        {/* <div className={styles.contentSvgIDoWork}>
-          <svg
-            className={styles.imageClip}
-            viewBox="2 -1 530 252"
-            preserveAspectRatio="none"
-            x="0"
-            y="0"
-          >
-            <path
-              data-svg-work="data-svg-work"
-              ref={refPath}
-              className={styles.pathAni}
-              d="M 110 0 L 532 -1 C 316 0 96 0 2 0 L 4 -1 C 4 0 4 0 3 0 Z"
-              data-path-to="M 110 0 L 532 -1 C 829 436 -311 532 2 0 L 4 -1 C 4 0 4 0 3 0 Z"
-              vectorEffect="non-scaling-stroke"
-              fill="#7c4dff"
-            />
-          </svg>
-        </div> */}
         <div className={styles.wrapperMaxWidth}>
-          <span
-            data-span-ani="data-span-ani"
-            className={styles.circleBlur}
-          ></span>
+          <div className={styles.contentCircleBlur}>
+            <span
+              id="circle-blur"
+              data-span-ani="data-span-ani"
+              className={styles.circleBlur}
+            ></span>
+
+            <span
+              className={`${styles.circleBlur} ${styles.circleBlurGrey}`}
+            ></span>
+          </div>
           <div className={styles.wrapperAppContentIDoWork}>
             <h2 data-text="text" className={styles.spanIDoWorkName}>
-              Servicios
+              Puedo ayudarte con
             </h2>
 
-            <div className={styles.appContentIDoWork}>
-              <div className={styles.appContentTitleIDoWork}>Landing pages</div>
-              <div className={styles.appContentTitleIDoWorkSubTitle}>
-                Sitio web de una página, ideal para emprendedores, pequeñas
-                empresas, presentación de productos.
+            <div className={styles.wrapperServices}>
+              <div className={styles.appContentIDoWork}>
+                <div className={styles.appContentTitleIDoWork}>
+                  Landing pages
+                </div>
+                <div className={styles.appContentTitleIDoWorkSubTitle}>
+                  Sitio web de una página, ideal para emprendedores, pequeñas
+                  empresas, presentación de productos.
+                </div>
               </div>
-            </div>
-            <div className={styles.appContentIDoWork}>
-              <div className={styles.appContentTitleIDoWork}>
-                Sitios web de múltiples de páginas
+              <div className={styles.appContentIDoWork}>
+                <div className={styles.appContentTitleIDoWork}>
+                  Sitios web de múltiples de páginas
+                </div>
+                <div className={styles.appContentTitleIDoWorkSubTitle}>
+                  Autenticación (registro/inicio de sesión), integración con
+                  bases de datos.
+                </div>
               </div>
-              <div className={styles.appContentTitleIDoWorkSubTitle}>
-                Sitio web de múltiples páginas.
+              <div className={styles.appContentIDoWork}>
+                <div className={styles.appContentTitleIDoWork}>
+                  Rediseño de sitios web
+                </div>
               </div>
             </div>
           </div>

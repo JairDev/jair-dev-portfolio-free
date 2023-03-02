@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from "react";
 
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import { Link, useLocation } from "react-router-dom";
 
 import { motion, useScroll } from "framer-motion";
@@ -11,14 +9,6 @@ import NavIconClose from "../../assets/nav-bar-close.svg";
 
 import styles from "./Header.module.css";
 import { useState } from "react";
-
-const setClass = (direction, { menuStyle, iconOpenRef, iconCloseRef }) => {
-  if (menuStyle.current.className.includes("show")) {
-    menuStyle.current.classList.remove(styles.show);
-    iconOpenRef.current.firstChild.classList.remove(styles.noOpen);
-    iconCloseRef.current.firstChild.classList.remove(styles.open);
-  }
-};
 
 function Header() {
   const refObject = {
@@ -30,6 +20,8 @@ function Header() {
     refContentLinks: useRef(),
     parentMove: useRef(),
     refLinkWork: useRef(),
+    refSvg: useRef(),
+    refPath: useRef(),
   };
 
   const [yVisibility, setYVisibility] = useState(0);
@@ -37,17 +29,21 @@ function Header() {
   const { scrollY } = useScroll();
   const location = useLocation();
 
-  const output = [
-    "m 1 1 H 3 C 1 167 -2 685 -2 886 H -4 Z",
-    "m 1 1 H 516 C 1613 3 1662 950 550 957 H 1 Z",
-  ];
+  // const clip_path_variants = {
+  //   open: {
+  //     d: "M -1 222 L 0 -3 L 283 -3 C 283 175 286 265 287 429 L -1 427 Z",
+  //   },
+  //   closed: {
+  //     d: "M -1 222 L 0 -3 L 232 -2 C 279 178 279 260 242 428 L -1 427 Z",
+  //   },
+  // };
 
   const clip_path_variants = {
     open: {
-      d: output[1],
+      d: "M 35 24 v 248 h 137 s 0 -39 0 -124 c 0 -84 0 -124 0 -124 z",
     },
     closed: {
-      d: output[0],
+      d: "M 35 24 v 248 h 104 s 33 -39 33 -124 c 0 -84 -32 -124 -32 -124 z",
     },
   };
 
@@ -61,21 +57,13 @@ function Header() {
   };
 
   useEffect(() => {
-    // console.log(refObject.refLinkWork.current);
-    // refObject.logoRef.current.style.opacity = "0";
     refObject.parentIcon.current.style.opacity = "1";
     if (
       location.pathname === "/desafios" ||
       location.pathname === "/proyectos"
     ) {
-      // refObject.logoRef.current.style.opacity = "1";
       refObject.parentIcon.current.style.opacity = "0";
     }
-    // ScrollTrigger.create({
-    //   onUpdate: (self) => {
-    //     setClass(self.direction, refObject);
-    //   },
-    // });
 
     return scrollY.onChange((latest) => {
       setYVisibility(latest);
@@ -96,6 +84,14 @@ function Header() {
     refObject.iconOpenRef,
     refObject.menuStyle,
   ]);
+
+  useEffect(() => {
+    let pathData = refObject.refPath.current.getBBox();
+    refObject.refSvg.current.setAttribute(
+      "viewBox",
+      `${pathData.x} ${pathData.y} ${pathData.width} ${pathData.height}`
+    );
+  }, []);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -120,7 +116,7 @@ function Header() {
     }
   };
 
-  const handleMouseLeave = (e) => {
+  const handleMouseLeave = () => {
     refObject.parentIcon.current.style.setProperty("--x", `${0}px`);
     refObject.parentIcon.current.style.setProperty("--y", `${0}px`);
   };
@@ -139,10 +135,25 @@ function Header() {
         </div>
         <motion.div
           ref={refObject.refLinkWork}
-          animate={{ opacity: yVisibility >= 300 ? 0 : 1 }}
+          // animate={{ opacity: yVisibility >= 1 ? 0 : 1 }}
           className={styles.linkWorkNav}
         >
-          Trabajos
+          <ul className={styles.contentNavTopLinks}>
+            <li>
+              <a href="/about-me" className={styles.linkTop}>
+                Quien soy?
+              </a>
+            </li>
+            <li>
+              <a
+                href="#personal-work"
+                data-link="link"
+                className={styles.linkTop}
+              >
+                Trabajos
+              </a>
+            </li>
+          </ul>
         </motion.div>
         <div onClick={handleClick} className={styles.parentMenu}>
           <motion.div
@@ -191,7 +202,7 @@ function Header() {
           animate={isOpen ? "open" : "closed"}
           transition={{
             ease: "easeIn",
-            duration: 0.3,
+            duration: 0.5,
           }}
         >
           <ul
@@ -234,34 +245,43 @@ function Header() {
         </motion.div>
         <motion.div
           className={styles.contentSvg}
-          variants={moveVariants}
-          animate={isOpen ? "open" : "closed"}
+          initial={{ translateX: "100%" }}
+          animate={isOpen ? { translateX: "0%" } : { translateX: "100%" }}
           transition={{
             ease: "easeIn",
-            duration: 0.3,
+            duration: 0.5,
           }}
         >
-          <svg
+          <motion.svg
+            ref={refObject.refSvg}
             className={styles.shape}
-            width="100%"
-            height="100%"
-            viewBox="0 0 500 800"
+            // viewBox="0 0 172.2084 248.56923"
+            viewBox=""
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="none"
+            initial={{ translateX: "100%", rotate: "180deg" }}
+            variants={moveVariants}
+            animate={isOpen ? "open" : "closed"}
+            transition={{
+              ease: "easeIn",
+              duration: 0.5,
+            }}
           >
             <motion.path
-              d={output[0]}
+              ref={refObject.refPath}
+              d={
+                "M 35 24 v 248 h 104 s 33 -39 33 -124 c 0 -84 -32 -124 -32 -124 z"
+              }
               fill="#7c4dff"
               variants={clip_path_variants}
               animate={isOpen ? "open" : " closed"}
               transition={{
-                // delay: 0.2,
                 ease: "easeIn",
-                duration: 0.6,
+                duration: 0.5,
               }}
             />
-          </svg>
+          </motion.svg>
         </motion.div>
       </nav>
     </header>

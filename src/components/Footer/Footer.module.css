@@ -1,6 +1,5 @@
 .wrapperPadding {
-  /* border: 1px solid red; */
-  padding: 0 5vw 4rem 5vw;
+  padding: 0 5vw 2rem 5vw;
   display: flex;
   justify-content: center;
   position: relative;
@@ -8,18 +7,19 @@
 }
 
 .wrapperMaxWidth {
-  /* border: 2px solid red; */
   width: 100%;
   max-width: 1280px;
   height: 100%;
+  position: relative;
+  z-index: 5;
 }
 
 .contact {
   overflow: hidden;
+  position: relative;
 }
 
 .contact::before {
-  /* border: 5px solid red; */
   content: "";
   background-color: var(--primary-color);
   position: absolute;
@@ -27,4 +27,14 @@
   bottom: 0;
   width: 100%;
   height: 45%;
+}
+
+.contentSvgIDoWork {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  transform: rotate(180deg);
+  z-index: 1;
 }

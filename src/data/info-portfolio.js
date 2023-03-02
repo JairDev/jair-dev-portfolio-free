@@ -1,4 +1,6 @@
 import workCoin from "../assets/coin-mac.webp";
+import projectTest from "../assets/project-test.png";
+import projectTest2 from "../assets/project-test2.png";
 import workDessert from "../assets/desert-mac.webp";
 import memory from "../assets/memory-mac.webp";
 import room from "../assets/room-mac.webp";
@@ -29,7 +31,7 @@ export const personalProjects = [
     id: "id1",
     name: "Coin Market App",
     subTitle: "Desarrollo",
-    imgSrcApp: workCoin,
+    imgSrcApp: projectTest,
     linkGit: "https://github.com/JairDev/coin-market-info-",
     linkDemo: "https://coin-market-info.vercel.app/",
     dataDescription: [
@@ -49,7 +51,7 @@ export const personalProjects = [
     id: "id2",
     name: "Landing page Barber",
     subTitle: "Diseño & Desarrollo",
-    imgSrcApp: workDessert,
+    imgSrcApp: projectTest2,
     linkGit: "https://github.com/JairDev/hot-food-app",
     linkDemo: "https://tastypie.netlify.app/",
     dataDescription: [

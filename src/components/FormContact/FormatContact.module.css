@@ -1,3 +1,12 @@
+.spanIDoWorkName {
+  color: #292929;
+  font-size: var(--title-font-size);
+  font-family: var(--title-font);
+  letter-spacing: var(--letter-spacing);
+  position: relative;
+  z-index: 10;
+}
+
 .headerContact {
   color: #2a2a2a;
   text-align: center;
@@ -14,15 +23,22 @@
 .appContentFooterFormContact {
   display: flex;
   justify-content: center;
-  /* padding: 30vh 0 10vh; */
   position: relative;
+  margin-top: 3rem;
 }
 
 .wrapperForm {
-  background-color: var(--light-prymary-color);
-  border-radius: 14px;
+  /* border: 2px solid red; */
+  border-radius: 8px;
   padding: 4vh 3vw;
   width: 100%;
+}
+
+.wrapperForm,
+.formContact input,
+.formContact textarea {
+  background-color: var(--light-prymary-color);
+  /* background-color: #e7e8ef; */
 }
 
 .formContact {
@@ -47,7 +63,6 @@
 }
 
 .formContact input {
-  background-color: var(--light-prymary-color);
   border: none;
   border-bottom: 2px solid rgb(26, 26, 26);
   font-size: 1.1rem;
@@ -57,7 +72,6 @@
 }
 
 .formContact textarea {
-  background-color: var(--light-prymary-color);
   border: none;
   border-bottom: 2px solid rgb(26, 26, 26);
   font-size: 1.1rem;
@@ -137,7 +151,7 @@
 }
 
 .contactButton {
-  border: none;
+  border: 2px solid red;
   background: none;
   border-radius: 50px;
   color: var(--body-color);
@@ -152,7 +166,6 @@
 }
 
 .contentSocial {
-  /* border: 2px solid red; */
   display: flex;
   gap: 24px;
   justify-content: center;
@@ -162,8 +175,6 @@
 }
 
 .socialItem {
-  /* border: 2px solid blue; */
-
   display: flex;
   flex-direction: column;
   align-items: center;

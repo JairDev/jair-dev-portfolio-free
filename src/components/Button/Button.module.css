@@ -1,5 +1,6 @@
 .contentButton {
   border-radius: 50px;
+  background-color: #683edb;
   align-self: flex-start;
   position: relative;
   overflow: hidden;
@@ -10,7 +11,8 @@
   background: none;
   border-radius: 50px;
   cursor: pointer;
-  color: var(--body-color);
+  /* color: var(--body-color); */
+  /* color: #e7e8ef; */
   font-size: 16px;
   font-family: var(--title-font);
   font-weight: 600;
@@ -20,12 +22,14 @@
 }
 
 .button.contactButton {
+  /* border: 2px solid red; */
+  color: #e7e8ef;
   padding: 0.6rem 1.8rem;
 }
 
 .contentButton.hero {
   /* border: 2px solid #ffffff; */
-  border: 2px solid #292929;
+  /* border: 2px solid #292929; */
 }
 
 .contentButton::before {
@@ -41,7 +45,7 @@
   transition: all ease-out 0.2s;
 }
 
-.contentButton:hover::before {
+/* .contentButton:hover::before {
   width: 200px;
   height: 200px;
-}
+} */

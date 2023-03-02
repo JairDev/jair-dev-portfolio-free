@@ -1,7 +1,10 @@
 .wrapperPadding {
-  padding: 0 5vw;
+  border: 2px solid red;
+  padding: 3rem 5vw;
   display: flex;
   justify-content: center;
+  /* padding-top: 3rem; */
+  /* margin-bottom: 12rem; */
 }
 
 .wrapperMaxWidth {
@@ -10,13 +13,27 @@
   height: 100%;
 }
 
-.wrapperPadding:not(.wrapperPadding:first-child) {
-  margin-top: 8rem;
+.appContentHero {
+  height: 100vh;
 }
 
-.appContentHero {
-  /* border: 2px solid red; */
-  height: 100vh;
+.wordHeroColor {
+  /* border: 1px solid red; */
+  /* color: #7c4dff; */
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  font-family: var(--title-font);
+  /* max-width: 40%; */
+  /* height: 100%; */
+}
+
+.wordHeroColor img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .wrapperContentHero {
@@ -28,16 +45,18 @@
 
 .appLeftContentHero {
   /* border: 2px solid rgb(30, 102, 58); */
-  padding-top: 6rem;
+  /* padding-top: 3rem; */
   position: relative;
   width: 100%;
   z-index: 30;
 }
 
 .appLeftContentHeroRole {
+  /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
   height: 50%;
+  position: relative;
 }
 
 .role {
@@ -50,7 +69,7 @@
   font-weight: 600;
   letter-spacing: var(--letter-spacing);
   /* max-width: 800px; */
-  padding-top: 2rem;
+  /* padding-top: 2rem; */
 }
 
 .subTitleRole {
@@ -75,7 +94,8 @@
 .link.hero,
 .link.heroViewWork {
   /* color: #ffffff; */
-  color: #292929;
+  /* color: #292929; */
+  color: #e7e8ef;
   display: block;
   padding: 0.6rem 1.8rem;
 }
@@ -198,6 +218,7 @@
 }
 
 .backgroundSectionLeft {
+  /* border: 2px solid red; */
   display: block;
   position: absolute;
   top: 0;
@@ -214,198 +235,25 @@
   min-height: 100%;
 }
 
-/* About //////////////////*/
-
-.appContentAboutMe {
-  position: relative;
-  overflow: hidden;
-  z-index: 50;
-}
-
-.appContentAboutMeHeader {
-  position: relative;
-}
-
-.appContentAboutMeTitle {
-  position: relative;
-  width: 50%;
-  color: var(--primary-text);
-}
-
-.appContentAboutMeTitle::before {
-  content: "";
-  background-color: var(--accent-color);
-  position: absolute;
-  bottom: 0;
-  right: -40%;
-  width: 100%;
-  height: 2px;
-}
-
-.spanName {
-  font-size: var(--title-font-size);
-  font-family: var(--title-font);
-  letter-spacing: var(--letter-spacing);
-}
-
-.text {
-  opacity: 1;
-}
-
-.h2Name {
-  font-size: var(--sub-title-font-size);
-  font-family: var(--title-font);
-  font-weight: 500;
-  letter-spacing: var(--letter-spacing);
-  padding-left: 15vw;
-  margin-top: 0.5rem;
-}
-
-.appContentAboutMeDescription {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-}
-
-.wrapperAboutMeDescription {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  color: var(--primary-text);
-  position: relative;
-  width: 100%;
-}
-
-.lineRightAbout,
-.lineBottomAbout,
-.lineLeftAbout {
-  background-color: var(--accent-color);
-  display: block;
-  position: absolute;
-  opacity: 0;
-}
-
-.lineRightAbout,
-.lineLeftAbout {
-  width: 3px;
-}
-
-.lineBottomAbout {
-  right: -5%;
-  bottom: 4%;
-  width: 70%;
-  height: 3px;
-  opacity: 0;
-}
-
-.lineRightAbout {
-  top: -1%;
-  right: -2%;
-  height: 60%;
-}
-
-.lineLeftAbout {
-  top: 15%;
-  left: -2%;
-  height: 60%;
-}
-
-.pDescription.subTitleDescription {
-  font-weight: 600;
-}
-
-.pDescription + .pDescription {
-  margin-top: 2.5rem;
-}
-
-.pDescription {
-  max-width: 75ch;
-  color: var(--primary-text);
-  font-size: var(--paragraph-font-size);
-  font-family: var(--title-font);
-  line-height: 180%;
-  letter-spacing: var(--letter-spacing);
-}
-
-.h3Description {
-  font-family: var(--title-font);
-  font-size: 2rem;
-  letter-spacing: var(--letter-spacing);
-  margin-top: 10vh;
-  text-align: left;
-}
-
-.footerDescription {
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-/* skills */
-
-.wrapperSkills {
-  padding: 2rem;
-}
-
-.appContentSkills {
-  background-color: var(--primary-color);
-  color: var(--body-color);
-  padding: 10vh 0;
-  position: relative;
-}
-
-.h3Skills {
-  font-family: var(--title-font);
-  font-size: var(--title-font-size);
-  font-weight: 600;
-  letter-spacing: var(--letter-spacing);
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-.flexSkills {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 3rem 0rem;
-}
-
-.contentSkillsLabel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.labelSkills {
-  display: block;
-  font-family: var(--title-font);
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: var(--letter-spacing);
-  position: relative;
-  text-align: center;
-  z-index: 10;
-}
-
-.itemSkills img {
-  width: 100%;
-  height: 100%;
-}
-
 /* proyects */
 
+.projectsSection {
+  /* border: 1px solid red; */
+  /* background-color: #e7e8ef; */
+  position: relative;
+  overflow: hidden;
+  /* z-index:  ; */
+  /* margin-bottom: 4rem; */
+}
+
 .contentProject {
-  /* border: 5px solid red; */
+  /* border: 1px solid red; */
   display: grid;
-  /* grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); */
   grid-template-columns: 1fr;
   grid-gap: 32px;
   position: relative;
-  margin-top: 32px;
-}
-
-.projectsSection {
-  z-index: 50;
-  /* overflow: hidden; */
+  /* margin-top: 3rem; */
+  place-items: center;
 }
 
 .appContentPersonalProjectsHeader {
@@ -472,7 +320,7 @@
 .wrapperContentChallenge {
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
 }
 
 .appLeftContentChallenge {
@@ -690,22 +538,44 @@
 }
 
 .wrapperAppContentIDoWork {
-  /* border: 2px solid #008000; */
-  /* background-color: rgba(128, 128, 128, 0.548); */
-  padding: 3rem 0 4rem 0;
+  /* border: 1px solid red; */
+  /* padding: 3rem 0 4rem 0; */
   position: relative;
   backdrop-filter: blur(50px);
+}
+
+.wrapperServices {
+  /* border: 1px solid red; */
+  /* margin-top: 3rem; */
+}
+
+.contentCircleBlur {
+  /* border: 2px solid red; */
+  position: absolute;
+  top: -230px;
+  left: 30%;
+  width: 100px;
+  height: 100px;
 }
 
 .circleBlur {
   background-color: #7c4dff;
   border-radius: 50%;
   display: block;
-  position: absolute;
-  top: -50px;
-  left: 20%;
+  /* position: absolute;
+  top: -230px;
+  left: 20%; */
   width: 100px;
   height: 100px;
+  /* opacity: 0; */
+}
+
+.circleBlurGrey {
+  background-color: #e7e8ef;
+  border-radius: 0%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .spanIDoWorkName {
@@ -718,27 +588,26 @@
 }
 
 .contentSvgIDoWork {
-  /* border: 2px solid blue; */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1;
 }
+
 .appContentIDoWork {
-  /* border: 2px solid green; */
-  margin-top: 32px;
+  /* border: 1px solid red; */
+  /* margin-top: 3rem; */
   position: relative;
   z-index: 10;
 }
 
 .appContentIDoWork:last-child {
-  /* border: 2px solid green; */
-  margin-top: 16px;
+  /* margin-top: 16px; */
 }
 
 .appContentTitleIDoWork {
-  /* border: 2px solid red; */
+  /* border: 1px solid rgb(38, 55, 240); */
   color: #292929;
   font-family: var(--title-font);
   font-weight: 400;
@@ -852,9 +721,7 @@
 
 @media only screen and (min-width: 860px) {
   .appLeftContentHero {
-    /* border: 1px solid red; */
-    padding-top: 4rem;
-    /* width: 50%; */
+    /* padding-top: 4rem; */
   }
 
   .appLeftContentHeroRole {
@@ -867,21 +734,13 @@
 
   .appRightContentHero {
     display: flex;
-    /* border: 1px solid blue; */
-    /* width: 50%; */
   }
 
   .heroImg {
-    /* border: 1px solid red; */
     display: none;
     opacity: 1;
     filter: drop-shadow(1px 5px 1px rgba(27, 16, 54, 0.144));
     max-width: 100%;
-  }
-
-  .role,
-  .h3Skills {
-    /* font-size: 67.77px; */
   }
 
   .lineRightAbout,
@@ -894,9 +753,14 @@
     font-size: 18px;
   }
 
-  .contentProject {
-    /* border: 5px solid red; */
-    /* grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); */
+  .contentColl {
+    /* width: 80%; */
+  }
+
+  .contentCollImg {
+    /* border: 1px solid blue; */
+    /* display: flex; */
+    width: 80%;
   }
 
   .wrapperContentChallenge {
@@ -928,7 +792,7 @@
   }
 
   .wrapperPadding {
-    padding: 0 5vw;
+    /* padding: 0 5vw; */
   }
 
   .wrapperForm {
@@ -947,26 +811,24 @@
 
   .appRightContentHero {
     display: flex;
-    /* border: 1px solid blue; */
-    /* width: 50%; */
   }
+
   .heroImg {
     display: block;
+  }
+
+  .appContentAboutMeDescription {
+    /* border: 1px solid red; */
+    flex-direction: row;
+    gap: 6rem;
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  .contentCollImg {
+    width: 100%;
   }
 }
 
 @media only screen and (min-width: 2224px) {
-  .appLeftContentHero {
-    /* width: 50%; */
-  }
-
-  .appRightContentHero {
-    display: flex;
-    /* border: 1px solid blue; */
-    /* width: 50%; */
-  }
-  .heroImg {
-    display: block;
-    transform: scale(1.5);
-  }
 }
