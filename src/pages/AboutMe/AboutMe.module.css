@@ -8,7 +8,26 @@
   /* overflow: auto; */
 }
 
+.appLeftContentHero {
+  /* border: 1px solid red; */
+  /* max-width: 800px; */
+  /* padding-top: 2rem; */
+}
+
+.appRightContentHero {
+  /* border: 1px solid red; */
+  /* width: 60%; */
+  padding-top: 1rem;
+}
+
+.wrapperContentHero {
+  /* border: 1px solid red; */
+  padding-top: 1rem;
+  /* min-height: 100vh; */
+}
+
 .wrapperPadding {
+  /* border: 1px solid purple; */
   padding: 0 5vw;
   display: flex;
   justify-content: center;
@@ -25,8 +44,53 @@
   margin-top: 8rem;
 }
 
+.wrapperContentHero {
+  /* border: 1px solid red; */
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.appLeftContentHeroRole {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  position: relative;
+}
+
+.role {
+  color: #292929;
+  /* color: #ffffff; */
+  font-size: var(--title-font-size);
+  font-family: var(--title-font);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing);
+}
+
+.roleSpan {
+  /* border: 1px solid red; */
+  font-family: var(--title-font);
+  text-decoration: line-through;
+}
+
+.subTitleRole {
+  color: #292929;
+  font-size: 16px;
+  font-family: var(--title-font);
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing);
+  max-width: 500px;
+}
+
+.wrapperAboutMe {
+  /* border: 1px solid blue; */
+  margin-top: 7rem;
+}
+
 .appContentAboutMe {
-  margin-top: 3rem;
+  /* background: #292929; */
+  /* margin-top: 3rem; */
+  /* padding-top: 1rem; */
   position: relative;
   /* overflow: hidden; */
   /* z-index: 50; */
@@ -88,6 +152,16 @@
   position: relative;
   width: 100%;
   max-width: 70ch;
+}
+
+.wrapperAboutPhoto {
+  /* border: 1px solid red; */
+  min-height: 500px;
+}
+
+.contentAboutPhoto img {
+  width: 100%;
+  height: 100%;
 }
 
 .contentColl {
@@ -269,11 +343,15 @@
     margin-top: 1rem;
   }
 
+  .wrapperContentHero {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .contentColl {
     /* border: 1px solid red; */
-    position: absolute;
-    top: -20%;
-    right: 0;
+    /* position: absolute; */
+    /* top: -20%; */
+    /* right: 0; */
     width: 40%;
     z-index: 120;
   }

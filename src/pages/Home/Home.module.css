@@ -1,58 +1,56 @@
 .wrapperPadding {
-  border: 2px solid red;
-  padding: 3rem 5vw;
+  /* border: 1px solid red; */
+  padding: 2rem 5vw 0rem 5vw;
   display: flex;
   justify-content: center;
-  /* padding-top: 3rem; */
-  /* margin-bottom: 12rem; */
+  margin-bottom: 10rem;
 }
 
 .wrapperMaxWidth {
   width: 100%;
-  max-width: 1280px;
+  /* max-width: 1280px; */
   height: 100%;
 }
 
 .appContentHero {
+  /* border: 1px solid red; */
+  /* justify-content: flex-start; */
   height: 100vh;
 }
 
-.wordHeroColor {
-  /* border: 1px solid red; */
-  /* color: #7c4dff; */
-  /* position: absolute;
+/* .wordHeroColor { */
+/* border: 1px solid red; */
+/* color: #7c4dff; */
+/* position: absolute;
   top: 0;
   left: 0; */
-  font-family: var(--title-font);
-  /* max-width: 40%; */
-  /* height: 100%; */
-}
+/* font-family: var(--title-font); */
+/* max-width: 40%; */
+/* height: 100%; */
+/* } */
 
-.wordHeroColor img {
+/* .wordHeroColor img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-}
+} */
 
-.wrapperContentHero {
-  /* border: 2px solid blue; */
+/* .wrapperContentHero {
   display: flex;
   justify-content: space-between;
   height: 100%;
-}
+} */
 
 .appLeftContentHero {
-  /* border: 2px solid rgb(30, 102, 58); */
-  /* padding-top: 3rem; */
+  /* border: 1px solid red; */
   position: relative;
   width: 100%;
-  z-index: 30;
+  z-index: 40;
 }
 
 .appLeftContentHeroRole {
-  /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
   height: 50%;
@@ -60,31 +58,24 @@
 }
 
 .role {
-  /* border: 2px solid red; */
-  /* color: #ffffff; */
-  color: #292929;
-  font-size: var(--title-font-size);
-  /* font-size: clamp(18px, 10vw, 56px); */
-  font-family: var(--title-font);
-  font-weight: 600;
+  color: var(--primary-text);
+  font-size: var(--title-font-hero-size);
+  font-family: var(--font-family);
+  font-weight: 800;
   letter-spacing: var(--letter-spacing);
-  /* max-width: 800px; */
-  /* padding-top: 2rem; */
 }
 
 .subTitleRole {
-  /* border: 2px solid red; */
-  /* color: #ffffff; */
-  color: #292929;
+  color: var(--primary-text);
   font-size: 16px;
-  font-family: var(--title-font);
+  font-family: var(--font-family);
   font-weight: 400;
   letter-spacing: var(--letter-spacing);
   max-width: 500px;
+  margin-top: 2rem;
 }
 
 .contentButtonContact {
-  /* border: 2px solid red; */
   display: flex;
   align-self: flex-start;
   position: relative;
@@ -93,36 +84,37 @@
 
 .link.hero,
 .link.heroViewWork {
-  /* color: #ffffff; */
-  /* color: #292929; */
   color: #e7e8ef;
   display: block;
-  padding: 0.6rem 1.8rem;
+  /* padding: 0.6rem 1.8rem; */
 }
 
-.link.heroViewWork {
-  /* border: 2px solid red; */
-  /* text-align: left; */
-}
-
-.link.contact-form {
+/* .link.contact-form {
   color: var(--body-color);
-}
+} */
 
 .appRightContentHero {
-  display: none;
-  /* align-items: center; */
-  /* justify-content: flex-end; */
+  /* display: none; */
   right: 0;
-  /* padding: 8rem; */
   height: 100%;
   overflow: hidden;
   z-index: 20;
 }
 
 .appRightContentHeroImg {
-  position: relative;
-  /* width: 80%; */
+  /* border: 1px solid red; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.appRightContentHeroImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .wordsHero {
@@ -178,11 +170,12 @@
 }
 
 .appContentScrollArrow {
+  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: calc(100vh - 90px);
+  top: calc(100vh - 150px);
   margin-left: 3rem;
 }
 
@@ -249,11 +242,12 @@
 .contentProject {
   /* border: 1px solid red; */
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 32px;
   position: relative;
-  /* margin-top: 3rem; */
+  margin-top: 3rem;
   place-items: center;
+  min-height: 21rem;
 }
 
 .appContentPersonalProjectsHeader {
@@ -261,8 +255,8 @@
 }
 
 .spanWorkName {
-  font-size: var(--title-font-size);
-  font-family: var(--title-font);
+  font-size: 62px;
+  font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
   position: relative;
   z-index: 10;
@@ -454,106 +448,38 @@
   height: 100%;
 }
 
-.contentImgPhone {
-  position: relative;
-  filter: drop-shadow(8px 8px 20px rgba(106, 109, 131, 0.3));
-  z-index: 10;
-}
-
-.contentImgPhone img {
-  width: 100%;
-  height: auto;
-}
-
-.contentMoreLink {
-  display: flex;
-  justify-content: center;
-  padding-top: 8rem;
-  position: relative;
-}
-
-.circleCustomLinkAnimate {
-  background-color: var(--accent-color);
-  border-radius: 50%;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: -15%;
-  top: 10%;
-  width: 60px;
-  height: 60px;
-  opacity: 1;
-  filter: drop-shadow(1px 5px 3px rgba(27, 16, 54, 0.479));
-  z-index: 15;
-}
-
-.circleCustomLinkAnimate img {
-  width: 100%;
-  height: 100%;
-}
-
-.contentLinesCustomLink:hover .lineCustomLink {
-  transform: translateX(15%);
-}
-
-.contentLinesCustomLink:hover .circleCustomLink {
-  transform: translateX(-15%);
-}
-
-.contentLinesCustomLink {
-  position: relative;
-}
-
-.lineCustomLink,
-.circleCustomLink {
-  background-color: var(--accent-color);
-  display: block;
-  position: absolute;
-  transition: all 0.3s ease-in-out;
-}
-
-.lineCustomLink {
-  left: 30%;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-}
-
-.circleCustomLink {
-  border-radius: 50%;
-  bottom: 0;
-  left: -15%;
-  width: 60px;
-  height: 60px;
-  opacity: 0.4;
-  z-index: 1;
-}
-
-.moreLink {
-  color: var(--primary-text);
-  font-size: calc(1vw + 1.3em);
-  font-family: var(--title-font);
-  position: relative;
-  z-index: 10;
-}
-
 .wrapperAppContentIDoWork {
   /* border: 1px solid red; */
   /* padding: 3rem 0 4rem 0; */
   position: relative;
-  backdrop-filter: blur(50px);
+  /* backdrop-filter: blur(50px); */
+}
+
+.serviceSection::after {
+  /* border: 2px solid blue; */
+  /* content: ""; */
+  /* background: purple; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* backdrop-filter: blur(50px); */
 }
 
 .wrapperServices {
-  /* border: 1px solid red; */
-  /* margin-top: 3rem; */
+  /* border: 2px solid green; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-top: 3rem;
 }
 
 .contentCircleBlur {
   /* border: 2px solid red; */
   position: absolute;
-  top: -230px;
-  left: 30%;
+  top: -25px;
+  left: 50%;
   width: 100px;
   height: 100px;
 }
@@ -579,9 +505,10 @@
 }
 
 .spanIDoWorkName {
-  color: #292929;
-  font-size: var(--title-font-size);
-  font-family: var(--title-font);
+  /* border: 1px solid red; */
+  color: #ffffff;
+  font-size: 62px;
+  font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
   position: relative;
   z-index: 10;
@@ -596,20 +523,19 @@
 }
 
 .appContentIDoWork {
-  /* border: 1px solid red; */
-  /* margin-top: 3rem; */
+  /* border: 2px solid red; */
+  border-radius: 16px;
+  background-color: #1f1340;
+  padding: 1.5rem;
   position: relative;
+  margin-bottom: 16px;
+  min-height: 22rem;
   z-index: 10;
 }
 
-.appContentIDoWork:last-child {
-  /* margin-top: 16px; */
-}
-
 .appContentTitleIDoWork {
-  /* border: 1px solid rgb(38, 55, 240); */
-  color: #292929;
-  font-family: var(--title-font);
+  color: #ffffff;
+  font-family: var(--font-family);
   font-weight: 400;
   font-size: 1.5rem;
   letter-spacing: var(--letter-spacing);
@@ -617,8 +543,8 @@
 }
 
 .appContentTitleIDoWorkSubTitle {
-  color: #292929;
-  font-family: var(--title-font);
+  color: #ffffff;
+  font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
 }
 
@@ -716,7 +642,7 @@
 }
 
 .wrapperPadding {
-  position: relative;
+  /* position: relative; */
 }
 
 @media only screen and (min-width: 860px) {

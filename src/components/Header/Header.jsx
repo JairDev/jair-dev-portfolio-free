@@ -122,145 +122,96 @@ function Header() {
   };
 
   return (
-    <header id="nav-hidden" className={styles.appContentNav}>
-      <span id="back-header" className={styles.spanBack}></span>
-      <span id="nav-show" className={styles.spanStyleNav}></span>
-      <nav className={styles.appNav}>
-        <div className="app-content-nav-logo">
-          <div className="app-nav-logo">
-            <Link ref={refObject.logoRef} className={styles.logoName} to="/">
-              Alfredo Moscoso
-            </Link>
-          </div>
-        </div>
-        <motion.div
-          ref={refObject.refLinkWork}
-          // animate={{ opacity: yVisibility >= 1 ? 0 : 1 }}
-          className={styles.linkWorkNav}
-        >
-          <ul className={styles.contentNavTopLinks}>
-            <li>
-              <a href="/about-me" className={styles.linkTop}>
-                Quien soy?
-              </a>
-            </li>
-            <li>
-              <a
-                href="#personal-work"
-                data-link="link"
-                className={styles.linkTop}
-              >
-                Trabajos
-              </a>
-            </li>
-          </ul>
-        </motion.div>
-        <div onClick={handleClick} className={styles.parentMenu}>
-          <motion.div
-            animate={{ opacity: yVisibility >= 300 ? 1 : 0 }}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className={styles.iconNaCoord}
-            transition={{
-              ease: "easeInOut",
-              duration: 0.4,
-            }}
-          >
-            <div
-              id="parent-icon"
-              ref={refObject.parentIcon}
-              className={styles.iconNav}
-            >
-              <svg width="60" height="60" viewBox="0 0 63 63">
-                <circle className={styles.path} cx="50%" cy="50%" r="30" />
-                <circle className={styles.pathLayer} cx="50%" cy="50%" r="30" />
-              </svg>
-
-              <div
-                id="open-click"
-                ref={refObject.iconOpenRef}
-                className={styles.parentIconOpen}
-              >
-                <img src={NavIcon} width="32" height="32" alt="" />
-              </div>
-              <div
-                id="close-click"
-                ref={refObject.iconCloseRef}
-                className={styles.parentIconClose}
-              >
-                <img src={NavIconClose} width="32" height="32" alt="" />
-              </div>
+    <header
+      id="nav-hidden"
+      className={`${styles.appContentNav} ${styles.wrapperPadding}`}
+    >
+      <div className={styles.wrapperMaxWidth}>
+        <span id="back-header" className={styles.spanBack}></span>
+        <span id="nav-show" className={styles.spanStyleNav}></span>
+        <nav className={styles.appNav}>
+          <div className="app-content-nav-logo">
+            <div className="app-nav-logo">
+              <Link ref={refObject.logoRef} className={styles.logoName} to="/">
+                Alfredo Moscoso
+              </Link>
             </div>
-          </motion.div>
-        </div>
-        <motion.div
-          id="content-nav-links"
-          ref={refObject.menuStyle}
-          className={styles.appContentNavLinks}
-          initial={{ translateX: "100%" }}
-          variants={moveVariants}
-          animate={isOpen ? "open" : "closed"}
-          transition={{
-            ease: "easeIn",
-            duration: 0.5,
-          }}
-        >
-          <ul
-            ref={refObject.refContentLinks}
-            onClick={handleClickLinks}
-            id="ul-content-li"
-            className={styles.ulContentLinks}
+          </div>
+          <motion.div
+            ref={refObject.refLinkWork}
+            // animate={{ opacity: yVisibility >= 1 ? 0 : 1 }}
+            className={styles.linkWorkNav}
           >
-            <li className={styles.liLink}>
-              <a
-                href="#personal-work"
-                data-link="link"
-                className={styles.itemLink}
+            <ul className={styles.contentNavTopLinks}>
+              <li>
+                <a href="/about-me" className={styles.linkTop}>
+                  Sobre mí
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#personal-work"
+                  data-link="link"
+                  className={styles.linkTop}
+                >
+                  Trabajos
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+          <motion.div
+            onClick={handleClick}
+            className={styles.parentMenu}
+            initial={{ zIndex: 0 }}
+            animate={{ zIndex: yVisibility >= 300 ? 35 : 0 }}
+          >
+            <motion.div
+              animate={{ opacity: yVisibility >= 300 ? 1 : 0 }}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              className={styles.iconNaCoord}
+              transition={{
+                ease: "easeInOut",
+                duration: 0.4,
+              }}
+            >
+              <div
+                id="parent-icon"
+                ref={refObject.parentIcon}
+                className={styles.iconNav}
               >
-                Proyectos Personales
-              </a>
-            </li>
+                <svg width="60" height="60" viewBox="0 0 63 63">
+                  <circle className={styles.path} cx="50%" cy="50%" r="30" />
+                  <circle
+                    className={styles.pathLayer}
+                    cx="50%"
+                    cy="50%"
+                    r="30"
+                  />
+                </svg>
 
-            <li className={styles.liLink}>
-              <a
-                href="#challenges"
-                data-link="link"
-                className={styles.itemLink}
-              >
-                Desafíos Frontend
-              </a>
-            </li>
-            <li className={styles.liLink}>
-              <a href="#about-me" data-link="link" className={styles.itemLink}>
-                Conóceme
-              </a>
-            </li>
-
-            <li className={styles.liLink}>
-              <a href="#contact" data-link="link" className={styles.itemLink}>
-                Contacto
-              </a>
-            </li>
-          </ul>
-        </motion.div>
-        <motion.div
-          className={styles.contentSvg}
-          initial={{ translateX: "100%" }}
-          animate={isOpen ? { translateX: "0%" } : { translateX: "100%" }}
-          transition={{
-            ease: "easeIn",
-            duration: 0.5,
-          }}
-        >
-          <motion.svg
-            ref={refObject.refSvg}
-            className={styles.shape}
-            // viewBox="0 0 172.2084 248.56923"
-            viewBox=""
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-            initial={{ translateX: "100%", rotate: "180deg" }}
+                <div
+                  id="open-click"
+                  ref={refObject.iconOpenRef}
+                  className={styles.parentIconOpen}
+                >
+                  <img src={NavIcon} width="32" height="32" alt="" />
+                </div>
+                <div
+                  id="close-click"
+                  ref={refObject.iconCloseRef}
+                  className={styles.parentIconClose}
+                >
+                  <img src={NavIconClose} width="32" height="32" alt="" />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            id="content-nav-links"
+            ref={refObject.menuStyle}
+            className={styles.appContentNavLinks}
+            initial={{ translateX: "100%" }}
             variants={moveVariants}
             animate={isOpen ? "open" : "closed"}
             transition={{
@@ -268,22 +219,90 @@ function Header() {
               duration: 0.5,
             }}
           >
-            <motion.path
-              ref={refObject.refPath}
-              d={
-                "M 35 24 v 248 h 104 s 33 -39 33 -124 c 0 -84 -32 -124 -32 -124 z"
-              }
-              fill="#7c4dff"
-              variants={clip_path_variants}
-              animate={isOpen ? "open" : " closed"}
+            <ul
+              ref={refObject.refContentLinks}
+              onClick={handleClickLinks}
+              id="ul-content-li"
+              className={styles.ulContentLinks}
+            >
+              <li className={styles.liLink}>
+                <a
+                  href="#personal-work"
+                  data-link="link"
+                  className={styles.itemLink}
+                >
+                  Proyectos Personales
+                </a>
+              </li>
+
+              <li className={styles.liLink}>
+                <a
+                  href="#challenges"
+                  data-link="link"
+                  className={styles.itemLink}
+                >
+                  Desafíos Frontend
+                </a>
+              </li>
+              <li className={styles.liLink}>
+                <a
+                  href="#about-me"
+                  data-link="link"
+                  className={styles.itemLink}
+                >
+                  Conóceme
+                </a>
+              </li>
+
+              <li className={styles.liLink}>
+                <a href="#contact" data-link="link" className={styles.itemLink}>
+                  Contacto
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+          <motion.div
+            className={styles.contentSvg}
+            initial={{ translateX: "100%" }}
+            animate={isOpen ? { translateX: "0%" } : { translateX: "100%" }}
+            transition={{
+              ease: "easeIn",
+              duration: 0.5,
+            }}
+          >
+            <motion.svg
+              ref={refObject.refSvg}
+              className={styles.shape}
+              // viewBox="0 0 172.2084 248.56923"
+              viewBox=""
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              initial={{ translateX: "100%", rotate: "180deg" }}
+              variants={moveVariants}
+              animate={isOpen ? "open" : "closed"}
               transition={{
                 ease: "easeIn",
                 duration: 0.5,
               }}
-            />
-          </motion.svg>
-        </motion.div>
-      </nav>
+            >
+              <motion.path
+                ref={refObject.refPath}
+                d={
+                  "M 35 24 v 248 h 104 s 33 -39 33 -124 c 0 -84 -32 -124 -32 -124 z"
+                }
+                fill="#7c4dff"
+                variants={clip_path_variants}
+                animate={isOpen ? "open" : " closed"}
+                transition={{
+                  ease: "easeIn",
+                  duration: 0.5,
+                }}
+              />
+            </motion.svg>
+          </motion.div>
+        </nav>
+      </div>
     </header>
   );
 }

@@ -2,20 +2,23 @@
   --body-color: #e7e8ef;
   --white-color: #ffffff;
   --transparent-color: rgba(255, 255, 255, 0);
-  --primary-color: #3f51b5;
+  --primary-color: #7c4dff;
   --light-prymary-color: #c5cae9;
   --light-prymary-color-hero: rgb(124, 77, 255, 0.7);
   --dark-primary-color: #303f9f;
   --accent-color: #7c4dff;
   --light-accent-color: #bea6ff;
-  --primary-text: #2a2a2a;
-  --title-font-size: clamp(1rem, 10vw, 4rem);
+  /* --primary-text: #2a2a2a; */
+  --primary-text: #ffffff;
+  /* --title-font-size: clamp(1rem, 10vw, 4rem); */
+  --title-font-hero-size: 78px;
   --sub-title-font-size: clamp(1rem, 10vw, 3rem);
   --paragraph-font-size: clamp(16px, 2vw, 18px);
   --text-button-small: calc(1vw + 0.3em);
   --text-button-big: calc(1vw + 0.8em);
-  --title-font: "Saira";
-  --sub-title-font: "Saira";
+  /* --title-font: "Saira"; */
+  /* --sub-title-font: "Saira"; */
+  --font-family: "Poppins", sans-serif;
   --letter-spacing: 1px;
   --line-height: 170%;
   --line-height-list: 200%;
@@ -27,7 +30,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
 }
 
 #container {
@@ -45,28 +48,30 @@ li {
 }
 
 .App {
-  background-color: var(--body-color);
+  background-color: rgb(118, 118, 118);
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  position: relative;
-  font-family: "Roboto", sans-serif;
+  /* position: relative; */
+  /* font-family: "Roboto", sans-serif; */
   /* overflow: hidden; */
 }
 
 .backgroundSectionLeft {
+  /* border: 2px solid black; */
   display: block;
   position: absolute;
-  top: 2%;
-  left: 50%;
+  top: 0%;
+  right: 0%;
   width: 40%;
   opacity: 1;
   z-index: 2;
   overflow: hidden;
+  /* color: #ff0a74cc; */
 }
 
 .blurLayer {
-  display: block;
+  /* display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -75,7 +80,7 @@ li {
   opacity: 0;
   overflow: hidden;
   backdrop-filter: blur(50px);
-  z-index: 5;
+  z-index: 5; */
 }
 
 .page {

@@ -1,7 +1,14 @@
+.wrapperMaxWidth {
+  width: 100%;
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+}
+
 .appContentNav {
   display: flex;
   justify-content: center;
-  padding: 1.5rem 5vw;
+  padding: 1.5rem 5vw 0rem 5vw;
   position: relative;
   top: 0;
   width: 100%;
@@ -38,9 +45,9 @@
 
 .logoName {
   color: var(--primary-text);
-  font-size: 18px;
-  font-family: var(--title-font);
-  letter-spacing: 1px;
+  font-size: 16px;
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
 }
 
 .appContentNavLinks {
@@ -75,9 +82,10 @@
 }
 
 .linkWorkNav a {
-  color: #292929;
-  font-family: var(--title-font);
-  font-size: 18px;
+  color: var(--primary-text);
+  font-family: var(--font-family);
+  font-size: 16px;
+  letter-spacing: var(--letter-spacing);
 }
 
 .appContentNavLinks.show {

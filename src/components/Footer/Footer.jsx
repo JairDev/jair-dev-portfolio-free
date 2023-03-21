@@ -56,13 +56,17 @@ function Footer() {
           y="0"
         >
           <path
+            //i M 0 66 L 209 66 L 209 187 L 0 187 Z
+            // f M 0 26 C 0 26 38 0 104 0 C 170 0 209 26 209 26 L 209 187 L 0 187 Z
             data-path-footer="data-path-footer"
             ref={refPath}
             className={styles.pathAni}
             d="M 272 -1 L 532 -1 C 289 -1 262 -1 2 -1 Z"
             data-path-to="M 272 -1 L 532 -1 C 283 68 264 68 2 -1 Z"
+            // d="M 0 66 L 209 66 L 209 187 L 0 187 Z"
+            // data-path-to="M 0 26 C 0 26 38 0 104 0 C 170 0 209 26 209 26 L 209 187 L 0 187 Z"
             vectorEffect="non-scaling-stroke"
-            fill="#3f51b5"
+            fill="#1f1340"
           />
         </svg>
       </div>

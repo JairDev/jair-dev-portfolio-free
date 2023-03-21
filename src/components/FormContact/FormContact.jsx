@@ -65,10 +65,23 @@ function FormContact() {
 
   return (
     <>
-      <h2 data-text="text" className={styles.spanIDoWorkName}>
+      <h2
+        data-text="text"
+        className={styles.spanIDoWorkName}
+        data-splitting
+        data-effect17
+      >
         Trabajemos juntos
       </h2>
       <div className={styles.appContentFooterFormContact}>
+        <p className={styles.appFormPD}>
+          Este formulario es para tener una noción de tus requerimientos, puedes
+          dejarme un mensaje con esa idea genial que tienes en mente, si puedes
+          se lo más específico posible por favor.
+        </p>
+        <p className={styles.appFormPDReply}>
+          Te responderé en las próximas 24h, ¡ Gracias !
+        </p>
         <div className={styles.wrapperForm}>
           <div className={styles.headerContact}>
             {/* <h4>Trabajemos juntos</h4> */}
@@ -82,7 +95,6 @@ function FormContact() {
             <div className={styles.contentInput}>
               <span>Nombre</span>
               <input
-                placeholder={"Eg. Jhon Doe"}
                 name="fromName"
                 {...register("fromName", { required: true })}
               ></input>
@@ -109,7 +121,6 @@ function FormContact() {
               <span>Correo</span>
               <input
                 // type="email"
-                placeholder={"Eg. correo@JhonDoe"}
                 name="userEmail"
                 {...register("userEmail", {
                   required: true,
@@ -154,7 +165,6 @@ function FormContact() {
             <div className={styles.contentInput}>
               <span>Mensaje</span>
               <textarea
-                placeholder={"Nos gustaría..."}
                 name="message"
                 {...register("message", {
                   required: true,

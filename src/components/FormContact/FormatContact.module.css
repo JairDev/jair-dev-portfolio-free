@@ -21,9 +21,33 @@
 }
 
 .appContentFooterFormContact {
+  /* border: 1px solid red; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
+  margin-top: 3rem;
+}
+
+.appFormPD,
+.appFormPDReply {
+  /* border: 1px solid red; */
+  color: #292929;
+  font-size: 16px;
+  font-family: var(--title-font);
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing);
+  max-width: 70ch;
+}
+
+.appFormPD {
+  font-size: 18px;
+}
+
+.appFormPDReply {
+  /* border: 1px solid red; */
+  text-align: center;
   margin-top: 3rem;
 }
 
@@ -37,8 +61,11 @@
 .wrapperForm,
 .formContact input,
 .formContact textarea {
-  background-color: var(--light-prymary-color);
-  /* background-color: #e7e8ef; */
+  /* background-color: var(--light-prymary-color); */
+  background-color: #e7e8ef;
+  /* background-color: var(--primary-color); */
+  /* backdrop-filter: blur(100px); */
+  /* background: linear-gradient(rgb(193, 44, 243), rgb(48, 23, 206)); */
 }
 
 .formContact {

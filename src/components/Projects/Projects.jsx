@@ -55,39 +55,41 @@ function Projects({
         id={id}
         className={styles.contentPersonalProject}
       >
-        <motion.div className={styles.contentPersonalProjectFlex}>
-          <div
-            ref={refAnimateLink}
-            className={styles.contentPersonalProjectImg}
-            onMouseMove={handleMouseMove}
+        {/* <motion.div className={styles.contentPersonalProjectFlex}> */}
+        <div
+          ref={refAnimateLink}
+          className={styles.contentPersonalProjectImg}
+          onMouseMove={handleMouseMove}
+        >
+          <motion.div
+            ref={refViewSite}
+            className={styles.viewSite}
+            style={{
+              translateX: x,
+              translateY: y,
+            }}
+          ></motion.div>
+          <img src={imgSrcApp} alt="" />
+          <div className={styles.blurImg}></div>
+          <motion.div
+            ref={refViewSite}
+            className={`${styles.viewSite} ${styles.viewSiteText}`}
+            style={{
+              translateX: x,
+              translateY: y,
+            }}
           >
-            <motion.div
-              ref={refViewSite}
-              className={styles.viewSite}
-              style={{
-                translateX: x,
-                translateY: y,
-              }}
-            ></motion.div>
-            <img src={imgSrcApp} alt="" />
-            <div className={styles.blurImg}></div>
-            <motion.div
-              ref={refViewSite}
-              className={`${styles.viewSite} ${styles.viewSiteText}`}
-              style={{
-                translateX: x,
-                translateY: y,
-              }}
-            >
-              Ver sitio
-            </motion.div>
-          </div>
+            Ver sitio
+          </motion.div>
+        </div>
 
-          <div className={styles.contentTitleProject}>
-            <h3>{name}</h3>
-            <h6>{subTitle}</h6>
-          </div>
-        </motion.div>
+        <div className={styles.contentTitleProject}>
+          {/* <div> */}
+          <h3>{name}</h3>
+          <h6>{subTitle}</h6>
+          {/* </div> */}
+        </div>
+        {/* </motion.div> */}
       </div>
     </>
   );

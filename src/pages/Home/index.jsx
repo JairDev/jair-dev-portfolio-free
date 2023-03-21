@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { Helmet } from "react-helmet";
 
@@ -15,14 +15,19 @@ import { personalProjects } from "../../data/info-portfolio";
 // import ArrowIcon from "../../assets/arrow.svg";
 // import blob from "../../assets/blob.svg";
 // import blobBlur from "../../assets/blob-blur2.png";
-import coll from "assets/coll.png";
-import lines from "assets/lines.png";
+import cube from "assets/render.webp";
+// import lines from "assets/lines.png";
 
 import Button from "components/Button/Button";
 import Projects from "components/Projects/Projects";
 
 import styles from "./Home.module.css";
-import { useState } from "react";
+
+import Splitting from "splitting";
+
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+Splitting();
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -39,6 +44,8 @@ function Home() {
   const projects = personalProjects.slice(0, 4);
 
   const [isMounted, setIsMounted] = useState(false);
+
+  const refText = useRef(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -62,22 +69,58 @@ function Home() {
 
   useEffect(() => {
     if (isMounted) {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: "#circle-blur",
-            start: "top 65% ",
-            end: "100% -10%",
-            scrub: true,
-            // markers: true,
-          },
-        })
-        .to("#circle-blur", {
-          ease: "sine.out",
-          duration: 0.7,
-          opacity: 1,
-          y: 280,
+      // console.log(refText.current);
+      const split = gsap.utils.toArray("[data-text]").map((node, i) => {
+        const results = Splitting({ target: node.current, by: "chars" });
+        // console.log(results[i]);
+        return results[i];
+      });
+      split.forEach((chars) => {
+        // console.log(chars.chars);
+        chars.chars.forEach((letter) => {
+          gsap.set(letter.parentNode, { perspective: 1000 });
+          // gsap.fromTo(
+          //   chars.chars,
+          //   {
+          //     "will-change": "opacity, transform",
+          //     opacity: 0,
+          //     rotateX: () => gsap.utils.random(-120, 120),
+          //     z: () => gsap.utils.random(-200, 200),
+          //   },
+          //   {
+          //     ease: "none",
+          //     opacity: 1,
+          //     rotateX: 0,
+          //     z: 0,
+          //     stagger: 0.02,
+          //     scrollTrigger: {
+          //       trigger: letter,
+          //       start: "top 140%",
+          //       end: "bottom 25%",
+          //       scrub: true,
+          //       // markers: true,
+          //     },
+          //   }
+          // );
         });
+      });
+
+      // gsap
+      //   .timeline({
+      //     scrollTrigger: {
+      //       trigger: "#circle-blur",
+      //       start: "top 65% ",
+      //       end: "100% -10%",
+      //       scrub: true,
+      //       // markers: true,
+      //     },
+      //   })
+      //   .to("#circle-blur", {
+      //     ease: "sine.out",
+      //     duration: 0.7,
+      //     opacity: 1,
+      //     y: 280,
+      //   });
     }
   }, [isMounted]);
 
@@ -94,20 +137,8 @@ function Home() {
           <div className={styles.wrapperContentHero}>
             <div className={styles.appLeftContentHero}>
               <div className={styles.appLeftContentHeroRole}>
-                {/* <h1 className={styles.role}>
-                  Potencia tu marca en el mundo digital.
-                </h1>
-                <h2 className={styles.subTitleRole}>
-                  Tu negocio también debe brillar de forma online.Destaca sobre
-                  la competencia mostrando lo único que eres.
-                </h2> */}
                 <div className={styles.wordHeroColor}>
-                  <h1 className={styles.role}>
-                    {/* <span className={styles.wordHeroColor}> */}
-                    {/* </span> */}
-                    Destaca sobre la competencia.
-                  </h1>
-                  {/* <img src={lines} alt="" />s */}
+                  <h1 className={styles.role}>Destaca sobre la competencia.</h1>
                 </div>
 
                 <h2 className={styles.subTitleRole}>
@@ -125,7 +156,7 @@ function Home() {
                       href="#contact"
                       data-link="link"
                     >
-                      Contáctame
+                      Iniciar un proyecto
                     </a>
                   </Button>
                 </div>
@@ -141,9 +172,6 @@ function Home() {
                     • scroll • scroll • scroll • scroll • scroll
                   </p>
                 </div>
-                <span className={styles.scrollBack}>
-                  {/* <img src={ArrowIcon} alt="arrow icon" /> */}
-                </span>
               </div>
             </div>
             <div className={styles.appRightContentHero}>
@@ -152,26 +180,8 @@ function Home() {
                 data-heroimage="heroimage"
                 className={styles.appRightContentHeroImg}
               >
-                <span className={`${styles.wordsHero} ${styles.top}`}>
-                  Responsive Design
-                </span>
-                <span className={`${styles.wordsHero} ${styles.topRight}`}>
-                  Px
-                </span>
-                {/* <span className={`${styles.wordsHero} ${styles.rightMiddle}`}>
-                  Layout
-                </span> */}
-                <span className={`${styles.wordsHero} ${styles.bottomRight}`}>
-                  Interaction
-                </span>
+                <img src={cube} />
               </div>
-              <span
-                ref={objRef.word}
-                className={`${styles.wordsHero} ${styles.bottomLeft}`}
-                data-wordweb="wordweb"
-              >
-                {/* Web */}
-              </span>
             </div>
           </div>
         </div>
@@ -183,7 +193,13 @@ function Home() {
       >
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.appContentPersonalProjectsHeader}>
-            <h2 data-text="text" className={styles.spanWorkName}>
+            <h2
+              ref={refText}
+              data-text="text"
+              className={styles.spanWorkName}
+              data-splitting
+              data-effect17
+            >
               Trabajos seleccionados
             </h2>
           </div>
@@ -210,19 +226,15 @@ function Home() {
         className={`${styles.wrapperPadding} ${styles.serviceSection}`}
       >
         <div className={styles.wrapperMaxWidth}>
-          <div className={styles.contentCircleBlur}>
-            <span
-              id="circle-blur"
-              data-span-ani="data-span-ani"
-              className={styles.circleBlur}
-            ></span>
-
-            <span
-              className={`${styles.circleBlur} ${styles.circleBlurGrey}`}
-            ></span>
-          </div>
+          <div className={styles.contentCircleBlur}></div>
           <div className={styles.wrapperAppContentIDoWork}>
-            <h2 data-text="text" className={styles.spanIDoWorkName}>
+            <h2
+              ref={refText}
+              data-text="text"
+              className={styles.spanIDoWorkName}
+              data-splitting
+              data-effect17
+            >
               Puedo ayudarte con
             </h2>
 
@@ -243,11 +255,6 @@ function Home() {
                 <div className={styles.appContentTitleIDoWorkSubTitle}>
                   Autenticación (registro/inicio de sesión), integración con
                   bases de datos.
-                </div>
-              </div>
-              <div className={styles.appContentIDoWork}>
-                <div className={styles.appContentTitleIDoWork}>
-                  Rediseño de sitios web
                 </div>
               </div>
             </div>
