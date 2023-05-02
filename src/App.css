@@ -1,17 +1,19 @@
 :root {
-  --body-color: #e7e8ef;
+  --body-color: #ffffff;
   --white-color: #ffffff;
   --transparent-color: rgba(255, 255, 255, 0);
   --primary-color: #7c4dff;
-  --light-prymary-color: #c5cae9;
+  --light-prymary-color: red;
   --light-prymary-color-hero: rgb(124, 77, 255, 0.7);
   --dark-primary-color: #303f9f;
   --accent-color: #7c4dff;
   --light-accent-color: #bea6ff;
+  --title-dark-color: #1f1340;
   /* --primary-text: #2a2a2a; */
   --primary-text: #ffffff;
   /* --title-font-size: clamp(1rem, 10vw, 4rem); */
-  --title-font-hero-size: 78px;
+  --title-font-hero-size: clamp(3rem, 1rem + 1.5vw, 4.875rem);
+  --title-font-section-size: clamp(2rem, 1rem + 1.5vw, 3.875rem);
   --sub-title-font-size: clamp(1rem, 10vw, 3rem);
   --paragraph-font-size: clamp(16px, 2vw, 18px);
   --text-button-small: calc(1vw + 0.3em);
@@ -48,7 +50,7 @@ li {
 }
 
 .App {
-  background-color: rgb(118, 118, 118);
+  /* background-color: rgb(118, 118, 118); */
   justify-content: center;
   align-items: center;
   min-height: 100vh;

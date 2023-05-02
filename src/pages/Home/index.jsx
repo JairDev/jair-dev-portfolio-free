@@ -15,7 +15,9 @@ import { personalProjects } from "../../data/info-portfolio";
 // import ArrowIcon from "../../assets/arrow.svg";
 // import blob from "../../assets/blob.svg";
 // import blobBlur from "../../assets/blob-blur2.png";
-import cube from "assets/render.webp";
+// import cube from "assets/render.webp";
+import phone from "assets/mobile-phone-img.svg";
+// import tablet from "assets/mobile-tablet-img.svg";
 // import lines from "assets/lines.png";
 
 import Button from "components/Button/Button";
@@ -64,7 +66,7 @@ function Home() {
     });
 
     const circleType = new CircleType(refCircleText.current);
-    circleType.radius(40);
+    circleType.radius(80);
   }, [objRef]);
 
   useEffect(() => {
@@ -127,7 +129,7 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Alfredo Moscoso | Portfolio</title>
+        <title>Alfredo Moscoso | Portafolio</title>
       </Helmet>
       <section
         className={`${styles.wrapperPadding} ${styles.appContentHero}`}
@@ -138,12 +140,13 @@ function Home() {
             <div className={styles.appLeftContentHero}>
               <div className={styles.appLeftContentHeroRole}>
                 <div className={styles.wordHeroColor}>
-                  <h1 className={styles.role}>Destaca sobre la competencia.</h1>
+                  <h1 className={styles.role}>
+                    Construye tu presencia en línea.
+                  </h1>
                 </div>
 
                 <h2 className={styles.subTitleRole}>
-                  Potencia tu marca en el mundo digital mostrando lo único que
-                  eres.
+                  Sitios web personalizados que se adaptan a tus necesidades.
                 </h2>
                 <div
                   ref={objRef.triggerButton}
@@ -169,7 +172,8 @@ function Home() {
                   data-rotate-text="rotate-text"
                 >
                   <p ref={refCircleText} className={styles.circleText}>
-                    • scroll • scroll • scroll • scroll • scroll
+                    • scroll • scroll • scroll • scroll • scroll • scroll •
+                    scroll • scroll • scroll • scroll
                   </p>
                 </div>
               </div>
@@ -180,7 +184,7 @@ function Home() {
                 data-heroimage="heroimage"
                 className={styles.appRightContentHeroImg}
               >
-                <img src={cube} />
+                {/* <img src={cube} /> */}
               </div>
             </div>
           </div>
@@ -196,7 +200,7 @@ function Home() {
             <h2
               ref={refText}
               data-text="text"
-              className={styles.spanWorkName}
+              className={`${styles.spanWorkName} ${styles.titleSections}`}
               data-splitting
               data-effect17
             >
@@ -221,6 +225,7 @@ function Home() {
         </div>
       </section>
 
+      {/* ----------------------services------------------ */}
       <section
         id="personal-work"
         className={`${styles.wrapperPadding} ${styles.serviceSection}`}
@@ -231,7 +236,7 @@ function Home() {
             <h2
               ref={refText}
               data-text="text"
-              className={styles.spanIDoWorkName}
+              className={`${styles.titleSections}`}
               data-splitting
               data-effect17
             >
@@ -239,19 +244,165 @@ function Home() {
             </h2>
 
             <div className={styles.wrapperServices}>
-              <div className={styles.appContentIDoWork}>
-                <div className={styles.appContentTitleIDoWork}>
-                  Landing pages
-                </div>
+              <div className={styles.servicesCard}>
+                <h3 className={styles.appContentTitleIDoWork}>Landing pages</h3>
                 <div className={styles.appContentTitleIDoWorkSubTitle}>
                   Sitio web de una página, ideal para emprendedores, pequeñas
                   empresas, presentación de productos.
                 </div>
               </div>
-              <div className={styles.appContentIDoWork}>
-                <div className={styles.appContentTitleIDoWork}>
+              <div className={styles.servicesCard}>
+                <h3 className={styles.appContentTitleIDoWork}>
                   Sitios web de múltiples de páginas
+                </h3>
+                <div className={styles.appContentTitleIDoWorkSubTitle}>
+                  Autenticación (registro/inicio de sesión), integración con
+                  bases de datos.
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="personal-work"
+        className={`${styles.wrapperPadding} ${styles.benefitsSection}`}
+      >
+        <div className={styles.wrapperMaxWidth}>
+          <div className={styles.contentCircleBlur}></div>
+          <div className={styles.wrapperAppContentIDoWork}>
+            <h2
+              ref={refText}
+              data-text="text"
+              className={`${styles.titleSections}`}
+              data-splitting
+              data-effect17
+            >
+              Que obtendrás
+            </h2>
+            <p className={styles.youGetDescription}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
+              voluptates earum ipsum odio, aspernatur ducimus corrupti
+              necessitatibus magnam eligendi eius impedit voluptatem ipsam iure!
+              Deserunt laudantium molestiae enim natus ipsum.
+            </p>
+
+            <div className={styles.wrapperBenefits}>
+              {/* mobile */}
+              <div className={styles.wrapperMobileBenefits}>
+                <p className={styles.benefitsHeader}>
+                  Sitios web optimizados para dispositivos moviles
+                </p>
+                <div className={styles.wrapperMobileFeatureAnimation}>
+                  <div className={styles.featureAnimation}>
+                    <img src={phone} alt="" />
+                  </div>
+                </div>
+              </div>
+              {/* security */}
+              <div className={styles.wrapperSecurityBenefits}>
+                <p className={styles.benefitsHeader}>
+                  La seguridad es primordial
+                </p>
+                <div className={styles.benefitsCard}>
+                  Utilizo herramientas que proporcionan una infraestructura
+                  donde tus datos estarán 100% seguros.
+                </div>
+              </div>
+              {/* seo */}
+              <div className={styles.wrapperSeoBenefits}>
+                <p className={styles.benefitsHeader}>
+                  Optimización básica de motores de búsqueda (SEO)
+                </p>
+                <div className={styles.benefitsCard}>
+                  Utilizo herramientas que proporcionan una infraestructura
+                  donde tus datos estarán 100% seguros.
+                </div>
+              </div>
+              {/* maintenance */}
+              <div className={styles.wrapperSupportBenefits}>
+                <p className={styles.benefitsHeader}>Soporte y mantenimiento</p>
+                <div className={styles.benefitsCard}>
+                  Utilizo herramientas que proporcionan una infraestructura
+                  donde tus datos estarán 100% seguros.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.contentSquare}>
+          <svg
+            // width="1040"
+            // height="1040"
+            viewBox="0 0 1040 1040"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="1040"
+              width="1040"
+              height="1040"
+              rx="80"
+              transform="rotate(90 1040 0)"
+              fill="#382273"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <section
+        id="personal-work"
+        className={`${styles.wrapperPadding} ${styles.processSection}`}
+      >
+        <div className={styles.wrapperMaxWidth}>
+          <div className={styles.contentCircleBlur}></div>
+          <div className={styles.wrapperAppContentIDoWork}>
+            <h2
+              ref={refText}
+              data-text="text"
+              className={`${styles.processTitle} ${styles.titleSections}`}
+              data-splitting
+              data-effect17
+            >
+              Mi proceso
+            </h2>
+
+            <p className={styles.processDescription}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
+              voluptates earum ipsum odio, aspernatur ducimus corrupti
+            </p>
+
+            <div className={styles.wrapperServices}>
+              <div className={styles.cardProcess}>
+                <h3 className={styles.appContentTitleIDoWork}>Landing pages</h3>
+                <div className={styles.appContentTitleIDoWorkSubTitle}>
+                  Sitio web de una página, ideal para emprendedores, pequeñas
+                  empresas, presentación de productos.
+                </div>
+              </div>
+              <div className={styles.cardProcess}>
+                <h3 className={styles.appContentTitleIDoWork}>
+                  Sitios web de múltiples de páginas
+                </h3>
+                <div className={styles.appContentTitleIDoWorkSubTitle}>
+                  Autenticación (registro/inicio de sesión), integración con
+                  bases de datos.
+                </div>
+              </div>
+              <div className={styles.cardProcess}>
+                <h3 className={styles.appContentTitleIDoWork}>
+                  Sitios web de múltiples de páginas
+                </h3>
+                <div className={styles.appContentTitleIDoWorkSubTitle}>
+                  Autenticación (registro/inicio de sesión), integración con
+                  bases de datos.
+                </div>
+              </div>
+              <div className={styles.cardProcess}>
+                <h3 className={styles.appContentTitleIDoWork}>
+                  Sitios web de múltiples de páginas
+                </h3>
                 <div className={styles.appContentTitleIDoWorkSubTitle}>
                   Autenticación (registro/inicio de sesión), integración con
                   bases de datos.

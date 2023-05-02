@@ -83,11 +83,14 @@ function Projects({
           </motion.div>
         </div>
 
-        <div className={styles.contentTitleProject}>
-          {/* <div> */}
-          <h3>{name}</h3>
-          <h6>{subTitle}</h6>
-          {/* </div> */}
+        <div className={styles.contentInfoProject}>
+          <div className={styles.contentTitleProject}>
+            <h3>{name}</h3>
+            <h6>{subTitle}</h6>
+          </div>
+          <div className={styles.contentLinkProject}>
+            <div>link</div>
+          </div>
         </div>
         {/* </motion.div> */}
       </div>

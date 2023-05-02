@@ -1,4 +1,5 @@
 .contentButton {
+  /* border: 1px solid red; */
   border-radius: 16px;
   background-color: var(--primary-color);
   align-self: flex-start;
@@ -9,7 +10,7 @@
 .button {
   border: none;
   background: none;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   cursor: pointer;
   /* color: var(--body-color); */
   /* color: #e7e8ef; */
@@ -38,7 +39,7 @@
 
 .contentButton::before {
   content: "";
-  border-radius: 50px;
+  /* border-radius: 50px; */
   background-color: var(--primary-color);
   position: absolute;
   top: 50%;

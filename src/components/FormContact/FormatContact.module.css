@@ -1,22 +1,7 @@
-.spanIDoWorkName {
-  color: #292929;
-  font-size: var(--title-font-size);
-  font-family: var(--title-font);
-  letter-spacing: var(--letter-spacing);
-  position: relative;
-  z-index: 10;
-}
-
-.headerContact {
-  color: #2a2a2a;
-  text-align: center;
-  padding: 3vh;
-  padding-bottom: 5vh;
-}
-
-.headerContact h4 {
-  font-family: var(--title-font);
-  font-size: calc(1vw + 1em);
+.titleSections {
+  color: var(--title-dark-color);
+  font-size: var(--title-font-section-size);
+  font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
 }
 
@@ -62,10 +47,14 @@
 .formContact input,
 .formContact textarea {
   /* background-color: var(--light-prymary-color); */
-  background-color: #e7e8ef;
+  /* background-color: #e7e8ef; */
   /* background-color: var(--primary-color); */
   /* backdrop-filter: blur(100px); */
   /* background: linear-gradient(rgb(193, 44, 243), rgb(48, 23, 206)); */
+}
+
+.wrapperForm {
+  background-color: #ffffff;
 }
 
 .formContact {
@@ -89,9 +78,17 @@
   flex-direction: column;
 }
 
+.contentInput span {
+  font-family: var(--font-family);
+  color: var(--title-dark-color);
+  margin-bottom: 8px;
+}
+
 .formContact input {
   border: none;
-  border-bottom: 2px solid rgb(26, 26, 26);
+  border-radius: 4px 4px 0px 0px;
+  background-color: rgba(173, 143, 255, 0.308);
+  border-bottom: 2px solid var(--title-dark-color);
   font-size: 1.1rem;
   height: 42px;
   margin-bottom: 1vh;
@@ -100,9 +97,11 @@
 
 .formContact textarea {
   border: none;
-  border-bottom: 2px solid rgb(26, 26, 26);
+  border-radius: 4px 4px 0px 0px;
+  background-color: rgba(173, 143, 255, 0.308);
+  border-bottom: 2px solid var(--title-dark-color);
   font-size: 1.1rem;
-  height: 42px;
+  /* height: 42px; */
   margin-bottom: 3vh;
   padding-left: 1vw;
 }
@@ -112,10 +111,10 @@
   color: #6d7499;
 }
 
-.formContact span {
+/* .formContact span {
   font-family: var(--title-font);
   margin-bottom: 1vh;
-}
+} */
 
 .contentButtonSendMsg {
   display: flex;
@@ -130,13 +129,13 @@
 }
 
 .contentButtonForm {
-  border-radius: 50px;
-  box-shadow: 2px 4px 12px rgb(30 19 61 / 40%);
-  background-color: var(--accent-color);
-  display: flex;
+  /* border-radius: 50px; */
+  /* box-shadow: 2px 4px 12px rgb(30 19 61 / 40%); */
+  /* background-color: var(--accent-color); */
+  /* display: flex;
   justify-content: center;
   overflow: hidden;
-  position: relative;
+  position: relative; */
 }
 
 .statusMailSend {
@@ -178,7 +177,7 @@
 }
 
 .contactButton {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   background: none;
   border-radius: 50px;
   color: var(--body-color);
@@ -219,8 +218,9 @@
 }
 
 .labelSocial {
-  color: var(--primary-text);
-  font-family: var(--title-font);
+  color: var(--title-dark-color);
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
   margin-top: 1vh;
 }
 

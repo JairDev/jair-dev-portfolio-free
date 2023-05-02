@@ -67,25 +67,22 @@ function FormContact() {
     <>
       <h2
         data-text="text"
-        className={styles.spanIDoWorkName}
+        className={styles.titleSections}
         data-splitting
         data-effect17
       >
         Trabajemos juntos
       </h2>
       <div className={styles.appContentFooterFormContact}>
-        <p className={styles.appFormPD}>
+        {/* <p className={styles.appFormPD}>
           Este formulario es para tener una noción de tus requerimientos, puedes
           dejarme un mensaje con esa idea genial que tienes en mente, si puedes
           se lo más específico posible por favor.
-        </p>
-        <p className={styles.appFormPDReply}>
+        </p> */}
+        {/* <p className={styles.appFormPDReply}>
           Te responderé en las próximas 24h, ¡ Gracias !
-        </p>
+        </p> */}
         <div className={styles.wrapperForm}>
-          <div className={styles.headerContact}>
-            {/* <h4>Trabajemos juntos</h4> */}
-          </div>
           <form
             ref={formRef}
             id="contact-form"
@@ -163,12 +160,13 @@ function FormContact() {
               </p>
             </div>
             <div className={styles.contentInput}>
-              <span>Mensaje</span>
+              <span>Cuéntame sobre tu proyecto</span>
               <textarea
                 name="message"
                 {...register("message", {
                   required: true,
                 })}
+                rows="6"
               />
               <p className={styles.required}>
                 {errors.message?.type === "required" && (
@@ -201,7 +199,7 @@ function FormContact() {
                 <a href={icon.url} target="_blank" rel="noopener noreferrer">
                   <Icon
                     icon={icon.name}
-                    style={{ fontSize: "32px", color: "#2A2A2A" }}
+                    style={{ fontSize: "32px", color: "#1F1340" }}
                   />
                   <span className={styles.labelSocial}>{icon.label}</span>
                 </a>

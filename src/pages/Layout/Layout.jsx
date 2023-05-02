@@ -7,7 +7,7 @@ import styles from "./Layout.module.css";
 function Layout({ children }) {
   return (
     <>
-      <div className={styles.container}>
+      <div>
         <Header />
         <div id="container">{children}</div>
         <Footer />

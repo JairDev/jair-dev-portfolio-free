@@ -6,6 +6,7 @@
 }
 
 .appContentNav {
+  background: #494465;
   display: flex;
   justify-content: center;
   padding: 1.5rem 5vw 0rem 5vw;
@@ -62,6 +63,10 @@
   height: 100vh;
   opacity: 1;
   z-index: 30;
+}
+
+.linkTop {
+  opacity: 0;
 }
 
 .linkWorkNav {

@@ -7,15 +7,18 @@
   /* border: 2px solid yellow; */
   /* border-bottom: 1px solid var(--accent-color); */
   position: relative;
-  display: flex;
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 4px;
   /* justify-content: center; */
   /* align-items: center; */
   width: 100%;
   height: 100%;
-  max-width: 350px;
+  /* max-width: 350px; */
   /* padding-bottom: 2rem; */
   /* margin-bottom: 2rem; */
+  /* padding: 0rem 1rem; */
   z-index: 60;
 }
 
@@ -24,7 +27,7 @@
 }
 
 .contentPersonalProjectFlex {
-  border: 2px solid green;
+  /* border: 2px solid green; */
   display: flex;
   cursor: pointer;
   position: relative;
@@ -81,6 +84,11 @@
   z-index: 10;
 }
 
+.contentInfoProject {
+  display: flex;
+  gap: 4px;
+}
+
 .contentTitleProject {
   /* border: 2px solid blue; */
   border-radius: 16px;
@@ -88,15 +96,29 @@
   /* margin-top: 1rem; */
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: center;
   align-self: flex-end;
-  padding: 1rem;
-  width: 50%;
-  height: 50%;
+  padding-left: 1rem;
+  /* width: 100%; */
+  /* min-width: 270px; */
+  height: 80px;
+  flex: 1;
+}
+
+.contentLinkProject {
+  border-radius: 16px;
+  background: #1f1340;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  /* padding: 1rem; */
 }
 
 .contentTitleProject div {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   align-self: flex-end;
 }
 
@@ -117,12 +139,15 @@
 }
 
 .contentPersonalProjectImg {
-  /* border: 1px solid red; */
+  /* border: 1px solid rgb(24, 255, 97); */
   border-radius: 16px;
   align-self: flex-start;
   position: relative;
-  width: 50%;
-  height: 100%;
+  /* width: 100%; */
+  /* min-width: 270px; */
+  /* height: 100%; */
+  /* min-height: 530px; */
+  height: 530px;
   line-height: 0;
   overflow: hidden;
 }
@@ -156,6 +181,7 @@
 .contentPersonalProjectImg img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .backImgPersonal {
