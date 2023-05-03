@@ -172,8 +172,8 @@ function Home() {
                   data-rotate-text="rotate-text"
                 >
                   <p ref={refCircleText} className={styles.circleText}>
-                    • scroll • scroll • scroll • scroll • scroll • scroll •
-                    scroll • scroll • scroll • scroll
+                    {/* • scroll • scroll • scroll • scroll • scroll • scroll •
+                    scroll • scroll • scroll • scroll */}
                   </p>
                 </div>
               </div>
@@ -373,7 +373,7 @@ function Home() {
               voluptates earum ipsum odio, aspernatur ducimus corrupti
             </p>
 
-            <div className={styles.wrapperServices}>
+            <div className={styles.wrapperProcess}>
               <div className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>Landing pages</h3>
                 <div className={styles.appContentTitleIDoWorkSubTitle}>

@@ -389,6 +389,7 @@
 /* process */
 .processSection {
   background-color: #ffffff;
+  /* background-color: #ac8fff; */
 }
 
 .processTitle {
@@ -403,8 +404,28 @@
   margin-top: 16px;
 }
 
+.wrapperProcess {
+  /* border: 2px solid rgb(51, 255, 51); */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4px;
+  margin-top: 80px;
+  position: relative;
+}
+
+.wrapperProcess::after {
+  content: "";
+  /* background-color: #db40ff; */
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .cardProcess {
-  /* border: 2px solid red; */
+  /* border: 2px solid #f9dfff; */
   border-radius: 16px;
   background-color: #3e2680;
   padding: 1.5rem;

@@ -1,5 +1,6 @@
 .titleSections {
-  color: var(--title-dark-color);
+  /* color: var(--title-dark-color); */
+  color: #ffffff;
   font-size: var(--title-font-section-size);
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
@@ -92,7 +93,7 @@
   font-size: 1.1rem;
   height: 42px;
   margin-bottom: 1vh;
-  padding-left: 1vw;
+  padding: 8px;
 }
 
 .formContact textarea {
@@ -103,7 +104,7 @@
   font-size: 1.1rem;
   /* height: 42px; */
   margin-bottom: 3vh;
-  padding-left: 1vw;
+  padding: 8px;
 }
 
 .formContact input::placeholder,
@@ -172,8 +173,8 @@
 }
 
 .contentButtonForm:hover::before {
-  width: 200px;
-  height: 200px;
+  /* width: 200px;
+  height: 200px; */
 }
 
 .contactButton {
