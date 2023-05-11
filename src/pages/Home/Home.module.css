@@ -1,6 +1,6 @@
 .wrapperPadding {
   /* border: 1px solid rgb(0, 255, 34); */
-  padding: 0rem 5vw 0rem 5vw;
+  padding: 0vw 5vw;
   display: flex;
   justify-content: center;
 }
@@ -19,8 +19,10 @@
   /* border: 1px solid red; */
   background: url("../../assets/render.webp");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   min-height: 100vh;
-  padding-top: 40px;
+  padding-top: 88px;
 }
 
 .appLeftContentHero {
@@ -214,10 +216,11 @@
 .contentProject {
   /* border: 1px solid red; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 120px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 72px;
   position: relative;
-  margin-top: 80px;
+  margin-top: 24px;
+  /* justify-content: space-between; */
 }
 
 .appContentPersonalProjectsHeader {
@@ -246,7 +249,6 @@
 }
 
 .wrapperAppContentIDoWork {
-  /* border: 2px solid rgb(102, 8, 142); */
   position: relative;
 }
 /* services */
@@ -260,19 +262,46 @@
   /* border: 2px solid rgb(51, 255, 51); */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
   gap: 4px;
-  margin-top: 80px;
+  margin-top: 24px;
+}
+
+.wrapperServicesContent {
+  z-index: 10;
 }
 
 .servicesCard {
   /* border: 2px solid red; */
   border-radius: 16px;
   background-color: #1f1340;
+  /* background-image: url("../../assets/square-p-card.svg"); */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 1.5rem;
   position: relative;
-  /* margin-bottom: 16px; */
-  min-height: 22rem;
+  aspect-ratio: 1/1;
+  width: 100%;
+
+  z-index: 10;
+}
+
+.servicesCard::before {
+  content: "";
+  background-image: url("../../assets/square-p-card.svg");
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.labelServicesCard {
+  color: #ffffff;
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
   z-index: 10;
 }
 
@@ -328,7 +357,7 @@
   /* border: 1px solid red; */
   display: block;
   background: linear-gradient(#5836b5, #1f1340);
-  padding-bottom: 24px;
+  padding-bottom: 120px;
   position: relative;
 }
 
@@ -344,10 +373,24 @@
   letter-spacing: var(--letter-spacing);
   margin-top: 16px;
 }
+/* .wrapperAppBenefits {
+  border: 2px solid rgb(208, 255, 0);
+  display: flex;
+} */
+
+.wrapperAppBenefits {
+  /* border: 2px solid rgb(208, 255, 0); */
+}
 
 .wrapperBenefits {
   /* border: 2px solid red; */
   margin-top: 48px;
+  /* max-width: 600px; */
+}
+
+.wrapperBenefitsTitle {
+  /* border: 2px solid greenyellow; */
+  max-width: 70ch;
 }
 
 .benefitsHeader {
@@ -358,22 +401,37 @@
   margin: 0px 0 24px 0;
 }
 
-.benefitsCard {
+.wrapperCardBenefits {
   border: 2px solid #ac8fff;
-  border-radius: 8px;
+  border-radius: 16px;
   background: linear-gradient(
     0deg,
     rgba(219, 64, 255, 0.45) -287.11%,
     rgba(219, 64, 255, 0) 111.17%
   );
+  padding: 1.5rem;
+}
+
+.benefitsCard {
+  /* border: 2px solid #ac8fff; */
+  /* border-radius: 8px;
+  background: linear-gradient(
+    0deg,
+    rgba(219, 64, 255, 0.45) -287.11%,
+    rgba(219, 64, 255, 0) 111.17%
+  ); */
 
   color: #ffffff;
   font-size: 16px;
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
   position: relative;
   margin-bottom: 48px;
+}
+
+.wrapperCardBenefits:not(.wrapperCardBenefits:last-child) {
+  margin-bottom: 24px;
 }
 
 .contentSquare {
@@ -389,6 +447,7 @@
 /* process */
 .processSection {
   background-color: #ffffff;
+  padding-bottom: 120px;
   /* background-color: #ac8fff; */
 }
 
@@ -409,7 +468,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 4px;
-  margin-top: 80px;
+  margin-top: 24px;
   position: relative;
 }
 
@@ -430,6 +489,8 @@
   background-color: #3e2680;
   padding: 1.5rem;
   position: relative;
+  /* aspect-ratio: 1/1; */
+  /* width: 100%; */
   /* margin-bottom: 16px; */
   min-height: 22rem;
   z-index: 10;
@@ -593,6 +654,10 @@
     max-width: 100%;
   }
 
+  .servicesCard {
+    /* aspect-ratio: 4/3; */
+  }
+
   .lineRightAbout,
   .lineBottomAbout,
   .lineLeftAbout {
@@ -677,6 +742,21 @@
 
   .contentCollImg {
     width: 100%;
+  }
+
+  .servicesCard {
+    height: 300px;
+  }
+
+  .wrapperAppBenefits {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 32px; */
+  }
+
+  .wrapperBenefits {
+    margin-top: 24px;
+    max-width: 500px;
   }
 }
 

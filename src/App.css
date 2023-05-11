@@ -12,8 +12,8 @@
   /* --primary-text: #2a2a2a; */
   --primary-text: #ffffff;
   /* --title-font-size: clamp(1rem, 10vw, 4rem); */
-  --title-font-hero-size: clamp(3rem, 1rem + 1.5vw, 4.875rem);
-  --title-font-section-size: clamp(2rem, 1rem + 1.5vw, 3.875rem);
+  --title-font-hero-size: clamp(50px, 10vw, 78px);
+  --title-font-section-size: clamp(32px, 10vw, 62px);
   --sub-title-font-size: clamp(1rem, 10vw, 3rem);
   --paragraph-font-size: clamp(16px, 2vw, 18px);
   --text-button-small: calc(1vw + 0.3em);

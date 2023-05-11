@@ -6,11 +6,12 @@
 }
 
 .appContentNav {
-  background: #494465;
+  /* background: #494465; */
+  /* background: linear-gradient(#47435b, #48446a); */
   display: flex;
   justify-content: center;
-  padding: 1.5rem 5vw 0rem 5vw;
-  position: relative;
+  padding: 2rem 5vw 0rem 5vw;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 100;
@@ -45,10 +46,14 @@
 }
 
 .logoName {
+  /* border-bottom: 2px solid #ffffff; */
+  /* border-radius: 60px; */
   color: var(--primary-text);
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
+  /* padding: 8px 16px; */
 }
 
 .appContentNavLinks {
@@ -66,10 +71,11 @@
 }
 
 .linkTop {
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .linkWorkNav {
+  /* border: 1px solid red; */
   display: flex;
   justify-content: flex-end;
   text-align: right;
@@ -79,11 +85,13 @@
 }
 
 .contentNavTopLinks {
+  /* border: 1px solid rgb(58, 236, 18); */
   display: flex;
+  gap: 24px;
 }
 
 .contentNavTopLinks li:last-child {
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
 }
 
 .linkWorkNav a {
@@ -106,6 +114,7 @@
   width: 100%;
   max-width: 400px;
   height: 100%;
+  z-index: 20;
   /* transform: translateX(100%); */
 }
 
@@ -137,8 +146,9 @@
 
 .itemLink {
   color: var(--body-color);
-  font-family: var(--title-font);
-  font-size: clamp(18px, 5vw, 22px);
+  font-family: var(--font-family);
+  /* font-size: clamp(18px, 5vw, 22px); */
+  font-size: 24px;
   position: relative;
 }
 
@@ -181,6 +191,7 @@
   --y: 0;
 
   border-radius: 50%;
+  background-color: #1f1340;
   width: 60px;
   height: 60px;
   cursor: pointer;
@@ -190,14 +201,13 @@
   position: relative;
   color: var(--body-color);
   transform: translate(var(--x), var(--y));
-
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.84);
   z-index: 50;
 }
 
 .path {
   fill: transparent;
-  stroke: var(--primary-text);
+  /* stroke: var(--primary-text); */
   stroke-width: 2px;
   stroke-dashoffset: 0;
   stroke-dasharray: 188;
@@ -206,7 +216,7 @@
 
 .pathLayer {
   fill: transparent;
-  stroke: var(--accent-color);
+  /* stroke: var(--accent-color); */
   stroke-width: 2px;
   stroke-dashoffset: 188;
   stroke-dasharray: 188;

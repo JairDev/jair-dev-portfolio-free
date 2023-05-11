@@ -49,6 +49,8 @@ function Home() {
 
   const refText = useRef(null);
 
+  const pinBenefits = useRef(null);
+
   useEffect(() => {
     setIsMounted(true);
 
@@ -71,41 +73,130 @@ function Home() {
 
   useEffect(() => {
     if (isMounted) {
+      const pin = gsap.timeline({
+        scrollTrigger: {
+          trigger: "[data-pin]",
+          start: "top 10%",
+          end: "bottom 70%",
+          pin: true,
+          scrub: true,
+          // markers: true,
+        },
+      });
+      const be = gsap.timeline({
+        scrollTrigger: {
+          trigger: "[data-wrap-benefits]",
+          start: "top 100%",
+          end: "10% 70%",
+          scrub: true,
+          markers: true,
+        },
+      });
+      be.from("[data-wrap-benefits]", {
+        y: 300,
+        opacity: 0,
+      });
+      // pin.to(pinBenefits.current, {
+      //   // yPercent: 100,
+      //   // duration: 10,
+      //   // ease: "sine.out",
+      // });
+    }
+  }, [isMounted]);
+
+  useEffect(() => {
+    if (isMounted) {
+      const split = gsap.utils.toArray("[data-text]").map((node, i) => {
+        const results = Splitting({ target: node.current, by: "chars" });
+        return results[i];
+      });
+      split.forEach((letters) => {
+        letters.chars.forEach((l) => {
+          const randomPosition = () => gsap.utils.random(-150, 150);
+          gsap.set(l, {
+            opacity: 0,
+            translateY: randomPosition(),
+            translateX: randomPosition(),
+          });
+        });
+      });
+    }
+  }, [isMounted]);
+
+  useEffect(() => {
+    if (isMounted) {
       // console.log(refText.current);
       const split = gsap.utils.toArray("[data-text]").map((node, i) => {
         const results = Splitting({ target: node.current, by: "chars" });
         // console.log(results[i]);
         return results[i];
       });
-      split.forEach((chars) => {
-        // console.log(chars.chars);
-        chars.chars.forEach((letter) => {
-          gsap.set(letter.parentNode, { perspective: 1000 });
-          // gsap.fromTo(
-          //   chars.chars,
-          //   {
-          //     "will-change": "opacity, transform",
-          //     opacity: 0,
-          //     rotateX: () => gsap.utils.random(-120, 120),
-          //     z: () => gsap.utils.random(-200, 200),
-          //   },
-          //   {
-          //     ease: "none",
-          //     opacity: 1,
-          //     rotateX: 0,
-          //     z: 0,
-          //     stagger: 0.02,
-          //     scrollTrigger: {
-          //       trigger: letter,
-          //       start: "top 140%",
-          //       end: "bottom 25%",
-          //       scrub: true,
-          //       // markers: true,
-          //     },
-          //   }
-          // );
+
+      split.forEach((letters) => {
+        console.log(letters.chars);
+        // gsap.to(letters.chars, {
+        //   ease: "none",
+        //   translateY: 0,
+        //   translateX: 0,
+        // });
+        letters.chars.forEach((l) => {
+          const randomPosition = () => gsap.utils.random(-150, 150);
+          ScrollTrigger.batch(l, {
+            onEnter: (batch) =>
+              gsap.to(batch, {
+                ease: "power1.out",
+                opacity: 1,
+                translateY: 0,
+                translateX: 0,
+              }),
+            onLeaveBack: (batch) =>
+              gsap.to(batch, {
+                ease: "power1.out",
+                opacity: 0,
+                translateY: randomPosition(),
+                translateX: randomPosition(),
+              }),
+            start: "top 100%",
+            // markers: true,
+          });
         });
       });
+
+      // split.forEach((chars) => {
+      //   // console.log(chars.chars);
+      //   chars.chars.forEach((letter) => {
+      //     gsap.set(letter.parentNode, { perspective: 1000 });
+      //     gsap.fromTo(
+      //       chars.chars,
+      //       {
+      //         "will-change": "opacity, transform",
+      //         // opacity: 0,
+      //         // rotateX: () => gsap.utils.random(-120, 120),
+      //         // rotateX: () => 120,
+      //         // translateX: gsap.utils.random(-100, 100),
+      //         // translateY: gsap.utils.random(-100, 100),
+      //         // z: () => gsap.utils.random(-200, 200),
+      //       },
+      //       {
+      //         // ease: "none",
+      //         // opacity: 1,
+      //         // rotateX: 0,
+      //         // translateX: 0,
+      //         // translateY: 0,
+      //         // translate: (0, 0),
+      //         // z: 0,
+      //         // stagger: { each: 0.02, from: "random" },
+      //         // scrollTrigger: {
+      //         //   trigger: letter,
+      //         //   start: "top 80%",
+      //         //   end: "bottom 40%",
+      //         //   scrub: true,
+      //         //   markers: true,
+      //         // },
+      //       }
+      //     );
+      //   });
+      // });
 
       // gsap
       //   .timeline({
@@ -141,7 +232,7 @@ function Home() {
               <div className={styles.appLeftContentHeroRole}>
                 <div className={styles.wordHeroColor}>
                   <h1 className={styles.role}>
-                    Construye tu presencia en línea.
+                    Construye tu presencia en línea
                   </h1>
                 </div>
 
@@ -208,7 +299,7 @@ function Home() {
             </h2>
           </div>
           <div className={styles.contentProject}>
-            {projects.slice(0, 2).map((item, i) => (
+            {projects.slice(0, 3).map((item, i) => (
               <Projects
                 key={item.name}
                 id={item.id}
@@ -245,20 +336,28 @@ function Home() {
 
             <div className={styles.wrapperServices}>
               <div className={styles.servicesCard}>
-                <h3 className={styles.appContentTitleIDoWork}>Landing pages</h3>
-                <div className={styles.appContentTitleIDoWorkSubTitle}>
-                  Sitio web de una página, ideal para emprendedores, pequeñas
-                  empresas, presentación de productos.
+                <div className={styles.wrapperServicesContent}>
+                  <h3 className={styles.appContentTitleIDoWork}>
+                    Landing pages
+                  </h3>
+                  <div className={styles.appContentTitleIDoWorkSubTitle}>
+                    Sitio web de una página, ideal para emprendedores, pequeñas
+                    empresas, presentación de productos.
+                  </div>
                 </div>
+                <span className={styles.labelServicesCard}>1 página</span>
               </div>
               <div className={styles.servicesCard}>
-                <h3 className={styles.appContentTitleIDoWork}>
-                  Sitios web de múltiples de páginas
-                </h3>
-                <div className={styles.appContentTitleIDoWorkSubTitle}>
-                  Autenticación (registro/inicio de sesión), integración con
-                  bases de datos.
+                <div className={styles.wrapperServicesContent}>
+                  <h3 className={styles.appContentTitleIDoWork}>
+                    Sitios web de múltiples de páginas
+                  </h3>
+                  <div className={styles.appContentTitleIDoWorkSubTitle}>
+                    Autenticación (registro/inicio de sesión), integración con
+                    bases de datos.
+                  </div>
                 </div>
+                <span className={styles.labelServicesCard}>3 - 4 páginas</span>
               </div>
             </div>
           </div>
@@ -271,28 +370,37 @@ function Home() {
       >
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.contentCircleBlur}></div>
-          <div className={styles.wrapperAppContentIDoWork}>
-            <h2
-              ref={refText}
-              data-text="text"
-              className={`${styles.titleSections}`}
-              data-splitting
-              data-effect17
+          <div className={styles.wrapperAppBenefits}>
+            <div
+              ref={pinBenefits}
+              data-pin="data-pin"
+              className={styles.wrapperBenefitsTitle}
             >
-              Que obtendrás
-            </h2>
-            <p className={styles.youGetDescription}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-              voluptates earum ipsum odio, aspernatur ducimus corrupti
-              necessitatibus magnam eligendi eius impedit voluptatem ipsam iure!
-              Deserunt laudantium molestiae enim natus ipsum.
-            </p>
+              <h2
+                ref={refText}
+                data-text="text"
+                className={`${styles.titleSections}`}
+                data-splitting
+                data-effect17
+              >
+                Que obtendrás
+              </h2>
+              <p className={styles.youGetDescription}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
+                voluptates earum ipsum odio, aspernatur ducimus corrupti
+                necessitatibus magnam eligendi eius impedit voluptatem ipsam
+                iure! Deserunt laudantium molestiae enim natus ipsum.
+              </p>
+            </div>
 
-            <div className={styles.wrapperBenefits}>
+            <div
+              data-wrap-benefits="data-wrap-benefits"
+              className={styles.wrapperBenefits}
+            >
               {/* mobile */}
               <div className={styles.wrapperMobileBenefits}>
                 <p className={styles.benefitsHeader}>
-                  Sitios web optimizados para dispositivos moviles
+                  Optimización para dispositivos moviles
                 </p>
                 <div className={styles.wrapperMobileFeatureAnimation}>
                   <div className={styles.featureAnimation}>
@@ -301,7 +409,7 @@ function Home() {
                 </div>
               </div>
               {/* security */}
-              <div className={styles.wrapperSecurityBenefits}>
+              <div className={styles.wrapperCardBenefits}>
                 <p className={styles.benefitsHeader}>
                   La seguridad es primordial
                 </p>
@@ -311,7 +419,7 @@ function Home() {
                 </div>
               </div>
               {/* seo */}
-              <div className={styles.wrapperSeoBenefits}>
+              <div className={styles.wrapperCardBenefits}>
                 <p className={styles.benefitsHeader}>
                   Optimización básica de motores de búsqueda (SEO)
                 </p>
@@ -321,7 +429,7 @@ function Home() {
                 </div>
               </div>
               {/* maintenance */}
-              <div className={styles.wrapperSupportBenefits}>
+              <div className={styles.wrapperCardBenefits}>
                 <p className={styles.benefitsHeader}>Soporte y mantenimiento</p>
                 <div className={styles.benefitsCard}>
                   Utilizo herramientas que proporcionan una infraestructura

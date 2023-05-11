@@ -145,6 +145,15 @@ function Header() {
             <ul className={styles.contentNavTopLinks}>
               <li>
                 <a href="/about-me" className={styles.linkTop}>
+                  Trabajos
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#personal-work"
+                  data-link="link"
+                  className={styles.linkTop}
+                >
                   Sobre mí
                 </a>
               </li>
@@ -154,7 +163,7 @@ function Header() {
                   data-link="link"
                   className={styles.linkTop}
                 >
-                  Trabajos
+                  Contacto
                 </a>
               </li>
             </ul>
@@ -231,7 +240,7 @@ function Header() {
                   data-link="link"
                   className={styles.itemLink}
                 >
-                  Proyectos Personales
+                  Trabajos
                 </a>
               </li>
 
@@ -241,7 +250,7 @@ function Header() {
                   data-link="link"
                   className={styles.itemLink}
                 >
-                  Desafíos Frontend
+                  Sobre mí
                 </a>
               </li>
               <li className={styles.liLink}>
@@ -250,15 +259,15 @@ function Header() {
                   data-link="link"
                   className={styles.itemLink}
                 >
-                  Conóceme
-                </a>
-              </li>
-
-              <li className={styles.liLink}>
-                <a href="#contact" data-link="link" className={styles.itemLink}>
                   Contacto
                 </a>
               </li>
+
+              {/* <li className={styles.liLink}>
+                <a href="#contact" data-link="link" className={styles.itemLink}>
+                  Contacto
+                </a>
+              </li> */}
             </ul>
           </motion.div>
           <motion.div

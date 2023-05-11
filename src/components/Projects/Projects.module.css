@@ -92,7 +92,8 @@
 .contentTitleProject {
   /* border: 2px solid blue; */
   border-radius: 16px;
-  background: rgb(224, 224, 224);
+  /* background: rgb(224, 224, 224); */
+  background: #ffffff;
   /* margin-top: 1rem; */
   display: flex;
   flex-direction: column;
@@ -133,7 +134,7 @@
 .contentTitleProject h6 {
   color: #292929;
   font-family: var(--font-family);
-  /* font-size: 1.5rem; */
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: var(--letter-spacing);
 }

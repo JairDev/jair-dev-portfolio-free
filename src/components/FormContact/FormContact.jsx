@@ -66,7 +66,7 @@ function FormContact() {
   return (
     <>
       <h2
-        data-text="text"
+        // data-text="text"
         className={styles.titleSections}
         data-splitting
         data-effect17
