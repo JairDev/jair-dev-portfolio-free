@@ -51,6 +51,8 @@ function Home() {
 
   const pinBenefits = useRef(null);
 
+  const pinProcess = useRef(null);
+
   useEffect(() => {
     setIsMounted(true);
 
@@ -77,7 +79,7 @@ function Home() {
         scrollTrigger: {
           trigger: "[data-pin]",
           start: "top 10%",
-          end: "bottom 70%",
+          end: "bottom 60%",
           pin: true,
           scrub: true,
           // markers: true,
@@ -89,7 +91,7 @@ function Home() {
           start: "top 100%",
           end: "10% 70%",
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
       be.from("[data-wrap-benefits]", {
@@ -101,6 +103,52 @@ function Home() {
       //   // duration: 10,
       //   // ease: "sine.out",
       // });
+
+      // gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: "[data-pin-process]",
+      //     start: "top 60%",
+      //     end: "bottom 20%",
+      //     pin: true,
+      //     scrub: true,
+      //     markers: true,
+      //   },
+      // });
+
+      // gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: "[data-pin-p]",
+      //     start: "top 80%",
+      //     end: "bottom top",
+      //     pin: true,
+      //     scrub: true,
+      //     markers: true,
+      //   },
+      // });
+
+      const cardsArr = gsap.utils.toArray("[data-card]").map((card) => card);
+      // console.log(cardsArr);
+      const widthProcess = pinProcess.current.getBoundingClientRect().width;
+      console.log(widthProcess);
+      gsap.from(cardsArr, {
+        // duration: 5,
+        stagger: {
+          // ease: "none",
+          // each: 0.5,
+          amount: 4,
+        },
+        scrollTrigger: {
+          trigger: "[data-pin-process]",
+          markers: true,
+          start: "top 10%",
+          // end: `bottom -=${widthProcess}`,
+          end: `bottom top`,
+          pin: "[data-pin-process]",
+          scrub: true,
+        },
+        opacity: 0,
+        x: widthProcess,
+      });
     }
   }, [isMounted]);
 
@@ -133,7 +181,7 @@ function Home() {
       });
 
       split.forEach((letters) => {
-        console.log(letters.chars);
+        // console.log(letters.chars);
         // gsap.to(letters.chars, {
         //   ease: "none",
         //   translateY: 0,
@@ -465,31 +513,41 @@ function Home() {
       >
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.contentCircleBlur}></div>
-          <div className={styles.wrapperAppContentIDoWork}>
-            <h2
-              ref={refText}
-              data-text="text"
-              className={`${styles.processTitle} ${styles.titleSections}`}
-              data-splitting
-              data-effect17
+
+          <div
+            data-pin-process="data-pin-process"
+            className={styles.wrapperAppContentIDoWork}
+          >
+            <div
+              ref={pinBenefits}
+              // data-pin-p="data-pin-p"
+              className={styles.wrapperProcessTitle}
             >
-              Mi proceso
-            </h2>
+              <h2
+                ref={refText}
+                data-text="text"
+                className={`${styles.processTitle} ${styles.titleSections}`}
+                data-splitting
+                data-effect17
+              >
+                Mi proceso
+              </h2>
 
-            <p className={styles.processDescription}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-              voluptates earum ipsum odio, aspernatur ducimus corrupti
-            </p>
+              <p className={styles.processDescription}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
+                voluptates earum ipsum odio, aspernatur ducimus corrupti
+              </p>
+            </div>
 
-            <div className={styles.wrapperProcess}>
-              <div className={styles.cardProcess}>
+            <div ref={pinProcess} className={styles.wrapperProcess}>
+              <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>Landing pages</h3>
                 <div className={styles.appContentTitleIDoWorkSubTitle}>
                   Sitio web de una página, ideal para emprendedores, pequeñas
                   empresas, presentación de productos.
                 </div>
               </div>
-              <div className={styles.cardProcess}>
+              <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>
                   Sitios web de múltiples de páginas
                 </h3>
@@ -498,7 +556,7 @@ function Home() {
                   bases de datos.
                 </div>
               </div>
-              <div className={styles.cardProcess}>
+              <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>
                   Sitios web de múltiples de páginas
                 </h3>
@@ -507,7 +565,7 @@ function Home() {
                   bases de datos.
                 </div>
               </div>
-              <div className={styles.cardProcess}>
+              <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>
                   Sitios web de múltiples de páginas
                 </h3>

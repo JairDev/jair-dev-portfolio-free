@@ -147,7 +147,7 @@
 }
 
 .appContentScrollArrow {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -250,6 +250,7 @@
 
 .wrapperAppContentIDoWork {
   position: relative;
+  overflow: hidden;
 }
 /* services */
 
@@ -464,7 +465,7 @@
 }
 
 .wrapperProcess {
-  /* border: 2px solid rgb(51, 255, 51); */
+  /* border: 1px solid rgb(51, 255, 51); */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 4px;
