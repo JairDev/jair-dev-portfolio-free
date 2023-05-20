@@ -39,19 +39,9 @@
 
 .wrapperForm {
   /* border: 2px solid red; */
-  border-radius: 8px;
+  border-radius: 16px;
   padding: 4vh 3vw;
   width: 100%;
-}
-
-.wrapperForm,
-.formContact input,
-.formContact textarea {
-  /* background-color: var(--light-prymary-color); */
-  /* background-color: #e7e8ef; */
-  /* background-color: var(--primary-color); */
-  /* backdrop-filter: blur(100px); */
-  /* background: linear-gradient(rgb(193, 44, 243), rgb(48, 23, 206)); */
 }
 
 .wrapperForm {
@@ -77,33 +67,31 @@
 .contentInput {
   display: flex;
   flex-direction: column;
+  margin-bottom: 8px;
 }
 
 .contentInput span {
   font-family: var(--font-family);
-  color: var(--title-dark-color);
+  /* color: var(--title-dark-color); */
   margin-bottom: 8px;
 }
 
 .formContact input {
   border: none;
-  border-radius: 4px 4px 0px 0px;
+  border-radius: 8px;
   background-color: rgba(173, 143, 255, 0.308);
-  border-bottom: 2px solid var(--title-dark-color);
   font-size: 1.1rem;
   height: 42px;
-  margin-bottom: 1vh;
+  margin-bottom: 4px;
   padding: 8px;
 }
 
 .formContact textarea {
   border: none;
-  border-radius: 4px 4px 0px 0px;
+  border-radius: 8px;
   background-color: rgba(173, 143, 255, 0.308);
-  border-bottom: 2px solid var(--title-dark-color);
   font-size: 1.1rem;
-  /* height: 42px; */
-  margin-bottom: 3vh;
+  margin-bottom: 4px;
   padding: 8px;
 }
 
@@ -111,11 +99,6 @@
 .formContact textarea::placeholder {
   color: #6d7499;
 }
-
-/* .formContact span {
-  font-family: var(--title-font);
-  margin-bottom: 1vh;
-} */
 
 .contentButtonSendMsg {
   display: flex;
@@ -242,6 +225,7 @@
 .required {
   color: #bf1650;
   height: 5vh;
+  font-size: 14px;
 }
 
 .show {

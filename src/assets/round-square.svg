@@ -1,3 +1,20 @@
-<svg width="1040" height="1040" viewBox="0 0 1040 1040" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="1040" width="1040" height="1040" rx="80" transform="rotate(90 1040 0)" fill="#382273"/>
+<svg width="1384" height="1065" viewBox="0 0 1384 1065" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1383.79 691.898L728.387 1055.17C705.687 1067.76 678.107 1067.76 655.408 1055.17L0 691.898L691.897 0L1383.79 691.898Z" fill="#1F1340"/>
+<path d="M1383.79 691.898L728.387 1055.17C705.687 1067.76 678.107 1067.76 655.408 1055.17L0 691.898L691.897 0L1383.79 691.898Z" fill="#1F1340"/>
+<mask id="mask0_1344_40" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1384" height="1065">
+<path d="M1383.79 691.898L728.387 1055.17C705.687 1067.76 678.107 1067.76 655.408 1055.17L0 691.898L691.897 0L1383.79 691.898Z" fill="#1F1340"/>
+<path d="M1383.79 691.898L728.387 1055.17C705.687 1067.76 678.107 1067.76 655.408 1055.17L0 691.898L691.897 0L1383.79 691.898Z" fill="#1F1340"/>
+</mask>
+<g mask="url(#mask0_1344_40)">
+<g filter="url(#filter0_f_1344_40)">
+<path d="M691.529 1581.88C837.023 1581.88 954.969 1463.93 954.969 1318.44C954.969 1172.95 837.023 1055 691.529 1055C546.035 1055 428.089 1172.95 428.089 1318.44C428.089 1463.93 546.035 1581.88 691.529 1581.88Z" fill="#DB40FF"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_1344_40" x="-71.9106" y="555" width="1526.88" height="1526.88" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_1344_40"/>
+</filter>
+</defs>
 </svg>

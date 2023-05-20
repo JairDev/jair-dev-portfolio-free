@@ -11,6 +11,7 @@ import {
 } from "framer-motion";
 
 import IconSocial from "components/IconSocial/IconSocial";
+import ArrowIcon from "../../assets/arrow.svg";
 
 import * as styles from "./Projects.module.css";
 
@@ -61,17 +62,18 @@ function Projects({
           className={styles.contentPersonalProjectImg}
           onMouseMove={handleMouseMove}
         >
-          <motion.div
+          {/* <motion.div
             ref={refViewSite}
             className={styles.viewSite}
             style={{
               translateX: x,
               translateY: y,
             }}
-          ></motion.div>
+          ></motion.div> */}
+          <p className={styles.titleProjectInside}>CoinMarketApp</p>
           <img src={imgSrcApp} alt="" />
-          <div className={styles.blurImg}></div>
-          <motion.div
+          {/* <div className={styles.blurImg}></div> */}
+          {/* <motion.div
             ref={refViewSite}
             className={`${styles.viewSite} ${styles.viewSiteText}`}
             style={{
@@ -80,7 +82,7 @@ function Projects({
             }}
           >
             Ver sitio
-          </motion.div>
+          </motion.div> */}
         </div>
 
         <div className={styles.contentInfoProject}>
@@ -89,7 +91,13 @@ function Projects({
             <h6>{subTitle}</h6>
           </div>
           <div className={styles.contentLinkProject}>
-            <div>link</div>
+            <div className={styles.contentExternalLinkArrow}>
+              <img
+                className={styles.externalLinkArrow}
+                src={ArrowIcon}
+                alt=""
+              />
+            </div>
           </div>
         </div>
         {/* </motion.div> */}

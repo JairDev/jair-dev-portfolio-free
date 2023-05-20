@@ -17,6 +17,9 @@ import { personalProjects } from "../../data/info-portfolio";
 // import blobBlur from "../../assets/blob-blur2.png";
 // import cube from "assets/render.webp";
 import phone from "assets/mobile-phone-img.svg";
+import phoneLine from "assets/mobile-phone-line.svg";
+import wave from "assets/wave.svg";
+import roundSquare from "assets/round-square.svg";
 // import tablet from "assets/mobile-tablet-img.svg";
 // import lines from "assets/lines.png";
 
@@ -113,42 +116,6 @@ function Home() {
         });
       });
 
-      // split.forEach((chars) => {
-      //   // console.log(chars.chars);
-      //   chars.chars.forEach((letter) => {
-      //     gsap.set(letter.parentNode, { perspective: 1000 });
-      //     gsap.fromTo(
-      //       chars.chars,
-      //       {
-      //         "will-change": "opacity, transform",
-      //         // opacity: 0,
-      //         // rotateX: () => gsap.utils.random(-120, 120),
-      //         // rotateX: () => 120,
-      //         // translateX: gsap.utils.random(-100, 100),
-      //         // translateY: gsap.utils.random(-100, 100),
-      //         z: () => gsap.utils.random(-200, 200),
-      //       },
-      //       {
-      //         // ease: "none",
-      //         // opacity: 1,
-      //         // rotateX: 0,
-      //         // translateX: 0,
-      //         // translateY: 0,
-      //         // translate: (0, 0),
-      //         z: 0,
-      //         // stagger: { each: 0.02, from: "random" },
-      //         scrollTrigger: {
-      //           trigger: letter,
-      //           start: "top 80%",
-      //           end: "bottom 40%",
-      //           scrub: true,
-      //           markers: true,
-      //         },
-      //       }
-      //     );
-      //   });
-      // });
-
       // gsap
       //   .timeline({
       //     scrollTrigger: {
@@ -170,86 +137,49 @@ function Home() {
 
   useEffect(() => {
     if (isMounted) {
-      const pin = gsap.timeline({
-        scrollTrigger: {
-          trigger: "[data-pin]",
-          start: "top 10%",
-          end: "bottom 45%",
-          pin: true,
-          scrub: true,
-          // markers: true,
-        },
-      });
-      pin.from("[data-wrap-benefits]", {
-        // opacity: 0,
-        y: 500,
-      });
-      // const be = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: "[data-wrap-benefits]",
-      //     start: "top 100%",
-      //     end: "10% 70%",
-      //     scrub: true,
-      //     markers: true,
-      //   },
-      // });
-      // be.from("[data-wrap-benefits]", {
-      //   y: 300,
-      //   // opacity: 0,
-      // });
-      // pin.to(pinBenefits.current, {
-      //   // yPercent: 100,
-      //   // duration: 10,
-      //   // ease: "sine.out",
-      // });
+      console.log(window.innerWidth);
+      if (window.innerWidth > 1280) {
+        const pin = gsap.timeline({
+          scrollTrigger: {
+            trigger: "[data-pin]",
+            start: "top 10%",
+            end: "bottom 45%",
+            pin: true,
+            scrub: true,
+            // markers: true,
+          },
+        });
+        pin.from("[data-wrap-benefits]", {
+          // opacity: 0,
+          y: 500,
+        });
 
-      // gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: "[data-pin-process]",
-      //     start: "top 60%",
-      //     end: "bottom 20%",
-      //     pin: true,
-      //     scrub: true,
-      //     markers: true,
-      //   },
-      // });
+        const cardsArr = gsap.utils.toArray("[data-card]").map((card) => card);
 
-      // gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: "[data-pin-p]",
-      //     start: "top 80%",
-      //     end: "bottom top",
-      //     pin: true,
-      //     scrub: true,
-      //     markers: true,
-      //   },
-      // });
+        const widthProcess = pinProcess.current.getBoundingClientRect().width;
 
-      const cardsArr = gsap.utils.toArray("[data-card]").map((card) => card);
+        // it's work -----------------!!!!!!!!
 
-      const widthProcess = pinProcess.current.getBoundingClientRect().width;
-
-      // it's work -----------------!!!!!!!!
-
-      gsap.from(cardsArr, {
-        // duration: 5,
-        x: widthProcess,
-        opacity: 0,
-        stagger: {
-          // ease: "none",
-          each: 0.5,
-          // amount: 4,
-        },
-        scrollTrigger: {
-          trigger: "[data-pin-process]",
-          start: "top 10%",
-          // end: `bottom -=${widthProcess}`,
-          end: `bottom -=1000`,
-          pin: "[data-pin-process]",
-          scrub: true,
-          // markers: true,
-        },
-      });
+        gsap.from(cardsArr, {
+          // duration: 5,
+          x: widthProcess,
+          opacity: 0,
+          stagger: {
+            // ease: "none",
+            each: 0.5,
+            // amount: 4,
+          },
+          scrollTrigger: {
+            trigger: "[data-pin-process]",
+            start: "top 10%",
+            // end: `bottom -=${widthProcess}`,
+            end: `bottom -=1000`,
+            pin: "[data-pin-process]",
+            scrub: true,
+            // markers: true,
+          },
+        });
+      }
     }
   }, [isMounted]);
 
@@ -331,7 +261,7 @@ function Home() {
               data-splitting
               data-effect17
             >
-              Trabajos seleccionados
+              Trabajos recientes
             </h2>
           </div>
           <div className={styles.contentProject}>
@@ -389,8 +319,8 @@ function Home() {
                     Sitios web de múltiples de páginas
                   </h3>
                   <div className={styles.appContentTitleIDoWorkSubTitle}>
-                    Autenticación (registro/inicio de sesión), integración con
-                    bases de datos.
+                    Pueden tener, autenticación (registro/inicio de sesión),
+                    integración con bases de datos.
                   </div>
                 </div>
                 <span className={styles.labelServicesCard}>3 - 4 páginas</span>
@@ -422,10 +352,11 @@ function Home() {
                 Que obtendrás
               </h2>
               <p className={styles.youGetDescription}>
-                Mi enfoque en el desarrollo web se centra en ofrecer resultados
-                que sean importantes para tu negocio. Me tomo el tiempo para
-                comprender tus necesidades, objetivos y así crear una solución
-                personalizada adaptada a tus necesidades.
+                Mi enfoque en el desarrollo web se centra en comprender tus
+                objetivos comerciales para crear una experiencia de usuario
+                única, con una solución personalizada obteniendo resultados
+                como, mayores tasas de conversión, aumento de tráfico web y
+                clientes potenciales.
               </p>
             </div>
 
@@ -438,9 +369,12 @@ function Home() {
                 <p className={styles.benefitsHeader}>
                   Optimización para dispositivos moviles
                 </p>
+                <p className={styles.benefitsSubTitle}>
+                  Diseño adaptable para diferentes dispositivos y pantallas.
+                </p>
                 <div className={styles.wrapperMobileFeatureAnimation}>
                   <div className={styles.featureAnimation}>
-                    <img src={phone} alt="" />
+                    <img src={phoneLine} alt="" />
                   </div>
                 </div>
               </div>
@@ -451,7 +385,7 @@ function Home() {
                 </p>
                 <div
                   data-benefitsCard="data-benefitsCard"
-                  className={styles.benefitsCard}
+                  className={styles.benefitsSubTitle}
                 >
                   Utilizo herramientas que proporcionan una infraestructura
                   donde tus datos estarán 100% seguros.
@@ -464,10 +398,10 @@ function Home() {
                 </p>
                 <div
                   data-benefitsCard="data-benefitsCard"
-                  className={styles.benefitsCard}
+                  className={styles.benefitsSubTitle}
                 >
-                  El SEO básico consiste en utilizar buenas prácticas para
-                  aparecer en los principales buscadores web.
+                  Palabras clave que atraen a tus clientes, optimización de
+                  imágenes y contenido para aumentar la visibilidad en línea.
                 </div>
               </div>
               {/* maintenance */}
@@ -475,7 +409,7 @@ function Home() {
                 <p className={styles.benefitsHeader}>Soporte y mantenimiento</p>
                 <div
                   data-benefitsCard="data-benefitsCard"
-                  className={styles.benefitsCard}
+                  className={styles.benefitsSubTitle}
                 >
                   Soporte y mantenimiento sin coste adicional por 6 meses.
                 </div>
@@ -483,30 +417,15 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className={styles.contentSquare}>
-          <svg
-            // width="1040"
-            // height="1040"
-            viewBox="0 0 1040 1040"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect
-              x="1040"
-              width="1040"
-              height="1040"
-              rx="80"
-              transform="rotate(90 1040 0)"
-              fill="#382273"
-            />
-          </svg>
-        </div>
       </section>
 
       <section
         id="personal-work"
         className={`${styles.wrapperPadding} ${styles.processSection}`}
       >
+        <div className={styles.contentWave}>
+          <img src={wave} alt="" />
+        </div>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.contentCircleBlur}></div>
 

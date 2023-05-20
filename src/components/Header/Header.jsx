@@ -121,6 +121,16 @@ function Header() {
     refObject.parentIcon.current.style.setProperty("--y", `${0}px`);
   };
 
+  const handleMenuVisibility = () => {
+    // yVisibility >= 200 && window.innerWidth > 860 ? 1 : 0
+    if (yVisibility >= 200 && window.innerWidth > 860) {
+      return 1;
+    } else if (yVisibility <= 200 && window.innerWidth > 860) {
+      return 0;
+    }
+    return 1;
+  };
+
   return (
     <header
       id="nav-hidden"
@@ -144,25 +154,17 @@ function Header() {
           >
             <ul className={styles.contentNavTopLinks}>
               <li>
-                <a href="/about-me" className={styles.linkTop}>
+                <a href="#personal-work" className={styles.linkTop}>
                   Trabajos
                 </a>
               </li>
               <li>
-                <a
-                  href="#personal-work"
-                  data-link="link"
-                  className={styles.linkTop}
-                >
+                <a href="/about-me" data-link="link" className={styles.linkTop}>
                   Sobre mí
                 </a>
               </li>
               <li>
-                <a
-                  href="#personal-work"
-                  data-link="link"
-                  className={styles.linkTop}
-                >
+                <a href="#contact" data-link="link" className={styles.linkTop}>
                   Contacto
                 </a>
               </li>
@@ -171,14 +173,19 @@ function Header() {
           <motion.div
             onClick={handleClick}
             className={styles.parentMenu}
-            initial={{ zIndex: 0 }}
-            animate={{ zIndex: yVisibility >= 300 ? 35 : 0 }}
+            // initial={{ zIndex: 0 }}
+            // animate={{ zIndex: yVisibility >= 200 ? 35 : 0 }}
+            animate={{
+              // opacity: yVisibility >= 200 && window.innerWidth > 860 ? 1 : 0,
+              opacity: handleMenuVisibility(),
+              zIndex: yVisibility >= 200 ? 35 : 0,
+            }}
           >
             <motion.div
-              animate={{ opacity: yVisibility >= 300 ? 1 : 0 }}
+              // animate={{ opacity: yVisibility >= 200 ? 1 : 0 }}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className={styles.iconNaCoord}
+              className={styles.iconNavCoord}
               transition={{
                 ease: "easeInOut",
                 duration: 0.4,

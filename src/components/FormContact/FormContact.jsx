@@ -74,18 +74,10 @@ function FormContact() {
         Trabajemos juntos
       </h2>
       <div className={styles.appContentFooterFormContact}>
-        {/* <p className={styles.appFormPD}>
-          Este formulario es para tener una noción de tus requerimientos, puedes
-          dejarme un mensaje con esa idea genial que tienes en mente, si puedes
-          se lo más específico posible por favor.
-        </p> */}
-        {/* <p className={styles.appFormPDReply}>
-          Te responderé en las próximas 24h, ¡ Gracias !
-        </p> */}
         <div className={styles.wrapperForm}>
           <form
             ref={formRef}
-            id="contact-form"
+            id="contact"
             className={styles.formContact}
             onSubmit={handleSubmit(onSubmit)}
           >
@@ -176,7 +168,9 @@ function FormContact() {
                     render={({ messages }) => {
                       return messages
                         ? Object.entries(messages).map(([type]) => (
-                            <span key={type}>{"Este campo es requerido"}</span>
+                            <span key={type}>
+                              {"Este campo es requerido *"}
+                            </span>
                           ))
                         : null;
                     }}
