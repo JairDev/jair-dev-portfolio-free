@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { Link, useLocation } from "react-router-dom";
 
@@ -6,9 +6,22 @@ import { motion, useScroll } from "framer-motion";
 
 import NavIcon from "../../assets/nav-bar-icon.svg";
 import NavIconClose from "../../assets/nav-bar-close.svg";
+import ArrowIcon from "../../assets/arrow.svg";
 
 import styles from "./Header.module.css";
-import { useState } from "react";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+import Splitting from "splitting";
+
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+Splitting();
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
 
 function Header() {
   const refObject = {
@@ -28,15 +41,7 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
   const location = useLocation();
-
-  // const clip_path_variants = {
-  //   open: {
-  //     d: "M -1 222 L 0 -3 L 283 -3 C 283 175 286 265 287 429 L -1 427 Z",
-  //   },
-  //   closed: {
-  //     d: "M -1 222 L 0 -3 L 232 -2 C 279 178 279 260 242 428 L -1 427 Z",
-  //   },
-  // };
+  const [isMounted, setIsMounted] = useState(false);
 
   const clip_path_variants = {
     open: {
@@ -55,6 +60,84 @@ function Header() {
       translateX: "100%",
     },
   };
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, [isMounted]);
+
+  useEffect(() => {
+    if (isMounted) {
+      // console.log(isMounted);
+      const letter = Splitting({ target: "[data-l]", by: "chars" });
+      // const split = gsap.utils.toArray("[data-l]").map((node, i) => {
+      //   console.log(node);
+      //   const result = Splitting({ target: node, by: "chars" });
+      //   // console.log(result);
+      //   return result[i];
+      // });
+      // console.log(split);
+      // console.log(letter);
+      // letter.forEach((chars) => {
+      //   // console.log(chars.el);
+      //   // gsap.set(chars.el, { perspective: 1000 });
+      //   const randomPosition = () => gsap.utils.random(-50, 50);
+      //   const hover = gsap.to(chars.chars, {
+      //     duration: 0.2,
+      //     // rotateY: 360,
+      //     // rotateX: 360,
+      //     translateX: randomPosition(),
+      //     translateY: randomPosition(),
+      //     paused: true,
+      //     stagger: {
+      //       each: 0.05,
+      //       from: "random",
+      //       // amount: 1,
+      //     },
+      //   });
+      //   chars.el.addEventListener("mouseenter", () => hover.play());
+      //   chars.el.addEventListener("mouseleave", () => hover.reverse());
+      // });
+      letter.forEach((chars) => {
+        // console.log(chars.el);
+        chars.chars.forEach((l) => {
+          const randomPosition = () => gsap.utils.random(-12, 12);
+
+          // const hover = gsap.timeline(l, {
+          //   duration: 0.2,
+          //   // rotateY: 360,
+          //   // rotateX: 360,
+          //   translateX: randomPosition(),
+          //   translateY: randomPosition(),
+          //   // paused: true,
+          //   // stagger: {
+          //   //   each: 0.05,
+          //   //   from: "random",
+          //   //   // amount: 1,
+          //   // },
+          // });
+          // gsap.set(l, { translateX: 0, translateY: 0 });
+          const hover = gsap.timeline({ paused: true });
+          hover
+            .to(l, {
+              translateX: randomPosition(),
+              translateY: randomPosition(),
+              duration: 0.15,
+            })
+            .to(l, {
+              translateX: 0,
+              translateY: 0,
+              duration: 0.15,
+            });
+
+          // hover.pause();
+          // chars.el.addEventListener("mouseenter", () => hover.play());
+          chars.el.addEventListener("mouseenter", () => hover.play(0));
+          // chars.el.addEventListener("mouseleave", () => hover.restart());
+        });
+        // gsap.set(chars.el, { perspective: 1000 });
+      });
+    }
+  }, [isMounted]);
 
   useEffect(() => {
     refObject.parentIcon.current.style.opacity = "1";
@@ -142,8 +225,13 @@ function Header() {
         <nav className={styles.appNav}>
           <div className="app-content-nav-logo">
             <div className="app-nav-logo">
-              <Link ref={refObject.logoRef} className={styles.logoName} to="/">
-                Alfredo Moscoso
+              <Link
+                ref={refObject.logoRef}
+                data-l="data-l"
+                className={styles.logoName}
+                to="/"
+              >
+                ALFREDO MOSCOSO
               </Link>
             </div>
           </div>
@@ -154,19 +242,44 @@ function Header() {
           >
             <ul className={styles.contentNavTopLinks}>
               <li>
-                <a href="#personal-work" className={styles.linkTop}>
+                <a
+                  href="#personal-work"
+                  data-l="data-l"
+                  className={styles.linkTop}
+                  // data-splitting
+                  data-link-to
+                >
                   Trabajos
                 </a>
               </li>
               <li>
-                <a href="/about-me" data-link="link" className={styles.linkTop}>
+                <a href="/about-me" data-l="data-l" className={styles.linkTop}>
                   Sobre mí
                 </a>
               </li>
-              <li>
-                <a href="#contact" data-link="link" className={styles.linkTop}>
-                  Contacto
+              <li className={styles.linkTopSocial}>
+                <a
+                  href="https://www.linkedin.com/in/alfredo-moscoso-desarrollador-frontend/"
+                  data-l="data-l"
+                  className={styles.linkTop}
+                >
+                  Linkedin
                 </a>
+                <div className={styles.contentSocialArrow}>
+                  <img src={ArrowIcon} alt="" />
+                </div>
+              </li>
+              <li className={styles.linkTopSocial}>
+                <a
+                  href="https://t.me/jairdev"
+                  data-l="data-l"
+                  className={styles.linkTop}
+                >
+                  Telegram
+                </a>
+                <div className={styles.contentSocialArrow}>
+                  <img src={ArrowIcon} alt="" />
+                </div>
               </li>
             </ul>
           </motion.div>
@@ -253,7 +366,7 @@ function Header() {
 
               <li className={styles.liLink}>
                 <a
-                  href="#challenges"
+                  href="/about-me"
                   data-link="link"
                   className={styles.itemLink}
                 >

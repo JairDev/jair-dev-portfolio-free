@@ -4,6 +4,9 @@
   font-size: var(--title-font-section-size);
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
+  opacity: 0.9;
+}
+.contactTitle {
 }
 
 .appContentFooterFormContact {
@@ -46,6 +49,8 @@
 
 .wrapperForm {
   background-color: #ffffff;
+  /* opacity: 0.9; */
+  /* background-color: red; */
 }
 
 .formContact {
@@ -106,13 +111,18 @@
 }
 
 .wrapperButtonForm {
+  /* border: 1px solid rgb(39, 111, 255); */
   display: flex;
   justify-content: center;
   align-self: flex-end;
   position: relative;
+  width: 100%;
 }
 
 .contentButtonForm {
+  /* border: 1px solid red; */
+  width: 100%;
+  text-align: center;
   /* border-radius: 50px; */
   /* box-shadow: 2px 4px 12px rgb(30 19 61 / 40%); */
   /* background-color: var(--accent-color); */
@@ -232,6 +242,15 @@
   opacity: 1;
 }
 
+.copyright {
+  color: var(--primary-text);
+  font-size: 16px;
+  /* font-weight: 600; */
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
+  margin-top: 8px;
+}
+
 @media only screen and (min-width: 860px) {
   .wrapperPadding {
     padding: 0 5vw;
@@ -239,6 +258,9 @@
 
   .wrapperForm {
     width: 70%;
+  }
+  .wrapperButtonForm {
+    width: auto;
   }
 
   .contactButton {

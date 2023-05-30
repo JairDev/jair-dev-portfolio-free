@@ -46,9 +46,9 @@
 
 .wrapperContentHero {
   /* border: 1px solid red; */
-  /* display: flex; */
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 48px;
 }
 
 .appLeftContentHeroRole {
@@ -87,13 +87,77 @@
   margin-top: 7rem;
 }
 
+.descriptionHeader {
+  color: var(--primary-text);
+  font-size: var(--title-font-hero-size);
+  font-family: var(--font-family);
+  /* font-weight: 800; */
+  letter-spacing: var(--letter-spacing);
+}
+
+.description {
+  color: var(--primary-text);
+  font-size: 16px;
+  font-family: var(--font-family);
+  /* font-weight: 800; */
+  letter-spacing: var(--letter-spacing);
+  margin-top: 8px;
+}
+
 .appContentAboutMe {
   /* background: #292929; */
+  /* background: linear-gradient(#1f1340, #7c4dff); */
+  background: #7c4dff;
   /* margin-top: 3rem; */
-  /* padding-top: 1rem; */
   position: relative;
+  padding-top: 88px;
   /* overflow: hidden; */
   /* z-index: 50; */
+}
+.contentAboutPhoto {
+  /* border: 2px solid black; */
+  background: #1f1340;
+  line-height: 0;
+  position: relative;
+}
+
+.spanSquare {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+}
+
+.sA {
+  background: #7c4dff;
+  top: 140px;
+  left: 70px;
+}
+
+.sB {
+  background: #1f1340;
+  top: 280px;
+  left: -140px;
+}
+
+.contentAboutPhoto::before {
+  content: "";
+  background: #7c4dff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  /* opacity: 0.6; */
+}
+.contentAboutPhoto::after {
+  content: "";
+  background: #7c4dff;
+  position: absolute;
+  top: 0;
+  right: 70px;
+  width: 70px;
+  height: 70px;
+  /* opacity: 0.6; */
 }
 
 .appContentAboutMeHeader {
@@ -344,7 +408,7 @@
   }
 
   .wrapperContentHero {
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr; */
   }
 
   .contentColl {

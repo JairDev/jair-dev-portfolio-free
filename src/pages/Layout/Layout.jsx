@@ -2,12 +2,12 @@ import React from "react";
 
 import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer";
-import styles from "./Layout.module.css";
+import "./Layout.css";
 
-function Layout({ children }) {
+function Layout({ children, isMounted }) {
   return (
     <>
-      <div>
+      <div className={`layout ${isMounted ? "active" : "noActive"}`}>
         <Header />
         <div id="container">{children}</div>
         <Footer />

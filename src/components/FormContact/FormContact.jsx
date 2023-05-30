@@ -67,9 +67,11 @@ function FormContact() {
     <>
       <h2
         // data-text="text"
-        className={styles.titleSections}
-        data-splitting
+
+        className={`${styles.contactTitle} ${styles.titleSections}`}
+        // data-splitting
         data-effect17
+        data-animate-title
       >
         Trabajemos juntos
       </h2>
@@ -96,7 +98,7 @@ function FormContact() {
                       return messages
                         ? Object.entries(messages).map(([type]) => (
                             <span key={type}>
-                              {"Este campo es requerido *"}
+                              {"¡Ey! no se te olvide tu nombre"}
                             </span>
                           ))
                         : null;
@@ -142,7 +144,7 @@ function FormContact() {
                       return messages
                         ? Object.entries(messages).map(([type]) => (
                             <span key={type}>
-                              {"Este campo es requerido *"}
+                              {"Dime tu correo para poder contactarte."}
                             </span>
                           ))
                         : null;
@@ -169,7 +171,7 @@ function FormContact() {
                       return messages
                         ? Object.entries(messages).map(([type]) => (
                             <span key={type}>
-                              {"Este campo es requerido *"}
+                              {"Háblame un poco acerca de tu genial idea !"}
                             </span>
                           ))
                         : null;
@@ -201,6 +203,7 @@ function FormContact() {
             ))}
           </div>
         </div>
+        <div className={styles.copyright}>2023 ALFREDO MOSCOSO</div>
       </div>
     </>
   );

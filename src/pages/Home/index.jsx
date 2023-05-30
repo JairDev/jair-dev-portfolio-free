@@ -16,10 +16,11 @@ import { personalProjects } from "../../data/info-portfolio";
 // import blob from "../../assets/blob.svg";
 // import blobBlur from "../../assets/blob-blur2.png";
 // import cube from "assets/render.webp";
-import phone from "assets/mobile-phone-img.svg";
+// import phone from "assets/mobile-phone-img.svg";
 import phoneLine from "assets/mobile-phone-line.svg";
 import wave from "assets/wave.svg";
-import roundSquare from "assets/round-square.svg";
+import ArrowIcon from "../../assets/arrow.svg";
+
 // import tablet from "assets/mobile-tablet-img.svg";
 // import lines from "assets/lines.png";
 
@@ -40,13 +41,13 @@ gsap.registerPlugin(ScrollToPlugin);
 function Home() {
   const objRef = {
     word: useRef(null),
-    heroImage: useRef(null),
+    // heroImage: useRef(null),
     rotateText: useRef(),
   };
 
   const refCircleText = useRef();
 
-  const projects = personalProjects.slice(0, 4);
+  const projects = personalProjects;
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -63,82 +64,22 @@ function Home() {
 
     gsapAnimations(objRef);
 
-    gsap.utils.toArray("[data-link]").forEach((link) => {
-      const scroll = link.getAttribute("href");
-      link.addEventListener("click", (e) => {
-        console.log(scroll);
-        gsap.to(window, { duration: 1, scrollTo: scroll });
-        e.preventDefault();
-      });
-    });
+    // gsap.utils.toArray("[data-link-to]").forEach((link) => {
+    //   const scroll = link.getAttribute("href");
+    //   link.addEventListener("click", (e) => {
+    //     e.preventDefault();
+    //     gsap.to(window, { duration: 1, scrollTo: { y: scroll } });
+    //   });
+    // });
 
-    const circleType = new CircleType(refCircleText.current);
-    circleType.radius(80);
+    // const circleType = new CircleType(refCircleText.current);
+    // circleType.radius(80);
   }, [objRef]);
 
   useEffect(() => {
     if (isMounted) {
-      const split = gsap.utils.toArray("[data-text]").map((node, i) => {
-        const results = Splitting({ target: node.current, by: "chars" });
-        return results[i];
-      });
-
-      split.forEach((letters) => {
-        letters.chars.forEach((l) => {
-          const randomPosition = () => gsap.utils.random(-200, 200);
-          gsap.set(l.parentNode, { perspective: 1000 });
-          gsap.set(l, {
-            opacity: 0,
-            translateY: randomPosition(),
-            translateX: randomPosition(),
-            z: randomPosition(),
-          });
-          ScrollTrigger.batch(l, {
-            onEnter: (batch) =>
-              gsap.to(batch, {
-                // ease: "power1.out",
-                opacity: 1,
-                translateY: 0,
-                translateX: 0,
-                z: 0,
-              }),
-            onLeaveBack: (batch) =>
-              gsap.to(batch, {
-                // ease: "power1.out",
-                opacity: 0,
-                translateY: randomPosition(),
-                translateX: randomPosition(),
-                z: randomPosition(),
-              }),
-            start: "top 95%",
-            // markers: true,
-          });
-        });
-      });
-
-      // gsap
-      //   .timeline({
-      //     scrollTrigger: {
-      //       trigger: "#circle-blur",
-      //       start: "top 65% ",
-      //       end: "100% -10%",
-      //       scrub: true,
-      //       // markers: true,
-      //     },
-      //   })
-      //   .to("#circle-blur", {
-      //     ease: "sine.out",
-      //     duration: 0.7,
-      //     opacity: 1,
-      //     y: 280,
-      //   });
-    }
-  }, [isMounted]);
-
-  useEffect(() => {
-    if (isMounted) {
-      console.log(window.innerWidth);
       if (window.innerWidth > 1280) {
+        ///// pins
         const pin = gsap.timeline({
           scrollTrigger: {
             trigger: "[data-pin]",
@@ -163,23 +104,77 @@ function Home() {
         gsap.from(cardsArr, {
           // duration: 5,
           x: widthProcess,
+          y: "random(-300, 300)",
+          rotateZ: "random(-30, 30)",
           opacity: 0,
           stagger: {
             // ease: "none",
-            each: 0.5,
+            each: 0.3,
             // amount: 4,
           },
           scrollTrigger: {
             trigger: "[data-pin-process]",
             start: "top 10%",
             // end: `bottom -=${widthProcess}`,
-            end: `bottom -=1000`,
+            end: `bottom -=2000`,
             pin: "[data-pin-process]",
             scrub: true,
             // markers: true,
           },
         });
       }
+
+      const split = Splitting({
+        target: "[data-animate-title]",
+        by: "chars",
+      });
+      split.forEach((letters) => {
+        letters.chars.forEach((l) => {
+          // console.log(l);
+          const randomPosition = () => gsap.utils.random(-100, 100);
+          gsap.set(l.parentNode, { perspective: 1000 });
+          gsap.set(l, {
+            opacity: 0,
+            translateY: randomPosition(),
+            translateX: randomPosition(),
+            z: randomPosition(),
+          });
+          ScrollTrigger.batch(l, {
+            onEnter: (batch) =>
+              gsap.to(batch, {
+                ease: "none",
+                opacity: 1,
+                translateY: 0,
+                translateX: 0,
+                z: 0,
+              }),
+            onLeaveBack: (batch) =>
+              gsap.to(batch, {
+                ease: "none",
+                opacity: 0,
+                translateY: randomPosition(),
+                translateX: randomPosition(),
+                z: randomPosition(),
+              }),
+            start: "top 95%",
+            // markers: true,
+          });
+        });
+      });
+      gsap.utils.toArray("[data-link-to]").forEach((link) => {
+        const scroll = link.getAttribute("href");
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          gsap.to(window, { duration: 1, scrollTo: { y: scroll } });
+        });
+      });
+      gsap.utils.toArray("[data-link-to-contact]").forEach((link) => {
+        const scroll = link.getAttribute("href");
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          gsap.to(window, { duration: 3, scrollTo: { y: scroll } });
+        });
+      });
     }
   }, [isMounted]);
 
@@ -193,56 +188,27 @@ function Home() {
         id={"wrapper-padding"}
       >
         <div className={styles.wrapperMaxWidth}>
-          <div className={styles.wrapperContentHero}>
-            <div className={styles.appLeftContentHero}>
-              <div className={styles.appLeftContentHeroRole}>
-                <div className={styles.wordHeroColor}>
-                  <h1 className={styles.role}>
-                    Construye tu presencia en línea
-                  </h1>
-                </div>
-
-                <h2 className={styles.subTitleRole}>
-                  Sitios web personalizados que se adaptan a tus necesidades.
-                </h2>
-                <div
-                  ref={objRef.triggerButton}
-                  id="trigger-button"
-                  className={styles.contentButtonContact}
+          <div className={styles.appLeftContentHero}>
+            <h1 className={styles.role}>Construye tu presencia en línea</h1>
+            <h2 className={styles.subTitleRole}>
+              Sitios web personalizados que se adaptan a tus necesidades.
+            </h2>
+            <div
+              ref={objRef.triggerButton}
+              id="trigger-button"
+              className={styles.contentButtonContact}
+            >
+              <Button classButton="hero">
+                <a
+                  className={`${styles.link} ${styles.hero}`}
+                  href="#contact"
+                  data-link="link"
+                  data-l="data-l"
+                  data-link-to-contact
                 >
-                  <Button classButton="hero">
-                    <a
-                      className={`${styles.link} ${styles.hero}`}
-                      href="#contact"
-                      data-link="link"
-                    >
-                      Iniciar un proyecto
-                    </a>
-                  </Button>
-                </div>
-              </div>
-
-              <div className={styles.appContentScrollArrow}>
-                <div
-                  ref={objRef.rotateText}
-                  className={styles.contentCircleText}
-                  data-rotate-text="rotate-text"
-                >
-                  <p ref={refCircleText} className={styles.circleText}>
-                    {/* • scroll • scroll • scroll • scroll • scroll • scroll •
-                    scroll • scroll • scroll • scroll */}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className={styles.appRightContentHero}>
-              <div
-                ref={objRef.heroImage}
-                data-heroimage="heroimage"
-                className={styles.appRightContentHeroImg}
-              >
-                {/* <img src={cube} /> */}
-              </div>
+                  Iniciar un proyecto
+                </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -258,7 +224,8 @@ function Home() {
               ref={refText}
               data-text="text"
               className={`${styles.spanWorkName} ${styles.titleSections}`}
-              data-splitting
+              // data-splitting
+              data-animate-title
               data-effect17
             >
               Trabajos recientes
@@ -294,7 +261,8 @@ function Home() {
               ref={refText}
               data-text="text"
               className={`${styles.titleSections}`}
-              data-splitting
+              // data-splitting
+              data-animate-title
               data-effect17
             >
               Puedo ayudarte con
@@ -316,7 +284,7 @@ function Home() {
               <div className={styles.servicesCard}>
                 <div className={styles.wrapperServicesContent}>
                   <h3 className={styles.appContentTitleIDoWork}>
-                    Sitios web de múltiples de páginas
+                    Sitios web de múltiples páginas
                   </h3>
                   <div className={styles.appContentTitleIDoWorkSubTitle}>
                     Pueden tener, autenticación (registro/inicio de sesión),
@@ -346,7 +314,8 @@ function Home() {
                 ref={refText}
                 data-text="text"
                 className={`${styles.titleSections}`}
-                data-splitting
+                // data-splitting
+                data-animate-title
                 data-effect17
               >
                 Que obtendrás
@@ -384,7 +353,7 @@ function Home() {
                   La seguridad es primordial
                 </p>
                 <div
-                  data-benefitsCard="data-benefitsCard"
+                  // data-benefitsCard="data-benefitsCard"
                   className={styles.benefitsSubTitle}
                 >
                   Utilizo herramientas que proporcionan una infraestructura
@@ -397,7 +366,7 @@ function Home() {
                   Optimización básica de motores de búsqueda (SEO)
                 </p>
                 <div
-                  data-benefitsCard="data-benefitsCard"
+                  // data-benefitsCard="data-benefitsCard"
                   className={styles.benefitsSubTitle}
                 >
                   Palabras clave que atraen a tus clientes, optimización de
@@ -408,7 +377,7 @@ function Home() {
               <div className={styles.wrapperCardBenefits}>
                 <p className={styles.benefitsHeader}>Soporte y mantenimiento</p>
                 <div
-                  data-benefitsCard="data-benefitsCard"
+                  // data-benefitsCard="data-benefitsCard"
                   className={styles.benefitsSubTitle}
                 >
                   Soporte y mantenimiento sin coste adicional por 6 meses.
@@ -442,8 +411,9 @@ function Home() {
                 ref={refText}
                 data-text="text"
                 className={`${styles.processTitle} ${styles.titleSections}`}
-                data-splitting
+                // data-splitting
                 data-effect17
+                data-animate-title
               >
                 Mi proceso
               </h2>

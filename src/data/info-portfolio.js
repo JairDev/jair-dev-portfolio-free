@@ -52,7 +52,7 @@ export const personalProjects = [
   },
   {
     id: "id2",
-    name: "Landing page Barber",
+    name: "Ana fotografía",
     subTitle: "Diseño & Desarrollo",
     imgSrcApp: workCoin2,
     linkGit: "https://github.com/JairDev/hot-food-app",
@@ -77,7 +77,7 @@ export const personalProjects = [
     ],
   },
   {
-    name: "Memory",
+    name: "M&G Cakes",
     subTitle: "Diseño & Desarrollo",
 
     imgSrcApp: workDessert2,

@@ -51,18 +51,19 @@ function Projects({
 
   return (
     <>
-      <div
-        ref={(node) => refDiv.current.push(node)}
-        id={id}
-        className={styles.contentPersonalProject}
-      >
-        {/* <motion.div className={styles.contentPersonalProjectFlex}> */}
+      <a href="https://twitter.com/" className={styles.wrapperProjectLink}>
         <div
-          ref={refAnimateLink}
-          className={styles.contentPersonalProjectImg}
-          onMouseMove={handleMouseMove}
+          ref={(node) => refDiv.current.push(node)}
+          id={id}
+          className={styles.contentPersonalProject}
         >
-          {/* <motion.div
+          {/* <motion.div className={styles.contentPersonalProjectFlex}> */}
+          <div
+            ref={refAnimateLink}
+            className={styles.contentPersonalProjectImg}
+            onMouseMove={handleMouseMove}
+          >
+            {/* <motion.div
             ref={refViewSite}
             className={styles.viewSite}
             style={{
@@ -70,10 +71,9 @@ function Projects({
               translateY: y,
             }}
           ></motion.div> */}
-          <p className={styles.titleProjectInside}>CoinMarketApp</p>
-          <img src={imgSrcApp} alt="" />
-          {/* <div className={styles.blurImg}></div> */}
-          {/* <motion.div
+            <img src={imgSrcApp} alt="" />
+            {/* <div className={styles.blurImg}></div> */}
+            {/* <motion.div
             ref={refViewSite}
             className={`${styles.viewSite} ${styles.viewSiteText}`}
             style={{
@@ -83,25 +83,26 @@ function Projects({
           >
             Ver sitio
           </motion.div> */}
-        </div>
-
-        <div className={styles.contentInfoProject}>
-          <div className={styles.contentTitleProject}>
-            <h3>{name}</h3>
-            <h6>{subTitle}</h6>
           </div>
-          <div className={styles.contentLinkProject}>
-            <div className={styles.contentExternalLinkArrow}>
-              <img
-                className={styles.externalLinkArrow}
-                src={ArrowIcon}
-                alt=""
-              />
+
+          <div className={styles.contentInfoProject}>
+            <div className={styles.contentTitleProject}>
+              <h3>{name}</h3>
+              <h6>{subTitle}</h6>
+            </div>
+            <div className={styles.contentLinkProject}>
+              <div className={styles.contentExternalLinkArrow}>
+                <img
+                  className={styles.externalLinkArrow}
+                  src={ArrowIcon}
+                  alt=""
+                />
+              </div>
             </div>
           </div>
+          {/* </motion.div> */}
         </div>
-        {/* </motion.div> */}
-      </div>
+      </a>
     </>
   );
 }

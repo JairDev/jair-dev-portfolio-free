@@ -1,0 +1,7 @@
+.layout {
+  /* border: 2px solid red; */
+  /* opacity: 0.5; */
+}
+.layout.active {
+  /* opacity: 1; */
+}
