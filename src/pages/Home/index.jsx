@@ -6,23 +6,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-import CircleType from "circletype";
-
-import { gsapAnimations } from "utils/gsapAnimations/gsapAnimations";
-
 import { personalProjects } from "../../data/info-portfolio";
 
-// import ArrowIcon from "../../assets/arrow.svg";
-// import blob from "../../assets/blob.svg";
-// import blobBlur from "../../assets/blob-blur2.png";
-// import cube from "assets/render.webp";
-// import phone from "assets/mobile-phone-img.svg";
 import phoneLine from "assets/mobile-phone-line.svg";
 import wave from "assets/wave.svg";
-import ArrowIcon from "../../assets/arrow.svg";
-
-// import tablet from "assets/mobile-tablet-img.svg";
-// import lines from "assets/lines.png";
 
 import Button from "components/Button/Button";
 import Projects from "components/Projects/Projects";
@@ -41,17 +28,15 @@ gsap.registerPlugin(ScrollToPlugin);
 function Home() {
   const objRef = {
     word: useRef(null),
-    // heroImage: useRef(null),
     rotateText: useRef(),
   };
 
-  const refCircleText = useRef();
-
-  const projects = personalProjects;
+  const [projects, setProjects] = useState([]);
 
   const [isMounted, setIsMounted] = useState(false);
 
   const refText = useRef(null);
+  const initProjectLinkRef = useRef(null);
 
   const pinBenefits = useRef(null);
 
@@ -59,21 +44,13 @@ function Home() {
 
   useEffect(() => {
     setIsMounted(true);
+    new Promise((resolve, reject) =>
+      setTimeout(() => {
+        resolve(personalProjects);
+      }, 0)
+    ).then((res) => setProjects(res));
 
     window.scrollTo(0, 0);
-
-    gsapAnimations(objRef);
-
-    // gsap.utils.toArray("[data-link-to]").forEach((link) => {
-    //   const scroll = link.getAttribute("href");
-    //   link.addEventListener("click", (e) => {
-    //     e.preventDefault();
-    //     gsap.to(window, { duration: 1, scrollTo: { y: scroll } });
-    //   });
-    // });
-
-    // const circleType = new CircleType(refCircleText.current);
-    // circleType.radius(80);
   }, [objRef]);
 
   useEffect(() => {
@@ -91,31 +68,23 @@ function Home() {
           },
         });
         pin.from("[data-wrap-benefits]", {
-          // opacity: 0,
           y: 500,
         });
 
-        const cardsArr = gsap.utils.toArray("[data-card]").map((card) => card);
-
-        const widthProcess = pinProcess.current.getBoundingClientRect().width;
-
         // it's work -----------------!!!!!!!!
-
+        const cardsArr = gsap.utils.toArray("[data-card]").map((card) => card);
+        const widthProcess = pinProcess.current.getBoundingClientRect().width;
         gsap.from(cardsArr, {
-          // duration: 5,
           x: widthProcess,
           y: "random(-300, 300)",
           rotateZ: "random(-30, 30)",
           opacity: 0,
           stagger: {
-            // ease: "none",
             each: 0.3,
-            // amount: 4,
           },
           scrollTrigger: {
             trigger: "[data-pin-process]",
             start: "top 10%",
-            // end: `bottom -=${widthProcess}`,
             end: `bottom -=2000`,
             pin: "[data-pin-process]",
             scrub: true,
@@ -123,14 +92,13 @@ function Home() {
           },
         });
       }
-
+      ////////////////////////////letters
       const split = Splitting({
         target: "[data-animate-title]",
         by: "chars",
       });
       split.forEach((letters) => {
         letters.chars.forEach((l) => {
-          // console.log(l);
           const randomPosition = () => gsap.utils.random(-100, 100);
           gsap.set(l.parentNode, { perspective: 1000 });
           gsap.set(l, {
@@ -161,22 +129,14 @@ function Home() {
           });
         });
       });
-      gsap.utils.toArray("[data-link-to]").forEach((link) => {
-        const scroll = link.getAttribute("href");
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          gsap.to(window, { duration: 1, scrollTo: { y: scroll } });
-        });
-      });
-      gsap.utils.toArray("[data-link-to-contact]").forEach((link) => {
-        const scroll = link.getAttribute("href");
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          gsap.to(window, { duration: 3, scrollTo: { y: scroll } });
-        });
-      });
     }
   }, [isMounted]);
+
+  const handleLinkToClick = (e, target, duration) => {
+    e.preventDefault();
+    const linkTo = target.current.getAttribute("href");
+    gsap.to(window, { duration: duration, scrollTo: { y: linkTo } });
+  };
 
   return (
     <>
@@ -200,11 +160,14 @@ function Home() {
             >
               <Button classButton="hero">
                 <a
+                  ref={initProjectLinkRef}
                   className={`${styles.link} ${styles.hero}`}
                   href="#contact"
-                  data-link="link"
+                  // data-link="link"
                   data-l="data-l"
                   data-link-to-contact
+                  data-letter-hover
+                  onClick={(e) => handleLinkToClick(e, initProjectLinkRef, 3)}
                 >
                   Iniciar un proyecto
                 </a>
@@ -232,19 +195,20 @@ function Home() {
             </h2>
           </div>
           <div className={styles.contentProject}>
-            {projects.slice(0, 3).map((item, i) => (
-              <Projects
-                key={item.name}
-                id={item.id}
-                name={item.name}
-                imgSrcApp={item.imgSrcApp}
-                linkGit={item.linkGit}
-                linkDemo={item.linkDemo}
-                dataDescription={item.dataDescription}
-                subTitle={item.subTitle}
-                idx={i}
-              />
-            ))}
+            {projects &&
+              projects.map((item, i) => (
+                <Projects
+                  key={item.name}
+                  id={item.id}
+                  name={item.name}
+                  imgSrcApp={item.imgSrcApp}
+                  linkGit={item.linkGit}
+                  linkDemo={item.linkDemo}
+                  dataDescription={item.dataDescription}
+                  subTitle={item.subTitle}
+                  idx={i}
+                />
+              ))}
           </div>
         </div>
       </section>
@@ -255,7 +219,7 @@ function Home() {
         className={`${styles.wrapperPadding} ${styles.serviceSection}`}
       >
         <div className={styles.wrapperMaxWidth}>
-          <div className={styles.contentCircleBlur}></div>
+          {/* <div className={styles.contentCircleBlur}></div> */}
           <div className={styles.wrapperAppContentIDoWork}>
             <h2
               ref={refText}
@@ -274,10 +238,10 @@ function Home() {
                   <h3 className={styles.appContentTitleIDoWork}>
                     Landing pages
                   </h3>
-                  <div className={styles.appContentTitleIDoWorkSubTitle}>
+                  <p className={styles.appContentTitleIDoWorkSubTitle}>
                     Sitio web de una página, ideal para emprendedores, pequeñas
                     empresas, presentación de productos.
-                  </div>
+                  </p>
                 </div>
                 <span className={styles.labelServicesCard}>1 página</span>
               </div>
@@ -286,10 +250,10 @@ function Home() {
                   <h3 className={styles.appContentTitleIDoWork}>
                     Sitios web de múltiples páginas
                   </h3>
-                  <div className={styles.appContentTitleIDoWorkSubTitle}>
+                  <p className={styles.appContentTitleIDoWorkSubTitle}>
                     Pueden tener, autenticación (registro/inicio de sesión),
                     integración con bases de datos.
-                  </div>
+                  </p>
                 </div>
                 <span className={styles.labelServicesCard}>3 - 4 páginas</span>
               </div>
@@ -303,7 +267,7 @@ function Home() {
         className={`${styles.wrapperPadding} ${styles.benefitsSection}`}
       >
         <div className={styles.wrapperMaxWidth}>
-          <div className={styles.contentCircleBlur}></div>
+          {/* <div className={styles.contentCircleBlur}></div> */}
           <div className={styles.wrapperAppBenefits}>
             <div
               ref={pinBenefits}
@@ -335,9 +299,9 @@ function Home() {
             >
               {/* mobile */}
               <div className={styles.wrapperMobileBenefits}>
-                <p className={styles.benefitsHeader}>
+                <h3 className={styles.benefitsHeader}>
                   Optimización para dispositivos moviles
-                </p>
+                </h3>
                 <p className={styles.benefitsSubTitle}>
                   Diseño adaptable para diferentes dispositivos y pantallas.
                 </p>
@@ -349,39 +313,32 @@ function Home() {
               </div>
               {/* security */}
               <div className={styles.wrapperCardBenefits}>
-                <p className={styles.benefitsHeader}>
+                <h3 className={styles.benefitsHeader}>
                   La seguridad es primordial
-                </p>
-                <div
-                  // data-benefitsCard="data-benefitsCard"
-                  className={styles.benefitsSubTitle}
-                >
+                </h3>
+                <p className={styles.benefitsSubTitle}>
                   Utilizo herramientas que proporcionan una infraestructura
                   donde tus datos estarán 100% seguros.
-                </div>
+                </p>
               </div>
               {/* seo */}
               <div className={styles.wrapperCardBenefits}>
-                <p className={styles.benefitsHeader}>
+                <h3 className={styles.benefitsHeader}>
                   Optimización básica de motores de búsqueda (SEO)
-                </p>
-                <div
-                  // data-benefitsCard="data-benefitsCard"
-                  className={styles.benefitsSubTitle}
-                >
+                </h3>
+                <p className={styles.benefitsSubTitle}>
                   Palabras clave que atraen a tus clientes, optimización de
                   imágenes y contenido para aumentar la visibilidad en línea.
-                </div>
+                </p>
               </div>
               {/* maintenance */}
               <div className={styles.wrapperCardBenefits}>
-                <p className={styles.benefitsHeader}>Soporte y mantenimiento</p>
-                <div
-                  // data-benefitsCard="data-benefitsCard"
-                  className={styles.benefitsSubTitle}
-                >
+                <h3 className={styles.benefitsHeader}>
+                  Soporte y mantenimiento
+                </h3>
+                <p className={styles.benefitsSubTitle}>
                   Soporte y mantenimiento sin coste adicional por 6 meses.
-                </div>
+                </p>
               </div>
             </div>
           </div>
@@ -427,44 +384,44 @@ function Home() {
             <div ref={pinProcess} className={styles.wrapperProcess}>
               <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>01. Descubrir</h3>
-                <div className={styles.appContentTitleIDoWorkSubTitle}>
+                <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Tendremos nuestra primera reunión para saber mas sobre tu
                   proyecto, te daré una aproximación de cuanto tiempo tomaría y
                   el presupuesto del proyecto.
-                </div>
+                </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>02. Diseño</h3>
-                <div className={styles.appContentTitleIDoWorkSubTitle}>
+                <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Luego de saber sobre tu genial idea, comenzaré mi proceso de
                   diseño, al finalizar mi propuesta nos volvemos a reunir para
                   intercambiar ideas y si estas de acuerdo con el diseño vamos
                   al siguiente punto.
-                </div>
+                </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>
                   03. Desarrollo
                 </h3>
-                <div className={styles.appContentTitleIDoWorkSubTitle}>
+                <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Utilizando las herramientas con las que trabajo, comienzo con
                   el proceso de construcción del sitio web, en este punto
                   seguiremos en contacto porque tu también formas parte del
                   proceso.
-                </div>
+                </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>
                   04. Lanzamiento
                 </h3>
-                <div
+                <p
                   data-text1="data-text1"
                   className={styles.appContentTitleIDoWorkSubTitle}
                 >
                   Publicaré tu sitio web, haré las pruebas necesarias para
                   asegurarme de entregar un trabajo de calidad, si todo marcha
                   bien, serás otro cliente satisfecho.
-                </div>
+                </p>
               </div>
             </div>
           </div>
