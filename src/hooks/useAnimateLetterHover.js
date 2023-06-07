@@ -15,15 +15,15 @@ export default function useAnimateLetterHover() {
   const r = useRef(null);
 
   useEffect(() => {
-    // if (isHover) {
-    const letter = Splitting({
-      target: target,
-      by: "chars",
-    });
-    // console.log(target);
+    // const letter = Splitting({
+    //   target: target,
+    //   by: "chars",
+    // });
+    // console.log(letter);
     // letter.forEach((chars) => {
     //   chars.chars.forEach((l) => {
     //     // console.log(l);
+    //     // console.log(chars.el);
     //     const randomPosition = () => gsap.utils.random(-12, 12);
     //     tl.current.to(l, {
     //       translateX: randomPosition(),
@@ -37,39 +37,16 @@ export default function useAnimateLetterHover() {
     //     });
     //   });
     // });
-    // letter.forEach((chars) => {
-    //   chars.chars.forEach((l) => {
-    //     const randomPosition = () => gsap.utils.random(-12, 12);
-    //     tl.current
-    //       .to(l, {
-    //         translateX: randomPosition(),
-    //         translateY: randomPosition(),
-    //         duration: 0.15,
-    //       })
-    //       .to(l, {
-    //         translateX: 0,
-    //         translateY: 0,
-    //         duration: 0.15,
-    //       });
-    //   });
-    // });
-    // }
-    // console.log(target);
   }, [isHover, target]);
 
   const mouseHover = (e) => {
-    tl.current.clear();
-
-    setIsHover(true);
-    const target = e.target.closest("[data-ani]");
-    const targetAni = e.target.closest("[data-letter-hover]");
-    // if (target) {
-    //   // console.log(tl.current.play(0));
-    //   setTarget(target.firstChild);
-    //   tl.current.play(0);
-    // }
-    // console.log(target.firstChild);
-    // console.log(target);
+    // tl.current.clear();
+    // setIsHover(true);
+    // const target = e.target.closest("[data-ani]");
+    // const targetAni = e.target.closest("[data-letter-hover]");
+    // setTarget(e.currentTarget);
+    // tl.current.play();
+    // console.log(e.currentTarget);
   };
 
   const mouseLeave = (e) => {

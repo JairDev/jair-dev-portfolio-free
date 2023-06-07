@@ -1,8 +1,9 @@
 .contentButton {
   /* border: 1px solid red; */
   border-radius: 16px;
-  background-color: var(--primary-color);
-  /* background: linear-gradient(to right, #7c4dff, #db40ff); */
+  /* background-color: var(--primary-color); */
+  /* background-color: var(--accent-color); */
+  background: linear-gradient(to right, #7c4dff, #db40ff);
   align-self: flex-start;
   position: relative;
   overflow: hidden;
@@ -26,7 +27,7 @@
 
 .button.contactButton {
   /* border: 2px solid red; */
-  color: #e7e8ef;
+  color: #ffffff;
   padding: 1rem 1.5rem;
 }
 

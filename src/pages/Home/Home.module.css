@@ -56,7 +56,8 @@
 
 .link.hero,
 .link.heroViewWork {
-  color: #e7e8ef;
+  color: #ffffff;
+  /* color: var(--title-dark-color); */
   display: block;
 }
 
@@ -178,7 +179,7 @@
 
 .benefitsSection {
   /* border: 1px solid red; */
-  display: block;
+  /* display: flex; */
   background: linear-gradient(#5836b5, #1f1340);
   padding-bottom: 120px;
   position: relative;

@@ -47,9 +47,7 @@ function Header() {
   const headerRef = useRef(null);
   const link1 = useRef(null);
   const link2 = useRef(null);
-  const [mouseHover, mouseLeave, r] = useAnimateLetterHover(
-    "[data-letter-hover]"
-  );
+  const [mouseHover, mouseLeave, r] = useAnimateLetterHover();
 
   const clip_path_variants = {
     open: {
@@ -82,8 +80,8 @@ function Header() {
         });
         letter.forEach((chars) => {
           chars.chars.forEach((l) => {
-            const randomPosition = () => gsap.utils.random(-12, 12);
             const hover = gsap.timeline({ paused: true });
+            const randomPosition = () => gsap.utils.random(-12, 12);
             hover
               .to(l, {
                 translateX: randomPosition(),
@@ -212,8 +210,10 @@ function Header() {
             className={styles.linkWorkNav}
           >
             <ul className={styles.contentNavTopLinks}>
-              <li data-ani onMouseEnter={mouseHover} onMouseLeave={mouseLeave}>
+              <li data-ani>
                 <a
+                  onMouseEnter={mouseHover}
+                  onMouseLeave={mouseLeave}
                   href="#personal-work"
                   data-letter-hover
                   className={styles.linkTop}
@@ -223,7 +223,7 @@ function Header() {
                   Trabajos
                 </a>
               </li>
-              <li data-ani onMouseEnter={mouseHover} onMouseLeave={mouseLeave}>
+              <li data-ani>
                 <a
                   href="/about-me"
                   data-letter-hover

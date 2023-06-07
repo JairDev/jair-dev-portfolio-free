@@ -26,16 +26,10 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
 function Home() {
-  const objRef = {
-    word: useRef(null),
-    rotateText: useRef(),
-  };
-
   const [projects, setProjects] = useState([]);
 
   const [isMounted, setIsMounted] = useState(false);
 
-  const refText = useRef(null);
   const initProjectLinkRef = useRef(null);
 
   const pinBenefits = useRef(null);
@@ -51,7 +45,7 @@ function Home() {
     ).then((res) => setProjects(res));
 
     window.scrollTo(0, 0);
-  }, [objRef]);
+  }, []);
 
   useEffect(() => {
     if (isMounted) {
@@ -71,7 +65,7 @@ function Home() {
           y: 500,
         });
 
-        // it's work -----------------!!!!!!!!
+        // process animations
         const cardsArr = gsap.utils.toArray("[data-card]").map((card) => card);
         const widthProcess = pinProcess.current.getBoundingClientRect().width;
         gsap.from(cardsArr, {
@@ -92,7 +86,7 @@ function Home() {
           },
         });
       }
-      ////////////////////////////letters
+      ////////////////////////////letters animation
       const split = Splitting({
         target: "[data-animate-title]",
         by: "chars",
@@ -141,7 +135,7 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Alfredo Moscoso | Portafolio</title>
+        <title>Alfredo Moscoso | Desarrollo web</title>
       </Helmet>
       <section
         className={`${styles.wrapperPadding} ${styles.appContentHero}`}
@@ -153,18 +147,12 @@ function Home() {
             <h2 className={styles.subTitleRole}>
               Sitios web personalizados que se adaptan a tus necesidades.
             </h2>
-            <div
-              ref={objRef.triggerButton}
-              id="trigger-button"
-              className={styles.contentButtonContact}
-            >
+            <div id="trigger-button" className={styles.contentButtonContact}>
               <Button classButton="hero">
                 <a
                   ref={initProjectLinkRef}
                   className={`${styles.link} ${styles.hero}`}
                   href="#contact"
-                  // data-link="link"
-                  data-l="data-l"
                   data-link-to-contact
                   data-letter-hover
                   onClick={(e) => handleLinkToClick(e, initProjectLinkRef, 3)}
@@ -184,10 +172,8 @@ function Home() {
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.appContentPersonalProjectsHeader}>
             <h2
-              ref={refText}
               data-text="text"
               className={`${styles.spanWorkName} ${styles.titleSections}`}
-              // data-splitting
               data-animate-title
               data-effect17
             >
@@ -222,12 +208,9 @@ function Home() {
           {/* <div className={styles.contentCircleBlur}></div> */}
           <div className={styles.wrapperAppContentIDoWork}>
             <h2
-              ref={refText}
               data-text="text"
               className={`${styles.titleSections}`}
-              // data-splitting
               data-animate-title
-              data-effect17
             >
               Puedo ayudarte con
             </h2>
@@ -267,7 +250,6 @@ function Home() {
         className={`${styles.wrapperPadding} ${styles.benefitsSection}`}
       >
         <div className={styles.wrapperMaxWidth}>
-          {/* <div className={styles.contentCircleBlur}></div> */}
           <div className={styles.wrapperAppBenefits}>
             <div
               ref={pinBenefits}
@@ -275,12 +257,9 @@ function Home() {
               className={styles.wrapperBenefitsTitle}
             >
               <h2
-                ref={refText}
                 data-text="text"
                 className={`${styles.titleSections}`}
-                // data-splitting
                 data-animate-title
-                data-effect17
               >
                 Que obtendrás
               </h2>
@@ -359,17 +338,10 @@ function Home() {
             data-pin-process="data-pin-process"
             className={styles.wrapperAppContentIDoWork}
           >
-            <div
-              ref={pinBenefits}
-              // data-pin-p="data-pin-p"
-              className={styles.wrapperProcessTitle}
-            >
+            <div ref={pinBenefits} className={styles.wrapperProcessTitle}>
               <h2
-                ref={refText}
                 data-text="text"
                 className={`${styles.processTitle} ${styles.titleSections}`}
-                // data-splitting
-                data-effect17
                 data-animate-title
               >
                 Mi proceso

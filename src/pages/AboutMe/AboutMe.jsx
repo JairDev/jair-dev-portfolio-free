@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
-import collage from "assets/coll.png";
 import aboutPhoto from "assets/about-photo2.png";
 
 import styles from "./AboutMe.module.css";
