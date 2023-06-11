@@ -1,11 +1,3 @@
 html {
   scroll-behavior: initial;
 }
-
-html,
-body {
-  /* background-color: #e7e8ef; */
-  min-height: 100%;
-  height: auto;
-  /* overflow: hidden; */
-}

@@ -38,7 +38,7 @@ function Home() {
 
   useEffect(() => {
     setIsMounted(true);
-    new Promise((resolve, reject) =>
+    new Promise((resolve) =>
       setTimeout(() => {
         resolve(personalProjects);
       }, 0)
@@ -58,7 +58,6 @@ function Home() {
             end: "bottom 45%",
             pin: true,
             scrub: true,
-            // markers: true,
           },
         });
         pin.from("[data-wrap-benefits]", {
@@ -69,10 +68,9 @@ function Home() {
         const cardsArr = gsap.utils.toArray("[data-card]").map((card) => card);
         const widthProcess = pinProcess.current.getBoundingClientRect().width;
         gsap.from(cardsArr, {
-          x: widthProcess,
-          y: "random(-300, 300)",
+          x: widthProcess / 2,
+          y: "random(-50, 200)",
           rotateZ: "random(-30, 30)",
-          opacity: 0,
           stagger: {
             each: 0.3,
           },
@@ -82,7 +80,6 @@ function Home() {
             end: `bottom -=2000`,
             pin: "[data-pin-process]",
             scrub: true,
-            // markers: true,
           },
         });
       }
@@ -96,30 +93,29 @@ function Home() {
           const randomPosition = () => gsap.utils.random(-100, 100);
           gsap.set(l.parentNode, { perspective: 1000 });
           gsap.set(l, {
-            opacity: 0,
-            translateY: randomPosition(),
-            translateX: randomPosition(),
+            autoAlpha: 0,
+            x: randomPosition(),
+            y: randomPosition(),
             z: randomPosition(),
           });
           ScrollTrigger.batch(l, {
             onEnter: (batch) =>
               gsap.to(batch, {
                 ease: "none",
-                opacity: 1,
-                translateY: 0,
-                translateX: 0,
+                autoAlpha: 1,
+                x: 0,
+                y: 0,
                 z: 0,
               }),
             onLeaveBack: (batch) =>
               gsap.to(batch, {
                 ease: "none",
-                opacity: 0,
-                translateY: randomPosition(),
-                translateX: randomPosition(),
+                autoAlpha: 0,
+                x: randomPosition(),
+                y: randomPosition(),
                 z: randomPosition(),
               }),
             start: "top 95%",
-            // markers: true,
           });
         });
       });
@@ -135,7 +131,7 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Alfredo Moscoso | Desarrollo web</title>
+        <title>Alfredo Moscoso | Desarrollador web</title>
       </Helmet>
       <section
         className={`${styles.wrapperPadding} ${styles.appContentHero}`}
@@ -143,7 +139,7 @@ function Home() {
       >
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.appLeftContentHero}>
-            <h1 className={styles.role}>Construye tu presencia en línea</h1>
+            <h1 className={styles.role}>Construyo sitios web</h1>
             <h2 className={styles.subTitleRole}>
               Sitios web personalizados que se adaptan a tus necesidades.
             </h2>
@@ -154,7 +150,6 @@ function Home() {
                   className={`${styles.link} ${styles.hero}`}
                   href="#contact"
                   data-link-to-contact
-                  data-letter-hover
                   onClick={(e) => handleLinkToClick(e, initProjectLinkRef, 3)}
                 >
                   Iniciar un proyecto
@@ -205,7 +200,6 @@ function Home() {
         className={`${styles.wrapperPadding} ${styles.serviceSection}`}
       >
         <div className={styles.wrapperMaxWidth}>
-          {/* <div className={styles.contentCircleBlur}></div> */}
           <div className={styles.wrapperAppContentIDoWork}>
             <h2
               data-text="text"
@@ -234,8 +228,8 @@ function Home() {
                     Sitios web de múltiples páginas
                   </h3>
                   <p className={styles.appContentTitleIDoWorkSubTitle}>
-                    Pueden tener, autenticación (registro/inicio de sesión),
-                    integración con bases de datos.
+                    Sitios web con una estructura donde puedas mostrar
+                    información mas detallada de tu producto o servicio.
                   </p>
                 </div>
                 <span className={styles.labelServicesCard}>3 - 4 páginas</span>

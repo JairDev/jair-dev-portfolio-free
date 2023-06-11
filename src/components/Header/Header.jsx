@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { Link, useLocation } from "react-router-dom";
 
-import { motion, useScroll } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 import NavIcon from "../../assets/nav-bar-icon.svg";
 import NavIconClose from "../../assets/nav-bar-close.svg";
@@ -45,8 +45,6 @@ function Header() {
   const [isMounted, setIsMounted] = useState(false);
   const projectsLinkRef = useRef(null);
   const headerRef = useRef(null);
-  const link1 = useRef(null);
-  const link2 = useRef(null);
   const [mouseHover, mouseLeave, r] = useAnimateLetterHover();
 
   const clip_path_variants = {
@@ -102,18 +100,16 @@ function Header() {
   }, [isMounted]);
 
   useEffect(() => {
-    refObject.parentIcon.current.style.opacity = "1";
-    if (
-      location.pathname === "/desafios" ||
-      location.pathname === "/proyectos"
-    ) {
-      refObject.parentIcon.current.style.opacity = "0";
-    }
-
     return scrollY.onChange((latest) => {
       setYVisibility(latest);
     });
   }, [location.pathname, refObject, scrollY]);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (isOpen && latest <= 0) {
+      setIsOpen(!isOpen);
+    }
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -123,12 +119,7 @@ function Header() {
       refObject.iconOpenRef.current.firstChild.classList.remove(styles.noOpen);
       refObject.iconCloseRef.current.firstChild.classList.remove(styles.open);
     }
-  }, [
-    isOpen,
-    refObject.iconCloseRef,
-    refObject.iconOpenRef,
-    refObject.menuStyle,
-  ]);
+  }, [isOpen]);
 
   useEffect(() => {
     let pathData = refObject.refPath.current.getBBox();
@@ -140,14 +131,6 @@ function Header() {
 
   const handleClick = () => {
     setIsOpen(!isOpen);
-  };
-
-  const handleClickLinks = () => {
-    if (refObject.menuStyle.current.className.includes("show")) {
-      refObject.menuStyle.current.classList.remove(styles.show);
-      refObject.iconOpenRef.current.firstChild.classList.remove(styles.noOpen);
-      refObject.iconCloseRef.current.firstChild.classList.remove(styles.open);
-    }
   };
 
   const handleMouseMove = (e) => {
@@ -167,7 +150,6 @@ function Header() {
   };
 
   const handleMenuVisibility = () => {
-    // yVisibility >= 200 && window.innerWidth > 860 ? 1 : 0
     if (yVisibility >= 200 && window.innerWidth > 860) {
       return 1;
     } else if (yVisibility <= 200 && window.innerWidth > 860) {
@@ -176,10 +158,11 @@ function Header() {
     return 1;
   };
 
-  const handleLinkToClick = (e, target) => {
+  const handleLinkToClick = (e, target, duration) => {
     e.preventDefault();
     const linkTo = target.current.getAttribute("href");
-    gsap.to(window, { duration: 1, scrollTo: { y: linkTo } });
+    gsap.to(window, { duration: duration, scrollTo: { y: linkTo } });
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -206,19 +189,19 @@ function Header() {
           </div>
           <motion.div
             ref={refObject.refLinkWork}
-            // animate={{ opacity: yVisibility >= 1 ? 0 : 1 }}
             className={styles.linkWorkNav}
           >
             <ul className={styles.contentNavTopLinks}>
               <li data-ani>
                 <a
+                  ref={projectsLinkRef}
                   onMouseEnter={mouseHover}
                   onMouseLeave={mouseLeave}
                   href="#personal-work"
                   data-letter-hover
                   className={styles.linkTop}
                   data-link-to
-                  onClick={(e) => handleLinkToClick(e, projectsLinkRef)}
+                  onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
                 >
                   Trabajos
                 </a>
@@ -261,21 +244,16 @@ function Header() {
           <motion.div
             onClick={handleClick}
             className={styles.parentMenu}
-            // initial={{ zIndex: 0 }}
-            // animate={{ zIndex: yVisibility >= 200 ? 35 : 0 }}
             animate={{
-              // opacity: yVisibility >= 200 && window.innerWidth > 860 ? 1 : 0,
               opacity: handleMenuVisibility(),
-              zIndex: yVisibility >= 200 ? 35 : 0,
             }}
           >
             <motion.div
-              // animate={{ opacity: yVisibility >= 200 ? 1 : 0 }}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               className={styles.iconNavCoord}
               transition={{
-                ease: "easeInOut",
+                ease: "easeIn",
                 duration: 0.4,
               }}
             >
@@ -325,7 +303,6 @@ function Header() {
           >
             <ul
               ref={refObject.refContentLinks}
-              onClick={handleClickLinks}
               id="ul-content-li"
               className={styles.ulContentLinks}
             >
@@ -333,7 +310,9 @@ function Header() {
                 <a
                   href="#personal-work"
                   data-link="link"
+                  data-letter-hover
                   className={styles.itemLink}
+                  onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
                 >
                   Trabajos
                 </a>
@@ -343,6 +322,7 @@ function Header() {
                 <a
                   href="/about-me"
                   data-link="link"
+                  data-letter-hover
                   className={styles.itemLink}
                 >
                   Sobre mí
@@ -352,17 +332,12 @@ function Header() {
                 <a
                   href="#about-me"
                   data-link="link"
+                  data-letter-hover
                   className={styles.itemLink}
                 >
-                  Contacto
+                  Iniciar un proyecto
                 </a>
               </li>
-
-              {/* <li className={styles.liLink}>
-                <a href="#contact" data-link="link" className={styles.itemLink}>
-                  Contacto
-                </a>
-              </li> */}
             </ul>
           </motion.div>
           <motion.div
@@ -377,7 +352,6 @@ function Header() {
             <motion.svg
               ref={refObject.refSvg}
               className={styles.shape}
-              // viewBox="0 0 172.2084 248.56923"
               viewBox=""
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
