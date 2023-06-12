@@ -20,7 +20,7 @@ function Projects({ id, name, imgSrcApp, linkDemo, subTitle, imageAlt }) {
           <div className={styles.contentInfoProject}>
             <div className={styles.contentTitleProject}>
               <h3>{name}</h3>
-              <h6>{subTitle}</h6>
+              <h4>{subTitle}</h4>
             </div>
             <div className={styles.contentLinkProject}>
               <div className={styles.contentExternalLinkArrow}>

@@ -310,7 +310,12 @@ function Home() {
 
       <section className={`${styles.wrapperPadding} ${styles.processSection}`}>
         <div className={styles.contentWave}>
-          <img src={wave} alt="" />
+          <img
+            width="1000"
+            height="560"
+            src={wave}
+            alt="imagen svg en forma de curva"
+          />
         </div>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.contentCircleBlur}></div>

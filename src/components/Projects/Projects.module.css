@@ -107,7 +107,7 @@
   letter-spacing: var(--letter-spacing);
 }
 
-.contentTitleProject h6 {
+.contentTitleProject h4 {
   color: #292929;
   font-family: var(--font-family);
   font-size: 12px;
@@ -116,7 +116,6 @@
 }
 
 .contentPersonalProjectImg {
-  /* border: 1px solid rgb(24, 255, 97); */
   border-radius: 8px;
   align-self: flex-start;
   position: relative;
@@ -154,7 +153,6 @@
 }
 
 .contentImgTablet {
-  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;
@@ -316,17 +314,11 @@
 
 @media only screen and (min-width: 860px) {
   .contentPersonalProject {
-    /* flex-direction: row-reverse; */
     padding: 2rem;
   }
 
   .contentPersonalProjectDescription {
     width: 50%;
-  }
-
-  .contentPersonalProjectImg {
-    /* margin-top: 0.4rem; */
-    /* width: 40%; */
   }
 
   .pDescriptionPersonal {
