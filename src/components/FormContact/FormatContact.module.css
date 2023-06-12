@@ -1,5 +1,4 @@
 .titleSections {
-  /* color: var(--title-dark-color); */
   color: #ffffff;
   font-size: var(--title-font-section-size);
   font-family: var(--font-family);
@@ -10,7 +9,6 @@
 }
 
 .appContentFooterFormContact {
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +19,6 @@
 
 .appFormPD,
 .appFormPDReply {
-  /* border: 1px solid red; */
   color: #292929;
   font-size: 16px;
   font-family: var(--title-font);
@@ -35,13 +32,11 @@
 }
 
 .appFormPDReply {
-  /* border: 1px solid red; */
   text-align: center;
   margin-top: 3rem;
 }
 
 .wrapperForm {
-  /* border: 2px solid red; */
   border-radius: 16px;
   padding: 4vh 3vw;
   width: 100%;
@@ -49,8 +44,6 @@
 
 .wrapperForm {
   background-color: #ffffff;
-  /* opacity: 0.9; */
-  /* background-color: red; */
 }
 
 .formContact {
@@ -75,9 +68,9 @@
   margin-bottom: 8px;
 }
 
-.contentInput span {
+.contentInput label {
   font-family: var(--font-family);
-  /* color: var(--title-dark-color); */
+  letter-spacing: var(--letter-spacing);
   margin-bottom: 8px;
 }
 
@@ -111,7 +104,6 @@
 }
 
 .wrapperButtonForm {
-  /* border: 1px solid rgb(39, 111, 255); */
   display: flex;
   justify-content: center;
   align-self: flex-end;
@@ -120,16 +112,8 @@
 }
 
 .contentButtonForm {
-  /* border: 1px solid red; */
   width: 100%;
   text-align: center;
-  /* border-radius: 50px; */
-  /* box-shadow: 2px 4px 12px rgb(30 19 61 / 40%); */
-  /* background-color: var(--accent-color); */
-  /* display: flex;
-  justify-content: center;
-  overflow: hidden;
-  position: relative; */
 }
 
 .statusMailSend {
@@ -165,13 +149,7 @@
   transition: all ease-in 0.3s;
 }
 
-.contentButtonForm:hover::before {
-  /* width: 200px;
-  height: 200px; */
-}
-
 .contactButton {
-  /* border: 2px solid red; */
   background: none;
   border-radius: 50px;
   color: var(--body-color);
@@ -245,7 +223,6 @@
 .copyright {
   color: var(--primary-text);
   font-size: 16px;
-  /* font-weight: 600; */
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
   margin-top: 8px;

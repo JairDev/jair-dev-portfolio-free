@@ -81,8 +81,9 @@ function FormContact() {
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className={styles.contentInput}>
-              <span>Nombre</span>
+              <label htmlFor="name">Nombre</label>
               <input
+                id="name"
                 name="fromName"
                 {...register("fromName", { required: true })}
               ></input>
@@ -106,9 +107,9 @@ function FormContact() {
             </div>
 
             <div className={styles.contentInput}>
-              <span>Correo</span>
+              <label htmlFor="correo">Correo</label>
               <input
-                // type="email"
+                id="correo"
                 name="userEmail"
                 {...register("userEmail", {
                   required: true,
@@ -151,8 +152,9 @@ function FormContact() {
               </p>
             </div>
             <div className={styles.contentInput}>
-              <span>Cuéntame sobre tu proyecto</span>
+              <label htmlFor="sobre-proyecto">Cuéntame sobre tu proyecto</label>
               <textarea
+                id="sobre-proyecto"
                 name="message"
                 {...register("message", {
                   required: true,

@@ -178,6 +178,7 @@ function Home() {
                   id={item.id}
                   name={item.name}
                   imgSrcApp={item.imgSrcApp}
+                  imageAlt={item.imageAlt}
                   linkGit={item.linkGit}
                   linkDemo={item.linkDemo}
                   dataDescription={item.dataDescription}

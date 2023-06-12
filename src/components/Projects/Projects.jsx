@@ -8,13 +8,13 @@ import * as styles from "./Projects.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Projects({ id, name, imgSrcApp, linkDemo, subTitle }) {
+function Projects({ id, name, imgSrcApp, linkDemo, subTitle, imageAlt }) {
   return (
     <>
       <a href="https://twitter.com/" className={styles.wrapperProjectLink}>
         <div id={id} className={styles.contentPersonalProject}>
           <div className={styles.contentPersonalProjectImg}>
-            <img src={imgSrcApp} alt="" />
+            <img width="640" height="360" src={imgSrcApp} alt={imageAlt} />
           </div>
 
           <div className={styles.contentInfoProject}>

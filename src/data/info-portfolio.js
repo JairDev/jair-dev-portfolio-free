@@ -1,33 +1,6 @@
-import workCoin from "../assets/coin-mac.webp";
 import workCoin2 from "../assets/coin-laptop.webp";
-import projectTest from "../assets/project-test.png";
-import projectTest2 from "../assets/project-test2.png";
-import workDessert from "../assets/desert-mac.webp";
 import workDessert2 from "../assets/dessert-laptop.webp";
-import memory from "../assets/memory-mac.webp";
-import room from "../assets/room-mac.webp";
 import room1 from "../assets/room-laptop.webp";
-import todo from "../assets/todo-mac.webp";
-import timer from "../assets/timer-mac.webp";
-import bxlReact from "@iconify/icons-bx/bxl-react";
-import bxlJavascript from "@iconify/icons-bx/bxl-javascript";
-import bxlSass from "@iconify/icons-bx/bxl-sass";
-import bxlCss3 from "@iconify/icons-bx/bxl-css3";
-import bxlHtml5 from "@iconify/icons-bx/bxl-html5";
-import bxlGit from "@iconify/icons-bx/bxl-git";
-import styledcomponentsIcon from "@iconify/icons-file-icons/styledcomponents";
-import reduxFill from "@iconify/icons-akar-icons/redux-fill";
-
-export const svgIcons = [
-  { name: "React", svg: bxlReact },
-  { name: "Javascript", svg: bxlJavascript },
-  { name: "Redux", svg: reduxFill },
-  { name: "Sass", svg: bxlSass },
-  { name: "Css3", svg: bxlCss3 },
-  { name: "Html5", svg: bxlHtml5 },
-  { name: "Git", svg: bxlGit },
-  { name: "Styled Components", svg: styledcomponentsIcon },
-];
 
 export const personalProjects = [
   {
@@ -35,6 +8,8 @@ export const personalProjects = [
     name: "Coin Market App",
     subTitle: "Desarrollo",
     imgSrcApp: room1,
+    imageAlt:
+      "Imagen de una laptop con el fondo de pantalla de una website sobre criptomonedas",
     linkDemo: "https://coin-market-info.vercel.app/",
   },
   {
@@ -42,6 +17,8 @@ export const personalProjects = [
     name: "Ana fotografía",
     subTitle: "Diseño & Desarrollo",
     imgSrcApp: workCoin2,
+    imageAlt:
+      "Imagen de una laptop con el fondo de pantalla de una website sobre un fotógafo",
     linkDemo: "https://tastypie.netlify.app/",
   },
   {
@@ -49,6 +26,8 @@ export const personalProjects = [
     name: "M&G Cakes",
     subTitle: "Diseño & Desarrollo",
     imgSrcApp: workDessert2,
+    imageAlt:
+      "Imagen de una laptop con el fondo de pantalla de una website sobre una repostera",
     linkDemo: "https://memorybrain.netlify.com/",
   },
 ];
