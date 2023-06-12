@@ -43,8 +43,6 @@ function Home() {
         resolve(personalProjects);
       }, 0)
     ).then((res) => setProjects(res));
-
-    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
@@ -133,17 +131,14 @@ function Home() {
       <Helmet>
         <title>Alfredo Moscoso | Desarrollador web</title>
       </Helmet>
-      <section
-        className={`${styles.wrapperPadding} ${styles.appContentHero}`}
-        id={"wrapper-padding"}
-      >
+      <section className={`${styles.wrapperPadding} ${styles.appContentHero}`}>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.appLeftContentHero}>
             <h1 className={styles.role}>Construyo sitios web</h1>
             <h2 className={styles.subTitleRole}>
               Sitios web personalizados que se adaptan a tus necesidades.
             </h2>
-            <div id="trigger-button" className={styles.contentButtonContact}>
+            <div className={styles.contentButtonContact}>
               <Button classButton="hero">
                 <a
                   ref={initProjectLinkRef}
@@ -195,10 +190,7 @@ function Home() {
       </section>
 
       {/* ----------------------services------------------ */}
-      <section
-        id="personal-work"
-        className={`${styles.wrapperPadding} ${styles.serviceSection}`}
-      >
+      <section className={`${styles.wrapperPadding} ${styles.serviceSection}`}>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.wrapperAppContentIDoWork}>
             <h2
@@ -239,10 +231,7 @@ function Home() {
         </div>
       </section>
 
-      <section
-        id="personal-work"
-        className={`${styles.wrapperPadding} ${styles.benefitsSection}`}
-      >
+      <section className={`${styles.wrapperPadding} ${styles.benefitsSection}`}>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.wrapperAppBenefits}>
             <div
@@ -318,10 +307,7 @@ function Home() {
         </div>
       </section>
 
-      <section
-        id="personal-work"
-        className={`${styles.wrapperPadding} ${styles.processSection}`}
-      >
+      <section className={`${styles.wrapperPadding} ${styles.processSection}`}>
         <div className={styles.contentWave}>
           <img src={wave} alt="" />
         </div>

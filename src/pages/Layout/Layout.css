@@ -40,7 +40,7 @@
 .load {
   font-size: 24px;
   display: grid;
-  grid-template-columns: 40px 40px;
+  grid-template-columns: 30px 30px;
   gap: 4px;
   z-index: 200;
 }
@@ -48,6 +48,6 @@
 .load div {
   border-radius: 4px;
   background: #1f1340;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }

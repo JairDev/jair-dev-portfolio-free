@@ -54,10 +54,8 @@
   margin-top: 2.5rem;
 }
 
-.link.hero,
-.link.heroViewWork {
+.link.hero {
   color: #ffffff;
-  /* color: var(--title-dark-color); */
   display: block;
 }
 

@@ -66,10 +66,7 @@ function FormContact() {
   return (
     <>
       <h2
-        // data-text="text"
-
         className={`${styles.contactTitle} ${styles.titleSections}`}
-        // data-splitting
         data-effect17
         data-animate-title
       >

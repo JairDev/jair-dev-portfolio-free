@@ -18,7 +18,6 @@ import Splitting from "splitting";
 
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
-import useAnimateLetterHover from "hooks/useAnimateLetterHover";
 Splitting();
 
 gsap.registerPlugin(ScrollTrigger);
@@ -45,7 +44,6 @@ function Header() {
   const [isMounted, setIsMounted] = useState(false);
   const projectsLinkRef = useRef(null);
   const headerRef = useRef(null);
-  const [mouseHover, mouseLeave, r] = useAnimateLetterHover();
 
   const clip_path_variants = {
     open: {
@@ -129,7 +127,7 @@ function Header() {
     );
   }, []);
 
-  const handleClick = () => {
+  const handleMenustate = () => {
     setIsOpen(!isOpen);
   };
 
@@ -158,11 +156,13 @@ function Header() {
     return 1;
   };
 
-  const handleLinkToClick = (e, target, duration) => {
+  const handleLinkToClick = (e, target, duration, isMenuLink = false) => {
     e.preventDefault();
     const linkTo = target.current.getAttribute("href");
     gsap.to(window, { duration: duration, scrollTo: { y: linkTo } });
-    setIsOpen(!isOpen);
+    if (isMenuLink) {
+      setIsOpen(!isOpen);
+    }
   };
 
   return (
@@ -195,8 +195,6 @@ function Header() {
               <li data-ani>
                 <a
                   ref={projectsLinkRef}
-                  onMouseEnter={mouseHover}
-                  onMouseLeave={mouseLeave}
                   href="#personal-work"
                   data-letter-hover
                   className={styles.linkTop}
@@ -242,7 +240,7 @@ function Header() {
             </ul>
           </motion.div>
           <motion.div
-            onClick={handleClick}
+            onClick={handleMenustate}
             className={styles.parentMenu}
             animate={{
               opacity: handleMenuVisibility(),
@@ -312,7 +310,9 @@ function Header() {
                   data-link="link"
                   data-letter-hover
                   className={styles.itemLink}
-                  onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
+                  onClick={(e) =>
+                    handleLinkToClick(e, projectsLinkRef, 1, true)
+                  }
                 >
                   Trabajos
                 </a>
@@ -352,7 +352,6 @@ function Header() {
             <motion.svg
               ref={refObject.refSvg}
               className={styles.shape}
-              viewBox=""
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"

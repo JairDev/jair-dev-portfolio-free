@@ -27,18 +27,17 @@ function Layout({ children }) {
   }, []);
 
   useEffect(() => {
-    // console.log(arr);
     const xPosition = {
-      loadSquareaA: -20,
-      loadSquareaB: 20,
-      loadSquareaC: -20,
-      loadSquareaD: 20,
+      loadSquareA: -20,
+      loadSquareB: 20,
+      loadSquareC: -20,
+      loadSquareD: 20,
     };
     const yPosition = {
-      loadSquareaA: -20,
-      loadSquareaB: -20,
-      loadSquareaC: 20,
-      loadSquareaD: 20,
+      loadSquareA: -20,
+      loadSquareB: -20,
+      loadSquareC: 20,
+      loadSquareD: 20,
     };
 
     let gsapContext = gsap.context(() => {
@@ -90,10 +89,10 @@ function Layout({ children }) {
         <div ref={screenRef} className="screen">
           <div className="contentLoad">
             <div className="load">
-              <div className="loadSquareaA"></div>
-              <div className="loadSquareaB"></div>
-              <div className="loadSquareaC"></div>
-              <div className="loadSquareaD"></div>
+              <div className="loadSquareA"></div>
+              <div className="loadSquareB"></div>
+              <div className="loadSquareC"></div>
+              <div className="loadSquareD"></div>
             </div>
             <div ref={loadTextRef} className="loadText">
               Cargando...
