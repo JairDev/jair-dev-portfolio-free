@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,6 +9,9 @@ import * as styles from "./Projects.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 function Projects({ id, name, imgSrcApp, linkDemo, subTitle, imageAlt }) {
+  useEffect(() => {
+    console.log("project");
+  }, []);
   return (
     <>
       <a href="https://twitter.com/" className={styles.wrapperProjectLink}>

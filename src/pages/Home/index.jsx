@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, lazy, Suspense } from "react";
 
 import { Helmet } from "react-helmet";
 
@@ -12,7 +12,7 @@ import phoneLine from "assets/mobile-phone-line.svg";
 import wave from "assets/wave.svg";
 
 import Button from "components/Button/Button";
-import Projects from "components/Projects/Projects";
+// import Projects from "components/Projects/Projects";
 
 import styles from "./Home.module.css";
 
@@ -25,15 +25,16 @@ Splitting();
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
+const LazyProjects = lazy(() => import("components/Projects/Projects"));
+
 function Home() {
   const [projects, setProjects] = useState([]);
-
   const [isMounted, setIsMounted] = useState(false);
+  const [isViewProject, setIsViewProject] = useState(false);
 
+  const projectsRef = useRef(null);
   const initProjectLinkRef = useRef(null);
-
   const pinBenefits = useRef(null);
-
   const pinProcess = useRef(null);
 
   useEffect(() => {
@@ -47,6 +48,12 @@ function Home() {
 
   useEffect(() => {
     if (isMounted) {
+      ScrollTrigger.create({
+        trigger: "#personal-work",
+        start: "top 90%",
+        onEnter: () => setIsViewProject(true),
+        // markers: true,
+      });
       if (window.innerWidth > 1280) {
         ///// pins
         const pin = gsap.timeline({
@@ -61,6 +68,8 @@ function Home() {
         pin.from("[data-wrap-benefits]", {
           y: 500,
         });
+
+        //splitting
 
         // process animations
         const cardsArr = gsap.utils.toArray("[data-card]").map((card) => card);
@@ -157,6 +166,7 @@ function Home() {
 
       <section
         id="personal-work"
+        ref={projectsRef}
         className={`${styles.wrapperPadding} ${styles.projectsSection}`}
       >
         <div className={styles.wrapperMaxWidth}>
@@ -171,21 +181,25 @@ function Home() {
             </h2>
           </div>
           <div className={styles.contentProject}>
-            {projects &&
-              projects.map((item, i) => (
-                <Projects
-                  key={item.name}
-                  id={item.id}
-                  name={item.name}
-                  imgSrcApp={item.imgSrcApp}
-                  imageAlt={item.imageAlt}
-                  linkGit={item.linkGit}
-                  linkDemo={item.linkDemo}
-                  dataDescription={item.dataDescription}
-                  subTitle={item.subTitle}
-                  idx={i}
-                />
-              ))}
+            {isViewProject && (
+              <Suspense fallback={"Cargando"}>
+                {projects &&
+                  projects.map((item, i) => (
+                    <LazyProjects
+                      key={item.name}
+                      id={item.id}
+                      name={item.name}
+                      imgSrcApp={item.imgSrcApp}
+                      imageAlt={item.imageAlt}
+                      linkGit={item.linkGit}
+                      linkDemo={item.linkDemo}
+                      dataDescription={item.dataDescription}
+                      subTitle={item.subTitle}
+                      idx={i}
+                    />
+                  ))}
+              </Suspense>
+            )}
           </div>
         </div>
       </section>
