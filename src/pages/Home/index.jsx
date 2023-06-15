@@ -51,7 +51,7 @@ function Home() {
       ScrollTrigger.create({
         trigger: "#personal-work",
         start: "top 90%",
-        onEnter: () => setIsViewProject(true),
+        // onEnter: () => setIsViewProject(true),
         // markers: true,
       });
       if (window.innerWidth > 1280) {
@@ -76,8 +76,8 @@ function Home() {
         const widthProcess = pinProcess.current.getBoundingClientRect().width;
         gsap.from(cardsArr, {
           x: widthProcess / 2,
-          y: "random(-50, 200)",
-          rotateZ: "random(-30, 30)",
+          y: "random(-100, 200)",
+          rotateZ: "random(-40, 40)",
           stagger: {
             each: 0.3,
           },
@@ -145,7 +145,8 @@ function Home() {
           <div className={styles.appLeftContentHero}>
             <h1 className={styles.role}>Construyo sitios web</h1>
             <h2 className={styles.subTitleRole}>
-              Sitios web personalizados que se adaptan a tus necesidades.
+              Desarrollo de sitios web personalizados que se adaptan a tus
+              necesidades.
             </h2>
             <div className={styles.contentButtonContact}>
               <Button classButton="hero">
@@ -181,25 +182,25 @@ function Home() {
             </h2>
           </div>
           <div className={styles.contentProject}>
-            {isViewProject && (
+            {/* {isViewProject && (
               <Suspense fallback={"Cargando"}>
-                {projects &&
-                  projects.map((item, i) => (
-                    <LazyProjects
-                      key={item.name}
-                      id={item.id}
-                      name={item.name}
-                      imgSrcApp={item.imgSrcApp}
-                      imageAlt={item.imageAlt}
-                      linkGit={item.linkGit}
-                      linkDemo={item.linkDemo}
-                      dataDescription={item.dataDescription}
-                      subTitle={item.subTitle}
-                      idx={i}
-                    />
-                  ))}
               </Suspense>
-            )}
+            )} */}
+            {projects &&
+              projects.map((item, i) => (
+                <LazyProjects
+                  key={item.name}
+                  id={item.id}
+                  name={item.name}
+                  imgSrcApp={item.imgSrcApp}
+                  imageAlt={item.imageAlt}
+                  linkGit={item.linkGit}
+                  linkDemo={item.linkDemo}
+                  dataDescription={item.dataDescription}
+                  subTitle={item.subTitle}
+                  idx={i}
+                />
+              ))}
           </div>
         </div>
       </section>
@@ -275,7 +276,12 @@ function Home() {
               className={styles.wrapperBenefits}
             >
               {/* mobile */}
-              <div className={styles.wrapperMobileBenefits}>
+              <div className={styles.wrapperCardBenefits}>
+                <div className={styles.gridList}>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
                 <h3 className={styles.benefitsHeader}>
                   Optimización para dispositivos moviles
                 </h3>
@@ -290,6 +296,11 @@ function Home() {
               </div>
               {/* security */}
               <div className={styles.wrapperCardBenefits}>
+                <div className={styles.gridList}>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
                 <h3 className={styles.benefitsHeader}>
                   La seguridad es primordial
                 </h3>
@@ -300,16 +311,26 @@ function Home() {
               </div>
               {/* seo */}
               <div className={styles.wrapperCardBenefits}>
+                <div className={styles.gridList}>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
                 <h3 className={styles.benefitsHeader}>
                   Optimización básica de motores de búsqueda (SEO)
                 </h3>
                 <p className={styles.benefitsSubTitle}>
                   Palabras clave que atraen a tus clientes, optimización de
-                  imágenes y contenido para aumentar la visibilidad en línea.
+                  imágenes para aumentar la visibilidad en línea.
                 </p>
               </div>
               {/* maintenance */}
               <div className={styles.wrapperCardBenefits}>
+                <div className={styles.gridList}>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
                 <h3 className={styles.benefitsHeader}>
                   Soporte y mantenimiento
                 </h3>
@@ -325,8 +346,8 @@ function Home() {
       <section className={`${styles.wrapperPadding} ${styles.processSection}`}>
         <div className={styles.contentWave}>
           <img
-            width="1000"
-            height="560"
+            // width="1000"
+            // height="560"
             src={wave}
             alt="imagen svg en forma de curva"
           />

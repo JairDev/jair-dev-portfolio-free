@@ -68,7 +68,8 @@
   margin-bottom: 8px;
 }
 
-.contentInput label {
+.contentInput label,
+.contentInput span {
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
   margin-bottom: 8px;
