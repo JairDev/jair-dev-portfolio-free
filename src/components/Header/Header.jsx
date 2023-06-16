@@ -68,36 +68,6 @@ function Header() {
   }, [isMounted]);
 
   useEffect(() => {
-    if (isMounted) {
-      const gsapContext = gsap.context(() => {
-        const letter = Splitting({
-          target: "[data-letter-hover]",
-          by: "chars",
-        });
-        letter.forEach((chars) => {
-          chars.chars.forEach((l) => {
-            const hover = gsap.timeline({ paused: true });
-            const randomPosition = () => gsap.utils.random(-12, 12);
-            hover
-              .to(l, {
-                translateX: randomPosition(),
-                translateY: randomPosition(),
-                duration: 0.15,
-              })
-              .to(l, {
-                translateX: 0,
-                translateY: 0,
-                duration: 0.15,
-              });
-            chars.el.addEventListener("mouseenter", () => hover.play(0));
-          });
-        });
-      }, headerRef);
-      return () => gsapContext.revert();
-    }
-  }, [isMounted]);
-
-  useEffect(() => {
     return scrollY.onChange((latest) => {
       setYVisibility(latest);
     });
@@ -165,6 +135,42 @@ function Header() {
     }
   };
 
+  const handleMouseEnter = (event) => {
+    if (event.currentTarget.timeline) {
+      event.currentTarget.timeline.progress(0).kill();
+    }
+    const letters = Splitting({
+      target: event.currentTarget.firstChild,
+      by: "chars",
+    });
+    event.currentTarget.timeline = letterAnimation(letters[0].chars);
+    event.currentTarget.timeline.play();
+  };
+
+  const handleMouseLetterLeave = (event) => {
+    // if (event.currentTarget.timeline) {
+    //   event.currentTarget.timeline.progress(0).kill();
+    // }
+  };
+
+  const randomPosition = () => gsap.utils.random(-15, 15);
+
+  const letterAnimation = (target) => {
+    return gsap
+      .timeline({
+        paused: true,
+        defaults: { duration: 0.2, ease: "power1.out" },
+      })
+      .to(target, {
+        x: () => randomPosition(),
+        y: () => randomPosition(),
+      })
+      .to(target, {
+        x: 0,
+        y: 0,
+      });
+  };
+
   return (
     <header
       id="nav-hidden"
@@ -176,10 +182,14 @@ function Header() {
         <span id="nav-show" className={styles.spanStyleNav}></span>
         <nav className={styles.appNav}>
           <div className="app-content-nav-logo">
-            <div className="app-nav-logo">
+            <div
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLetterLeave}
+              className="app-nav-logo"
+            >
               <Link
                 ref={refObject.logoRef}
-                data-letter-hover
+                // data-letter-hover
                 className={styles.logoName}
                 to="/"
               >
@@ -192,31 +202,45 @@ function Header() {
             className={styles.linkWorkNav}
           >
             <ul className={styles.contentNavTopLinks}>
-              <li data-ani>
+              <li
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLetterLeave}
+                data-ani
+              >
                 <a
                   ref={projectsLinkRef}
                   href="#personal-work"
-                  data-letter-hover
+                  // data-letter-hover
                   className={styles.linkTop}
                   data-link-to
+                  // data-splitting
                   onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
                 >
                   Trabajos
                 </a>
               </li>
-              <li data-ani>
+              <li
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLetterLeave}
+                data-ani
+              >
                 <a
                   href="/about-me"
-                  data-letter-hover
+                  // data-letter-hover
+                  // data-splitting
                   className={styles.linkTop}
                 >
                   Sobre mí
                 </a>
               </li>
-              <li className={styles.linkTopSocial}>
+              <li
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLetterLeave}
+                className={styles.linkTopSocial}
+              >
                 <a
                   href="https://www.linkedin.com/in/alfredo-moscoso-desarrollador-frontend/"
-                  data-letter-hover
+                  // data-letter-hover
                   className={styles.linkTop}
                 >
                   Linkedin
@@ -225,10 +249,14 @@ function Header() {
                   <img src={ArrowIcon} alt="" />
                 </div>
               </li>
-              <li className={styles.linkTopSocial}>
+              <li
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLetterLeave}
+                className={styles.linkTopSocial}
+              >
                 <a
                   href="https://t.me/jairdev"
-                  data-letter-hover
+                  // data-letter-hover
                   className={styles.linkTop}
                 >
                   Telegram
@@ -304,11 +332,15 @@ function Header() {
               id="ul-content-li"
               className={styles.ulContentLinks}
             >
-              <li className={styles.liLink}>
+              <li
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLetterLeave}
+                className={styles.liLink}
+              >
                 <a
                   href="#personal-work"
                   data-link="link"
-                  data-letter-hover
+                  // data-letter-hover
                   className={styles.itemLink}
                   onClick={(e) =>
                     handleLinkToClick(e, projectsLinkRef, 1, true)
@@ -318,21 +350,29 @@ function Header() {
                 </a>
               </li>
 
-              <li className={styles.liLink}>
+              <li
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLetterLeave}
+                className={styles.liLink}
+              >
                 <a
                   href="/about-me"
                   data-link="link"
-                  data-letter-hover
+                  // data-letter-hover
                   className={styles.itemLink}
                 >
                   Sobre mí
                 </a>
               </li>
-              <li className={styles.liLink}>
+              <li
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLetterLeave}
+                className={styles.liLink}
+              >
                 <a
                   href="#about-me"
                   data-link="link"
-                  data-letter-hover
+                  // data-letter-hover
                   className={styles.itemLink}
                 >
                   Iniciar un proyecto

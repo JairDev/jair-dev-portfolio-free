@@ -64,6 +64,10 @@
   z-index: 30;
 }
 
+.linkTop {
+  display: block;
+}
+
 .linkTopSocial {
   display: flex;
   gap: 8px;

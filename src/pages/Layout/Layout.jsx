@@ -40,47 +40,47 @@ function Layout({ children }) {
       loadSquareD: 20,
     };
 
-    let gsapContext = gsap.context(() => {
-      const tl = gsap.timeline();
-      for (const key in yPosition) {
-        const valueY = yPosition[key];
-        const valueX = xPosition[key];
-        tl.to(
-          `.${key}`,
-          {
-            duration: 0.4,
-            x: valueX,
-            y: valueY,
-            repeat: 7,
-            yoyo: true,
-          },
-          0
-        ).to(`.${key}`, {
-          duration: 0.1,
-          opacity: 0,
-        });
-      }
-      tl.to(loadTextRef.current, {
-        opacity: 0,
-        duration: 0.1,
-      });
-      tl.to(squaresLoadRef.current, {
-        autoAlpha: 0,
-        stagger: {
-          each: 0.004,
-          from: "random",
-        },
-      })
-        .to(screenRef.current, {
-          duration: 0.01,
-          autoAlpha: 0,
-        })
-        .to(layoutRef.current, {
-          height: "auto",
-        });
-    }, layoutRef);
+    // let gsapContext = gsap.context(() => {
+    //   const tl = gsap.timeline();
+    //   for (const key in yPosition) {
+    //     const valueY = yPosition[key];
+    //     const valueX = xPosition[key];
+    //     tl.to(
+    //       `.${key}`,
+    //       {
+    //         duration: 0.4,
+    //         x: valueX,
+    //         y: valueY,
+    //         repeat: 7,
+    //         yoyo: true,
+    //       },
+    //       0
+    //     ).to(`.${key}`, {
+    //       duration: 0.1,
+    //       opacity: 0,
+    //     });
+    //   }
+    //   tl.to(loadTextRef.current, {
+    //     opacity: 0,
+    //     duration: 0.1,
+    //   });
+    //   tl.to(squaresLoadRef.current, {
+    //     autoAlpha: 0,
+    //     stagger: {
+    //       each: 0.004,
+    //       from: "random",
+    //     },
+    //   })
+    //     .to(screenRef.current, {
+    //       duration: 0.01,
+    //       autoAlpha: 0,
+    //     })
+    //     .to(layoutRef.current, {
+    //       height: "auto",
+    //     });
+    // }, layoutRef);
 
-    return () => gsapContext.revert();
+    // return () => gsapContext.revert();
   }, [isMounted]);
 
   return (
