@@ -105,9 +105,11 @@
 }
 
 .appContentAboutMe {
+  /* border: 1px solid red; */
   /* background: #292929; */
-  /* background: linear-gradient(#1f1340, #7c4dff); */
-  background: #7c4dff;
+  background: linear-gradient(#1f1340, #7c4dff);
+  /* background: #7c4dff; */
+  /* background: #7c4dff; */
   /* margin-top: 3rem; */
   position: relative;
   padding-top: 88px;
@@ -116,7 +118,7 @@
 }
 .contentAboutPhoto {
   /* border: 2px solid black; */
-  background: #1f1340;
+  /* background: #1f1340; */
   line-height: 0;
   position: relative;
 }

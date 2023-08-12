@@ -147,12 +147,6 @@ function Header() {
     event.currentTarget.timeline.play();
   };
 
-  const handleMouseLetterLeave = (event) => {
-    // if (event.currentTarget.timeline) {
-    //   event.currentTarget.timeline.progress(0).kill();
-    // }
-  };
-
   const randomPosition = () => gsap.utils.random(-15, 15);
 
   const letterAnimation = (target) => {
@@ -182,65 +176,36 @@ function Header() {
         <span id="nav-show" className={styles.spanStyleNav}></span>
         <nav className={styles.appNav}>
           <div className="app-content-nav-logo">
-            <div
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLetterLeave}
-              className="app-nav-logo"
-            >
-              <Link
-                ref={refObject.logoRef}
-                // data-letter-hover
-                className={styles.logoName}
-                to="/"
-              >
+            <div onMouseEnter={handleMouseEnter} className="app-nav-logo">
+              <Link ref={refObject.logoRef} className={styles.logoName} to="/">
                 ALFREDO MOSCOSO
               </Link>
             </div>
           </div>
-          <motion.div
-            ref={refObject.refLinkWork}
-            className={styles.linkWorkNav}
-          >
+          <div ref={refObject.refLinkWork} className={styles.linkWorkNav}>
             <ul className={styles.contentNavTopLinks}>
-              <li
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLetterLeave}
-                data-ani
-              >
+              <li onMouseEnter={handleMouseEnter}>
                 <a
                   ref={projectsLinkRef}
                   href="#personal-work"
-                  // data-letter-hover
                   className={styles.linkTop}
                   data-link-to
-                  // data-splitting
                   onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
                 >
                   Trabajos
                 </a>
               </li>
-              <li
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLetterLeave}
-                data-ani
-              >
-                <a
-                  href="/about-me"
-                  // data-letter-hover
-                  // data-splitting
-                  className={styles.linkTop}
-                >
+              <li onMouseEnter={handleMouseEnter}>
+                <a href="/about-me" className={styles.linkTop}>
                   Sobre mí
                 </a>
               </li>
               <li
                 onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLetterLeave}
                 className={styles.linkTopSocial}
               >
                 <a
                   href="https://www.linkedin.com/in/alfredo-moscoso-desarrollador-frontend/"
-                  // data-letter-hover
                   className={styles.linkTop}
                 >
                   Linkedin
@@ -251,14 +216,9 @@ function Header() {
               </li>
               <li
                 onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLetterLeave}
                 className={styles.linkTopSocial}
               >
-                <a
-                  href="https://t.me/jairdev"
-                  // data-letter-hover
-                  className={styles.linkTop}
-                >
+                <a href="https://t.me/jairdev" className={styles.linkTop}>
                   Telegram
                 </a>
                 <div className={styles.contentSocialArrow}>
@@ -266,7 +226,7 @@ function Header() {
                 </div>
               </li>
             </ul>
-          </motion.div>
+          </div>
           <motion.div
             onClick={handleMenustate}
             className={styles.parentMenu}
@@ -329,18 +289,11 @@ function Header() {
           >
             <ul
               ref={refObject.refContentLinks}
-              id="ul-content-li"
               className={styles.ulContentLinks}
             >
-              <li
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLetterLeave}
-                className={styles.liLink}
-              >
+              <li onMouseEnter={handleMouseEnter} className={styles.liLink}>
                 <a
                   href="#personal-work"
-                  data-link="link"
-                  // data-letter-hover
                   className={styles.itemLink}
                   onClick={(e) =>
                     handleLinkToClick(e, projectsLinkRef, 1, true)
@@ -350,31 +303,13 @@ function Header() {
                 </a>
               </li>
 
-              <li
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLetterLeave}
-                className={styles.liLink}
-              >
-                <a
-                  href="/about-me"
-                  data-link="link"
-                  // data-letter-hover
-                  className={styles.itemLink}
-                >
+              <li onMouseEnter={handleMouseEnter} className={styles.liLink}>
+                <a href="/about-me" className={styles.itemLink}>
                   Sobre mí
                 </a>
               </li>
-              <li
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLetterLeave}
-                className={styles.liLink}
-              >
-                <a
-                  href="#about-me"
-                  data-link="link"
-                  // data-letter-hover
-                  className={styles.itemLink}
-                >
+              <li onMouseEnter={handleMouseEnter} className={styles.liLink}>
+                <a href="#about-me" className={styles.itemLink}>
                   Iniciar un proyecto
                 </a>
               </li>

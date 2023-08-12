@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-  /* margin-top: 24px; */
 }
 
 .wrapperMaxWidth {
@@ -15,22 +14,10 @@
 }
 
 .contact {
-  overflow: hidden;
+  background: linear-gradient(#7c4dff 10%, #1f1340);
+  border-radius: 60px 60px 0px 0px;
   position: relative;
   padding-top: 120px;
-}
-
-.contact::before {
-  content: "";
-  /* border: 2px solid red; */
-  /* background-color: var(--primary-color); */
-  /* background-color: #1f1340; */
-  background: linear-gradient(#7c4dff 10%, #1f1340);
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .contentSvgIDoWork {

@@ -7,20 +7,66 @@
 }
 
 .appContentHero {
-  /* border: 1px solid red; */
   background: url("../../assets/render.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 0 0 0px 100px;
   min-height: 100vh;
   padding-top: 88px;
   padding-bottom: 88px;
+  position: relative;
+}
+
+.spanMaskStyle {
+  background: #db40ff;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  top: 25px;
+}
+.spanMaskStyle:nth-child(1) {
+  left: 100px;
+  top: 0px;
+  opacity: 0.5;
+}
+.spanMaskStyle:nth-child(2) {
+  left: 150px;
+  top: 50px;
+  opacity: 0.4;
+}
+.spanMaskStyle:nth-child(3) {
+  left: 250px;
+  top: 150px;
+  opacity: 0.6;
+}
+.spanMaskStyle:nth-child(4) {
+  left: 350px;
+  top: 50px;
+  opacity: 0.3;
+}
+.spanMaskStyle:nth-child(5) {
+  left: 500px;
+  top: 200px;
+  opacity: 0.5;
+}
+.spanMaskStyle:nth-child(6) {
+  left: 450px;
+  top: 100px;
+  opacity: 0.5;
+}
+.spanMaskStyle:nth-child(7) {
+  left: 600px;
+  top: 50px;
+  opacity: 0.4;
 }
 
 .projectsSection,
 .serviceSection,
 .benefitsSection {
   padding-top: 120px;
+  position: relative;
 }
 
 .wrapperMaxWidth {
@@ -62,7 +108,6 @@
 /* projects ------------------  */
 
 .projectsSection {
-  /* border: 1px solid red; */
   background: linear-gradient(#1f1340, #5836b5);
   position: relative;
 }
@@ -91,6 +136,7 @@
   color: #ffffff;
   font-size: var(--title-font-section-size);
   font-family: var(--font-family);
+  /* font-weight: 600; */
   letter-spacing: var(--letter-spacing);
   opacity: 0.9;
 }
@@ -155,11 +201,16 @@
 
 .appContentTitleIDoWork {
   color: #ffffff;
+  /* color: #db40ff; */
   font-family: var(--font-family);
   font-weight: 600;
   font-size: 24px;
   letter-spacing: var(--letter-spacing);
   margin-bottom: 8px;
+}
+
+.appContentTitleIDoWork span {
+  color: #db40ff;
 }
 
 .appContentTitleIDoWorkSubTitle {
@@ -178,11 +229,21 @@
 /* benefitsSection--------------- */
 
 .benefitsSection {
-  /* border: 1px solid red; */
-  /* display: flex; */
   background: linear-gradient(#5836b5, #1f1340);
   padding-bottom: 120px;
   position: relative;
+}
+
+.benefitsWord {
+  color: #a58ce99a;
+  display: block;
+  font-size: 180px;
+  font-family: var(--font-family);
+  font-weight: 800;
+  position: absolute;
+  top: 200px;
+  right: -45px;
+  opacity: 0.1;
 }
 
 .wrapperMobileFeature {
@@ -311,6 +372,15 @@
   position: relative;
   overflow: hidden;
 }
+/* .wrapperAppContentProcess::before {
+  content: "";
+  background: #db40ff;
+  border-radius: 8px;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  opacity: 0.4;
+} */
 
 .contentWave {
   /* border: 1px solid red; */
@@ -356,7 +426,8 @@
 .cardProcess {
   /* border: 2px solid #f9dfff; */
   border-radius: 16px;
-  background-color: #3e2680;
+  /* background-color: #3e2680; */
+  background-color: #1f1340;
   padding: 1.5rem;
   position: relative;
   min-height: 22rem;

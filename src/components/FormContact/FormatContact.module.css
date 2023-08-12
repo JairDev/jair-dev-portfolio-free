@@ -5,8 +5,6 @@
   letter-spacing: var(--letter-spacing);
   opacity: 0.9;
 }
-.contactTitle {
-}
 
 .appContentFooterFormContact {
   display: flex;

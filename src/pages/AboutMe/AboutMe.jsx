@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import aboutPhoto from "assets/about-photo2.png";
 
 import styles from "./AboutMe.module.css";
-import Header from "components/Header/Header";
 import Layout from "pages/Layout/Layout";
 import { ReactLenis } from "@studio-freight/react-lenis";
 
@@ -18,22 +17,11 @@ function AboutMe() {
     smoothWheel: true,
   };
 
-  useEffect(() => {
-    ScrollTrigger.getAll("circle-blur").forEach((item) => item.kill);
-
-    ScrollTrigger.refresh();
-    console.log("mount about");
-
-    return () => {
-      console.log("unmount about");
-    };
-  }, []);
-
   return (
     <ReactLenis root options={{ ...options }}>
       <Layout>
         <Helmet>
-          <title>Quien soy?</title>
+          <title>Sobre mí</title>
         </Helmet>
         <div className="App">
           <section
@@ -47,9 +35,10 @@ function AboutMe() {
                     <h1 className={styles.descriptionHeader}>Hola</h1>
                     <p className={styles.description}>
                       Soy Alfredo Moscoso, desarrollador web con experiencia en
-                      construcción de sitios web personalizados, puedo ayudarte
-                      para que logres tener éxito en internet y mostrar lo
-                      excepcional de ti.
+                      la creación de sitios web personalizados para ofrecer
+                      soluciones que satisfagan tus necesidades únicas. Desde el
+                      diseño hasta el desarrollo puedo ayudarte a alcanzar tus
+                      objetivos en línea.
                     </p>
                   </div>
                 </div>

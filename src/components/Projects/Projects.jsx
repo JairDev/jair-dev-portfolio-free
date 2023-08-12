@@ -17,7 +17,13 @@ function Projects({ id, name, imgSrcApp, linkDemo, subTitle, imageAlt }) {
       <a href="https://twitter.com/" className={styles.wrapperProjectLink}>
         <div id={id} className={styles.contentPersonalProject}>
           <div className={styles.contentPersonalProjectImg}>
-            <img width="640" height="360" src={imgSrcApp} alt={imageAlt} />
+            <img
+              width="640"
+              height="360"
+              src={imgSrcApp}
+              alt={imageAlt}
+              loading="lazy"
+            />
           </div>
 
           <div className={styles.contentInfoProject}>

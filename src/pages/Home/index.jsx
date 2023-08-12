@@ -12,7 +12,7 @@ import phoneLine from "assets/mobile-phone-line.svg";
 import wave from "assets/wave.svg";
 
 import Button from "components/Button/Button";
-// import Projects from "components/Projects/Projects";
+import Projects from "components/Projects/Projects";
 
 import styles from "./Home.module.css";
 
@@ -25,16 +25,14 @@ Splitting();
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
-const LazyProjects = lazy(() => import("components/Projects/Projects"));
-
 function Home() {
   const [projects, setProjects] = useState([]);
   const [isMounted, setIsMounted] = useState(false);
-  const [isViewProject, setIsViewProject] = useState(false);
 
   const projectsRef = useRef(null);
   const initProjectLinkRef = useRef(null);
   const pinBenefits = useRef(null);
+  const pinWord = useRef(null);
   const pinProcess = useRef(null);
 
   useEffect(() => {
@@ -48,12 +46,6 @@ function Home() {
 
   useEffect(() => {
     if (isMounted) {
-      ScrollTrigger.create({
-        trigger: "#personal-work",
-        start: "top 90%",
-        // onEnter: () => setIsViewProject(true),
-        // markers: true,
-      });
       if (window.innerWidth > 1280) {
         ///// pins
         const pin = gsap.timeline({
@@ -64,6 +56,9 @@ function Home() {
             pin: true,
             scrub: true,
           },
+        });
+        pin.to(pinWord, {
+          pin: true,
         });
         pin.from("[data-wrap-benefits]", {
           y: 500,
@@ -188,7 +183,7 @@ function Home() {
             )} */}
             {projects &&
               projects.map((item, i) => (
-                <LazyProjects
+                <Projects
                   key={item.name}
                   id={item.id}
                   name={item.name}
@@ -248,6 +243,9 @@ function Home() {
       </section>
 
       <section className={`${styles.wrapperPadding} ${styles.benefitsSection}`}>
+        <span ref={pinWord} className={styles.benefitsWord}>
+          BENEFICIOS
+        </span>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.wrapperAppBenefits}>
             <div
@@ -265,9 +263,7 @@ function Home() {
               <p className={styles.youGetDescription}>
                 Mi enfoque en el desarrollo web se centra en comprender tus
                 objetivos comerciales para crear una experiencia de usuario
-                única, con una solución personalizada obteniendo resultados
-                como, mayores tasas de conversión, aumento de tráfico web y
-                clientes potenciales.
+                única, con una solución personalizada.
               </p>
             </div>
 
@@ -293,21 +289,6 @@ function Home() {
                     <img src={phoneLine} alt="" />
                   </div>
                 </div>
-              </div>
-              {/* security */}
-              <div className={styles.wrapperCardBenefits}>
-                <div className={styles.gridList}>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-                <h3 className={styles.benefitsHeader}>
-                  La seguridad es primordial
-                </h3>
-                <p className={styles.benefitsSubTitle}>
-                  Utilizo herramientas que proporcionan una infraestructura
-                  donde tus datos estarán 100% seguros.
-                </p>
               </div>
               {/* seo */}
               <div className={styles.wrapperCardBenefits}>
@@ -335,7 +316,7 @@ function Home() {
                   Soporte y mantenimiento
                 </h3>
                 <p className={styles.benefitsSubTitle}>
-                  Soporte y mantenimiento sin coste adicional por 6 meses.
+                  Soporte y mantenimiento sin costo adicional por 60 días.
                 </p>
               </div>
             </div>
@@ -344,6 +325,14 @@ function Home() {
       </section>
 
       <section className={`${styles.wrapperPadding} ${styles.processSection}`}>
+        <span className={`${styles.spanMask} ${styles.spanMaskStyle}`}></span>
+        <span className={`${styles.spanMask} ${styles.spanMaskStyle}`}></span>
+        <span className={`${styles.spanMask} ${styles.spanMaskStyle}`}></span>
+        <span className={`${styles.spanMask} ${styles.spanMaskStyle}`}></span>
+        <span className={`${styles.spanMask} ${styles.spanMaskStyle}`}></span>
+        <span className={`${styles.spanMask} ${styles.spanMaskStyle}`}></span>
+        <span className={`${styles.spanMask} ${styles.spanMaskStyle}`}></span>
+        <span className={`${styles.spanMask} ${styles.spanMaskStyle}`}></span>
         <div className={styles.contentWave}>
           <img
             // width="1000"
@@ -357,7 +346,7 @@ function Home() {
 
           <div
             data-pin-process="data-pin-process"
-            className={styles.wrapperAppContentIDoWork}
+            className={styles.wrapperAppContentProcess}
           >
             <div ref={pinBenefits} className={styles.wrapperProcessTitle}>
               <h2
@@ -369,14 +358,15 @@ function Home() {
               </h2>
 
               <p className={styles.processDescription}>
-                Tengo los conocimientos y la experiencia para ayudarte a lograr
-                tus objetivos.
+                Puedo ayudarte a lograr tus objetivos.
               </p>
             </div>
 
             <div ref={pinProcess} className={styles.wrapperProcess}>
               <div data-card="data-card" className={styles.cardProcess}>
-                <h3 className={styles.appContentTitleIDoWork}>01. Descubrir</h3>
+                <h3 className={styles.appContentTitleIDoWork}>
+                  <span>01.</span> Descubrir
+                </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Tendremos nuestra primera reunión para saber mas sobre tu
                   proyecto, te daré una aproximación de cuanto tiempo tomaría y
@@ -384,7 +374,9 @@ function Home() {
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
-                <h3 className={styles.appContentTitleIDoWork}>02. Diseño</h3>
+                <h3 className={styles.appContentTitleIDoWork}>
+                  <span>02.</span> Diseño
+                </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Luego de saber sobre tu genial idea, comenzaré mi proceso de
                   diseño, al finalizar mi propuesta nos volvemos a reunir para
@@ -394,7 +386,7 @@ function Home() {
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>
-                  03. Desarrollo
+                  <span>03.</span> Desarrollo
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Utilizando las herramientas con las que trabajo, comienzo con
@@ -405,7 +397,7 @@ function Home() {
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>
-                  04. Lanzamiento
+                  <span>04.</span> Lanzamiento
                 </h3>
                 <p
                   data-text1="data-text1"

@@ -9,7 +9,8 @@
 }
 
 .contentPersonalProject {
-  border: 1px solid #ac8fff;
+  /* border: 1px solid #db40ff; */
+  border: 1px solid #bea6ff;
   border-radius: 16px;
   position: relative;
   display: grid;
