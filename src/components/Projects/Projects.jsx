@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { Link, useParams } from "react-router-dom";
+
 import ArrowIcon from "../../assets/arrow.svg";
 
 import * as styles from "./Projects.module.css";
@@ -9,12 +11,17 @@ import * as styles from "./Projects.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 function Projects({ id, name, imgSrcApp, linkDemo, subTitle, imageAlt }) {
+  const p = useParams();
   useEffect(() => {
-    console.log("project");
+    // console.log("project");
   }, []);
   return (
     <>
-      <a href="https://twitter.com/" className={styles.wrapperProjectLink}>
+      <Link
+        to={`projects/${id}`}
+        state={name}
+        className={styles.wrapperProjectLink}
+      >
         <div id={id} className={styles.contentPersonalProject}>
           <div className={styles.contentPersonalProjectImg}>
             <img
@@ -42,7 +49,7 @@ function Projects({ id, name, imgSrcApp, linkDemo, subTitle, imageAlt }) {
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </>
   );
 }

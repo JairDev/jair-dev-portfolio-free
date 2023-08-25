@@ -4,13 +4,15 @@ import room1 from "../assets/room-laptop.webp";
 
 export const personalProjects = [
   {
-    id: "id1",
-    name: "Coin Market App",
-    subTitle: "Desarrollo",
+    id: "coin-market-track",
+    name: "Coin market track",
+    role: "Desarrollo",
     imgSrcApp: room1,
     imageAlt:
       "Imagen de una laptop con el fondo de pantalla de una website sobre criptomonedas",
     linkDemo: "https://coin-market-info.vercel.app/",
+    description: `Aplicación web para crear un portafolio de tus activos, seguimiento de precio y estar
+    al tanto de las noticias en tendencia sobre criptomonedas.`,
   },
   {
     id: "id2",

@@ -9,12 +9,14 @@ import {
 import App from "./App";
 import AboutMe from "pages/AboutMe/AboutMe";
 import "./main.css";
+import ProjectsDescription from "components/ProjectDescription/ProjectDescription";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />} />
       <Route path="about-me" element={<AboutMe />} />
+      <Route path="projects/:id" element={<ProjectsDescription />} />
     </>
   )
 );

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, lazy, Suspense } from "react";
+import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
 
 import { Helmet } from "react-helmet";
 
@@ -27,16 +27,14 @@ gsap.registerPlugin(ScrollToPlugin);
 
 function Home() {
   const [projects, setProjects] = useState([]);
-  const [isMounted, setIsMounted] = useState(false);
-
   const projectsRef = useRef(null);
   const initProjectLinkRef = useRef(null);
   const pinBenefits = useRef(null);
+  const pinBenefitsParent = useRef(null);
   const pinWord = useRef(null);
   const pinProcess = useRef(null);
 
   useEffect(() => {
-    setIsMounted(true);
     new Promise((resolve) =>
       setTimeout(() => {
         resolve(personalProjects);
@@ -44,29 +42,23 @@ function Home() {
     ).then((res) => setProjects(res));
   }, []);
 
-  useEffect(() => {
-    if (isMounted) {
-      if (window.innerWidth > 1280) {
-        ///// pins
+  useLayoutEffect(() => {
+    if (window.innerWidth > 1280) {
+      const gsapContext = gsap.context(() => {
         const pin = gsap.timeline({
           scrollTrigger: {
-            trigger: "[data-pin]",
+            trigger: pinBenefits.current,
             start: "top 10%",
             end: "bottom 45%",
             pin: true,
             scrub: true,
           },
         });
-        pin.to(pinWord, {
-          pin: true,
-        });
         pin.from("[data-wrap-benefits]", {
           y: 500,
         });
 
-        //splitting
-
-        // process animations
+        ///////////////////// process animations
         const cardsArr = gsap.utils.toArray("[data-card]").map((card) => card);
         const widthProcess = pinProcess.current.getBoundingClientRect().width;
         gsap.from(cardsArr, {
@@ -84,45 +76,49 @@ function Home() {
             scrub: true,
           },
         });
-      }
-      ////////////////////////////letters animation
-      const split = Splitting({
-        target: "[data-animate-title]",
-        by: "chars",
-      });
-      split.forEach((letters) => {
-        letters.chars.forEach((l) => {
-          const randomPosition = () => gsap.utils.random(-100, 100);
-          gsap.set(l.parentNode, { perspective: 1000 });
-          gsap.set(l, {
-            autoAlpha: 0,
-            x: randomPosition(),
-            y: randomPosition(),
-            z: randomPosition(),
-          });
-          ScrollTrigger.batch(l, {
-            onEnter: (batch) =>
-              gsap.to(batch, {
-                ease: "none",
-                autoAlpha: 1,
-                x: 0,
-                y: 0,
-                z: 0,
-              }),
-            onLeaveBack: (batch) =>
-              gsap.to(batch, {
-                ease: "none",
-                autoAlpha: 0,
-                x: randomPosition(),
-                y: randomPosition(),
-                z: randomPosition(),
-              }),
-            start: "top 95%",
+
+        ////////////////////////////letters animations
+        const split = Splitting({
+          target: "[data-animate-title]",
+          by: "chars",
+        });
+        split.forEach((letters) => {
+          letters.chars.forEach((l) => {
+            const randomPosition = () => gsap.utils.random(-100, 100);
+            gsap.set(l.parentNode, { perspective: 1000 });
+            gsap.set(l, {
+              autoAlpha: 0,
+              x: randomPosition(),
+              y: randomPosition(),
+              z: randomPosition(),
+            });
+            ScrollTrigger.batch(l, {
+              onEnter: (batch) =>
+                gsap.to(batch, {
+                  ease: "none",
+                  autoAlpha: 1,
+                  x: 0,
+                  y: 0,
+                  z: 0,
+                }),
+              onLeaveBack: (batch) =>
+                gsap.to(batch, {
+                  ease: "none",
+                  autoAlpha: 0,
+                  x: randomPosition(),
+                  y: randomPosition(),
+                  z: randomPosition(),
+                }),
+              start: "top 95%",
+            });
           });
         });
       });
+      return () => {
+        gsapContext.revert();
+      };
     }
-  }, [isMounted]);
+  });
 
   const handleLinkToClick = (e, target, duration) => {
     e.preventDefault();
@@ -247,7 +243,7 @@ function Home() {
           BENEFICIOS
         </span>
         <div className={styles.wrapperMaxWidth}>
-          <div className={styles.wrapperAppBenefits}>
+          <div ref={pinBenefitsParent} className={styles.wrapperAppBenefits}>
             <div
               ref={pinBenefits}
               data-pin="data-pin"
@@ -348,7 +344,7 @@ function Home() {
             data-pin-process="data-pin-process"
             className={styles.wrapperAppContentProcess}
           >
-            <div ref={pinBenefits} className={styles.wrapperProcessTitle}>
+            <div className={styles.wrapperProcessTitle}>
               <h2
                 data-text="text"
                 className={`${styles.processTitle} ${styles.titleSections}`}

@@ -17,19 +17,19 @@ function Footer() {
     setIsMounted(true);
   }, []);
   useEffect(() => {
-    if (isMounted) {
-      gsap.from(spanRef.current, {
-        // background: "red",
-        y: -210,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 60%",
-          // end: "bottom 10%",
-          scrub: true,
-          // markers: true,
-        },
-      });
-    }
+    // if (isMounted) {
+    //   gsap.from(spanRef.current, {
+    //     // background: "red",
+    //     y: -210,
+    //     scrollTrigger: {
+    //       trigger: sectionRef.current,
+    //       start: "top 60%",
+    //       // end: "bottom 10%",
+    //       scrub: true,
+    //       // markers: true,
+    //     },
+    //   });
+    // }
   }, [isMounted]);
   return (
     <section

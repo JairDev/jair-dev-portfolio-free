@@ -86,7 +86,7 @@ function Layout({ children }) {
   return (
     <>
       <div ref={layoutRef} className="layout ">
-        <div ref={screenRef} className="screen">
+        {/* <div ref={screenRef} className="screen">
           <div className="contentLoad">
             <div className="load">
               <div className="loadSquareA"></div>
@@ -106,7 +106,7 @@ function Layout({ children }) {
                 className="sq"
               ></div>
             ))}
-        </div>
+        </div> */}
         <Header />
         <div id="container">{children}</div>
         <Footer />
