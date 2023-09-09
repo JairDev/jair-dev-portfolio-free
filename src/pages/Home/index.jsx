@@ -59,24 +59,18 @@ function Home() {
         });
 
         ///////////////////// process animations
-        const cardsArr = gsap.utils.toArray("[data-card]").map((card) => card);
-        const widthProcess = pinProcess.current.getBoundingClientRect().width;
-        gsap.from(cardsArr, {
-          x: widthProcess / 2,
-          y: "random(-100, 200)",
-          rotateZ: "random(-40, 40)",
-          stagger: {
-            each: 0.3,
-          },
+        const cardsArr = gsap.utils.toArray("[data-card]");
+        gsap.to(cardsArr, {
+          xPercent: -50 * (cardsArr.length - 1),
+          ease: "none",
           scrollTrigger: {
             trigger: "[data-pin-process]",
             start: "top 10%",
-            end: `bottom -=2000`,
-            pin: "[data-pin-process]",
+            end: `bottom -=800`,
+            pin: true,
             scrub: true,
           },
         });
-
         ////////////////////////////letters animations
         const split = Splitting({
           target: "[data-animate-title]",
@@ -179,18 +173,19 @@ function Home() {
             )} */}
             {projects &&
               projects.map((item, i) => (
-                <Projects
-                  key={item.name}
-                  id={item.id}
-                  name={item.name}
-                  imgSrcApp={item.imgSrcApp}
-                  imageAlt={item.imageAlt}
-                  linkGit={item.linkGit}
-                  linkDemo={item.linkDemo}
-                  dataDescription={item.dataDescription}
-                  subTitle={item.subTitle}
-                  idx={i}
-                />
+                <div key={item.name}>
+                  <Projects
+                    id={item.id}
+                    name={item.name}
+                    imgSrcApp={item.imgSrcApp}
+                    imageAlt={item.imageAlt}
+                    linkGit={item.linkGit}
+                    linkDemo={item.linkDemo}
+                    dataDescription={item.dataDescription}
+                    role={item.role}
+                    idx={i}
+                  />
+                </div>
               ))}
           </div>
         </div>
@@ -330,12 +325,7 @@ function Home() {
         <span className={`${styles.spanMask} ${styles.spanMaskStyle}`}></span>
         <span className={`${styles.spanMask} ${styles.spanMaskStyle}`}></span>
         <div className={styles.contentWave}>
-          <img
-            // width="1000"
-            // height="560"
-            src={wave}
-            alt="imagen svg en forma de curva"
-          />
+          <img src={wave} alt="imagen svg en forma de curva" />
         </div>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.contentCircleBlur}></div>
@@ -365,43 +355,55 @@ function Home() {
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Tendremos nuestra primera reunión para saber mas sobre tu
-                  proyecto, te daré una aproximación de cuanto tiempo tomaría y
-                  el presupuesto del proyecto.
+                  proyecto y acordaremos el costo total del trabajo. Luego haces
+                  un pre-pago del 50% para comenzar a trabajar en el proyecto.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>
-                  <span>02.</span> Diseño
+                  <span>02.</span> Estructura
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
-                  Luego de saber sobre tu genial idea, comenzaré mi proceso de
-                  diseño, al finalizar mi propuesta nos volvemos a reunir para
-                  intercambiar ideas y si estas de acuerdo con el diseño vamos
-                  al siguiente punto.
+                  Se analiza la competencia y su público objetivo, le muestro la
+                  estructura que podría tener el sitio y procedemos a diseñar la
+                  primera pantalla.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>
-                  <span>03.</span> Desarrollo
+                  <span>03.</span> Diseño
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
-                  Utilizando las herramientas con las que trabajo, comienzo con
-                  el proceso de construcción del sitio web, en este punto
-                  seguiremos en contacto porque tu también formas parte del
-                  proceso.
+                  Se harán dos variantes del diseño para determinar la dirección
+                  del estilo. Tú eliges una de las opciones, luego de acordar el
+                  diseño, continuamos con el diseño de todo el sitio, le
+                  presento el diseño completo y procedemos al desarrollo del
+                  sitio.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
                 <h3 className={styles.appContentTitleIDoWork}>
-                  <span>04.</span> Lanzamiento
+                  <span>04.</span> Desarrollo
                 </h3>
                 <p
                   data-text1="data-text1"
                   className={styles.appContentTitleIDoWorkSubTitle}
                 >
-                  Publicaré tu sitio web, haré las pruebas necesarias para
-                  asegurarme de entregar un trabajo de calidad, si todo marcha
-                  bien, serás otro cliente satisfecho.
+                  Comienzo el desarrollo del sitio, estaré en constante
+                  comunicación para informar sobre el avance del proyecto.
+                </p>
+              </div>
+              <div data-card="data-card" className={styles.cardProcess}>
+                <h3 className={styles.appContentTitleIDoWork}>
+                  <span>05.</span> Lanzamiento
+                </h3>
+                <p
+                  data-text1="data-text1"
+                  className={styles.appContentTitleIDoWorkSubTitle}
+                >
+                  Se hará la configuración de dominios y hosting del sitio.
+                  Usted procede a pagar el 50% restante y es cuando tendrá
+                  acceso a su sitio recien implementado.
                 </p>
               </div>
             </div>

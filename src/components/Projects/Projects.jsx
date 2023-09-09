@@ -10,11 +10,7 @@ import * as styles from "./Projects.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Projects({ id, name, imgSrcApp, linkDemo, subTitle, imageAlt }) {
-  const p = useParams();
-  useEffect(() => {
-    // console.log("project");
-  }, []);
+function Projects({ id, name, imgSrcApp, linkDemo, role, imageAlt }) {
   return (
     <>
       <Link
@@ -36,15 +32,16 @@ function Projects({ id, name, imgSrcApp, linkDemo, subTitle, imageAlt }) {
           <div className={styles.contentInfoProject}>
             <div className={styles.contentTitleProject}>
               <h3>{name}</h3>
-              <h4>{subTitle}</h4>
+              <h4>{role}</h4>
             </div>
             <div className={styles.contentLinkProject}>
               <div className={styles.contentExternalLinkArrow}>
-                <img
+                {/* <img
                   className={styles.externalLinkArrow}
                   src={ArrowIcon}
                   alt=""
-                />
+                /> */}
+                Ver más
               </div>
             </div>
           </div>

@@ -81,6 +81,7 @@
 }
 
 .contentExternalLinkArrow {
+  font-family: var(--font-family);
   transform: scale(1);
   transform-origin: left bottom;
   transition: all ease 0.4s;
