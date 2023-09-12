@@ -1,18 +1,39 @@
 import React, { useEffect } from "react";
+
 import { Helmet } from "react-helmet";
 
-import aboutPhoto from "assets/about-photo2.png";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import styles from "./AboutMe.module.css";
-import Layout from "pages/Layout/Layout";
 import { ReactLenis } from "@studio-freight/react-lenis";
 
-import gsap from "gsap";
+import aboutPhoto from "assets/preview-editv4.png";
 
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Layout from "pages/Layout/Layout";
+
+import styles from "./AboutMe.module.css";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function AboutMe() {
+  const refContentPhoto = React.useRef(null);
+
+  useEffect(() => {
+    if (window.innerWidth > 1280) {
+      const gsapContext = gsap.to(refContentPhoto.current, {
+        scrollTrigger: {
+          trigger: refContentPhoto.current,
+          start: "50% 75%",
+          end: "bottom -=200",
+          scrub: true,
+          // markers: true,
+        },
+        rotate: 0,
+      });
+      return () => gsapContext.revert();
+    }
+  }, []);
+
   const options = {
     smoothWheel: true,
   };
@@ -43,16 +64,11 @@ function AboutMe() {
                   </div>
                 </div>
                 <div className={styles.appRightContentHero}>
-                  <div className={styles.wrapperAboutPhoto}>
-                    <div className={styles.contentAboutPhoto}>
-                      <span
-                        className={`${styles.spanSquare} ${styles.sA}`}
-                      ></span>
-                      <span
-                        className={`${styles.spanSquare} ${styles.sB}`}
-                      ></span>
-                      <img src={aboutPhoto} alt="" />
-                    </div>
+                  <div
+                    ref={refContentPhoto}
+                    className={styles.contentAboutPhoto}
+                  >
+                    <img src={aboutPhoto} alt="" />
                   </div>
                 </div>
               </div>

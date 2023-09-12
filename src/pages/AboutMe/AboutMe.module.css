@@ -1,33 +1,13 @@
-.App {
-  /* background-color: var(--body-color);
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  position: relative;
-  font-family: "Roboto", sans-serif; */
-  /* overflow: auto; */
-}
-
-.appLeftContentHero {
-  /* border: 1px solid red; */
-  /* max-width: 800px; */
-  /* padding-top: 2rem; */
-}
-
-.appRightContentHero {
-  /* border: 1px solid red; */
-  /* width: 60%; */
-  padding-top: 1rem;
-}
-
 .wrapperContentHero {
   /* border: 1px solid red; */
-  padding-top: 1rem;
-  /* min-height: 100vh; */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  place-items: center;
+  padding-top: 6rem;
 }
 
 .wrapperPadding {
-  /* border: 1px solid purple; */
   padding: 0 5vw;
   display: flex;
   justify-content: center;
@@ -42,13 +22,6 @@
 
 .wrapperPadding:not(.wrapperPadding:first-child) {
   margin-top: 8rem;
-}
-
-.wrapperContentHero {
-  /* border: 1px solid red; */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 48px;
 }
 
 .appLeftContentHeroRole {
@@ -91,7 +64,6 @@
   color: var(--primary-text);
   font-size: var(--title-font-hero-size);
   font-family: var(--font-family);
-  /* font-weight: 800; */
   letter-spacing: var(--letter-spacing);
 }
 
@@ -99,68 +71,24 @@
   color: var(--primary-text);
   font-size: 16px;
   font-family: var(--font-family);
-  /* font-weight: 800; */
   letter-spacing: var(--letter-spacing);
   margin-top: 8px;
+  max-width: 75ch;
 }
 
 .appContentAboutMe {
-  /* border: 1px solid red; */
-  /* background: #292929; */
-  background: linear-gradient(#1f1340, #7c4dff);
-  /* background: #7c4dff; */
-  /* background: #7c4dff; */
-  /* margin-top: 3rem; */
+  background: linear-gradient(#1f1340, #7c4dff 40% 60%, #1f1340);
   position: relative;
   padding-top: 88px;
-  /* overflow: hidden; */
-  /* z-index: 50; */
-}
-
-.contentAboutPhoto {
-  /* border: 2px solid black; */
-  /* background: #1f1340; */
-  line-height: 0;
-  position: relative;
+  padding-bottom: 88px;
+  margin-bottom: 120px;
+  overflow: hidden;
 }
 
 .spanSquare {
   position: absolute;
   width: 70px;
   height: 70px;
-}
-
-.sA {
-  background: #7c4dff;
-  top: 140px;
-  left: 70px;
-}
-
-.sB {
-  background: #1f1340;
-  top: 280px;
-  left: -140px;
-}
-
-.contentAboutPhoto::before {
-  content: "";
-  background: #7c4dff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 70px;
-  height: 70px;
-  /* opacity: 0.6; */
-}
-.contentAboutPhoto::after {
-  content: "";
-  background: #7c4dff;
-  position: absolute;
-  top: 0;
-  right: 70px;
-  width: 70px;
-  height: 70px;
-  /* opacity: 0.6; */
 }
 
 .appContentAboutMeHeader {
@@ -221,68 +149,20 @@
   max-width: 70ch;
 }
 
-.wrapperAboutPhoto {
+.contentAboutPhoto {
   /* border: 1px solid red; */
-  min-height: 500px;
+  border-radius: 16px;
+  /* height: 300px; */
+  transform: rotate(6deg);
+  line-height: 0;
+  position: relative;
+  width: 400px;
+  overflow: hidden;
 }
 
 .contentAboutPhoto img {
   width: 100%;
   height: 100%;
-}
-
-.contentColl {
-  /* border: 1px solid red; */
-  display: flex;
-  justify-content: center;
-  position: relative;
-  /* width: 35%; */
-}
-
-.contentCollImg {
-  /* border: 1px solid blue; */
-  /* display: flex; */
-  /* width: 35%; */
-}
-
-.contentColl img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.lineRightAbout,
-.lineBottomAbout,
-.lineLeftAbout {
-  background-color: var(--accent-color);
-  display: block;
-  position: absolute;
-  opacity: 0;
-}
-
-.lineRightAbout,
-.lineLeftAbout {
-  width: 3px;
-}
-
-.lineBottomAbout {
-  right: -5%;
-  bottom: 4%;
-  width: 70%;
-  height: 3px;
-  opacity: 0;
-}
-
-.lineRightAbout {
-  top: -1%;
-  right: -2%;
-  height: 60%;
-}
-
-.lineLeftAbout {
-  top: 15%;
-  left: -2%;
-  height: 60%;
 }
 
 .pDescription.subTitleDescription {
@@ -364,62 +244,9 @@
   z-index: 1;
 }
 
-.appContentIDoWork {
-  /* border: 1px solid red; */
-  margin-top: 1rem;
-  position: relative;
-  z-index: 10;
-}
-
-.appContentIDoWork:last-child {
-  margin-top: 16px;
-}
-
-.appContentTitleIDoWork {
-  /* border: 1px solid rgb(38, 55, 240); */
-  color: #292929;
-  font-family: var(--title-font);
-  font-weight: 400;
-  font-size: 1.5rem;
-  letter-spacing: var(--letter-spacing);
-  margin-bottom: 8px;
-}
-
-.appContentTitleIDoWorkSubTitle {
-  color: #292929;
-  font-family: var(--title-font);
-  letter-spacing: var(--letter-spacing);
-}
-
-.footerDescription {
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
 @media only screen and (min-width: 860px) {
-  .contentCollImg {
-    width: 80%;
-  }
-}
-
-@media only screen and (min-width: 1280px) {
-  .appContentAboutMeDescription {
-    /* border: 1px solid rgb(47, 64, 224); */
-    flex-direction: row;
-    gap: 6rem;
-    margin-top: 1rem;
-  }
-
   .wrapperContentHero {
-    /* grid-template-columns: 1fr 1fr; */
-  }
-
-  .contentColl {
-    /* border: 1px solid red; */
-    /* position: absolute; */
-    /* top: -20%; */
-    /* right: 0; */
-    width: 40%;
-    z-index: 120;
+    grid-template-columns: 1fr 400px;
+    place-items: initial;
   }
 }

@@ -20,6 +20,7 @@ import Splitting from "splitting";
 
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
+import { handleClickToLink } from "utils/handleClickToLink";
 Splitting();
 
 gsap.registerPlugin(ScrollTrigger);
@@ -114,12 +115,6 @@ function Home() {
     }
   });
 
-  const handleLinkToClick = (e, target, duration) => {
-    e.preventDefault();
-    const linkTo = target.current.getAttribute("href");
-    gsap.to(window, { duration: duration, scrollTo: { y: linkTo } });
-  };
-
   return (
     <>
       <Helmet>
@@ -140,7 +135,7 @@ function Home() {
                   className={`${styles.link} ${styles.hero}`}
                   href="#contact"
                   data-link-to-contact
-                  onClick={(e) => handleLinkToClick(e, initProjectLinkRef, 3)}
+                  onClick={(e) => handleClickToLink(e, initProjectLinkRef, 3)}
                 >
                   Iniciar un proyecto
                 </a>
@@ -355,8 +350,9 @@ function Home() {
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Tendremos nuestra primera reunión para saber mas sobre tu
-                  proyecto y acordaremos el costo total del trabajo. Luego haces
-                  un pre-pago del 50% para comenzar a trabajar en el proyecto.
+                  proyecto, definir el alcance y acordar el costo total del
+                  trabajo. Luego haces un pre-pago del 50% para comenzar a
+                  trabajar en el proyecto.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
@@ -364,7 +360,7 @@ function Home() {
                   <span>02.</span> Estructura
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
-                  Se analiza la competencia y su público objetivo, le muestro la
+                  Se analiza la competencia y el público objetivo, te muestro la
                   estructura que podría tener el sitio y procedemos a diseñar la
                   primera pantalla.
                 </p>
@@ -376,9 +372,8 @@ function Home() {
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Se harán dos variantes del diseño para determinar la dirección
                   del estilo. Tú eliges una de las opciones, luego de acordar el
-                  diseño, continuamos con el diseño de todo el sitio, le
-                  presento el diseño completo y procedemos al desarrollo del
-                  sitio.
+                  diseño, continuamos diseñando todo el sitio, te presento el
+                  diseño completo y procedemos al desarrollo del sitio web.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
@@ -401,9 +396,9 @@ function Home() {
                   data-text1="data-text1"
                   className={styles.appContentTitleIDoWorkSubTitle}
                 >
-                  Se hará la configuración de dominios y hosting del sitio.
-                  Usted procede a pagar el 50% restante y es cuando tendrá
-                  acceso a su sitio recien implementado.
+                  Se hará la configuración de dominios, hosting del sitio y
+                  otros elementos que se requieran. Procedes a pagar el 50%
+                  restante y es cuando tendrás acceso al sitio web.
                 </p>
               </div>
             </div>

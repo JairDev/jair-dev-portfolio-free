@@ -18,6 +18,7 @@ import Splitting from "splitting";
 
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
+import { handleClickToLink } from "utils/handleClickToLink";
 Splitting();
 
 gsap.registerPlugin(ScrollTrigger);
@@ -44,6 +45,7 @@ function Header() {
   const [isMounted, setIsMounted] = useState(false);
   const projectsLinkRef = useRef(null);
   const headerRef = useRef(null);
+  const initProjectLinkRef = useRef(null);
 
   const clip_path_variants = {
     open: {
@@ -95,6 +97,10 @@ function Header() {
       "viewBox",
       `${pathData.x} ${pathData.y} ${pathData.width} ${pathData.height}`
     );
+    console.log(location.pathname);
+    // if (location.pathname === "/") {
+    //   refObject.refSvg.current.setAttribute("viewBox", `0 0 0 0`);
+    // };
   }, []);
 
   const handleMenustate = () => {
@@ -293,13 +299,16 @@ function Header() {
             >
               <li onMouseEnter={handleMouseEnter} className={styles.liLink}>
                 <a
-                  href="#personal-work"
-                  className={styles.itemLink}
-                  onClick={(e) =>
-                    handleLinkToClick(e, projectsLinkRef, 1, true)
+                  href={
+                    location.pathname === "/about-me" ? "/" : "#personal-work"
                   }
+                  // to={
+                  //   location.pathname === "/about-me" ? "/" : "#personal-work"
+                  // }
+                  className={styles.itemLink}
+                  onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
                 >
-                  Trabajos
+                  {location.pathname === "/about-me" ? "Inicio" : "Trabajos"}
                 </a>
               </li>
 
@@ -309,7 +318,12 @@ function Header() {
                 </a>
               </li>
               <li onMouseEnter={handleMouseEnter} className={styles.liLink}>
-                <a href="#about-me" className={styles.itemLink}>
+                <a
+                  ref={initProjectLinkRef}
+                  href="#contact"
+                  onClick={(e) => handleClickToLink(e, initProjectLinkRef, 2)}
+                  className={styles.itemLink}
+                >
                   Iniciar un proyecto
                 </a>
               </li>

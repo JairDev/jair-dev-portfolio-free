@@ -1,5 +1,5 @@
 import Layout from "pages/Layout/Layout";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import styles from "./ProjectsDescription.module.css";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import gsap from "gsap";
@@ -17,7 +17,6 @@ gsap.registerPlugin(ScrollToPlugin);
 function ProjectsDescription() {
   const { id } = useParams();
   const [projectInfo, setProjectInfo] = useState({});
-  const imageRef = useRef([]);
   const options = {
     smoothWheel: true,
   };
@@ -33,25 +32,6 @@ function ProjectsDescription() {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  useEffect(() => {
-    if (projectInfo.id) {
-      const gsapContext = gsap.context(() => {
-        imageRef.current.forEach((image) => {
-          gsap.to(image.firstChild, {
-            scale: 1.2,
-            scrollTrigger: {
-              trigger: image,
-              start: "top 35%",
-              end: "bottom -=200",
-              scrub: true,
-            },
-          });
-        });
-      });
-      return () => gsapContext.revert();
-    }
-  }, [projectInfo]);
 
   return (
     <ReactLenis root options={{ ...options }}>
@@ -72,32 +52,31 @@ function ProjectsDescription() {
                     {projectInfo.name}
                   </h1>
                   <div className={styles.contentLink}>
-                    <Link
-                      to={projectInfo.url}
-                      className={styles.viewSite}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <p>Ver sitio</p>
-                      <div className={styles.contentSocialArrow}>
-                        <img src={ArrowIcon} alt="" />
-                      </div>
-                    </Link>
+                    {projectInfo?.demo && (
+                      <Link
+                        to={projectInfo.url}
+                        className={styles.viewSite}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <p>Ver sitio</p>
+                        <div className={styles.contentSocialArrow}>
+                          <img src={ArrowIcon} alt="" />
+                        </div>
+                      </Link>
+                    )}
                   </div>
                 </div>
                 <p className={styles.description}>{projectInfo.description}</p>
                 <p className={styles.role}>
-                  <span className={styles.roleSpan}>Role:</span> Desarrollo
+                  <span className={styles.roleSpan}>Role:</span>{" "}
+                  {projectInfo.role}
                 </p>
               </div>
               <div className={styles.appContentProject}>
-                {projectInfo.descriptionImg?.map((img, index) => (
-                  <div
-                    key={img}
-                    ref={(image) => (imageRef.current[index] = image)}
-                    className={styles.contentProjectImage}
-                  >
-                    <img width={600} height={280} src={img} alt="" />
+                {projectInfo.descriptionImg?.map((img) => (
+                  <div key={img} className={styles.contentProjectImage}>
+                    <img src={img} alt="" />
                   </div>
                 ))}
               </div>

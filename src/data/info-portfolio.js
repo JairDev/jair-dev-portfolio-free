@@ -1,7 +1,4 @@
 import coinmarketTrack from "../assets/coin-laptop.webp";
-import workDessert2 from "../assets/dessert-laptop.webp";
-import room1 from "../assets/room-laptop.webp";
-
 import coinData from "../assets/coin-data.png";
 import coinPortfolio from "../assets/coin-portfolio.png";
 import converter from "../assets/converter.png";
@@ -11,11 +8,18 @@ import login from "../assets/login.png";
 import news from "../assets/news.png";
 import selectCoinName from "../assets/select-coin-name.png";
 
+import organicLaptop from "../assets/organic-laptop.webp";
+import organicHero from "../assets/content-hero-organic.png";
+import organicBenefits from "../assets/benefits-organic.png";
+import organicProducts from "../assets/products-organic.webp";
+import organicLanding from "../assets/landing-organic.webp";
+
 export const personalProjects = [
   {
     id: "coin-market-track",
+    demo: true,
     name: "Coin market track",
-    role: "Desarrollo",
+    role: "Desarrollo Web",
     imgSrcApp: coinmarketTrack,
     descriptionImg: [
       hero,
@@ -35,21 +39,20 @@ export const personalProjects = [
     url: "https://portfolio-tracker-pi.vercel.app/home",
   },
   {
-    id: "id2",
-    name: "Ana fotografía",
-    role: "Diseño & Desarrollo",
-    imgSrcApp: room1,
+    id: "organic-food-co",
+    demo: false,
+    name: "Organic food co.",
+    role: "Diseño UI",
+    imgSrcApp: organicLaptop,
+    descriptionImg: [
+      organicHero,
+      organicBenefits,
+      organicProducts,
+      organicLanding,
+    ],
     imageAlt:
-      "Imagen de una laptop con el fondo de pantalla de una website sobre un fotógafo",
+      "Imagen de una laptop con el fondo de pantalla de una website sobre una empresa que vende semillas orgánicas",
     linkDemo: "https://tastypie.netlify.app/",
-  },
-  {
-    id: "id3",
-    name: "M&G Cakes",
-    role: "Diseño & Desarrollo",
-    imgSrcApp: workDessert2,
-    imageAlt:
-      "Imagen de una laptop con el fondo de pantalla de una website sobre una repostera",
-    linkDemo: "https://memorybrain.netlify.com/",
+    description: `Diseño web prototipo para una empresa que vende semillas orgánicas en línea.`,
   },
 ];
