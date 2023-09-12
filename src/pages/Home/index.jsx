@@ -44,6 +44,7 @@ function Home() {
   }, []);
 
   useLayoutEffect(() => {
+    window.scrollTo(0, 0);
     if (window.innerWidth > 1280) {
       const gsapContext = gsap.context(() => {
         const pin = gsap.timeline({

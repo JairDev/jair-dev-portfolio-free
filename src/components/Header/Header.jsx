@@ -190,22 +190,26 @@ function Header() {
           </div>
           <div ref={refObject.refLinkWork} className={styles.linkWorkNav}>
             <ul className={styles.contentNavTopLinks}>
-              <li onMouseEnter={handleMouseEnter}>
-                <a
-                  ref={projectsLinkRef}
-                  href="#personal-work"
-                  className={styles.linkTop}
-                  data-link-to
-                  onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
-                >
-                  Trabajos
-                </a>
-              </li>
-              <li onMouseEnter={handleMouseEnter}>
-                <a href="/about-me" className={styles.linkTop}>
-                  Sobre mí
-                </a>
-              </li>
+              {location.pathname !== "/about-me" && (
+                <li onMouseEnter={handleMouseEnter}>
+                  <a
+                    ref={projectsLinkRef}
+                    href="#personal-work"
+                    className={styles.linkTop}
+                    data-link-to
+                    onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
+                  >
+                    Trabajos
+                  </a>
+                </li>
+              )}
+              {location.pathname !== "/about-me" && (
+                <li onMouseEnter={handleMouseEnter}>
+                  <a href="/about-me" className={styles.linkTop}>
+                    Sobre mí
+                  </a>
+                </li>
+              )}
               <li
                 onMouseEnter={handleMouseEnter}
                 className={styles.linkTopSocial}
@@ -298,18 +302,19 @@ function Header() {
               className={styles.ulContentLinks}
             >
               <li onMouseEnter={handleMouseEnter} className={styles.liLink}>
-                <a
-                  href={
-                    location.pathname === "/about-me" ? "/" : "#personal-work"
-                  }
-                  // to={
-                  //   location.pathname === "/about-me" ? "/" : "#personal-work"
-                  // }
-                  className={styles.itemLink}
-                  onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
-                >
-                  {location.pathname === "/about-me" ? "Inicio" : "Trabajos"}
-                </a>
+                {location.pathname === "/about-me" ? (
+                  <Link to="/" className={styles.itemLink}>
+                    Inicio
+                  </Link>
+                ) : (
+                  <a
+                    href="#personal-work"
+                    className={styles.itemLink}
+                    onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
+                  >
+                    Trabajos
+                  </a>
+                )}
               </li>
 
               <li onMouseEnter={handleMouseEnter} className={styles.liLink}>

@@ -21,6 +21,10 @@ function ProjectsDescription() {
     smoothWheel: true,
   };
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     async function project() {
       const project = await getProject(id);
@@ -28,10 +32,6 @@ function ProjectsDescription() {
     }
     project();
   });
-
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <ReactLenis root options={{ ...options }}>
