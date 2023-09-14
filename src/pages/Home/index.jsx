@@ -137,7 +137,7 @@ function Home() {
                   className={`${styles.link} ${styles.hero}`}
                   href="#contact"
                   data-link-to-contact
-                  onClick={(e) => handleClickToLink(e, initProjectLinkRef, 3)}
+                  onClick={(e) => handleClickToLink(e, initProjectLinkRef, 0.5)}
                 >
                   Iniciar un proyecto
                 </a>

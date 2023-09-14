@@ -202,7 +202,7 @@ function Header() {
                     href="#personal-work"
                     className={styles.linkTop}
                     data-link-to
-                    onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
+                    onClick={(e) => handleLinkToClick(e, projectsLinkRef, 0.3)}
                   >
                     Trabajos
                   </a>
@@ -317,7 +317,7 @@ function Header() {
                   <a
                     href="#personal-work"
                     className={styles.itemLink}
-                    onClick={(e) => handleLinkToClick(e, projectsLinkRef, 1)}
+                    onClick={(e) => handleLinkToClick(e, projectsLinkRef, 0.3)}
                   >
                     Trabajos
                   </a>
