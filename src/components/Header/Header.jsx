@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { Link, useLocation } from "react-router-dom";
 
@@ -46,6 +46,7 @@ function Header() {
   const projectsLinkRef = useRef(null);
   const headerRef = useRef(null);
   const initProjectLinkRef = useRef(null);
+  const refLink = useRef(null);
 
   const clip_path_variants = {
     open: {
@@ -64,6 +65,12 @@ function Header() {
       translateX: "100%",
     },
   };
+
+  useLayoutEffect(() => {
+    if (location.pathname === "/about-me") {
+      refLink.current.classList.add(styles.path);
+    }
+  }, []);
 
   useEffect(() => {
     setIsMounted(true);
@@ -97,10 +104,6 @@ function Header() {
       "viewBox",
       `${pathData.x} ${pathData.y} ${pathData.width} ${pathData.height}`
     );
-    console.log(location.pathname);
-    // if (location.pathname === "/") {
-    //   refObject.refSvg.current.setAttribute("viewBox", `0 0 0 0`);
-    // };
   }, []);
 
   const handleMenustate = () => {
@@ -143,6 +146,8 @@ function Header() {
 
   const handleMouseEnter = (event) => {
     if (event.currentTarget.timeline) {
+      // console.log(event.currentTarget);
+
       event.currentTarget.timeline.progress(0).kill();
     }
     const letters = Splitting({
@@ -203,13 +208,13 @@ function Header() {
                   </a>
                 </li>
               )}
-              {location.pathname !== "/about-me" && (
-                <li onMouseEnter={handleMouseEnter}>
-                  <a href="/about-me" className={styles.linkTop}>
-                    Sobre mí
-                  </a>
-                </li>
-              )}
+              {/* {location.pathname !== "/about-me" && (
+              )} */}
+              <li ref={refLink} onMouseEnter={handleMouseEnter}>
+                <a href="/about-me" className={styles.linkTop}>
+                  Sobre mí
+                </a>
+              </li>
               <li
                 onMouseEnter={handleMouseEnter}
                 className={styles.linkTopSocial}
@@ -240,8 +245,10 @@ function Header() {
           <motion.div
             onClick={handleMenustate}
             className={styles.parentMenu}
+            initial={{ zIndex: 0 }}
             animate={{
               opacity: handleMenuVisibility(),
+              zIndex: yVisibility <= 200 ? 0 : 40,
             }}
           >
             <motion.div

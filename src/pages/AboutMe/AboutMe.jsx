@@ -57,8 +57,8 @@ function AboutMe() {
                     Soy Alfredo Moscoso, un desarrollador web con pasión por la
                     tecnología. Desde el diseño hasta el desarrollo he estado
                     perfeccionando mis habilidades, construyendo sitios web
-                    personalizados que ayudan a las empresas a alcanzar sus
-                    objetivos en línea
+                    personalizados para ayudarte a alcanzar tus objetivos en
+                    línea.
                   </p>
                   <p className={styles.description}>
                     Con un enfoque en la experiencia del usuario, me especializo
@@ -72,7 +72,7 @@ function AboutMe() {
                     ref={refContentPhoto}
                     className={styles.contentAboutPhoto}
                   >
-                    <img src={aboutPhoto} alt="" />
+                    <img width={400} height={600} src={aboutPhoto} alt="" />
                   </div>
                 </div>
               </div>

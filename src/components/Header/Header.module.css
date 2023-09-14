@@ -68,6 +68,12 @@
   display: block;
 }
 
+.path {
+  text-decoration: line-through;
+  color: var(--primary-text);
+  pointer-events: none;
+}
+
 .linkTopSocial {
   display: flex;
   gap: 8px;
