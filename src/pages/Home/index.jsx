@@ -91,19 +91,12 @@ function Home() {
             ScrollTrigger.batch(l, {
               onEnter: (batch) =>
                 gsap.to(batch, {
-                  ease: "none",
+                  ease: "power2.out",
                   autoAlpha: 1,
                   x: 0,
                   y: 0,
                   z: 0,
-                }),
-              onLeaveBack: (batch) =>
-                gsap.to(batch, {
-                  ease: "none",
-                  autoAlpha: 0,
-                  x: randomPosition(),
-                  y: randomPosition(),
-                  z: randomPosition(),
+                  duration: 0.7,
                 }),
               start: "top 95%",
             });
