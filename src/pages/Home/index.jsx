@@ -262,17 +262,21 @@ function Home() {
             >
               {/* mobile */}
               <div className={styles.wrapperCardBenefits}>
-                <div className={styles.gridList}>
-                  <div></div>
-                  <div></div>
-                  <div></div>
+                <div className={styles.wrapperCardBenefitsTitle}>
+                  <div className={styles.gridList}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                  <div>
+                    <h3 className={styles.benefitsHeader}>
+                      Optimización para dispositivos moviles
+                    </h3>
+                    <p className={styles.benefitsSubTitle}>
+                      Diseño adaptable para diferentes dispositivos y pantallas.
+                    </p>
+                  </div>
                 </div>
-                <h3 className={styles.benefitsHeader}>
-                  Optimización para dispositivos moviles
-                </h3>
-                <p className={styles.benefitsSubTitle}>
-                  Diseño adaptable para diferentes dispositivos y pantallas.
-                </p>
                 <div className={styles.wrapperMobileFeatureAnimation}>
                   <div className={styles.featureAnimation}>
                     <img src={phoneLine} alt="" />
@@ -281,32 +285,40 @@ function Home() {
               </div>
               {/* seo */}
               <div className={styles.wrapperCardBenefits}>
-                <div className={styles.gridList}>
-                  <div></div>
-                  <div></div>
-                  <div></div>
+                <div className={styles.wrapperCardBenefitsTitle}>
+                  <div className={styles.gridList}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                  <div>
+                    <h3 className={styles.benefitsHeader}>
+                      Optimización básica de motores de búsqueda (SEO)
+                    </h3>
+                    <p className={styles.benefitsSubTitle}>
+                      Palabras clave que atraen a tus clientes, optimización de
+                      imágenes para aumentar la visibilidad en línea.
+                    </p>
+                  </div>
                 </div>
-                <h3 className={styles.benefitsHeader}>
-                  Optimización básica de motores de búsqueda (SEO)
-                </h3>
-                <p className={styles.benefitsSubTitle}>
-                  Palabras clave que atraen a tus clientes, optimización de
-                  imágenes para aumentar la visibilidad en línea.
-                </p>
               </div>
               {/* maintenance */}
               <div className={styles.wrapperCardBenefits}>
-                <div className={styles.gridList}>
-                  <div></div>
-                  <div></div>
-                  <div></div>
+                <div className={styles.wrapperCardBenefitsTitle}>
+                  <div className={styles.gridList}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                  <div>
+                    <h3 className={styles.benefitsHeader}>
+                      Soporte y mantenimiento
+                    </h3>
+                    <p className={styles.benefitsSubTitle}>
+                      Soporte y mantenimiento sin costo adicional por 60 días.
+                    </p>
+                  </div>
                 </div>
-                <h3 className={styles.benefitsHeader}>
-                  Soporte y mantenimiento
-                </h3>
-                <p className={styles.benefitsSubTitle}>
-                  Soporte y mantenimiento sin costo adicional por 60 días.
-                </p>
               </div>
             </div>
           </div>

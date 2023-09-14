@@ -263,6 +263,11 @@
 .wrapperCardBenefits {
   position: relative;
 }
+.wrapperCardBenefitsTitle {
+  /* border: 1px solid red; */
+  display: flex;
+  gap: 16px;
+}
 
 .wrapperCardBenefits:not(.wrapperCardBenefits:last-child) {
   margin-bottom: 56px;
@@ -285,9 +290,7 @@
   grid-template-columns: 16px 16px;
   grid-template-rows: 16px 16px;
   gap: 2px;
-  position: absolute;
-  top: 8px;
-  left: -56px;
+  margin-top: 8px;
 }
 
 .gridList div {
