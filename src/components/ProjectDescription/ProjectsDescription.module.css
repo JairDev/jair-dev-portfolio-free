@@ -13,6 +13,7 @@
 }
 
 .appContentDescriptionProject {
+  border-radius: 0px 0px 100px 0px;
   background: linear-gradient(#5836b5, #1f1340 10%, #5836b5, #1f1340);
   position: relative;
 }

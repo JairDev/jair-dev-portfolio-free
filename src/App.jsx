@@ -22,7 +22,7 @@ function App() {
   return (
     <ReactLenis root options={{ ...options }}>
       <Layout isMounted={isMounted}>
-        <div ref={ref} className={`App ${isMounted ? "active" : "noActive"}`}>
+        <div ref={ref} className="App">
           <Home />
         </div>
       </Layout>

@@ -121,10 +121,11 @@ function Home() {
       <Helmet>
         <title>Alfredo Moscoso | Desarrollador web</title>
       </Helmet>
+      <div className={styles.backLayerHero}></div>
       <section className={`${styles.wrapperPadding} ${styles.appContentHero}`}>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.appLeftContentHero}>
-            <h1 className={styles.role}>Construyo sitios web</h1>
+            <h1 className={styles.role}>Transformando ideas en sitios web</h1>
             <h2 className={styles.subTitleRole}>
               Desarrollo de sitios web personalizados que se adaptan a tus
               necesidades.
@@ -250,7 +251,8 @@ function Home() {
               <p className={styles.youGetDescription}>
                 Mi enfoque en el desarrollo web se centra en comprender tus
                 objetivos comerciales para crear una experiencia de usuario
-                única, con una solución personalizada.
+                única, construyendo sitios web que captan la esencia de tu
+                marca.
               </p>
             </div>
 
@@ -340,7 +342,8 @@ function Home() {
               </h2>
 
               <p className={styles.processDescription}>
-                Puedo ayudarte a lograr tus objetivos.
+                Trabajemos juntos para crear un sitio web que se destaque de la
+                competencia
               </p>
             </div>
 

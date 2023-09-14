@@ -18,7 +18,7 @@
   --text-button-big: calc(1vw + 0.8em);
   --font-family: "Poppins", sans-serif;
   --letter-spacing: 1px;
-  --line-height: 170%;
+  --line-height: 160%;
   --line-height-list: 200%;
   /* space */
   --section-header-spaces: 20vh;
@@ -31,7 +31,8 @@
 }
 
 #container {
-  background: #1f1340;
+  /* background: #1f1340; */
+  /* background: red; */
   width: 100%;
   height: 100%;
 }

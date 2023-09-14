@@ -51,17 +51,21 @@ function AboutMe() {
           >
             <div className={styles.wrapperMaxWidth}>
               <div className={styles.wrapperContentHero}>
-                <div className={styles.appLeftContentHero}>
-                  <div className={styles.appLeftContentHeroRole}>
-                    <h1 className={styles.descriptionHeader}>Hola</h1>
-                    <p className={styles.description}>
-                      Soy Alfredo Moscoso, desarrollador web con experiencia en
-                      la creación de sitios web personalizados para ofrecer
-                      soluciones que satisfagan tus necesidades únicas. Desde el
-                      diseño hasta el desarrollo puedo ayudarte a alcanzar tus
-                      objetivos en línea.
-                    </p>
-                  </div>
+                <div className={styles.appLeftContentDescription}>
+                  <h1 className={styles.descriptionHeader}>Hola</h1>
+                  <p className={styles.description}>
+                    Soy Alfredo Moscoso, un desarrollador web con pasión por la
+                    tecnología. Desde el diseño hasta el desarrollo he estado
+                    perfeccionando mis habilidades, construyendo sitios web
+                    personalizados que ayudan a las empresas a alcanzar sus
+                    objetivos en línea
+                  </p>
+                  <p className={styles.description}>
+                    Con un enfoque en la experiencia del usuario, me especializo
+                    en la creación de sitios web dinámicos y receptivos, desde
+                    animaciones hasta interacciones para crear experiencias de
+                    usuario cautivadoras.
+                  </p>
                 </div>
                 <div className={styles.appRightContentHero}>
                   <div
