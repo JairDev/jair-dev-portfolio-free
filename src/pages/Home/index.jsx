@@ -204,7 +204,7 @@ function Home() {
                     empresas, presentación de productos.
                   </p>
                 </div>
-                <span className={styles.labelServicesCard}>1 página</span>
+                {/* <span className={styles.labelServicesCard}>1 página</span> */}
               </div>
               <div className={styles.servicesCard}>
                 <div className={styles.wrapperServicesContent}>
@@ -216,7 +216,7 @@ function Home() {
                     información mas detallada de tu producto o servicio.
                   </p>
                 </div>
-                <span className={styles.labelServicesCard}>3 - 4 páginas</span>
+                {/* <span className={styles.labelServicesCard}>3 - 4 páginas</span> */}
               </div>
             </div>
           </div>
@@ -348,7 +348,7 @@ function Home() {
 
               <p className={styles.processDescription}>
                 Trabajemos juntos para crear un sitio web que se destaque de la
-                competencia
+                competencia.
               </p>
             </div>
 
