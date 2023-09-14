@@ -135,19 +135,8 @@ function Header() {
     return 1;
   };
 
-  const handleLinkToClick = (e, target, duration, isMenuLink = false) => {
-    e.preventDefault();
-    const linkTo = target.current.getAttribute("href");
-    gsap.to(window, { duration: duration, scrollTo: { y: linkTo } });
-    if (isMenuLink) {
-      setIsOpen(!isOpen);
-    }
-  };
-
   const handleMouseEnter = (event) => {
     if (event.currentTarget.timeline) {
-      // console.log(event.currentTarget);
-
       event.currentTarget.timeline.progress(0).kill();
     }
     const letters = Splitting({
@@ -202,7 +191,7 @@ function Header() {
                     href="#personal-work"
                     className={styles.linkTop}
                     data-link-to
-                    onClick={(e) => handleLinkToClick(e, projectsLinkRef, 0.3)}
+                    onClick={(e) => handleClickToLink(e, projectsLinkRef, 0.3)}
                   >
                     Trabajos
                   </a>
@@ -317,7 +306,15 @@ function Header() {
                   <a
                     href="#personal-work"
                     className={styles.itemLink}
-                    onClick={(e) => handleLinkToClick(e, projectsLinkRef, 0.3)}
+                    onClick={(e) =>
+                      handleClickToLink(
+                        e,
+                        projectsLinkRef,
+                        0.3,
+                        true,
+                        setIsOpen
+                      )
+                    }
                   >
                     Trabajos
                   </a>
@@ -333,7 +330,15 @@ function Header() {
                 <a
                   ref={initProjectLinkRef}
                   href="#contact"
-                  onClick={(e) => handleClickToLink(e, initProjectLinkRef, 2)}
+                  onClick={(e) =>
+                    handleClickToLink(
+                      e,
+                      initProjectLinkRef,
+                      0.3,
+                      true,
+                      setIsOpen
+                    )
+                  }
                   className={styles.itemLink}
                 >
                   Iniciar un proyecto
