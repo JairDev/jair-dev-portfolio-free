@@ -358,10 +358,10 @@ function Home() {
                   <span>01.</span> Descubrir
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
-                  Tendremos nuestra primera reunión para saber mas sobre tu
-                  proyecto, definir el alcance y acordar el costo total del
-                  trabajo. Luego haces un pre-pago del 50% para comenzar a
-                  trabajar en el proyecto.
+                  Tendremos nuestra primera reunión, por videollamada o mensajes
+                  de texto, para saber mas sobre tu proyecto, definir el alcance
+                  y acordar el costo total del trabajo. Luego haces un pre-pago
+                  del 50% para comenzar a trabajar en el proyecto.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
@@ -370,8 +370,8 @@ function Home() {
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Se analiza la competencia y el público objetivo, te muestro la
-                  estructura que podría tener el sitio y procedemos a diseñar la
-                  primera pantalla.
+                  estructura que podría tener el sitio a través de un sitemap y
+                  procedemos a diseñar la primera pantalla.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>

@@ -298,11 +298,7 @@ function Header() {
               className={styles.ulContentLinks}
             >
               <li onMouseEnter={handleMouseEnter} className={styles.liLink}>
-                {location.pathname === "/about-me" ? (
-                  <Link to="/" className={styles.itemLink}>
-                    Inicio
-                  </Link>
-                ) : (
+                {location.pathname === "/" ? (
                   <a
                     href="#personal-work"
                     className={styles.itemLink}
@@ -318,6 +314,10 @@ function Header() {
                   >
                     Trabajos
                   </a>
+                ) : (
+                  <Link to="/" className={styles.itemLink}>
+                    Inicio
+                  </Link>
                 )}
               </li>
 

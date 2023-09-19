@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 function ProjectsDescription() {
   const { id } = useParams();
-  const [projectInfo, setProjectInfo] = useState({});
+  const [projectInfo, setProjectInfo] = useState();
   const options = {
     smoothWheel: true,
   };
@@ -49,7 +49,7 @@ function ProjectsDescription() {
               <div className={styles.appContentHeader}>
                 <div className={styles.contentHeader}>
                   <h1 className={styles.descriptionHeader}>
-                    {projectInfo.name}
+                    {projectInfo?.name}
                   </h1>
                   <div className={styles.contentLink}>
                     {projectInfo?.demo && (
@@ -67,16 +67,22 @@ function ProjectsDescription() {
                     )}
                   </div>
                 </div>
-                <p className={styles.description}>{projectInfo.description}</p>
+                <p className={styles.description}>{projectInfo?.description}</p>
                 <p className={styles.role}>
                   <span className={styles.roleSpan}>Role:</span>{" "}
-                  {projectInfo.role}
+                  {projectInfo?.role}
                 </p>
               </div>
               <div className={styles.appContentProject}>
-                {projectInfo.descriptionImg?.map((img) => (
+                {projectInfo?.descriptionImg?.map((img) => (
                   <div key={img} className={styles.contentProjectImage}>
-                    <img src={img} alt="" />
+                    <img
+                      width={400}
+                      height={300}
+                      loading="lazy"
+                      src={img}
+                      alt=""
+                    />
                   </div>
                 ))}
               </div>

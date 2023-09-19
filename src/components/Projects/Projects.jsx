@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { Link, useParams } from "react-router-dom";
-
-import ArrowIcon from "../../assets/arrow.svg";
+import { Link } from "react-router-dom";
 
 import * as styles from "./Projects.module.css";
 
