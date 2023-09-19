@@ -118,9 +118,9 @@ function Home() {
       <section className={`${styles.wrapperPadding} ${styles.appContentHero}`}>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.appLeftContentHero}>
-            <h1 className={styles.role}>Transformando ideas en sitios web</h1>
+            <h1 className={styles.role}>Sitios web que dan vida a tus ideas</h1>
             <h2 className={styles.subTitleRole}>
-              Desarrollo de sitios web personalizados que se adaptan a tus
+              Desarrollo de sitios web modernos que se adaptan a tus
               necesidades.
             </h2>
             <div className={styles.contentButtonContact}>
