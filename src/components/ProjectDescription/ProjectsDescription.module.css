@@ -110,10 +110,13 @@
   gap: 24px;
   line-height: 0;
   margin-top: 48px;
-  padding: 0rem 2rem;
 }
 
 @media only screen and (min-width: 1280px) {
+  .appContentProject {
+    padding: 0rem 2rem;
+  }
+
   .contentProjectImage {
     border: 1px solid #bea6ff;
     border-radius: 16px;

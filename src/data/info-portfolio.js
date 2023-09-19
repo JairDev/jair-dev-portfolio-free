@@ -1,18 +1,18 @@
-import coinmarketTrack from "../assets/coin-laptop.webp";
-import coinData from "../assets/coin-data.png";
-import coinPortfolio from "../assets/coin-portfolio.png";
-import converter from "../assets/converter.png";
-import emptyPortfolio from "../assets/empty-portfolio.png";
-import hero from "../assets/hero.png";
-import login from "../assets/login.png";
-import news from "../assets/news.png";
-import selectCoinName from "../assets/select-coin-name.png";
+import coinmarketTrack from "../assets/portfolio-track/coin-laptop.webp";
+import coinData from "../assets/portfolio-track/coin-data.webp";
+import coinPortfolio from "../assets/portfolio-track/coin-portfolio.webp";
+import converter from "../assets/portfolio-track/converter.webp";
+import emptyPortfolio from "../assets/portfolio-track/empty-portfolio.webp";
+import hero from "../assets/portfolio-track/hero.webp";
+import login from "../assets/portfolio-track/login.webp";
+import news from "../assets/portfolio-track/news.webp";
+import selectCoinName from "../assets/portfolio-track/select-coin-name.webp";
 
-import organicLaptop from "../assets/organic-laptop.webp";
-import organicHero from "../assets/content-hero-organic.png";
-import organicBenefits from "../assets/benefits-organic.png";
-import organicProducts from "../assets/products-organic.webp";
-import organicLanding from "../assets/landing-organic.webp";
+import organicLaptop from "../assets/organic-food/organic-laptop.webp";
+import organicHero from "../assets/organic-food/content-hero-organic.webp";
+import organicBenefits from "../assets/organic-food/benefits-organic.webp";
+import organicProducts from "../assets/organic-food/products-organic.webp";
+import organicLanding from "../assets/organic-food/landing-organic.webp";
 
 export const personalProjects = [
   {
