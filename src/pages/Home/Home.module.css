@@ -20,7 +20,7 @@
   background-position: center;
   border-radius: 0 0 0px 100px;
   min-height: 100vh;
-  padding-top: 88px;
+  padding-top: 8rem;
   padding-bottom: 88px;
   position: relative;
 }
@@ -104,7 +104,7 @@
   display: flex;
   align-self: flex-start;
   position: relative;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
 }
 
 .link.hero {
