@@ -370,8 +370,8 @@ function Home() {
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Se analiza la competencia y el público objetivo, te muestro la
-                  estructura que podría tener el sitio a través de un sitemap y
-                  procedemos a diseñar la primera pantalla.
+                  estructura que podría tener el sitio web a través de un
+                  sitemap y procedemos a diseñar la primera pantalla.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
@@ -379,10 +379,10 @@ function Home() {
                   <span>03.</span> Diseño
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
-                  Se harán dos variantes del diseño para determinar la dirección
-                  del estilo. Tú eliges una de las opciones, luego de acordar el
-                  diseño, continuamos diseñando todo el sitio, te presento el
-                  diseño completo y procedemos al desarrollo del sitio web.
+                  Comenzaré con el diseño para determinar la dirección del
+                  estilo. Luego de acordar la propuesta, continuamos diseñando
+                  todo el sitio, te presento el diseño completo y procedemos al
+                  desarrollo del sitio web.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
@@ -393,7 +393,7 @@ function Home() {
                   data-text1="data-text1"
                   className={styles.appContentTitleIDoWorkSubTitle}
                 >
-                  Comienzo el desarrollo del sitio, estaré en constante
+                  Comienzo el desarrollo del sitio web, estaré en constante
                   comunicación para informar sobre el avance del proyecto.
                 </p>
               </div>
@@ -407,7 +407,7 @@ function Home() {
                 >
                   Se hará la configuración de dominios, hosting del sitio y
                   otros elementos que se requieran. Procedes a pagar el 50%
-                  restante y es cuando tendrás acceso al sitio web.
+                  restante del pago y es cuando tendrás acceso al sitio web.
                 </p>
               </div>
             </div>
