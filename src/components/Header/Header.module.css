@@ -276,17 +276,4 @@
   .contentNavTopLinks {
     display: flex;
   }
-  .parentMenu {
-    opacity: 0;
-  }
-}
-
-@media (hover: hover) {
-  .iconNav:hover .path {
-    stroke-dashoffset: -188;
-  }
-
-  .iconNav:hover .pathLayer {
-    stroke-dashoffset: 0;
-  }
 }

@@ -128,11 +128,11 @@ function Header() {
 
   const handleMenuVisibility = () => {
     if (yVisibility >= 200 && window.innerWidth > 860) {
-      return 1;
+      return { opacity: 1, zIndex: 40 };
     } else if (yVisibility <= 200 && window.innerWidth > 860) {
-      return 0;
+      return { opacity: 0, zIndex: 0 };
     }
-    return 1;
+    return { opacity: 1, zIndex: 40 };
   };
 
   const handleMouseEnter = (event) => {
@@ -236,8 +236,8 @@ function Header() {
             className={styles.parentMenu}
             initial={{ zIndex: 0 }}
             animate={{
-              opacity: handleMenuVisibility(),
-              zIndex: yVisibility <= 200 ? 0 : 40,
+              opacity: handleMenuVisibility().opacity,
+              zIndex: handleMenuVisibility().zIndex,
             }}
           >
             <motion.div
