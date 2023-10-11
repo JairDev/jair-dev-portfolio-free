@@ -14,6 +14,12 @@ import organicBenefits from "../assets/organic-food/benefits-organic.webp";
 import organicProducts from "../assets/organic-food/products-organic.webp";
 import organicLanding from "../assets/organic-food/landing-organic.webp";
 
+import andreafLaptop from "../assets/andreaf/andreaf-laptop.webp";
+import andreafWork from "../assets/andreaf/andreaf-work.webp";
+import andreafWorkDetail from "../assets/andreaf/andreaf-work-detail.webp";
+import andreaFooter from "../assets/andreaf/andreaf-footer.webp";
+import andreafAbout from "../assets/andreaf/andreaf-about.webp";
+
 export const personalProjects = [
   {
     id: "coin-market-track",
@@ -33,10 +39,26 @@ export const personalProjects = [
     ],
     imageAlt:
       "Imagen de una laptop con el fondo de pantalla de una website sobre criptomonedas",
-    linkDemo: "https://coin-market-info.vercel.app/",
     description: `Aplicación web para crear un portafolio de tus activos, seguimiento de precio y estar
     al tanto de las noticias en tendencia sobre criptomonedas.`,
     url: "https://portfolio-tracker-pi.vercel.app/home",
+  },
+  {
+    id: "andrea-portfolio",
+    demo: true,
+    name: "Andrea Portafolio",
+    role: "Desarrollo Web",
+    imgSrcApp: andreafLaptop,
+    descriptionImg: [
+      andreafWork,
+      andreafWorkDetail,
+      andreafAbout,
+      andreaFooter,
+    ],
+    imageAlt:
+      "Imagen de una laptop con el fondo de pantalla de una website sobre una empresa que vende semillas orgánicas",
+    url: "https://andreaf.netlify.app/",
+    description: `Desarrollo web de un portafolio para una fotógrafa.`,
   },
   {
     id: "organic-food-co",
@@ -52,7 +74,6 @@ export const personalProjects = [
     ],
     imageAlt:
       "Imagen de una laptop con el fondo de pantalla de una website sobre una empresa que vende semillas orgánicas",
-    linkDemo: "https://tastypie.netlify.app/",
     description: `Diseño web prototipo para una empresa que vende semillas orgánicas en línea.`,
   },
 ];
