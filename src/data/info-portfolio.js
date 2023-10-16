@@ -41,7 +41,7 @@ export const personalProjects = [
       "Imagen de una laptop con el fondo de pantalla de una website sobre criptomonedas",
     description: `Aplicación web para crear un portafolio de tus activos, seguimiento de precio y estar
     al tanto de las noticias en tendencia sobre criptomonedas.`,
-    url: "https://portfolio-tracker-pi.vercel.app/home",
+    url: "https://portfoliotrack.vercel.app",
   },
   {
     id: "andrea-portfolio",
