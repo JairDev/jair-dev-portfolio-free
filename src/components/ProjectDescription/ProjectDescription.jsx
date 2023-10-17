@@ -75,14 +75,18 @@ function ProjectsDescription() {
               </div>
               <div className={styles.appContentProject}>
                 {projectInfo?.descriptionImg?.map((img) => (
-                  <div key={img} className={styles.contentProjectImage}>
-                    <img
-                      width={400}
-                      height={300}
-                      loading="lazy"
-                      src={img}
-                      alt=""
-                    />
+                  <div key={img.small} className={styles.contentProjectImage}>
+                    <picture>
+                      <source srcSet={img.large} media="(min-width: 768px)" />
+                      <img
+                        src={img.small}
+                        decoding="async"
+                        loading="lazy"
+                        alt=""
+                        width="640"
+                        height="400"
+                      />
+                    </picture>
                   </div>
                 ))}
               </div>

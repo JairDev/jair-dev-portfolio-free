@@ -1,30 +1,42 @@
 import coinLaptop from "../assets/portfolio-track/coin-laptop.webp";
 import coinLaptopMedium from "../assets/portfolio-track/coin-laptop-medium.webp";
 import coinLaptopSmall from "../assets/portfolio-track/coin-laptop-small.webp";
-import coinData from "../assets/portfolio-track/coin-data.webp";
-import coinPortfolio from "../assets/portfolio-track/coin-portfolio.webp";
-import converter from "../assets/portfolio-track/converter.webp";
-import emptyPortfolio from "../assets/portfolio-track/empty-portfolio.webp";
-import hero from "../assets/portfolio-track/hero.webp";
-import login from "../assets/portfolio-track/login.webp";
-import news from "../assets/portfolio-track/news.webp";
-import selectCoinName from "../assets/portfolio-track/select-coin-name.webp";
-//
-import organicLaptop from "../assets/organic-food/organic-laptop.webp";
-import organicLaptopMedium from "../assets/organic-food/organic-laptop-medium.webp";
-import organicLaptopSmall from "../assets/organic-food/organic-laptop-small.webp";
-import organicHero from "../assets/organic-food/content-hero-organic.webp";
-import organicBenefits from "../assets/organic-food/benefits-organic.webp";
-import organicProducts from "../assets/organic-food/products-organic.webp";
-import organicLanding from "../assets/organic-food/landing-organic.webp";
+import coinHeroLarge from "../assets/portfolio-track/hero-large.webp";
+import coinHeroSmall from "../assets/portfolio-track/hero-small.webp";
+import coinLoginLarge from "../assets/portfolio-track/login-large.webp";
+import coinLoginSmall from "../assets/portfolio-track/login-small.webp";
+import coinConverterLarge from "../assets/portfolio-track/converter-large.webp";
+import coinConverterSmall from "../assets/portfolio-track/converter-small.webp";
+import coinPortfolioLarge from "../assets/portfolio-track/portfolio-large.webp";
+import coinPortfolioSmall from "../assets/portfolio-track/portfolio-small.webp";
+import coinNewsLarge from "../assets/portfolio-track/news-large.webp";
+import coinNewsSmall from "../assets/portfolio-track/news-small.webp";
+
 //
 import andreafLaptop from "../assets/andreaf/andreaf-laptop.webp";
 import andreafLaptopMedium from "../assets/andreaf/andreaf-laptop-medium.webp";
 import andreafLaptopSmall from "../assets/andreaf/andreaf-laptop-small.webp";
-import andreafWork from "../assets/andreaf/andreaf-work.webp";
-import andreafWorkDetail from "../assets/andreaf/andreaf-work-detail.webp";
-import andreaFooter from "../assets/andreaf/andreaf-footer.webp";
-import andreafAbout from "../assets/andreaf/andreaf-about.webp";
+import andreafHeroLarge from "../assets/andreaf/andreaf-hero-large.webp";
+import andreafHeroSmall from "../assets/andreaf/andreaf-hero-small.webp";
+import andreafAboutLarge from "../assets/andreaf/andreaf-about-large.webp";
+import andreafAboutSmall from "../assets/andreaf/andreaf-about-small.webp";
+import andreafMenuLarge from "../assets/andreaf/andreaf-menu-large.webp";
+import andreafMenuSmall from "../assets/andreaf/andreaf-menu-small.webp";
+import andreafWorkLarge from "../assets/andreaf/andreaf-work-large.webp";
+import andreafWorkSmall from "../assets/andreaf/andreaf-work-small.webp";
+
+//
+import organicLaptop from "../assets/organic-food/organic-laptop.webp";
+import organicLaptopMedium from "../assets/organic-food/organic-laptop-medium.webp";
+import organicLaptopSmall from "../assets/organic-food/organic-laptop-small.webp";
+import organicHeroLarge from "../assets/organic-food/organic-hero-large.webp";
+import organicHeroSmall from "../assets/organic-food/organic-hero-small.webp";
+import organicBenefitsLarge from "../assets/organic-food/organic-benefits-large.webp";
+import organicBenefitsSmall from "../assets/organic-food/organic-benefits-small.webp";
+import organicProductsLarge from "../assets/organic-food/organic-products-large.webp";
+import organicProductsSmall from "../assets/organic-food/organic-products-large.webp";
+import organicLandingLarge from "../assets/organic-food/landing-organic.webp";
+import organicLandingSmall from "../assets/organic-food/landing-organic-small.webp";
 
 export const personalProjects = [
   {
@@ -36,14 +48,11 @@ export const personalProjects = [
     imgSrcAppMedium: coinLaptopMedium,
     imgSrcAppSmall: coinLaptopSmall,
     descriptionImg: [
-      hero,
-      news,
-      login,
-      emptyPortfolio,
-      selectCoinName,
-      coinData,
-      coinPortfolio,
-      converter,
+      { small: coinHeroSmall, large: coinHeroLarge },
+      { small: coinNewsSmall, large: coinNewsLarge },
+      { small: coinLoginSmall, large: coinLoginLarge },
+      { small: coinPortfolioSmall, large: coinPortfolioLarge },
+      { small: coinConverterSmall, large: coinConverterLarge },
     ],
     imageAlt:
       "Imagen de una laptop con el fondo de pantalla de una website sobre criptomonedas",
@@ -60,10 +69,10 @@ export const personalProjects = [
     imgSrcAppMedium: andreafLaptopMedium,
     imgSrcAppSmall: andreafLaptopSmall,
     descriptionImg: [
-      andreafWork,
-      andreafWorkDetail,
-      andreafAbout,
-      andreaFooter,
+      { small: andreafHeroSmall, large: andreafHeroLarge },
+      { small: andreafWorkSmall, large: andreafWorkLarge },
+      { small: andreafAboutSmall, large: andreafAboutLarge },
+      { small: andreafMenuSmall, large: andreafMenuLarge },
     ],
     imageAlt:
       "Imagen de una laptop con el fondo de pantalla de una website sobre una empresa que vende semillas orgánicas",
@@ -79,10 +88,10 @@ export const personalProjects = [
     imgSrcAppMedium: organicLaptopMedium,
     imgSrcAppSmall: organicLaptopSmall,
     descriptionImg: [
-      organicHero,
-      organicBenefits,
-      organicProducts,
-      organicLanding,
+      { small: organicHeroSmall, large: organicHeroLarge },
+      { small: organicBenefitsSmall, large: organicBenefitsLarge },
+      { small: organicProductsSmall, large: organicProductsLarge },
+      { small: organicLandingSmall, large: organicLandingLarge },
     ],
     imageAlt:
       "Imagen de una laptop con el fondo de pantalla de una website sobre una empresa que vende semillas orgánicas",
