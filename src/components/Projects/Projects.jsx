@@ -8,7 +8,16 @@ import * as styles from "./Projects.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Projects({ id, name, imgSrcApp, linkDemo, role, imageAlt }) {
+function Projects({
+  id,
+  name,
+  imgSrcApp,
+  imgSrcAppMedium,
+  imgSrcAppSmall,
+  linkDemo,
+  role,
+  imageAlt,
+}) {
   return (
     <>
       <Link
@@ -18,13 +27,18 @@ function Projects({ id, name, imgSrcApp, linkDemo, role, imageAlt }) {
       >
         <div id={id} className={styles.contentPersonalProject}>
           <div className={styles.contentPersonalProjectImg}>
-            <img
-              width="640"
-              height="360"
-              src={imgSrcApp}
-              alt={imageAlt}
-              loading="lazy"
-            />
+            <picture>
+              <source srcSet={imgSrcApp} media="(min-width: 1200px)" />
+              <source srcSet={imgSrcAppMedium} media="(min-width: 768px)" />
+              <img
+                src={imgSrcAppSmall}
+                decoding="async"
+                loading="lazy"
+                alt={imageAlt}
+                width="600"
+                height="400"
+              />
+            </picture>
           </div>
 
           <div className={styles.contentInfoProject}>
