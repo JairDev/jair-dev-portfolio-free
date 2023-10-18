@@ -46,16 +46,16 @@ function Home() {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     const gsapContext = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: "[data-pin-title]",
-        start: "top 5%",
-        end: "bottom 80%",
-        endTrigger: ".end-element",
-        pin: true,
-        pinSpacing: false,
-        markers: true,
-        // id: "card-" + i,
-      });
+      // ScrollTrigger.create({
+      //   trigger: "[data-pin-title]",
+      //   start: "top 5%",
+      //   end: "bottom 80%",
+      //   endTrigger: ".end-element",
+      //   pin: true,
+      //   pinSpacing: false,
+      //   markers: true,
+      //   // id: "card-" + i,
+      // });
       const cardsArr = gsap.utils.toArray("[data-card]");
       // gsap.to("[data-pin-process]", {
       //   ease: "none",
@@ -89,7 +89,7 @@ function Home() {
         // });
         ScrollTrigger.create({
           trigger: card,
-          start: "top-=" + 40 * i + " 32%",
+          start: "top-=" + 37 * i + " 5%",
           end: "top bottom",
           endTrigger: ".end-element",
           pin: true,
