@@ -45,68 +45,140 @@ function Home() {
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
-    if (window.innerWidth > 1280) {
-      const gsapContext = gsap.context(() => {
-        const pin = gsap.timeline({
-          scrollTrigger: {
-            trigger: pinBenefits.current,
-            start: "top 10%",
-            end: "bottom 45%",
-            pin: true,
-            scrub: true,
-          },
-        });
-        pin.from("[data-wrap-benefits]", {
-          y: 500,
-        });
-
-        ///////////////////// process animations
-        const cardsArr = gsap.utils.toArray("[data-card]");
-        gsap.to(cardsArr, {
-          xPercent: -50 * (cardsArr.length - 1),
-          ease: "none",
-          scrollTrigger: {
-            trigger: "[data-pin-process]",
-            start: "top 10%",
-            end: `bottom -=800`,
-            pin: true,
-            scrub: true,
-          },
-        });
-        ////////////////////////////letters animations
-        const split = Splitting({
-          target: "[data-animate-title]",
-          by: "chars",
-        });
-        split.forEach((letters) => {
-          letters.chars.forEach((l) => {
-            const randomPosition = () => gsap.utils.random(-100, 100);
-            gsap.set(l.parentNode, { perspective: 1000 });
-            gsap.set(l, {
-              autoAlpha: 0,
-              x: randomPosition(),
-              y: randomPosition(),
-              z: randomPosition(),
-            });
-            ScrollTrigger.batch(l, {
-              onEnter: (batch) =>
-                gsap.to(batch, {
-                  ease: "power2.out",
-                  autoAlpha: 1,
-                  x: 0,
-                  y: 0,
-                  z: 0,
-                  duration: 0.7,
-                }),
-              start: "top 95%",
-            });
-          });
+    const gsapContext = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: "[data-pin-title]",
+        start: "top 5%",
+        end: "bottom 80%",
+        endTrigger: ".end-element",
+        pin: true,
+        pinSpacing: false,
+        markers: true,
+        // id: "card-" + i,
+      });
+      const cardsArr = gsap.utils.toArray("[data-card]");
+      // gsap.to("[data-pin-process]", {
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: "[data-pin-process]",
+      //     start: "top 10%",
+      //     end: `bottom bottom`,
+      //     pin: true,
+      //     pinSpacing: false,
+      //     endTrigger: ".end-element",
+      //     scrub: true,
+      //     markers: true,
+      //   },
+      // });
+      cardsArr.forEach((card, i) => {
+        // gsap.to(card, {
+        //   // xPercent: -50 * (cardsArr.length - 1),
+        //   ease: "none",
+        //   // yPercent: 100,
+        //   // stagger: 0.5,
+        //   scrollTrigger: {
+        //     trigger: card,
+        //     start: "top-=" + 40 * i + " 15%",
+        //     end: "top 20%",
+        //     // pin: true,
+        //     scrub: true,
+        //     // pinSpacing: false,
+        //     // endTrigger: ".end-element",
+        //     // markers: true,
+        //   },
+        // });
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top-=" + 40 * i + " 32%",
+          end: "top bottom",
+          endTrigger: ".end-element",
+          pin: true,
+          pinSpacing: false,
+          markers: true,
+          // id: "card-" + i,
         });
       });
-      return () => {
-        gsapContext.revert();
-      };
-    }
+    });
+    //   gsap.to("[data-card]", {
+    //     // xPercent: -50 * (cardsArr.length - 1),
+    //     ease: "none",
+    //     yPercent: -100,
+    //     stagger: 0.5,
+    //     scrollTrigger: {
+    //       trigger: "[data-card]",
+    //       start: "top 10%",
+    //       end: `bottom -=1000`,
+    //       pin: true,
+    //       scrub: true,
+    //       markers: true,
+    //     },
+    //   });
+    // });
+    return () => {
+      gsapContext.revert();
+    };
+    // if (window.innerWidth > 1280) {
+    //   const gsapContext = gsap.context(() => {
+    //     const pin = gsap.timeline({
+    //       scrollTrigger: {
+    //         trigger: pinBenefits.current,
+    //         start: "top 10%",
+    //         end: "bottom 45%",
+    //         pin: true,
+    //         scrub: true,
+    //       },
+    //     });
+    //     pin.from("[data-wrap-benefits]", {
+    //       y: 500,
+    //     });
+
+    //     ///////////////////// process animations
+    //     const cardsArr = gsap.utils.toArray("[data-card]");
+    //     gsap.to(cardsArr, {
+    //       xPercent: -50 * (cardsArr.length - 1),
+    //       ease: "none",
+    //       scrollTrigger: {
+    //         trigger: "[data-pin-process]",
+    //         start: "top 10%",
+    //         end: `bottom -=800`,
+    //         pin: true,
+    //         scrub: true,
+    //       },
+    //     });
+    //     ////////////////////////////letters animations
+    //     const split = Splitting({
+    //       target: "[data-animate-title]",
+    //       by: "chars",
+    //     });
+    //     split.forEach((letters) => {
+    //       letters.chars.forEach((l) => {
+    //         const randomPosition = () => gsap.utils.random(-100, 100);
+    //         gsap.set(l.parentNode, { perspective: 1000 });
+    //         gsap.set(l, {
+    //           autoAlpha: 0,
+    //           x: randomPosition(),
+    //           y: randomPosition(),
+    //           z: randomPosition(),
+    //         });
+    //         ScrollTrigger.batch(l, {
+    //           onEnter: (batch) =>
+    //             gsap.to(batch, {
+    //               ease: "power2.out",
+    //               autoAlpha: 1,
+    //               x: 0,
+    //               y: 0,
+    //               z: 0,
+    //               duration: 0.7,
+    //             }),
+    //           start: "top 95%",
+    //         });
+    //       });
+    //     });
+    //   });
+    //   return () => {
+    //     gsapContext.revert();
+    //   };
+    // }
   });
 
   return (
@@ -339,7 +411,7 @@ function Home() {
             data-pin-process="data-pin-process"
             className={styles.wrapperAppContentProcess}
           >
-            <div className={styles.wrapperProcessTitle}>
+            <div data-pin-title className={styles.wrapperProcessTitle}>
               <h2
                 data-text="text"
                 className={`${styles.processTitle} ${styles.titleSections}`}
@@ -413,6 +485,7 @@ function Home() {
                 </p>
               </div>
             </div>
+            <div className="end-element"></div>
           </div>
         </div>
       </section>
