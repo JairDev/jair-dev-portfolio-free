@@ -45,141 +45,68 @@ function Home() {
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
-    const gsapContext = gsap.context(() => {
-      // ScrollTrigger.create({
-      //   trigger: "[data-pin-title]",
-      //   start: "top 5%",
-      //   end: "bottom 80%",
-      //   endTrigger: ".end-element",
-      //   pin: true,
-      //   pinSpacing: false,
-      //   markers: true,
-      //   // id: "card-" + i,
-      // });
-      const cardsArr = gsap.utils.toArray("[data-card]");
-      // gsap.to("[data-pin-process]", {
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: "[data-pin-process]",
-      //     start: "top 10%",
-      //     end: `bottom bottom`,
-      //     pin: true,
-      //     pinSpacing: false,
-      //     endTrigger: ".end-element",
-      //     scrub: true,
-      //     markers: true,
-      //   },
-      // });
-      cardsArr.forEach((card, i) => {
-        gsap.to(card, {
-          // xPercent: -50 * (cardsArr.length - 1),
-          ease: "none",
-          // yPercent: 100,
-          // stagger: 0.5,
-          boxShadow: i >= 1 && "0px -10px 10px rgba(31, 19, 64, 0.5)",
+    if (window.innerWidth > 1280) {
+      const gsapContext = gsap.context(() => {
+        const pin = gsap.timeline({
           scrollTrigger: {
-            trigger: card,
-            start: "top-=" + 37 * i + " 80%",
-            end: "top 50%",
-            // pin: true,
+            trigger: pinBenefits.current,
+            start: "top 10%",
+            end: "bottom 45%",
+            pin: true,
             scrub: true,
-            // pinSpacing: false,
-            // endTrigger: ".end-element",
-            markers: true,
           },
         });
-        ScrollTrigger.create({
-          trigger: card,
-          start: "top-=" + 37 * i + " 5%",
-          end: "top 85%",
-          endTrigger: ".end-element",
-          pin: true,
-          pinSpacing: false,
-          // markers: true,
-          // id: "card-" + i,
+        pin.from("[data-wrap-benefits]", {
+          y: 500,
+        });
+
+        ///////////////////// process animations
+        const cardsArr = gsap.utils.toArray("[data-card]");
+        gsap.to(cardsArr, {
+          xPercent: -50 * (cardsArr.length - 1),
+          ease: "none",
+          scrollTrigger: {
+            trigger: "[data-pin-process]",
+            start: "top 10%",
+            end: `bottom -=800`,
+            pin: true,
+            scrub: true,
+          },
+        });
+        ////////////////////////////letters animations
+        const split = Splitting({
+          target: "[data-animate-title]",
+          by: "chars",
+        });
+        split.forEach((letters) => {
+          letters.chars.forEach((l) => {
+            const randomPosition = () => gsap.utils.random(-100, 100);
+            gsap.set(l.parentNode, { perspective: 1000 });
+            gsap.set(l, {
+              autoAlpha: 0,
+              x: randomPosition(),
+              y: randomPosition(),
+              z: randomPosition(),
+            });
+            ScrollTrigger.batch(l, {
+              onEnter: (batch) =>
+                gsap.to(batch, {
+                  ease: "power2.out",
+                  autoAlpha: 1,
+                  x: 0,
+                  y: 0,
+                  z: 0,
+                  duration: 0.7,
+                }),
+              start: "top 95%",
+            });
+          });
         });
       });
-    });
-    //   gsap.to("[data-card]", {
-    //     // xPercent: -50 * (cardsArr.length - 1),
-    //     ease: "none",
-    //     yPercent: -100,
-    //     stagger: 0.5,
-    //     scrollTrigger: {
-    //       trigger: "[data-card]",
-    //       start: "top 10%",
-    //       end: `bottom -=1000`,
-    //       pin: true,
-    //       scrub: true,
-    //       markers: true,
-    //     },
-    //   });
-    // });
-    return () => {
-      gsapContext.revert();
-    };
-    // if (window.innerWidth > 1280) {
-    //   const gsapContext = gsap.context(() => {
-    //     const pin = gsap.timeline({
-    //       scrollTrigger: {
-    //         trigger: pinBenefits.current,
-    //         start: "top 10%",
-    //         end: "bottom 45%",
-    //         pin: true,
-    //         scrub: true,
-    //       },
-    //     });
-    //     pin.from("[data-wrap-benefits]", {
-    //       y: 500,
-    //     });
-
-    //     ///////////////////// process animations
-    //     const cardsArr = gsap.utils.toArray("[data-card]");
-    //     gsap.to(cardsArr, {
-    //       xPercent: -50 * (cardsArr.length - 1),
-    //       ease: "none",
-    //       scrollTrigger: {
-    //         trigger: "[data-pin-process]",
-    //         start: "top 10%",
-    //         end: `bottom -=800`,
-    //         pin: true,
-    //         scrub: true,
-    //       },
-    //     });
-    //     ////////////////////////////letters animations
-    //     const split = Splitting({
-    //       target: "[data-animate-title]",
-    //       by: "chars",
-    //     });
-    //     split.forEach((letters) => {
-    //       letters.chars.forEach((l) => {
-    //         const randomPosition = () => gsap.utils.random(-100, 100);
-    //         gsap.set(l.parentNode, { perspective: 1000 });
-    //         gsap.set(l, {
-    //           autoAlpha: 0,
-    //           x: randomPosition(),
-    //           y: randomPosition(),
-    //           z: randomPosition(),
-    //         });
-    //         ScrollTrigger.batch(l, {
-    //           onEnter: (batch) =>
-    //             gsap.to(batch, {
-    //               ease: "power2.out",
-    //               autoAlpha: 1,
-    //               x: 0,
-    //               y: 0,
-    //               z: 0,
-    //               duration: 0.7,
-    //             }),
-    //           start: "top 95%",
-    //         });
-    //       });
-    //     });
-    //   });
-    //   return () => {
-    //     gsapContext.revert();
-    //   };
-    // }
+      return () => {
+        gsapContext.revert();
+      };
+    }
   });
 
   return (
