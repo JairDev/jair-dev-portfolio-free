@@ -360,8 +360,9 @@ function Home() {
                   <span>01.</span> Descubrir
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
-                  Tendremos nuestra primera reunión, por videollamada o mensajes
-                  de texto, para saber mas sobre tu proyecto, definir el alcance
+                  Tendremos nuestro primer acercamiento, por videollamada,
+                  mensajes de texto, llamada télefonica, lo que sea mas cómodo
+                  para ti, para saber mas sobre tu proyecto, definir el alcance
                   y acordar el costo total del trabajo. Luego haces un pre-pago
                   del 50% para comenzar a trabajar en el proyecto.
                 </p>
@@ -382,9 +383,9 @@ function Home() {
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Comenzaré con el diseño para determinar la dirección del
-                  estilo. Luego de acordar la propuesta, continuamos diseñando
-                  todo el sitio, te presento el diseño completo y procedemos al
-                  desarrollo del sitio web.
+                  estilo. Luego de acordar la propuesta de diseño que
+                  presentaré, continuamos diseñando todo el sitio, te presento
+                  el diseño completo y procedemos al desarrollo del sitio web.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
