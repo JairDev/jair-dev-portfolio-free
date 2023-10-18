@@ -71,30 +71,31 @@ function Home() {
       //   },
       // });
       cardsArr.forEach((card, i) => {
-        // gsap.to(card, {
-        //   // xPercent: -50 * (cardsArr.length - 1),
-        //   ease: "none",
-        //   // yPercent: 100,
-        //   // stagger: 0.5,
-        //   scrollTrigger: {
-        //     trigger: card,
-        //     start: "top-=" + 40 * i + " 15%",
-        //     end: "top 20%",
-        //     // pin: true,
-        //     scrub: true,
-        //     // pinSpacing: false,
-        //     // endTrigger: ".end-element",
-        //     // markers: true,
-        //   },
-        // });
+        gsap.to(card, {
+          // xPercent: -50 * (cardsArr.length - 1),
+          ease: "none",
+          // yPercent: 100,
+          // stagger: 0.5,
+          boxShadow: i >= 1 && "0px -10px 10px rgba(31, 19, 64, 0.5)",
+          scrollTrigger: {
+            trigger: card,
+            start: "top-=" + 37 * i + " 80%",
+            end: "top 50%",
+            // pin: true,
+            scrub: true,
+            // pinSpacing: false,
+            // endTrigger: ".end-element",
+            markers: true,
+          },
+        });
         ScrollTrigger.create({
           trigger: card,
           start: "top-=" + 37 * i + " 5%",
-          end: "top bottom",
+          end: "top 85%",
           endTrigger: ".end-element",
           pin: true,
           pinSpacing: false,
-          markers: true,
+          // markers: true,
           // id: "card-" + i,
         });
       });
