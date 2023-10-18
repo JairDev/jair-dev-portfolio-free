@@ -48,11 +48,31 @@ export const personalProjects = [
     imgSrcAppMedium: coinLaptopMedium,
     imgSrcAppSmall: coinLaptopSmall,
     descriptionImg: [
-      { small: coinHeroSmall, large: coinHeroLarge },
-      { small: coinNewsSmall, large: coinNewsLarge },
-      { small: coinLoginSmall, large: coinLoginLarge },
-      { small: coinPortfolioSmall, large: coinPortfolioLarge },
-      { small: coinConverterSmall, large: coinConverterLarge },
+      {
+        small: coinHeroSmall,
+        large: coinHeroLarge,
+        alt: "Imagen de una captura de pantalla de la sección principal de un sitio web para llevar un control de los precios de activos",
+      },
+      {
+        small: coinNewsSmall,
+        large: coinNewsLarge,
+        alt: "Imagen de una captura de pantalla de la sección de noticias de un sitio web para llevar un control de los precios de activos",
+      },
+      {
+        small: coinLoginSmall,
+        large: coinLoginLarge,
+        alt: "Imagen de una captura de pantalla de la página de iniciar sesión de un sitio web para llevar un control de los precios de activos",
+      },
+      {
+        small: coinPortfolioSmall,
+        large: coinPortfolioLarge,
+        alt: "Imagen de una captura de pantalla de la página de portafolio de activos de un sitio web para llevar un control de los precios de activos",
+      },
+      {
+        small: coinConverterSmall,
+        large: coinConverterLarge,
+        alt: "Imagen de una captura de pantalla de la página de calculadora de precios de un sitio web para llevar un control de los precios de activos",
+      },
     ],
     imageAlt:
       "Imagen de una laptop con el fondo de pantalla de una website sobre criptomonedas",
@@ -69,10 +89,26 @@ export const personalProjects = [
     imgSrcAppMedium: andreafLaptopMedium,
     imgSrcAppSmall: andreafLaptopSmall,
     descriptionImg: [
-      { small: andreafHeroSmall, large: andreafHeroLarge },
-      { small: andreafWorkSmall, large: andreafWorkLarge },
-      { small: andreafAboutSmall, large: andreafAboutLarge },
-      { small: andreafMenuSmall, large: andreafMenuLarge },
+      {
+        small: andreafHeroSmall,
+        large: andreafHeroLarge,
+        alt: "Imagen de una captura de pantalla de la sección principal de un sitio web sobre el portafolio de una fotógrafa",
+      },
+      {
+        small: andreafWorkSmall,
+        large: andreafWorkLarge,
+        alt: "Imagen de una captura de pantalla de la sección de trabajos realizados de un sitio web sobre el portafolio de una fotógrafa",
+      },
+      {
+        small: andreafAboutSmall,
+        large: andreafAboutLarge,
+        alt: "Imagen de una captura de pantalla de la página sobre mí, de un sitio web sobre el portafolio de una fotógrafa",
+      },
+      {
+        small: andreafMenuSmall,
+        large: andreafMenuLarge,
+        alt: "Imagen de una captura de pantalla dee menu de navegación de un sitio web sobre el portafolio de una fotógrafa",
+      },
     ],
     imageAlt:
       "Imagen de una laptop con el fondo de pantalla de una website sobre una empresa que vende semillas orgánicas",
@@ -88,10 +124,26 @@ export const personalProjects = [
     imgSrcAppMedium: organicLaptopMedium,
     imgSrcAppSmall: organicLaptopSmall,
     descriptionImg: [
-      { small: organicHeroSmall, large: organicHeroLarge },
-      { small: organicBenefitsSmall, large: organicBenefitsLarge },
-      { small: organicProductsSmall, large: organicProductsLarge },
-      { small: organicLandingSmall, large: organicLandingLarge },
+      {
+        small: organicHeroSmall,
+        large: organicHeroLarge,
+        alt: "Imagen de una captura de pantalla de la sección principal de un diseño sobre una página web que vende semillas orgánicas",
+      },
+      {
+        small: organicBenefitsSmall,
+        large: organicBenefitsLarge,
+        alt: "Imagen de una captura de pantalla de la sección sobre los beneficios de consumir semillas orgánicas de un diseño sobre una página web que vende semillas orgánicas",
+      },
+      {
+        small: organicProductsSmall,
+        large: organicProductsLarge,
+        alt: "Imagen de una captura de pantalla de la sección productos en venta de un diseño sobre una página web que vende semillas orgánicas",
+      },
+      {
+        small: organicLandingSmall,
+        large: organicLandingLarge,
+        alt: "Imagen de una captura de pantalla de la página principal de un diseño sobre una página web que vende semillas orgánicas",
+      },
     ],
     imageAlt:
       "Imagen de una laptop con el fondo de pantalla de una website sobre una empresa que vende semillas orgánicas",

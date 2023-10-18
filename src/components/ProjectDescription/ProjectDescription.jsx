@@ -82,7 +82,7 @@ function ProjectsDescription() {
                         src={img.small}
                         decoding="async"
                         loading="lazy"
-                        alt=""
+                        alt={img.alt}
                         width="640"
                         height="400"
                       />
