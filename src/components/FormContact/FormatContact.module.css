@@ -116,15 +116,14 @@
 }
 
 .statusMailSend {
-  background-color: var(--body-color);
   border-radius: 30px;
-  color: var(--primary-text);
+  color: var(--title-dark-color);
   display: block;
-  font-family: var(--title-font);
+  font-family: var(--font-family);
   font-size: 1.3rem;
   font-weight: 500;
   position: absolute;
-  width: 220px;
+  width: 250px;
   bottom: 120%;
   opacity: 0;
   text-align: center;
