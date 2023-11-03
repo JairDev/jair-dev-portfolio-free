@@ -203,6 +203,7 @@ function FormContact() {
           </div>
         </div>
         <div className={styles.copyright}>2023 ALFREDO MOSCOSO</div>
+        <div className={styles.copyright}>Caracas - Venezuela</div>
       </div>
     </>
   );
