@@ -42,7 +42,15 @@ function AboutMe() {
     <ReactLenis root options={{ ...options }}>
       <Layout>
         <Helmet>
-          <title>Sobre mí</title>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>Sobre mí | Diseño y Desarrollo Web</title>
+          <meta
+            name="description"
+            content="Desarrollo y Diseño de páginas web, diseños personalizados, integración con CMS, interactivas, modernas."
+          />
+          <link rel="canonical" href="https://alfredomoscoso.netlify.app/" />
+          <meta property="og:image" content="/previewimgapp.png" />
         </Helmet>
         <div className="App">
           <section

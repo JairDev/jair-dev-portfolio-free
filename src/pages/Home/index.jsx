@@ -112,7 +112,15 @@ function Home() {
   return (
     <>
       <Helmet>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Alfredo Moscoso | Diseño y Desarrollo Web</title>
+        <meta
+          name="description"
+          content="Desarrollo y Diseño de páginas web, diseños personalizados, integración con CMS, interactivas, modernas."
+        />
+        <link rel="canonical" href="https://alfredomoscoso.netlify.app/" />
+        <meta property="og:image" content="/previewimgapp.png" />
       </Helmet>
       <div className={styles.backLayerHero}></div>
       <section className={`${styles.wrapperPadding} ${styles.appContentHero}`}>
