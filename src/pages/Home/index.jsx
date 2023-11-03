@@ -112,7 +112,7 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Alfredo Moscoso | Desarrollador web</title>
+        <title>Alfredo Moscoso | Diseño y Desarrollo Web</title>
       </Helmet>
       <div className={styles.backLayerHero}></div>
       <section className={`${styles.wrapperPadding} ${styles.appContentHero}`}>
