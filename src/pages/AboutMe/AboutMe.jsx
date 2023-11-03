@@ -42,10 +42,7 @@ function AboutMe() {
     <ReactLenis root options={{ ...options }}>
       <Layout>
         <Helmet>
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>Sobre mí | Diseño y Desarrollo Web</title>
-          <meta property="og:image" content="/previewimgapp.png" />
+          <title>Sobre mí | Diseño y Desarrollo de sitios web</title>
         </Helmet>
         <div className="App">
           <section
