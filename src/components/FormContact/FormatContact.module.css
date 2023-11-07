@@ -3,6 +3,7 @@
   font-size: var(--title-font-section-size);
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
+  font-weight: 600;
   opacity: 0.9;
 }
 

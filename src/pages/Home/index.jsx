@@ -118,9 +118,15 @@ function Home() {
       <section className={`${styles.wrapperPadding} ${styles.appContentHero}`}>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.appLeftContentHero}>
-            <h1 className={styles.role}>Sitios web que dan vida a tus ideas</h1>
-            <h2 className={styles.subTitleRole}>
+            {/* <h1 className={styles.role}>Sitios web que dan vida a tus ideas</h1> */}
+            <h1 className={styles.role}>Alfredo Moscoso</h1>
+            {/* <h2 className={styles.subTitleRole}>
               Desarrollo de sitios web modernos que se adaptan a tus
+              necesidades.
+            </h2>  */}
+            <h2 className={styles.subTitleRole}>
+              Ayudando a potenciar tu marca a través del mundo digital. Te ayudo
+              desarrollando sitios web modernos que se adaptan a tus
               necesidades.
             </h2>
             <div className={styles.contentButtonContact}>
@@ -216,6 +222,16 @@ function Home() {
                   <p className={styles.appContentTitleIDoWorkSubTitle}>
                     Sitios web con una estructura donde puedas mostrar
                     información mas detallada de tu producto o servicio.
+                  </p>
+                </div>
+                {/* <span className={styles.labelServicesCard}>3 - 4 páginas</span> */}
+              </div>
+              <div className={styles.servicesCard}>
+                <div className={styles.wrapperServicesContent}>
+                  <h3 className={styles.appContentTitleIDoWork}>Blog Sites</h3>
+                  <p className={styles.appContentTitleIDoWorkSubTitle}>
+                    Conecta con tu audiencia a través de un blog personal con
+                    autogestión.
                   </p>
                 </div>
                 {/* <span className={styles.labelServicesCard}>3 - 4 páginas</span> */}

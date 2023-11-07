@@ -178,7 +178,7 @@ function Header() {
           <div className="app-content-nav-logo">
             <div onMouseEnter={handleMouseEnter} className="app-nav-logo">
               <Link ref={refObject.logoRef} className={styles.logoName} to="/">
-                ALFREDO MOSCOSO
+                A | M
               </Link>
             </div>
           </div>
@@ -204,7 +204,7 @@ function Header() {
                   Sobre mí
                 </a>
               </li>
-              <li
+              {/* <li
                 onMouseEnter={handleMouseEnter}
                 className={styles.linkTopSocial}
               >
@@ -217,7 +217,7 @@ function Header() {
                 <div className={styles.contentSocialArrow}>
                   <img src={ArrowIcon} alt="" />
                 </div>
-              </li>
+              </li> */}
               <li
                 onMouseEnter={handleMouseEnter}
                 className={styles.linkTopSocial}

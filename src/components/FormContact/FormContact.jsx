@@ -14,11 +14,11 @@ import Button from "components/Button/Button";
 import styles from "./FormatContact.module.css";
 
 const socialIcons = [
-  {
-    name: linkedinFill,
-    label: "Linkedin",
-    url: "https://www.linkedin.com/in/alfredo-moscoso-desarrollador-frontend/",
-  },
+  // {
+  //   name: linkedinFill,
+  //   label: "Linkedin",
+  //   url: "https://www.linkedin.com/in/alfredo-moscoso-desarrollador-frontend/",
+  // },
   { name: telegramFill, label: "Telegram", url: "https://t.me/jairdev" },
 ];
 

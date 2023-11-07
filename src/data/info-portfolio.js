@@ -113,7 +113,7 @@ export const personalProjects = [
     imageAlt:
       "Imagen de una laptop con el fondo de pantalla de una website sobre una empresa que vende semillas orgánicas",
     url: "https://andreaf.netlify.app/",
-    description: `Desarrollo web de un portafolio para una fotógrafa.`,
+    description: `Desarrollo web de un portafolio para una fotógrafa integrado con un CMS para la autogestión del contenido.`,
   },
   {
     id: "organic-food-co",

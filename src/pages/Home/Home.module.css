@@ -86,7 +86,7 @@
   color: var(--primary-text);
   font-size: var(--title-font-hero-size);
   font-family: var(--font-family);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: var(--letter-spacing);
 }
 
@@ -97,7 +97,7 @@
   font-weight: 400;
   letter-spacing: var(--letter-spacing);
   max-width: 500px;
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
 }
 
 .contentButtonContact {
@@ -137,6 +137,7 @@
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
   opacity: 0.9;
+  font-weight: 600;
 }
 
 /* services --------------------- */
