@@ -6,7 +6,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import emailjs from "@emailjs/browser";
 
 import { Icon } from "@iconify/react";
-import linkedinFill from "@iconify/icons-akar-icons/linkedin-fill";
+// import linkedinFill from "@iconify/icons-akar-icons/linkedin-fill";
 import telegramFill from "@iconify/icons-akar-icons/telegram-fill";
 
 import Button from "components/Button/Button";
