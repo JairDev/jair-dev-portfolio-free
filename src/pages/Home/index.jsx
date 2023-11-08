@@ -231,7 +231,7 @@ function Home() {
                   <h3 className={styles.appContentTitleIDoWork}>Blog Sites</h3>
                   <p className={styles.appContentTitleIDoWorkSubTitle}>
                     Conecta con tu audiencia a través de un blog personal con
-                    autogestión.
+                    autogestión de contenido.
                   </p>
                 </div>
                 {/* <span className={styles.labelServicesCard}>3 - 4 páginas</span> */}
