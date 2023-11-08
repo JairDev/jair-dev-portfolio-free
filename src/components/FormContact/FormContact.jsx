@@ -8,6 +8,7 @@ import emailjs from "@emailjs/browser";
 import { Icon } from "@iconify/react";
 // import linkedinFill from "@iconify/icons-akar-icons/linkedin-fill";
 import telegramFill from "@iconify/icons-akar-icons/telegram-fill";
+import instagramFill from "@iconify/icons-akar-icons/instagram-fill";
 
 import Button from "components/Button/Button";
 
@@ -20,6 +21,11 @@ const socialIcons = [
   //   url: "https://www.linkedin.com/in/alfredo-moscoso-desarrollador-frontend/",
   // },
   { name: telegramFill, label: "Telegram", url: "https://t.me/jairdev" },
+  {
+    name: instagramFill,
+    label: "Instagram",
+    url: "https://www.instagram.com/jairdevep/",
+  },
 ];
 
 function FormContact() {

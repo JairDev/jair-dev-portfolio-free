@@ -204,20 +204,20 @@ function Header() {
                   Sobre mí
                 </a>
               </li>
-              {/* <li
+              <li
                 onMouseEnter={handleMouseEnter}
                 className={styles.linkTopSocial}
               >
                 <a
-                  href="https://www.linkedin.com/in/alfredo-moscoso-desarrollador-frontend/"
+                  href="https://www.instagram.com/jairdevep/"
                   className={styles.linkTop}
                 >
-                  Linkedin
+                  Instagram
                 </a>
                 <div className={styles.contentSocialArrow}>
                   <img src={ArrowIcon} alt="" />
                 </div>
-              </li> */}
+              </li>
               <li
                 onMouseEnter={handleMouseEnter}
                 className={styles.linkTopSocial}

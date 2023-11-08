@@ -12,12 +12,12 @@
   --primary-text: #ffffff;
   --title-font-hero-size: clamp(50px, 10vw, 96px);
   --title-font-section-size: clamp(32px, 10vw, 62px);
-  --sub-title-font-size: clamp(1rem, 10vw, 3rem);
+  --sub-title-font-size: clamp(1rem, 5vw, 1.2rem);
   --paragraph-font-size: clamp(16px, 2vw, 18px);
   --text-button-small: calc(1vw + 0.3em);
   --text-button-big: calc(1vw + 0.8em);
   --font-family: "Poppins", "Open Sans", sans-serif;
-  --letter-spacing: 1px;
+  --letter-spacing: 1.5px;
   --line-height: 160%;
   --line-height-list: 200%;
   /* space */
