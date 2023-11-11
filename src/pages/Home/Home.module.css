@@ -181,6 +181,8 @@
   color: #ffffff;
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
+  line-height: 1.6;
+  /* font-size: 18px; */
 }
 
 .labelServicesCard {

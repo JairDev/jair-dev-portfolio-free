@@ -371,11 +371,11 @@ function Home() {
                   <span>01.</span> Descubrir
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
-                  Tendremos nuestro primer acercamiento, por videollamada,
-                  mensajes de texto, llamada télefonica, lo que sea mas cómodo
-                  para ti, para saber mas sobre tu proyecto, definir el alcance
-                  y acordar el costo total del trabajo. Luego haces un pre-pago
-                  del 50% para comenzar a trabajar en el proyecto.
+                  Tendremos nuestro primer acercamiento, para saber mas sobre tu
+                  proyecto, el objetivo de esta reunión es establecer confianza
+                  entre ambas partes, hablaremos sobre el alcance, el plan a
+                  seguir para realizar el trabajo y acordar el costo total del
+                  mismo.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
@@ -385,7 +385,10 @@ function Home() {
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
                   Se analiza la competencia y el público objetivo, te muestro la
                   estructura que podría tener el sitio web a través de un
-                  sitemap y procedemos a diseñar la primera pantalla.
+                  sitemap y procedo a diseñar la primera pantalla de la sección
+                  principal, para que tengas una idea del diseño. Si estás de
+                  acuerdo con la propuesta haces un pago del 50% del costo del
+                  trabajo para continuar.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
@@ -393,10 +396,11 @@ function Home() {
                   <span>03.</span> Diseño
                 </h3>
                 <p className={styles.appContentTitleIDoWorkSubTitle}>
-                  Comenzaré con el diseño para determinar la dirección del
-                  estilo. Luego de acordar la propuesta de diseño que
-                  presentaré, continuamos diseñando todo el sitio, te presento
-                  el diseño completo y procedemos al desarrollo del sitio web.
+                  Continuaré con el diseño de todo el sitio web de acuerdo a tus
+                  requerimientos y feedback para reflejar la identidad de tu
+                  negocio, te mantendré actualizado sobre el avance del diseño,
+                  ya que una comunicación clara es uno de los pilares de mi
+                  trabajo.
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
@@ -407,8 +411,10 @@ function Home() {
                   data-text1="data-text1"
                   className={styles.appContentTitleIDoWorkSubTitle}
                 >
-                  Comienzo el desarrollo del sitio web, estaré en constante
-                  comunicación para informar sobre el avance del proyecto.
+                  Comienzo el desarrollo del sitio web, implemento las
+                  funcionalidades necesarias como formularios de contacto,
+                  integración de redes sociales o sistema de gestión de
+                  contenidos (CMS).
                 </p>
               </div>
               <div data-card="data-card" className={styles.cardProcess}>
@@ -419,9 +425,11 @@ function Home() {
                   data-text1="data-text1"
                   className={styles.appContentTitleIDoWorkSubTitle}
                 >
-                  Se hará la configuración de dominios, hosting del sitio y
-                  otros elementos que se requieran. Procedes a pagar el 50%
-                  restante del pago y es cuando tendrás acceso al sitio web.
+                  Antes del lanzamiento, realizo pruebas de rendimiento y
+                  visualización para asegurar el buen funcionamiento del sitio
+                  web y lo revisamos conjuntamente para garantizar un trabajo de
+                  calidad. Se hará la configuración de dominios, hosting del
+                  sitio y otros elementos que se requieran.
                 </p>
               </div>
             </div>
