@@ -54,17 +54,23 @@ function AboutMe() {
                 <div className={styles.appLeftContentDescription}>
                   <h1 className={styles.descriptionHeader}>Hola</h1>
                   <p className={styles.description}>
-                    Soy Alfredo Moscoso, un desarrollador web con pasión por la
-                    tecnología. Desde el diseño hasta el desarrollo he estado
-                    perfeccionando mis habilidades, construyendo sitios web
-                    personalizados para ayudarte a alcanzar tus objetivos en
-                    línea.
+                    Me llamo Alfredo Moscoso y soy un desarrollador web
+                    apasionado por la tecnología. He dedicado mi carrera a
+                    perfeccionar mis habilidades, creando sitios web
+                    personalizados que te ayudan a lograr tus metas en el mundo
+                    digital.
                   </p>
                   <p className={styles.description}>
-                    Con un enfoque en la experiencia del usuario, me especializo
-                    en la creación de sitios web dinámicos y receptivos, desde
-                    animaciones hasta interacciones para crear experiencias de
-                    usuario cautivadoras.
+                    Me enfoco en la experiencia del usuario, creando sitios web
+                    dinámicos y responsivos que se adaptan a cualquier
+                    dispositivo y pantalla. Utilizo animaciones e interacciones
+                    para captar la atención de los visitantes y ofrecerles una
+                    experiencia única.
+                  </p>
+                  <p className={styles.description}>
+                    Si buscas un sitio web que refleje tu personalidad, tu marca
+                    o tu negocio, yo puedo ayudarte a hacerlo realidad.
+                    Contáctame y trabajemos juntos en tu proyecto.
                   </p>
                 </div>
                 <div className={styles.appRightContentHero}>
