@@ -13,6 +13,7 @@ import instagramFill from "@iconify/icons-akar-icons/instagram-fill";
 import Button from "components/Button/Button";
 
 import styles from "./FormatContact.module.css";
+import { getYear } from "utils/getYear";
 
 const socialIcons = [
   // {
@@ -42,6 +43,9 @@ function FormContact() {
   });
   useEffect(() => {
     emailjs.init("QQDER6PZw0GDyGhYI");
+    const date = new Date();
+    const year = date.getFullYear();
+    console.log("date", year);
   });
 
   const onSubmit = (e) => {
@@ -208,7 +212,7 @@ function FormContact() {
             ))}
           </div>
         </div>
-        <div className={styles.copyright}>2023 ALFREDO MOSCOSO</div>
+        <div className={styles.copyright}>{getYear()} ALFREDO MOSCOSO</div>
         <div className={styles.copyright}>Caracas - Venezuela</div>
       </div>
     </>
