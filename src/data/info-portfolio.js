@@ -38,7 +38,47 @@ import organicProductsSmall from "../assets/organic-food/organic-products-large.
 import organicLandingLarge from "../assets/organic-food/landing-organic.webp";
 import organicLandingSmall from "../assets/organic-food/landing-organic-small.webp";
 
+//
+import lexiLaptop from "../assets/lexi/lexi-laptop-2000.webp";
+import lexiLaptopMedium from "../assets/lexi/lexi-laptop-1000.webp";
+import lexiLaptopSmall from "../assets/lexi/lexi-laptop-640.webp";
+import lexiHomeHero from "../assets/lexi/home-hero-2000.webp";
+import lexiHomeHeroSmall from "../assets/lexi/home-hero-640.webp";
+import lexiHomeWord from "../assets/lexi/home-word-2000.webp";
+import lexiHomeWordSmall from "../assets/lexi/home-word-640.webp";
+import lexiHomeFull from "../assets/lexi/home-full-2000.webp";
+import lexiHomeFullSmall from "../assets/lexi/home-full-640.webp";
+
 export const personalProjects = [
+  {
+    id: "lexi-landing",
+    demo: false,
+    name: "Lexi landing",
+    role: "Diseño UI",
+    imgSrcApp: lexiLaptop,
+    imgSrcAppMedium: lexiLaptopMedium,
+    imgSrcAppSmall: lexiLaptopSmall,
+    descriptionImg: [
+      {
+        small: lexiHomeHeroSmall,
+        large: lexiHomeHero,
+        alt: "Imagen de una captura de pantalla sobre una web para la promoción de una extensión de navegador",
+      },
+      {
+        small: lexiHomeWordSmall,
+        large: lexiHomeWord,
+        alt: "Imagen de una captura de pantalla sobre una web para la promoción de una extensión de navegador",
+      },
+      {
+        small: lexiHomeFullSmall,
+        large: lexiHomeFull,
+        alt: "Imagen de una captura de pantalla sobre una web para la promoción de una extensión de navegador",
+      },
+    ],
+    imageAlt:
+      "Imagen de una laptop con el fondo de pantalla de una website sobre una web para la promoción de una extensión de navegador.",
+    description: `Diseño web prototipo para la promoción de una extensión de navegador.`,
+  },
   {
     id: "coin-market-track",
     demo: true,
