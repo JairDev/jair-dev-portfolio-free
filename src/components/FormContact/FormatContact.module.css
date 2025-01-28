@@ -48,6 +48,7 @@
 .formContact {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   padding-bottom: 3rem;
 }
 
@@ -64,7 +65,12 @@
 .contentInput {
   display: flex;
   flex-direction: column;
-  margin-bottom: 8px;
+  min-height: 100px;
+  /* margin-bottom: 8px; */
+}
+
+.contentInput:nth-child(3) {
+  min-height: 196px;
 }
 
 .contentInput label,
@@ -76,8 +82,8 @@
 
 .formContact input {
   border: none;
-  border-radius: 8px;
-  background-color: rgba(173, 143, 255, 0.308);
+  border-radius: 4px;
+  background-color: rgba(182, 182, 182, 0.308);
   font-size: 1.1rem;
   height: 42px;
   margin-bottom: 4px;
@@ -87,7 +93,7 @@
 .formContact textarea {
   border: none;
   border-radius: 8px;
-  background-color: rgba(173, 143, 255, 0.308);
+  background-color: rgba(182, 182, 182, 0.308);
   font-size: 1.1rem;
   margin-bottom: 4px;
   padding: 8px;
@@ -211,7 +217,7 @@
 
 .required {
   color: #bf1650;
-  height: 5vh;
+  /* height: 5vh; */
   font-size: 14px;
 }
 

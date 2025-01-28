@@ -1,5 +1,5 @@
 .contentButton {
-  border-radius: 16px;
+  border-radius: 8px;
   background: #1f1340;
   align-self: flex-start;
   position: relative;
@@ -39,7 +39,7 @@
   opacity: 1;
   transform: scale(0);
   transform-origin: top left;
-  transition: all ease 0.6s;
+  transition: all ease 0.8s;
 }
 
 .contentButton:hover::before {

@@ -43,9 +43,6 @@ function FormContact() {
   });
   useEffect(() => {
     emailjs.init("QQDER6PZw0GDyGhYI");
-    const date = new Date();
-    const year = date.getFullYear();
-    console.log("date", year);
   });
 
   const onSubmit = (e) => {
