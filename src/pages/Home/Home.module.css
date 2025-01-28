@@ -382,37 +382,6 @@
   width: 100%;
 }
 
-.formContact {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 10vh;
-}
-
-.formContact input {
-  background-color: var(--light-prymary-color);
-  border: none;
-  border-bottom: 2px solid rgb(26, 26, 26);
-  font-size: 1.1rem;
-  height: 42px;
-  margin-bottom: 3vh;
-  padding-left: 1vw;
-}
-
-.formContact textarea {
-  background-color: var(--light-prymary-color);
-  border: none;
-  border-bottom: 2px solid rgb(26, 26, 26);
-  font-size: 1.1rem;
-  height: 42px;
-  margin-bottom: 3vh;
-  padding-left: 1vw;
-}
-
-.formContact input::placeholder,
-.formContact textarea::placeholder {
-  color: #6d7499;
-}
-
 .formContact span {
   font-family: var(--title-font);
   margin-bottom: 1vh;
