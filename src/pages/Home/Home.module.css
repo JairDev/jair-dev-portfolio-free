@@ -100,7 +100,7 @@
 .appContentPersonalProjectsHeader {
   color: var(--primary-text);
 }
-
+/* wrapper projects */
 .contentProject {
   display: grid;
   grid-template-columns: 1fr;
