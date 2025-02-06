@@ -209,8 +209,10 @@ function FormContact() {
             ))}
           </div>
         </div>
-        <div className={styles.copyright}>{getYear()} ALFREDO MOSCOSO</div>
-        <div className={styles.copyright}>Caracas - Venezuela</div>
+        <div className={styles.contentCopyright}>
+          <div className={styles.copyright}>{getYear()} ALFREDO MOSCOSO</div>
+          <div className={styles.copyright}>Caracas - Venezuela</div>
+        </div>
       </div>
     </>
   );

@@ -225,12 +225,19 @@
   opacity: 1;
 }
 
+.contentCopyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+  /* gap: 8px; */
+}
+
 .copyright {
   color: var(--primary-text);
-  font-size: 16px;
+  font-size: 14px;
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
-  margin-top: 8px;
 }
 
 @media only screen and (min-width: 860px) {
