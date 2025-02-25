@@ -74,6 +74,10 @@
   pointer-events: none;
 }
 
+.workLink {
+  display: none;
+}
+
 .linkTopSocial {
   display: flex;
   gap: 8px;

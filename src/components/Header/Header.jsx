@@ -47,6 +47,7 @@ function Header() {
   const headerRef = useRef(null);
   const initProjectLinkRef = useRef(null);
   const refLink = useRef(null);
+  const refWorkLink = useRef(null);
 
   const clip_path_variants = {
     open: {
@@ -69,6 +70,9 @@ function Header() {
   useLayoutEffect(() => {
     if (location.pathname === "/about-me") {
       refLink.current.classList.add(styles.path);
+    }
+    if (location.pathname.includes("/projects")) {
+      refWorkLink.current.classList.add(styles.workLink);
     }
   }, []);
 
@@ -185,7 +189,7 @@ function Header() {
           <div ref={refObject.refLinkWork} className={styles.linkWorkNav}>
             <ul className={styles.contentNavTopLinks}>
               {location.pathname !== "/about-me" && (
-                <li onMouseEnter={handleMouseEnter}>
+                <li ref={refWorkLink} onMouseEnter={handleMouseEnter}>
                   <a
                     ref={projectsLinkRef}
                     href="#personal-work"
