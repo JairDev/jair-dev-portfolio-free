@@ -120,7 +120,7 @@ function Home() {
           <div className={styles.appLeftContentHero}>
             <h1 className={styles.role}>Alfredo Moscoso</h1>
             <h2 className={styles.subTitleRole}>
-              Ayudando a potenciar tu marca a través del mundo digital. Te ayudo
+              Potencia tu marca a través del mundo digital. Te ayudo
               desarrollando sitios web modernos que se adaptan a tus
               necesidades.
             </h2>
@@ -136,6 +136,32 @@ function Home() {
                   Iniciar un proyecto
                 </a>
               </Button>
+            </div>
+            <div className={styles.aboutHero}>
+              <div className={styles.contentAboutHeroText}>
+                {/* <div className={styles.gridListHero}>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div> */}
+                {/* <div>+4 años de experiencia</div> */}
+              </div>
+              <div className={styles.contentAboutHeroText}>
+                {/* <div className={styles.gridListHero}>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div> */}
+                {/* <div>Diseñador web</div> */}
+              </div>
+              <div className={styles.contentAboutHeroText}>
+                {/* <div className={styles.gridListHero}>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div> */}
+                {/* <div>Desarrollador web</div> */}
+              </div>
             </div>
           </div>
         </div>
@@ -199,12 +225,11 @@ function Home() {
             <div className={styles.wrapperServices}>
               <div className={styles.servicesCard}>
                 <div className={styles.wrapperServicesContent}>
-                  <h3 className={styles.appContentTitleIDoWork}>
-                    Landing pages
-                  </h3>
+                  <h3 className={styles.appContentTitleIDoWork}>Diseño Web</h3>
                   <p className={styles.appContentTitleIDoWorkSubTitle}>
-                    Sitio web de una página, ideal para emprendedores, pequeñas
-                    empresas, presentación de productos.
+                    Diseño experiencias digitales centradas en el usuario.
+                    Garantizo que cada interacción sea fluida y efectiva,
+                    conectando estética y funcionalidad.
                   </p>
                 </div>
                 {/* <span className={styles.labelServicesCard}>1 página</span> */}
@@ -212,21 +237,24 @@ function Home() {
               <div className={styles.servicesCard}>
                 <div className={styles.wrapperServicesContent}>
                   <h3 className={styles.appContentTitleIDoWork}>
-                    Sitios web de múltiples páginas
+                    Desarrollo Web
                   </h3>
                   <p className={styles.appContentTitleIDoWorkSubTitle}>
-                    Sitios web con una estructura donde puedas mostrar
-                    información mas detallada de tu producto o servicio.
+                    Construyo sitios y aplicaciones web rápidas, seguras y
+                    escalables. Utilizo tecnologías modernas para ofrecer
+                    soluciones personalizadas.
                   </p>
                 </div>
                 {/* <span className={styles.labelServicesCard}>3 - 4 páginas</span> */}
               </div>
               <div className={styles.servicesCard}>
                 <div className={styles.wrapperServicesContent}>
-                  <h3 className={styles.appContentTitleIDoWork}>Blog Sites</h3>
+                  <h3 className={styles.appContentTitleIDoWork}>
+                    Integración con Google Analytics
+                  </h3>
                   <p className={styles.appContentTitleIDoWorkSubTitle}>
-                    Conecta con tu audiencia a través de un blog personal con
-                    autogestión de contenido.
+                    Conecto tu sitio web con Google Analytics para que puedas
+                    entender mejor a tu audiencia.
                   </p>
                 </div>
                 {/* <span className={styles.labelServicesCard}>3 - 4 páginas</span> */}

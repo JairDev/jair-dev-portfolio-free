@@ -78,6 +78,32 @@
   margin-top: 1rem;
 }
 
+.aboutHero {
+  color: var(--primary-text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 25px;
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
+  margin-top: 72px;
+  width: fit-content;
+}
+
+.contentAboutHeroText {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.squareAboutHero {
+  border: 1px solid #db40ff;
+  border-radius: 2px;
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
 .contentButtonContact {
   display: flex;
   align-self: flex-start;
@@ -274,12 +300,22 @@
   margin-top: 8px;
 }
 
-.gridList div {
+.gridListHero {
+  display: grid;
+  grid-template-columns: 12px 12px;
+  grid-template-rows: 12px 12px;
+  gap: 2px;
+  margin-top: 8px;
+}
+
+.gridList div,
+.gridListHero div {
   border: 1px solid #db40ff;
   border-radius: 2px;
 }
 
-.gridList div:last-child {
+.gridList div:last-child,
+.gridListHero div:last-child {
   border-radius: 2px;
   background: #db40ff;
 }

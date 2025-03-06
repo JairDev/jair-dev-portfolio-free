@@ -54,7 +54,7 @@ function AboutMe() {
                 <div className={styles.appLeftContentDescription}>
                   <h1 className={styles.descriptionHeader}>Hola</h1>
                   <p className={styles.description}>
-                    Me llamo Alfredo Moscoso y soy un desarrollador web
+                    Me llamo Alfredo Moscoso, soy un desarrollador web
                     apasionado por la tecnología. He dedicado mi carrera a
                     perfeccionar mis habilidades, creando sitios web
                     personalizados que te ayudan a lograr tus metas en el mundo
