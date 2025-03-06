@@ -232,7 +232,6 @@ function Home() {
                     conectando estética y funcionalidad.
                   </p>
                 </div>
-                {/* <span className={styles.labelServicesCard}>1 página</span> */}
               </div>
               <div className={styles.servicesCard}>
                 <div className={styles.wrapperServicesContent}>
@@ -245,9 +244,8 @@ function Home() {
                     soluciones personalizadas.
                   </p>
                 </div>
-                {/* <span className={styles.labelServicesCard}>3 - 4 páginas</span> */}
               </div>
-              <div className={styles.servicesCard}>
+              {/* <div className={styles.servicesCard}>
                 <div className={styles.wrapperServicesContent}>
                   <h3 className={styles.appContentTitleIDoWork}>
                     Integración con Google Analytics
@@ -257,8 +255,7 @@ function Home() {
                     entender mejor a tu audiencia.
                   </p>
                 </div>
-                {/* <span className={styles.labelServicesCard}>3 - 4 páginas</span> */}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -327,6 +324,29 @@ function Home() {
                   </div>
                   <div>
                     <h3 className={styles.benefitsHeader}>
+                      Integración con Google Analytics
+                    </h3>
+                    <p className={styles.benefitsSubTitle}>
+                      Sin costo adicional, conecto tu sitio web con Google
+                      Analytics para que puedas entender mejor a tu audiencia.
+                      Obtendrás datos clave sobre el comportamiento de tus
+                      usuarios, cuántas personas visitan tu página, desde dónde
+                      llegan, qué contenido les interesa más y cómo interactúan
+                      con tu sitio.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* seo */}
+              <div className={styles.wrapperCardBenefits}>
+                <div className={styles.wrapperCardBenefitsTitle}>
+                  <div className={styles.gridList}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                  <div>
+                    <h3 className={styles.benefitsHeader}>
                       Optimización básica de motores de búsqueda (SEO)
                     </h3>
                     <p className={styles.benefitsSubTitle}>
@@ -345,11 +365,9 @@ function Home() {
                     <div></div>
                   </div>
                   <div>
-                    <h3 className={styles.benefitsHeader}>
-                      Soporte y mantenimiento
-                    </h3>
+                    <h3 className={styles.benefitsHeader}>Soporte</h3>
                     <p className={styles.benefitsSubTitle}>
-                      Soporte y mantenimiento sin costo adicional por 60 días.
+                      Soporte sin costo adicional por 60 días.
                     </p>
                   </div>
                 </div>
