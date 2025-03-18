@@ -310,7 +310,57 @@
   position: relative;
   aspect-ratio: 1/1;
   width: 100%;
+  max-width: 512px;
+  position: relative;
   z-index: 10;
+}
+
+.servicesCard span {
+  background-color: var(--accent-color);
+  width: 104px;
+  height: 104px;
+  position: absolute;
+}
+
+.servicesCardA span:nth-child(1) {
+  border-radius: 0 0 8px 0;
+  bottom: 0;
+  right: 0;
+}
+
+.servicesCardA span:nth-child(2) {
+  bottom: 104px;
+  right: 104px;
+}
+
+.servicesCardA span:nth-child(3) {
+  bottom: 0px;
+  left: 0px;
+}
+
+.servicesCardB span:nth-child(1) {
+  bottom: 0;
+  right: 104px;
+}
+
+.servicesCardB span:nth-child(2) {
+  bottom: 208px;
+  right: 0px;
+}
+
+.servicesCardB span:nth-child(3) {
+  bottom: 0px;
+  left: 104px;
+}
+
+.servicesCardB span:nth-child(4) {
+  bottom: 104px;
+  left: 104px;
+}
+
+.servicesCard:nth-child(2) {
+  /* border: 2px solid red; */
+  margin-top: 200px;
 }
 
 .servicesCard::before {
@@ -692,7 +742,7 @@
   }
 
   .servicesCard {
-    height: 300px;
+    /* height: 300px; */
   }
 
   .wrapperAppBenefits {

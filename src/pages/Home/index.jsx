@@ -218,7 +218,10 @@ function Home() {
             </h2>
 
             <div className={styles.wrapperServices}>
-              <div className={styles.servicesCard}>
+              <div className={`${styles.servicesCard} ${styles.servicesCardA}`}>
+                <span></span>
+                <span></span>
+                <span></span>
                 <div className={styles.wrapperServicesContent}>
                   <h3 className={styles.appContentTitleIDoWork}>Diseño Web</h3>
                   <p className={styles.appContentTitleIDoWorkSubTitle}>
@@ -228,7 +231,11 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className={styles.servicesCard}>
+              <div className={`${styles.servicesCard} ${styles.servicesCardB}`}>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
                 <div className={styles.wrapperServicesContent}>
                   <h3 className={styles.appContentTitleIDoWork}>
                     Desarrollo Web
