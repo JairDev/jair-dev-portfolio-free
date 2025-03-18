@@ -118,13 +118,16 @@ function Home() {
       <section className={`${styles.wrapperPadding} ${styles.appContentHero}`}>
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.appLeftContentHero}>
-            <h1 className={styles.role}>Alfredo Moscoso</h1>
-            <h2 className={styles.subTitleRole}>
+            <div className={styles.contentHeroName}>
+              <p className={styles.description}>Diseñador & Desarrollador</p>
+              <h1 className={styles.role}>Alfredo Moscoso</h1>
+            </div>
+            {/* <h2 className={styles.subTitleRole}>
               Potencia tu marca a través del mundo digital. Te ayudo
               desarrollando sitios web modernos que se adaptan a tus
               necesidades.
-            </h2>
-            <div className={styles.contentButtonContact}>
+            </h2> */}
+            {/* <div className={styles.contentButtonContact}>
               <Button classButton="hero">
                 <a
                   ref={initProjectLinkRef}
@@ -136,35 +139,28 @@ function Home() {
                   Iniciar un proyecto
                 </a>
               </Button>
-            </div>
-            <div className={styles.aboutHero}>
-              <div className={styles.contentAboutHeroText}>
-                {/* <div className={styles.gridListHero}>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div> */}
-                {/* <div>+4 años de experiencia</div> */}
-              </div>
-              <div className={styles.contentAboutHeroText}>
-                {/* <div className={styles.gridListHero}>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div> */}
-                {/* <div>Diseñador web</div> */}
-              </div>
-              <div className={styles.contentAboutHeroText}>
-                {/* <div className={styles.gridListHero}>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div> */}
-                {/* <div>Desarrollador web</div> */}
-              </div>
-            </div>
+            </div> */}
           </div>
         </div>
+        <div className={styles.heroFooter}>
+          <div className={styles.experiencie}>
+            <span>+5</span>
+            años de experiencia
+          </div>
+          <div className={styles.contentHelpyouHero}>
+            <p>
+              Te ayudo desarrollando sitios y aplicaciones web para que
+              destaques sobre la competencia.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className={`${styles.wrapperPadding} ${styles.helpYouSection}`}>
+        <p>
+          Potencia tu marca a través del mundo digital. Te ayudo desarrollando
+          sitios web, aplicaciones web que se adaptan a tus necesidades.
+        </p>
       </section>
 
       <section
@@ -219,7 +215,7 @@ function Home() {
               className={`${styles.titleSections}`}
               data-animate-title
             >
-              Puedo ayudarte con
+              Mis servicios
             </h2>
 
             <div className={styles.wrapperServices}>

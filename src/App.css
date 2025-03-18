@@ -10,7 +10,7 @@
   --light-accent-color: #bea6ff;
   --title-dark-color: #1f1340;
   --primary-text: #ffffff;
-  --title-font-hero-size: clamp(50px, 10vw, 96px);
+  --title-font-hero-size: clamp(50px, 10vw, 186px);
   --title-font-section-size: clamp(32px, 10vw, 62px);
   --sub-title-font-size: clamp(1rem, 5vw, 1.2rem);
   --paragraph-font-size: clamp(16px, 2vw, 18px);
