@@ -116,30 +116,12 @@ function Home() {
       </Helmet>
       <div className={styles.backLayerHero}></div>
       <section className={`${styles.wrapperPadding} ${styles.appContentHero}`}>
-        <div className={styles.wrapperMaxWidth}>
+        <div>
           <div className={styles.appLeftContentHero}>
             <div className={styles.contentHeroName}>
               <p className={styles.description}>Diseñador & Desarrollador</p>
               <h1 className={styles.role}>Alfredo Moscoso</h1>
             </div>
-            {/* <h2 className={styles.subTitleRole}>
-              Potencia tu marca a través del mundo digital. Te ayudo
-              desarrollando sitios web modernos que se adaptan a tus
-              necesidades.
-            </h2> */}
-            {/* <div className={styles.contentButtonContact}>
-              <Button classButton="hero">
-                <a
-                  ref={initProjectLinkRef}
-                  className={`${styles.link} ${styles.hero}`}
-                  href="#contact"
-                  data-link-to-contact
-                  onClick={(e) => handleClickToLink(e, initProjectLinkRef, 0.5)}
-                >
-                  Iniciar un proyecto
-                </a>
-              </Button>
-            </div> */}
           </div>
         </div>
         <div className={styles.heroFooter}>
@@ -154,13 +136,6 @@ function Home() {
             </p>
           </div>
         </div>
-      </section>
-
-      <section className={`${styles.wrapperPadding} ${styles.helpYouSection}`}>
-        <p>
-          Potencia tu marca a través del mundo digital. Te ayudo desarrollando
-          sitios web, aplicaciones web que se adaptan a tus necesidades.
-        </p>
       </section>
 
       <section
@@ -202,6 +177,30 @@ function Home() {
                   />
                 </div>
               ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={`${styles.wrapperPadding} ${styles.helpYouSection}`}>
+        <div className={styles.wrapperMaxWidth}>
+          <div className={styles.contentWordsOnlinePresence}>
+            <p className={styles.contentSquareWord}>
+              <span>Constru</span>
+              <span className={styles.wordSquare}></span>
+              <span>yamos</span>
+            </p>
+          </div>
+          <div className={styles.contentWordsOnlinePresence}>
+            <p>juntos</p>
+          </div>
+          <div className={styles.contentWordsOnlinePresence}>
+            <p>tu</p>
+          </div>
+          <div className={styles.contentWordsOnlinePresence}>
+            <p>presencia</p>
+          </div>
+          <div className={styles.contentWordsOnlinePresence}>
+            <p>online</p>
           </div>
         </div>
       </section>
