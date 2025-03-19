@@ -36,13 +36,11 @@
 }
 
 .wrapperForm {
+  background-color: #ffffff;
   border-radius: 16px;
   padding: 4vh 3vw;
   width: 100%;
-}
-
-.wrapperForm {
-  background-color: #ffffff;
+  max-width: 700px;
 }
 
 .formContact {

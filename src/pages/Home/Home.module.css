@@ -206,11 +206,18 @@
 
 .helpYouSection {
   /* background-color: var(--title-dark-color); */
-  background: #5836b5;
+  background: var(--title-dark-color);
+  /* background: linear-gradient(#5836b5, #1f1340); */
+  align-items: center;
 
   position: relative;
   padding-top: 200px;
-  padding-bottom: 80px;
+  padding-bottom: 200px;
+  /* height: 100vh; */
+}
+
+.helpYouSection .wrapperMaxWidth {
+  height: auto;
 }
 
 .wordSquare {
@@ -234,9 +241,37 @@
   width: 100%;
 }
 
+.backgroundOnlinePresenceWord p {
+  color: var(--title-dark-color);
+  position: relative;
+}
+
+.backgroundOnlinePresenceWord p span {
+  /* display: block;
+  position: relative;
+  z-index: 5; */
+}
+
+.backgroundPrecenseWord {
+  background-color: var(--accent-color);
+  display: block;
+  width: 1400px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -20px;
+  z-index: 1;
+}
+
+.precenseWord {
+  position: relative;
+  z-index: 5;
+}
+
 .contentWordsOnlinePresence {
   display: flex;
   width: 100%;
+  position: relative;
 }
 .contentWordsOnlinePresence:nth-child(2) {
   max-width: 1200px;
@@ -260,6 +295,7 @@
 .projectsSection {
   background: linear-gradient(#1f1340, #5836b5);
   position: relative;
+  padding-bottom: 200px;
 }
 
 .appContentPersonalProjectsHeader {
@@ -297,6 +333,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 4px;
+  justify-items: center;
   margin-top: 24px;
 }
 
@@ -363,7 +400,7 @@
   margin-top: 200px;
 }
 
-.servicesCard::before {
+/* .servicesCard::before {
   content: "";
   background-image: url("../../assets/square-p-card.svg");
   position: absolute;
@@ -373,7 +410,7 @@
   height: 100%;
   opacity: 0.1;
   z-index: 1;
-}
+} */
 
 .wrapperServicesContent {
   z-index: 10;

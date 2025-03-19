@@ -34,6 +34,7 @@ function Home() {
   const pinBenefitsParent = useRef(null);
   const pinWord = useRef(null);
   const pinProcess = useRef(null);
+  const pinOnlinePrecense = useRef(null);
 
   useEffect(() => {
     new Promise((resolve) =>
@@ -47,6 +48,49 @@ function Home() {
     window.scrollTo(0, 0);
     if (window.innerWidth > 1280) {
       const gsapContext = gsap.context(() => {
+        const presenceWordsArr = gsap.utils.toArray("[data-precense-word]");
+        const pinOnlinePresenceWords = gsap.timeline({
+          scrollTrigger: {
+            trigger: pinOnlinePrecense.current,
+            start: "top -15%",
+            end: "+=2600",
+            pin: true,
+            scrub: true,
+            // markers: true,
+          },
+        });
+        pinOnlinePresenceWords.to("[data-word-square]", {
+          width: 0,
+        });
+        presenceWordsArr.forEach((word) =>
+          pinOnlinePresenceWords.from(word, {
+            y: 500,
+            opacity: 0,
+          })
+        );
+        pinOnlinePresenceWords.from("[data-precense-word-a]", {
+          y: 500,
+          opacity: 0,
+        });
+        pinOnlinePresenceWords.from("[data-background-presence-word]", {
+          x: 800,
+        });
+        pinOnlinePresenceWords.from("[data-precense-word-b]", {
+          y: 500,
+          opacity: 0,
+        });
+
+        gsap.to("[data-services-card]", {
+          y: 200,
+          scrollTrigger: {
+            trigger: "[data-services-card]",
+            start: "top 10%",
+            end: `bottom 20%`,
+            scrub: true,
+            markers: true,
+          },
+        });
+
         const pin = gsap.timeline({
           scrollTrigger: {
             trigger: pinBenefits.current,
@@ -54,6 +98,7 @@ function Home() {
             end: "bottom 45%",
             pin: true,
             scrub: true,
+            // markers: true,
           },
         });
         pin.from("[data-wrap-benefits]", {
@@ -71,6 +116,7 @@ function Home() {
             end: `bottom -=800`,
             pin: true,
             scrub: true,
+            // markers: true,
           },
         });
         ////////////////////////////letters animations
@@ -181,26 +227,37 @@ function Home() {
         </div>
       </section>
 
-      <section className={`${styles.wrapperPadding} ${styles.helpYouSection}`}>
+      <section
+        ref={pinOnlinePrecense}
+        className={`${styles.wrapperPadding} ${styles.helpYouSection}`}
+      >
         <div className={styles.wrapperMaxWidth}>
           <div className={styles.contentWordsOnlinePresence}>
             <p className={styles.contentSquareWord}>
               <span>Constru</span>
-              <span className={styles.wordSquare}></span>
+              <span className={styles.wordSquare} data-word-square></span>
               <span>yamos</span>
             </p>
           </div>
           <div className={styles.contentWordsOnlinePresence}>
-            <p>juntos</p>
+            <p data-precense-word>juntos</p>
           </div>
           <div className={styles.contentWordsOnlinePresence}>
-            <p>tu</p>
+            <p data-precense-word>tu</p>
+          </div>
+          <div
+            className={`${styles.contentWordsOnlinePresence} ${styles.backgroundOnlinePresenceWord}`}
+          >
+            <p data-precense-word-a>
+              <span
+                className={styles.backgroundPrecenseWord}
+                data-background-presence-word
+              ></span>
+              <span className={styles.precenseWord}>presencia</span>
+            </p>
           </div>
           <div className={styles.contentWordsOnlinePresence}>
-            <p>presencia</p>
-          </div>
-          <div className={styles.contentWordsOnlinePresence}>
-            <p>online</p>
+            <p data-precense-word-b>online</p>
           </div>
         </div>
       </section>
@@ -218,7 +275,10 @@ function Home() {
             </h2>
 
             <div className={styles.wrapperServices}>
-              <div className={`${styles.servicesCard} ${styles.servicesCardA}`}>
+              <div
+                data-services-card
+                className={`${styles.servicesCard} ${styles.servicesCardA}`}
+              >
                 <span></span>
                 <span></span>
                 <span></span>
@@ -247,17 +307,6 @@ function Home() {
                   </p>
                 </div>
               </div>
-              {/* <div className={styles.servicesCard}>
-                <div className={styles.wrapperServicesContent}>
-                  <h3 className={styles.appContentTitleIDoWork}>
-                    Integración con Google Analytics
-                  </h3>
-                  <p className={styles.appContentTitleIDoWorkSubTitle}>
-                    Conecto tu sitio web con Google Analytics para que puedas
-                    entender mejor a tu audiencia.
-                  </p>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
@@ -268,7 +317,7 @@ function Home() {
           BENEFICIOS
         </span>
         <div className={styles.wrapperMaxWidth}>
-          <div ref={pinBenefitsParent} className={styles.wrapperAppBenefits}>
+          <div className={styles.wrapperAppBenefits}>
             <div
               ref={pinBenefits}
               data-pin="data-pin"

@@ -44,6 +44,7 @@ function Header() {
   const location = useLocation();
   const [isMounted, setIsMounted] = useState(false);
   const projectsLinkRef = useRef(null);
+  const contactRef = useRef(null);
   const headerRef = useRef(null);
   const initProjectLinkRef = useRef(null);
   const refLink = useRef(null);
@@ -201,37 +202,28 @@ function Header() {
                   </a>
                 </li>
               )}
-              {/* {location.pathname !== "/about-me" && (
-              )} */}
+
               <li ref={refLink} onMouseEnter={handleMouseEnter}>
-                <a href="/about-me" className={styles.linkTop}>
+                <a
+                  ref={contactRef}
+                  href="/about-me"
+                  className={styles.linkTop}
+                  data-link-to
+                  onClick={(e) => handleClickToLink(e, projectsLinkRef, 0.3)}
+                >
                   Sobre mí
                 </a>
               </li>
-              <li
-                onMouseEnter={handleMouseEnter}
-                className={styles.linkTopSocial}
-              >
+              <li ref={refLink} onMouseEnter={handleMouseEnter}>
                 <a
-                  href="https://www.instagram.com/jairdevep/"
+                  ref={contactRef}
+                  href="#contact"
                   className={styles.linkTop}
+                  data-link-to
+                  onClick={(e) => handleClickToLink(e, contactRef, 0.6)}
                 >
-                  Instagram
+                  Contacto
                 </a>
-                <div className={styles.contentSocialArrow}>
-                  <img src={ArrowIcon} alt="" />
-                </div>
-              </li>
-              <li
-                onMouseEnter={handleMouseEnter}
-                className={styles.linkTopSocial}
-              >
-                <a href="https://t.me/jairdev" className={styles.linkTop}>
-                  Telegram
-                </a>
-                <div className={styles.contentSocialArrow}>
-                  <img src={ArrowIcon} alt="" />
-                </div>
               </li>
             </ul>
           </div>
