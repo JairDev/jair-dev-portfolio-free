@@ -77,7 +77,7 @@ function FormContact() {
         data-effect17
         data-animate-title
       >
-        Trabajemos juntos
+        Hablemos
       </h2>
       <div className={styles.appContentFooterFormContact}>
         <div className={styles.wrapperForm}>

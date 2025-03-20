@@ -85,6 +85,7 @@
   font-family: var(--font-family);
   font-size: 25px;
   max-width: 18ch;
+  line-height: 1.3;
 }
 
 .available,
@@ -242,8 +243,8 @@
 }
 
 .backgroundOnlinePresenceWord p {
-  color: var(--title-dark-color);
-  position: relative;
+  /* color: var(--title-dark-color);
+  position: relative; */
 }
 
 .backgroundOnlinePresenceWord p span {
@@ -252,7 +253,7 @@
   z-index: 5; */
 }
 
-.backgroundPrecenseWord {
+/* .backgroundPrecenseWord {
   background-color: var(--accent-color);
   display: block;
   width: 1400px;
@@ -261,7 +262,7 @@
   top: 0;
   left: -20px;
   z-index: 1;
-}
+} */
 
 .precenseWord {
   position: relative;
@@ -433,7 +434,7 @@
   color: #ffffff;
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
-  line-height: 1.6;
+  line-height: 1.5;
   /* font-size: 18px; */
 }
 
@@ -491,6 +492,7 @@
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
   margin-top: 16px;
+  line-height: 1.5;
 }
 
 .wrapperCardBenefits {
@@ -551,6 +553,7 @@
   font-size: 16px;
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);
+  line-height: 1.5;
 }
 
 /* process -------------*/

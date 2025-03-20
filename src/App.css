@@ -18,8 +18,8 @@
   --text-button-big: calc(1vw + 0.8em);
   /* --font-family: "Poppins", "Open Sans", sans-serif; */
   --font-family: "Geist", "Open Sans", sans-serif;
-  --letter-spacing: 1px;
-  --line-height: 160%;
+  --letter-spacing: 0.5px;
+  --line-height: 1.5;
   --line-height-list: 200%;
   /* space */
   --section-header-spaces: 20vh;

@@ -49,36 +49,83 @@ function Home() {
     if (window.innerWidth > 1280) {
       const gsapContext = gsap.context(() => {
         const presenceWordsArr = gsap.utils.toArray("[data-precense-word]");
+        const splitPrecenseWord = Splitting({
+          target: "[data-precense-word]",
+          by: "chars",
+        });
         const pinOnlinePresenceWords = gsap.timeline({
           scrollTrigger: {
             trigger: pinOnlinePrecense.current,
             start: "top -15%",
-            end: "+=2600",
+            end: "+=2000",
             pin: true,
             scrub: true,
-            // markers: true,
+            markers: true,
           },
         });
         pinOnlinePresenceWords.to("[data-word-square]", {
           width: 0,
         });
-        presenceWordsArr.forEach((word) =>
-          pinOnlinePresenceWords.from(word, {
-            y: 500,
+        // presenceWordsArr.forEach((word) =>
+        //   pinOnlinePresenceWords.from(word, {
+        //     y: 400,
+        //     opacity: 0,
+        //   })
+        // );
+        splitPrecenseWord.forEach((word) => {
+          console.log(word.chars);
+          const sliceMiddle = Math.floor(word.chars.length / 2);
+          console.log(sliceMiddle);
+          const randomPosition = () => gsap.utils.random(-400, 400);
+          pinOnlinePresenceWords.from(word.chars.slice(0, sliceMiddle), {
+            y: 400,
             opacity: 0,
-          })
-        );
-        pinOnlinePresenceWords.from("[data-precense-word-a]", {
-          y: 500,
-          opacity: 0,
+          });
+          pinOnlinePresenceWords.from(
+            word.chars.slice(sliceMiddle, word.chars.length),
+            {
+              y: -400,
+              opacity: 0,
+            },
+            "-=0.5"
+          );
         });
-        pinOnlinePresenceWords.from("[data-background-presence-word]", {
-          x: 800,
-        });
-        pinOnlinePresenceWords.from("[data-precense-word-b]", {
-          y: 500,
-          opacity: 0,
-        });
+        // splitPrecenseWord.forEach((letters) => {
+        //   const record = [];
+        //   while (record.length <= letters.chars.length - 1) {
+        //     const randomPosition = () =>
+        //       gsap.utils.random(0, letters.chars.length - 1);
+        //     let index = Math.round(randomPosition());
+        //     const findNumber = record.findIndex((number) => number === index);
+        //     console.log(findNumber);
+        //     if (findNumber === -1) {
+        //       record.push(index);
+        //     } else {
+        //       let newNumber = 0;
+        //       const num = index + 1;
+        //       if (num > letters.chars.length - 1) {
+        //         newNumber = index - 1;
+        //       }
+        //       if (num === 1) {
+        //         newNumber = index + 1;
+        //       }
+        //       const findNumber = record.findIndex(
+        //         (number) => number === newNumber
+        //       );
+        //       if (findNumber === -1) {
+        //         record.push(newNumber);
+        //       }
+        //     }
+        //   }
+        //   console.log(record);
+        //   record.forEach((index) =>
+        //     pinOnlinePresenceWords.from(letters.chars[index], {
+        //       y: 400,
+        //       opacity: 0,
+        //     })
+        //   );
+        //   // console.log(letters.chars.length);
+        // });
 
         gsap.to("[data-services-card]", {
           y: 200,
@@ -87,7 +134,7 @@ function Home() {
             start: "top 10%",
             end: `bottom 20%`,
             scrub: true,
-            markers: true,
+            // markers: true,
           },
         });
 
@@ -239,16 +286,16 @@ function Home() {
               <span>yamos</span>
             </p>
           </div>
-          <div className={styles.contentWordsOnlinePresence}>
-            <p data-precense-word>juntos</p>
+          <div data-precense-word className={styles.contentWordsOnlinePresence}>
+            <p>juntos</p>
           </div>
-          <div className={styles.contentWordsOnlinePresence}>
-            <p data-precense-word>tu</p>
+          <div data-precense-word className={styles.contentWordsOnlinePresence}>
+            <p>tu</p>
           </div>
           <div
             className={`${styles.contentWordsOnlinePresence} ${styles.backgroundOnlinePresenceWord}`}
           >
-            <p data-precense-word-a>
+            <p data-precense-word>
               <span
                 className={styles.backgroundPrecenseWord}
                 data-background-presence-word
@@ -257,7 +304,7 @@ function Home() {
             </p>
           </div>
           <div className={styles.contentWordsOnlinePresence}>
-            <p data-precense-word-b>online</p>
+            <p data-precense-word>online</p>
           </div>
         </div>
       </section>

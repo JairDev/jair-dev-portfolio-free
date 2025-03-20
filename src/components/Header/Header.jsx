@@ -204,13 +204,7 @@ function Header() {
               )}
 
               <li ref={refLink} onMouseEnter={handleMouseEnter}>
-                <a
-                  ref={contactRef}
-                  href="/about-me"
-                  className={styles.linkTop}
-                  data-link-to
-                  onClick={(e) => handleClickToLink(e, projectsLinkRef, 0.3)}
-                >
+                <a href="/about-me" className={styles.linkTop}>
                   Sobre mí
                 </a>
               </li>
