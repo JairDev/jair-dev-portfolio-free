@@ -331,7 +331,7 @@ function Header() {
                   }
                   className={styles.itemLink}
                 >
-                  Iniciar un proyecto
+                  Contacto
                 </a>
               </li>
             </ul>
