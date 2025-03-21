@@ -35,10 +35,9 @@ function Projects({
         e.target.appendChild(div);
       }
     }
-    const element = e.target.childNodes;
-    const randomPosition = randomIndex(element);
+    const randomPosition = randomIndex(isNode);
     for (let i = 0; i < randomPosition.length; i++) {
-      timeline.to(element[randomPosition[i]], {
+      timeline.to(isNode[randomPosition[i]], {
         opacity: 0.9,
         duration: 0.006,
       });
