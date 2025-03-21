@@ -11,7 +11,6 @@ import { personalProjects } from "../../data/info-portfolio";
 import phoneLine from "assets/mobile-phone-line.svg";
 import wave from "assets/wave.svg";
 
-import Button from "components/Button/Button";
 import Projects from "components/Projects/Projects";
 
 import styles from "./Home.module.css";
@@ -20,7 +19,6 @@ import Splitting from "splitting";
 
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
-import { handleClickToLink } from "utils/handleClickToLink";
 Splitting();
 
 gsap.registerPlugin(ScrollTrigger);
@@ -29,9 +27,9 @@ gsap.registerPlugin(ScrollToPlugin);
 function Home() {
   const [projects, setProjects] = useState([]);
   const projectsRef = useRef(null);
-  const initProjectLinkRef = useRef(null);
+  // const initProjectLinkRef = useRef(null);
   const pinBenefits = useRef(null);
-  const pinBenefitsParent = useRef(null);
+  // const pinBenefitsParent = useRef(null);
   const pinWord = useRef(null);
   const pinProcess = useRef(null);
   const pinOnlinePrecense = useRef(null);
@@ -48,7 +46,7 @@ function Home() {
     window.scrollTo(0, 0);
     if (window.innerWidth > 1280) {
       const gsapContext = gsap.context(() => {
-        const presenceWordsArr = gsap.utils.toArray("[data-precense-word]");
+        // const presenceWordsArr = gsap.utils.toArray("[data-precense-word]");
         const splitPrecenseWord = Splitting({
           target: "[data-precense-word]",
           by: "chars",
@@ -60,7 +58,7 @@ function Home() {
             end: "+=2000",
             pin: true,
             scrub: true,
-            markers: true,
+            // markers: true,
           },
         });
         pinOnlinePresenceWords.to("[data-word-square]", {
@@ -73,10 +71,9 @@ function Home() {
         //   })
         // );
         splitPrecenseWord.forEach((word) => {
-          console.log(word.chars);
+          // console.log(word.chars);
           const sliceMiddle = Math.floor(word.chars.length / 2);
-          console.log(sliceMiddle);
-          const randomPosition = () => gsap.utils.random(-400, 400);
+          // console.log(sliceMiddle);
           pinOnlinePresenceWords.from(word.chars.slice(0, sliceMiddle), {
             y: 400,
             opacity: 0,
