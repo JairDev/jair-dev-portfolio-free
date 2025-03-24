@@ -208,7 +208,7 @@ function Header() {
                   Sobre mí
                 </a>
               </li>
-              <li ref={refLink} onMouseEnter={handleMouseEnter}>
+              <li onMouseEnter={handleMouseEnter}>
                 <a
                   ref={contactRef}
                   href="#contact"

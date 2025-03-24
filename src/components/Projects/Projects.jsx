@@ -25,7 +25,7 @@ function Projects({
   const handleMouseEnter = (e) => {
     // console.log(randomPosition);
     const isNode = e.target.childNodes;
-    if (isNode.length === 1) {
+    if (isNode.length === 0) {
       const width = e.target.getBoundingClientRect().width / 8;
       const height = e.target.getBoundingClientRect().height / 8;
       for (let i = 0; i < 8 * 8; i++) {
@@ -62,21 +62,12 @@ function Projects({
         className={styles.wrapperProjectLink}
       >
         <div id={id} className={`${styles.contentPersonalProject}`}>
-          <div
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className={`${styles.hiddenLayeProject} target-project`}
-          >
-            <div data-view-project className={styles.viewProject}>
-              Ver proyecto
-            </div>
-          </div>
-          {/* <span
-            ref={viewProjectRef}
-            data-view-project
-            className={styles.contentPersonalProjectView}
-          ></span> */}
           <div className={styles.contentPersonalProjectImg}>
+            <div
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className={`${styles.hiddenLayeProject} target-project`}
+            ></div>
             <picture>
               <source srcSet={imgSrcApp} media="(min-width: 1200px)" />
               <source srcSet={imgSrcAppMedium} media="(min-width: 768px)" />

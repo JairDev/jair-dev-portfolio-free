@@ -10,8 +10,8 @@
 
 .contentPersonalProject {
   /* border: 1px solid #db40ff; */
-  border: 1px solid #bea6ff;
-  border-radius: 16px;
+  /* border: 1px solid #bea6ff; */
+  border-radius: 8px;
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
@@ -19,10 +19,13 @@
   gap: 4px;
   width: 100%;
   height: 100%;
-  padding: 0.5rem;
-  position: relative;
+  /* padding: 0.5rem; */
   z-index: 60;
   overflow: hidden;
+}
+
+.contentPersonalProjectImg {
+  position: relative;
 }
 
 .viewProject {
@@ -363,7 +366,7 @@
 
 @media only screen and (min-width: 860px) {
   .contentPersonalProject {
-    padding: 2rem;
+    /* padding: 2rem; */
   }
 
   .contentPersonalProjectDescription {

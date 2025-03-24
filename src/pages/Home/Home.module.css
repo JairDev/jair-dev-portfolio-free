@@ -221,6 +221,24 @@
   height: auto;
 }
 
+.squareDesign {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+.squareDesign:nth-child(1) {
+  background-color: var(--title-dark-color);
+  bottom: 0px;
+  right: 100px;
+}
+
+.squareDesign:nth-child(2) {
+  background-color: var(--title-dark-color);
+  bottom: 100px;
+  right: 0px;
+}
+
 .wordSquare {
   background-color: var(--accent-color);
   display: block;
@@ -306,7 +324,7 @@
 .contentProject {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 4px;
+  grid-gap: 8px;
   position: relative;
   margin-top: 24px;
 }
