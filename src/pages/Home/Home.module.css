@@ -49,15 +49,21 @@
   position: relative;
 }
 
+.heroFooter {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: flex-end; */
+  gap: 16px;
+  /* margin-top: 80px; */
+}
+
 .experiencie {
   color: var(--primary-text);
   font-family: var(--font-family);
-  font-size: 39px;
-  align-self: flex-end;
-  /* margin-top: 1rem; */
-  /* position: absolute;
-  top: 0;
-  right: 0; */
+  font-size: clamp(25px, 5vw, 39px);
+  /* align-self: flex-end; */
 }
 
 .experiencie span {
@@ -70,21 +76,14 @@
   align-self: flex-end;
   color: var(--primary-text);
   font-family: var(--font-family);
-  font-size: 31px;
-}
-
-.heroFooter {
-  /* border: 1px solid red; */
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  font-size: clamp(16px, 5vw, 31px);
 }
 
 .contentHelpyouHero p {
   color: var(--primary-text);
   font-family: var(--font-family);
-  font-size: 25px;
-  max-width: 18ch;
+  font-size: clamp(16px, 5vw, 25px);
+  /* max-width: 18ch; */
   line-height: 1.3;
 }
 
@@ -212,9 +211,17 @@
   align-items: center;
 
   position: relative;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   /* height: 100vh; */
+}
+
+.helpYouSection p {
+  color: var(--primary-text);
+  font-family: var(--font-family);
+  font-size: clamp(46px, 10vw, 119px);
+  font-weight: 600;
+  /* width: fit-content; */
 }
 
 .helpYouSection .wrapperMaxWidth {
@@ -241,17 +248,9 @@
 
 .wordSquare {
   background-color: var(--accent-color);
-  display: block;
+  display: none;
   width: 100px;
   height: 100px;
-}
-
-.helpYouSection p {
-  color: var(--primary-text);
-  font-family: var(--font-family);
-  font-size: 119px;
-  font-weight: 600;
-  /* width: fit-content; */
 }
 
 .contentSquareWord {
@@ -291,22 +290,6 @@
   display: flex;
   width: 100%;
   position: relative;
-}
-.contentWordsOnlinePresence:nth-child(2) {
-  max-width: 1200px;
-  justify-content: flex-end;
-}
-.contentWordsOnlinePresence:nth-child(3) {
-  max-width: 1200px;
-  justify-content: flex-end;
-}
-.contentWordsOnlinePresence:nth-child(4) {
-  max-width: 1200px;
-  justify-content: flex-end;
-}
-.contentWordsOnlinePresence:nth-child(5) {
-  max-width: 1600px;
-  justify-content: flex-end;
 }
 
 /* projects ------------------  */
@@ -376,6 +359,7 @@
   width: 104px;
   height: 104px;
   position: absolute;
+  display: none;
 }
 
 .servicesCardA span:nth-child(1) {
@@ -412,11 +396,6 @@
 .servicesCardB span:nth-child(4) {
   bottom: 104px;
   left: 104px;
-}
-
-.servicesCard:nth-child(2) {
-  /* border: 2px solid red; */
-  margin-top: 200px;
 }
 
 /* .servicesCard::before {
@@ -779,6 +758,47 @@
 }
 
 @media only screen and (min-width: 1280px) {
+  .heroFooter {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .contentHelpyouHero p {
+    max-width: 18ch;
+  }
+
+  .helpYouSection {
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+
+  .servicesCard span {
+    display: block;
+  }
+
+  .wordSquare {
+    display: block;
+  }
+
+  .contentWordsOnlinePresence:nth-child(2) {
+    max-width: 1200px;
+    justify-content: flex-end;
+  }
+  .contentWordsOnlinePresence:nth-child(3) {
+    max-width: 1200px;
+    justify-content: flex-end;
+  }
+  .contentWordsOnlinePresence:nth-child(4) {
+    max-width: 1200px;
+    justify-content: flex-end;
+  }
+  .contentWordsOnlinePresence:nth-child(5) {
+    max-width: 1600px;
+    justify-content: flex-end;
+  }
+
   .appRightContentHero {
     display: flex;
   }
@@ -799,8 +819,9 @@
     width: 100%;
   }
 
-  .servicesCard {
-    /* height: 300px; */
+  .servicesCard:nth-child(2) {
+    /* border: 2px solid red; */
+    margin-top: 200px;
   }
 
   .wrapperAppBenefits {
