@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { Draggable } from "gsap/Draggable";
 
 import { personalProjects } from "../../data/info-portfolio";
 
@@ -19,10 +20,10 @@ import Splitting from "splitting";
 
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
+import InertiaPlugin from "gsap/InertiaPlugin";
 Splitting();
 
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Draggable, InertiaPlugin);
 
 function Home() {
   const [projects, setProjects] = useState([]);
@@ -100,6 +101,16 @@ function Home() {
           y: 500,
         });
 
+        ///////////drag
+        Draggable.create([".square-drag-a"], {
+          bounds: document.getElementById("services-card-a"),
+          inertia: true,
+        });
+        Draggable.create([".square-drag-b"], {
+          bounds: document.getElementById("services-card-b"),
+          inertia: true,
+        });
+
         ///////////////////// process animations
         const cardsArr = gsap.utils.toArray("[data-card]");
         gsap.to(cardsArr, {
@@ -166,14 +177,14 @@ function Home() {
           </div>
         </div>
         <div className={styles.heroFooter}>
-          <div className={styles.experiencie}>
+          {/* <div className={styles.experiencie}>
             <span>+5</span>
             años de experiencia
-          </div>
+          </div> */}
           <div className={styles.contentHelpyouHero}>
             <p>
-              Te ayudo desarrollando sitios y aplicaciones web para que
-              destaques sobre la competencia.
+              Desarrollo soluciones web personalizadas para potenciar tu
+              presencia online.
             </p>
           </div>
         </div>
@@ -273,12 +284,13 @@ function Home() {
 
             <div className={styles.wrapperServices}>
               <div
+                id="services-card-a"
                 data-services-card
                 className={`${styles.servicesCard} ${styles.servicesCardA}`}
               >
-                <span></span>
-                <span></span>
-                <span></span>
+                <span className="square-drag-a"></span>
+                <span className="square-drag-a"></span>
+                <span className="square-drag-a"></span>
                 <div className={styles.wrapperServicesContent}>
                   <h3 className={styles.appContentTitleIDoWork}>Diseño Web</h3>
                   <p className={styles.appContentTitleIDoWorkSubTitle}>
@@ -288,11 +300,14 @@ function Home() {
                   </p>
                 </div>
               </div>
-              <div className={`${styles.servicesCard} ${styles.servicesCardB}`}>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+              <div
+                id="services-card-b"
+                className={`${styles.servicesCard} ${styles.servicesCardB}`}
+              >
+                <span className="square-drag-b"></span>
+                <span className="square-drag-b"></span>
+                <span className="square-drag-b"></span>
+                <span className="square-drag-b"></span>
                 <div className={styles.wrapperServicesContent}>
                   <h3 className={styles.appContentTitleIDoWork}>
                     Desarrollo Web
