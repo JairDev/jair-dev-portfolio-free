@@ -1,6 +1,8 @@
 import { personalProjects } from "data/info-portfolio";
 
-export async function getProject(id) {
+export function getProject(id) {
   const find = personalProjects.find((project) => project.id === id);
-  return new Promise((resolve) => resolve(find));
+  console.log(find);
+  // return new Promise((resolve) => resolve(find));
+  return find;
 }

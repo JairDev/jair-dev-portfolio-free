@@ -26,12 +26,13 @@ function ProjectsDescription() {
   }, []);
 
   useEffect(() => {
-    async function project() {
-      const project = await getProject(id);
+    function project() {
+      const project = getProject(id);
+      console.log(project);
       setProjectInfo(project);
     }
     project();
-  });
+  }, []);
 
   return (
     <ReactLenis root options={{ ...options }}>
@@ -82,19 +83,33 @@ function ProjectsDescription() {
                 </p>
               </div>
               <div className={styles.appContentProject}>
+                {/* <div className={styles.contentProjectVideo}>
+                  <video
+                    src="/src/assets/andreaf/andrea-vid.webm"
+                    autoPlay
+                    muted
+                    loop
+                  ></video>
+                </div> */}
                 {projectInfo?.descriptionImg?.map((img) => (
                   <div key={img.small} className={styles.contentProjectImage}>
-                    <picture>
-                      <source srcSet={img.large} media="(min-width: 768px)" />
-                      <img
-                        src={img.small}
-                        // decoding="async"
-                        // loading="lazy"
-                        alt={img.alt}
-                        width="640"
-                        height="400"
-                      />
-                    </picture>
+                    {img.isVideo ? (
+                      <div className={styles.contentProjectVideo}>
+                        <video src={img.srcVideo} autoPlay muted loop></video>
+                      </div>
+                    ) : (
+                      <picture>
+                        <source srcSet={img.large} media="(min-width: 768px)" />
+                        <img
+                          src={img.small}
+                          // decoding="async"
+                          // loading="lazy"
+                          alt={img.alt}
+                          width="640"
+                          height="400"
+                        />
+                      </picture>
+                    )}
                   </div>
                 ))}
               </div>

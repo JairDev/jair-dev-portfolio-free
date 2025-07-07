@@ -13,6 +13,7 @@ import coinNewsLarge from "../assets/portfolio-track/news-large.webp";
 import coinNewsSmall from "../assets/portfolio-track/news-small.webp";
 
 //
+import andreafVideo from "../assets/andreaf/andrea-vid.webm";
 import andreafLaptop from "../assets/andreaf/andreaf-laptop.webp";
 import andreafLaptopMedium from "../assets/andreaf/andreaf-laptop-medium.webp";
 import andreafLaptopSmall from "../assets/andreaf/andreaf-laptop-small.webp";
@@ -125,10 +126,16 @@ export const personalProjects = [
     demo: true,
     name: "Andrea Portafolio",
     role: "Desarrollo Web",
+    video: andreafVideo,
     imgSrcApp: andreafLaptop,
     imgSrcAppMedium: andreafLaptopMedium,
     imgSrcAppSmall: andreafLaptopSmall,
     descriptionImg: [
+      {
+        isVideo: true,
+        srcVideo: andreafVideo,
+        alt: "Video",
+      },
       {
         small: andreafHeroSmall,
         large: andreafHeroLarge,
