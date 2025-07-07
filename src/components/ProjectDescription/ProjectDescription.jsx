@@ -88,8 +88,8 @@ function ProjectsDescription() {
                       <source srcSet={img.large} media="(min-width: 768px)" />
                       <img
                         src={img.small}
-                        decoding="async"
-                        loading="lazy"
+                        // decoding="async"
+                        // loading="lazy"
                         alt={img.alt}
                         width="640"
                         height="400"
